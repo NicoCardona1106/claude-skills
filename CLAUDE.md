@@ -524,6 +524,30 @@ Nunca ignorar documentación o memoria existente.
 
 
 
+\### Actualización obligatoria de Mempalace
+
+
+
+Mempalace es el sistema de memoria principal de Nicolas en Windows.
+
+
+
+Después de cualquier cambio, corrección, decisión de arquitectura/diseño, o hallazgo relevante (ej. comportamiento de una API externa, cambio de ubicación de un proyecto):
+
+
+
+Actualizar Mempalace siempre, sin esperar a que Nicolas lo pida.
+
+
+
+Si una memoria existente queda desactualizada por el trabajo realizado (ej. una ruta que cambió), corregirla en el mismo momento — no dejarla obsoleta para después.
+
+
+
+No considerar una tarea terminada si la memoria en Mempalace no refleja el estado actual del trabajo.
+
+
+
 \---
 
 
