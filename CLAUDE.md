@@ -624,6 +624,48 @@ Nunca asumir que el código funciona sin validación.
 
 
 
+\## GIT Y VERSIONADO
+
+
+
+Todo trabajo de código terminado debe quedar respaldado en git. Es parte del "definition of done".
+
+
+
+Flujo obligatorio al terminar cualquier cambio de código:
+
+
+
+1\. Preparar el commit proactivamente, sin esperar a que Nicolas lo pida.
+
+2\. Mostrarle un resumen claro: qué se hizo y qué archivos cambian.
+
+3\. Pedir su autorización para el commit.
+
+4\. Solo con su autorización: commit + push.
+
+
+
+Excepción: si Nicolas ya pidió explícitamente subirlo en su mensaje (ej. "súbelo al git"), esa es la autorización.
+
+
+
+Nunca pushear sin autorización.
+
+
+
+Nunca cerrar una tarea terminada sin haber ofrecido el commit.
+
+
+
+Si el proyecto no tiene repositorio, ofrecer crearlo.
+
+
+
+\---
+
+
+
 \## PROACTIVIDAD
 
 
@@ -831,4 +873,3 @@ Analizar antes de modificar.
 Verificar antes de concluir.
 
 Documentar antes de finalizar.
-
