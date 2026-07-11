@@ -8,6 +8,7 @@ Sirve como fuente de verdad porque los entornos remotos de Claude Code (tablet, 
 
 - `CLAUDE.md` — copia del `CLAUDE.md` global (`~/.claude/CLAUDE.md` en el equipo Windows).
 - `skills/nicolas-mode/` — skill personalizada "Nicolas Mode".
+- `skills/razonamiento/` — skill "Razonamiento": método de trabajo de Claude (checklists, auto-refutación, reglas de entrega y alcance).
 
 ## Flujo de trabajo
 
