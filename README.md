@@ -8,7 +8,12 @@ Sirve como fuente de verdad porque los entornos remotos de Claude Code (tablet, 
 
 - `CLAUDE.md` — copia del `CLAUDE.md` global (`~/.claude/CLAUDE.md` en el equipo Windows).
 - `skills/nicolas-mode/` — skill personalizada "Nicolas Mode".
-- `skills/razonamiento/` — skill "Razonamiento": método de trabajo de Claude (checklists, auto-refutación, reglas de entrega y alcance).
+- `skills/razonamiento/` — skill "Razonamiento": método de trabajo de Claude (checklists, auto-refutación, reglas de entrega y alcance). Método transversal para cualquier tarea técnica.
+- `skills/fable-plan/` — planeación al estilo Fable 5: explorar primero, las 6 preguntas, plan con verificación por paso.
+- `skills/fable-fixer/` — arreglo de bugs al estilo Fable 5: reproducir, causa raíz, arreglo mínimo, prueba con evidencia.
+- `skills/fable-arranque/` — arranque de proyectos nuevos: alcance de v1, stack aburrido, día 1 no negociable.
+- `skills/fable-chequeo-seguridad/` — chequeo de seguridad: mapa de superficie, orden fijo de revisión, hallazgos con explotación.
+- `skills/fable-abogado-del-diablo/` — crítica constructiva: steelman, las 4 preguntas, riesgos rankeados, veredicto obligatorio.
 
 ## Flujo de trabajo
 
