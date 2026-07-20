@@ -135,7 +135,8 @@ El material de `architect/` menciona skills que aquí se mapean así:
 | `/frontend-design` | existe — NO usarla al diseñar; recomendarla en el blueprint |
 | `/shadcn-ui` | `ui-styling` cubre shadcn/ui |
 | `/playwright-cli`, `/chrome-bridge-automation` | herramientas Playwright MCP para analizar sitios de referencia |
-| `/find-skills`, `/seo-audit`, `/humanizer` | no existen aquí — omitir |
+| `/seo-audit` | `seo-audit` (sí existe) — recomendarla en el blueprint para después del build; `seo-ecommerce`, `seo-local` y `seo-schema` según arquetipo |
+| `/find-skills`, `/humanizer` | no existen aquí — omitir |
 
 ### Reglas no negociables del modo Blueprint
 1. Nunca generes el blueprint sin completar las Fases 1-3.
