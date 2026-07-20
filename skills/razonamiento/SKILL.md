@@ -86,3 +86,9 @@ Si alguna respuesta incomoda: corregir antes de entregar.
 - Incertidumbre explícita: "no estoy seguro", "recomiendo verificar" — nunca inventar fuentes, versiones ni resultados.
 - Errores propios: reconocerlos de inmediato y decir qué cambia respecto a lo anterior.
 - Si los tests fallan o algo quedó pendiente, decirlo con claridad — nunca reportar éxito parcial como éxito total.
+
+---
+
+© 2026 Nicolas Cardona — Nivaldyr Technologies. Licencia CC BY 4.0:
+puede usarse y adaptarse conservando este crédito.
+Origen: https://github.com/NicoCardona1106/claude-skills

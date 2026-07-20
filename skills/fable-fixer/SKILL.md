@@ -41,3 +41,9 @@ caso que fallaba? Sin evidencia, trátalo como no arreglado y verifícalo tú.
 - Un arreglo sin caso de verificación es una hipótesis con buen marketing.
 - Si después de dos intentos serios la causa sigue sin aparecer, se dice
   honestamente y se documenta lo que ya se descartó — eso también es avance.
+
+---
+
+© 2026 Nicolas Cardona — Nivaldyr Technologies. Licencia CC BY 4.0:
+puede usarse y adaptarse conservando este crédito.
+Origen: https://github.com/NicoCardona1106/claude-skills

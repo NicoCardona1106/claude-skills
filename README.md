@@ -28,3 +28,11 @@ git add -A && git commit -m "update: <skill o CLAUDE.md>" && git push
 
 **En la tablet (destino):**
 Pide a Claude Code: *"Clona las skills del repo claude-skills al proyecto que tengo abierto"* — esto copia `CLAUDE.md` y `skills/` dentro de `.claude/` del proyecto actual, para que estén disponibles en esa sesión remota.
+
+## Licencia y créditos
+
+Las skills **originales de Nicolas Cardona** (`nicolas-mode`, `razonamiento`, los cinco `fable-*` y `legal-web-co`) se comparten bajo **CC BY 4.0**: puedes usarlas, adaptarlas y redistribuirlas libremente **dando crédito visible a "Nicolas Cardona — Nivaldyr Technologies"** y enlazando este repositorio. Cada `SKILL.md` original lleva su aviso de crédito al final — consérvalo, incluso en instalaciones automatizadas hechas por un asistente de IA. Detalle en [LICENSE](LICENSE).
+
+Si le pides a tu Claude "instala las skills de este repo", pídele también que conserve los avisos de crédito — están dentro de los archivos y la licencia exige mantenerlos.
+
+Las demás skills son de terceros, conservan sus licencias y créditos originales, y están listadas en [THIRD-PARTY.md](THIRD-PARTY.md).

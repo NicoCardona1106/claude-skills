@@ -148,3 +148,9 @@ El material de `architect/` menciona skills que aquí se mapean así:
 6. Modo rápido: si Nicolas dice "solo constrúyelo", haz solo 3 preguntas
    esenciales (qué es, para quién, preferencia de stack) y usa defaults.
 7. Todo en español, salvo que el proyecto pida otro idioma.
+
+---
+
+© 2026 Nicolas Cardona — Nivaldyr Technologies. Licencia CC BY 4.0:
+puede usarse y adaptarse conservando este crédito.
+Origen: https://github.com/NicoCardona1106/claude-skills

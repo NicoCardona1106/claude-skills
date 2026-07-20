@@ -42,3 +42,9 @@ Responde (o pregúntale al dueño) estas tres cosas:
 - CLAUDE.md con comandos, convenciones y estructura.
 - Un flujo de punta a punta funcionando.
 - La lista de lo que NO hace la v1, escrita.
+
+---
+
+© 2026 Nicolas Cardona — Nivaldyr Technologies. Licencia CC BY 4.0:
+puede usarse y adaptarse conservando este crédito.
+Origen: https://github.com/NicoCardona1106/claude-skills

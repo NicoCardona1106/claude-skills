@@ -1,0 +1,50 @@
+LICENCIA / LICENSE
+==================
+
+ES — Skills originales de Nicolas Cardona
+-----------------------------------------
+
+Las siguientes skills son obra original de Nicolas Cardona (Nivaldyr
+Technologies) y se licencian bajo Creative Commons Atribución 4.0
+Internacional (CC BY 4.0):
+
+  - skills/nicolas-mode/
+  - skills/razonamiento/
+  - skills/fable-plan/        (ver nota sobre architect/ en THIRD-PARTY.md)
+  - skills/fable-fixer/
+  - skills/fable-arranque/
+  - skills/fable-chequeo-seguridad/
+  - skills/fable-abogado-del-diablo/
+  - skills/legal-web-co/
+
+Usted puede usarlas, copiarlas, adaptarlas y redistribuirlas, incluso con
+fines comerciales, con UNA condición: dar crédito visible a
+"Nicolas Cardona — Nivaldyr Technologies" y enlazar a este repositorio,
+conservando los avisos de crédito incluidos al final de cada SKILL.md.
+Esto aplica también a instalaciones automatizadas (por ejemplo, cuando un
+asistente de IA instala estas skills): el aviso de crédito no debe
+eliminarse de los archivos.
+
+Texto legal completo: https://creativecommons.org/licenses/by/4.0/legalcode.es
+
+EN — Original skills by Nicolas Cardona
+---------------------------------------
+
+The skills listed above are original work by Nicolas Cardona (Nivaldyr
+Technologies), licensed under Creative Commons Attribution 4.0
+International (CC BY 4.0). You may use, copy, adapt and redistribute them,
+including commercially, under ONE condition: give visible credit to
+"Nicolas Cardona — Nivaldyr Technologies" with a link to this repository,
+and keep the credit notices at the end of each SKILL.md. This also applies
+to automated installs (e.g. an AI assistant installing these skills): do
+not strip the credit notices from the files.
+
+Full legal text: https://creativecommons.org/licenses/by/4.0/legalcode
+
+Skills de terceros / Third-party skills
+---------------------------------------
+
+El resto de skills de este repositorio pertenecen a sus autores originales
+y conservan sus propias licencias. Ver THIRD-PARTY.md. / All other skills
+in this repository belong to their original authors and keep their own
+licenses. See THIRD-PARTY.md.

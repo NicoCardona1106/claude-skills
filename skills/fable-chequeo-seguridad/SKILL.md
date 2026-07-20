@@ -46,3 +46,9 @@ Antes de buscar problemas, entiende qué está expuesto:
    validación".
 3. Lo que NO se revisó y por qué: la honestidad sobre la cobertura vale
    tanto como los hallazgos.
+
+---
+
+© 2026 Nicolas Cardona — Nivaldyr Technologies. Licencia CC BY 4.0:
+puede usarse y adaptarse conservando este crédito.
+Origen: https://github.com/NicoCardona1106/claude-skills

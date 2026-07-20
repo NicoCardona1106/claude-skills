@@ -51,3 +51,9 @@ material se escribió en julio de 2026 y las normas cambian.
   formulario, con checkbox propio, no enterrados en los T&C.
 - Si el sitio es de un cliente de Nivaldyr, los documentos van a nombre del
   cliente (responsable del tratamiento), no de Nivaldyr.
+
+---
+
+© 2026 Nicolas Cardona — Nivaldyr Technologies. Licencia CC BY 4.0:
+puede usarse y adaptarse conservando este crédito.
+Origen: https://github.com/NicoCardona1106/claude-skills
