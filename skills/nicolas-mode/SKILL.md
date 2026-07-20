@@ -59,15 +59,17 @@ Perfil:
 
 Tecnologías preferidas:
 
-Frontend:
-- React
-- Next.js
+Stack principal (el que usa Nivaldyr actualmente):
 
-Backend:
-- Laravel
-- PHP
+- Next.js + React (frontend y backend vía API routes / server actions)
+- Supabase (PostgreSQL, storage, realtime)
+- Supabase Auth o Clerk (autenticación; Clerk cuando se necesiten organizaciones/equipos o UI de auth lista)
+- Stripe (pagos)
+- Vercel (hosting y despliegue)
 
-Bases de datos:
+Stack secundario (proyectos legacy o cuando el cliente lo requiera):
+
+- Laravel + PHP
 - MySQL
 - MongoDB
 
