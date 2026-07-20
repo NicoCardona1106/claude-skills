@@ -18,6 +18,7 @@ These questions identify WHAT the user wants to build and classify it into an ar
 - "API", "endpoints", "microservice", "backend" → **api-backend**
 - "admin panel", "internal", "dashboard for our team" → **internal-tool**
 - "blog", "content", "articles", "documentation" → **content-platform**
+- "store", "sell products", "cart", "checkout", "tienda", "vender" → **ecommerce**
 
 ### Q2: The Audience
 **Ask:** "Who will use this? End users? Your internal team? Other developers? How many users are you expecting?"
@@ -53,6 +54,7 @@ After Q1-Q3, you should be able to classify. If ambiguous, ask one clarifying qu
 | A headless API consumed by other services/apps | `api-backend` |
 | A tool used internally by a team (not public-facing) | `internal-tool` |
 | Centered around creating, organizing, or displaying content | `content-platform` |
+| Selling products (physical or digital) with cart and checkout | `ecommerce` |
 
 **Hybrid projects:** If a project spans archetypes (e.g., SaaS with a marketing landing page), use the PRIMARY archetype and note the secondary in the blueprint. The build order will address both.
 

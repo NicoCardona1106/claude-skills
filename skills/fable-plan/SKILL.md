@@ -68,6 +68,7 @@ arquetipo y lee su archivo en `architect/knowledge/archetypes/`:
 | API / Backend | `api-backend.md` |
 | Herramienta interna | `internal-tool.md` |
 | Plataforma de contenido | `content-platform.md` |
+| E-commerce / Tienda | `ecommerce.md` |
 
 ### Fase 2 — Profundización
 Lee la sección del arquetipo en `architect/questions/phase-2-branches.md`.

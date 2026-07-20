@@ -148,3 +148,28 @@ After classifying the project in Phase 1, use the matching section below. Ask 3-
 - If search → `knowledge/building-blocks/database-patterns.md` (full-text search)
 - If monetization → load payment patterns
 - Always → `knowledge/building-blocks/frontend-stacks.md`
+
+---
+
+## E-commerce Store
+
+### Q1: What & How Many
+"What are you selling — physical products, digital products, services, or subscriptions? Roughly how many products/SKUs?"
+
+### Q2: Platform Fit (the fork)
+"Do you want to run the store on Shopify (fastest to launch, built-in ops) or build it custom? If unsure: do you need standard catalog + shipping, or a buying flow Shopify can't do?"
+
+### Q3: Fulfillment & Logistics
+"Physical products: who handles shipping and inventory? One warehouse, dropshipping, local delivery? Digital: instant delivery or licensing?"
+
+### Q4: Customers
+"Guest checkout only, or customer accounts with order history? Any B2B features (quotes, tiered pricing, net terms)?"
+
+### Q5: Payments & Region
+"Which countries/currencies do you sell in? Stripe covers cards and wallets — do you need local payment methods (PSE, Nequi, cash on delivery)?"
+
+**Building blocks to load:**
+- Always → `knowledge/archetypes/ecommerce.md` (platform-vs-custom fork first)
+- If custom build → `knowledge/building-blocks/database-patterns.md`
+- If accounts → `knowledge/building-blocks/auth-patterns.md` (guest-first)
+- Deployment → `knowledge/building-blocks/deployment-patterns.md`
