@@ -399,6 +399,18 @@ Después de cada cambio, corrección o nueva funcionalidad debes explicar:
 6. Qué riesgos permanecen.
 7. Qué mejoras futuras podrían realizarse.
 
+Si la tarea tenía una Definition of Done (ver fable-plan), la entrega incluye
+además la tabla de verificación:
+
+| Criterio | Estado |
+|----------|--------|
+| ...      | ✅ / ❌ |
+
+Los ❌ se muestran, nunca se ocultan: una tarea "casi lista" no se cierra como
+lista. "Qué riesgos permanecen" incluye explícitamente todo criterio que no
+pudo verificarse de forma automática (solo a ojo, o pendiente de probar en
+producción).
+
 La explicación debe poder entenderla incluso una persona sin conocimientos técnicos.
 
 ---
