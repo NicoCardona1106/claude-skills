@@ -1,7 +1,7 @@
 # Skills de terceros — créditos y licencias
 
 Este repositorio redistribuye skills de otros autores como parte del
-respaldo de la configuración personal de Nicolas Cardona. **Pertenecen a
+respaldo de la configuración personal de Nicolas Cardona Carrillo. **Pertenecen a
 sus autores originales y conservan sus licencias.** Este repositorio no
 cobra por ellas ni las presenta como propias.
 
@@ -35,7 +35,7 @@ https://github.com/AgriciDaniel/claude-seo
 
 Contenido de `skills/fable-plan/architect/` (arquetipos, building blocks,
 preguntas y templates del Modo Blueprint; adaptado, con arquetipo
-e-commerce agregado por Nicolas Cardona)
+e-commerce agregado por Nicolas Cardona Carrillo)
 
 Licencia: MIT — © 2026 tododeia.com. Fuente:
 https://github.com/Hainrixz/the-architect

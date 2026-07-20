@@ -118,7 +118,7 @@ no un menú de opciones. Espera confirmación o ajustes antes de generar.
 4. Resume al usuario qué contiene y cómo usarlo (copiar como CLAUDE.md de la
    carpeta del proyecto y abrir Claude Code ahí).
 
-### Stack por defecto (Nicolas / Nivaldyr)
+### Stack por defecto (Nicolas)
 Salvo que el proyecto pida otra cosa: **Next.js + Supabase + Stripe +
 Vercel**, con **Supabase Auth o Clerk** para autenticación (Clerk cuando se
 necesiten organizaciones/equipos o UI de auth lista; Supabase Auth cuando
@@ -151,6 +151,6 @@ El material de `architect/` menciona skills que aquí se mapean así:
 
 ---
 
-© 2026 Nicolas Cardona — Nivaldyr Technologies. Licencia CC BY 4.0:
+© 2026 Nicolas Cardona Carrillo. Licencia CC BY 4.0:
 puede usarse y adaptarse conservando este crédito.
 Origen: https://github.com/NicoCardona1106/claude-skills

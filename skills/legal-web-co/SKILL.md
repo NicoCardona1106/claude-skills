@@ -1,6 +1,6 @@
 ---
 name: legal-web-co
-description: Cumplimiento legal colombiano para sitios web, e-commerce y SaaS de Nivaldyr y sus clientes. Usar al lanzar o revisar una página, tienda o app que opere en Colombia; al redactar política de privacidad, tratamiento de datos personales (habeas data), términos y condiciones, aviso de cookies, derecho de retracto o textos de checkout; o cuando pidan "checklist legal", "textos legales del sitio" o "¿esto es legal en Colombia?".
+description: Cumplimiento legal colombiano para sitios web, e-commerce y SaaS de Nicolas Cardona Carrillo y sus clientes. Usar al lanzar o revisar una página, tienda o app que opere en Colombia; al redactar política de privacidad, tratamiento de datos personales (habeas data), términos y condiciones, aviso de cookies, derecho de retracto o textos de checkout; o cuando pidan "checklist legal", "textos legales del sitio" o "¿esto es legal en Colombia?".
 ---
 
 # Legal Web CO — cumplimiento colombiano para sitios web
@@ -49,11 +49,11 @@ material se escribió en julio de 2026 y las normas cambian.
   no completarlo de memoria.
 - Los textos de autorización de datos van ANTES del botón de envío del
   formulario, con checkbox propio, no enterrados en los T&C.
-- Si el sitio es de un cliente de Nivaldyr, los documentos van a nombre del
-  cliente (responsable del tratamiento), no de Nivaldyr.
+- Si el sitio es de un cliente, los documentos van a nombre del
+  cliente (responsable del tratamiento), no de Nicolas.
 
 ---
 
-© 2026 Nicolas Cardona — Nivaldyr Technologies. Licencia CC BY 4.0:
+© 2026 Nicolas Cardona Carrillo. Licencia CC BY 4.0:
 puede usarse y adaptarse conservando este crédito.
 Origen: https://github.com/NicoCardona1106/claude-skills

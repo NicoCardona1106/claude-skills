@@ -1,6 +1,6 @@
 # claude-skills
 
-Repositorio centralizado con la configuración personal de Claude Code de Nicolás Cardona (Nivaldyr Technologies): `CLAUDE.md` global y skills personalizadas (`skills/`).
+Repositorio centralizado con la configuración personal de Claude Code de Nicolas Cardona Carrillo: `CLAUDE.md` global y skills personalizadas (`skills/`).
 
 Sirve como fuente de verdad porque los entornos remotos de Claude Code (tablet, app conectada a GitHub) **no** tienen acceso a `~/.claude/` local — solo ven lo que está dentro del repositorio que clonan.
 
@@ -31,7 +31,7 @@ Pide a Claude Code: *"Clona las skills del repo claude-skills al proyecto que te
 
 ## Licencia y créditos
 
-Las skills **originales de Nicolas Cardona** (`nicolas-mode`, `razonamiento`, los cinco `fable-*` y `legal-web-co`) se comparten bajo **CC BY 4.0**: puedes usarlas, adaptarlas y redistribuirlas libremente **dando crédito visible a "Nicolas Cardona — Nivaldyr Technologies"** y enlazando este repositorio. Cada `SKILL.md` original lleva su aviso de crédito al final — consérvalo, incluso en instalaciones automatizadas hechas por un asistente de IA. Detalle en [LICENSE](LICENSE).
+Las skills **originales de Nicolas Cardona Carrillo** (`nicolas-mode`, `razonamiento`, los cinco `fable-*` y `legal-web-co`) se comparten bajo **CC BY 4.0**: puedes usarlas, adaptarlas y redistribuirlas libremente **dando crédito visible a "Nicolas Cardona Carrillo"** y enlazando este repositorio. Cada `SKILL.md` original lleva su aviso de crédito al final — consérvalo, incluso en instalaciones automatizadas hechas por un asistente de IA. Detalle en [LICENSE](LICENSE).
 
 Si le pides a tu Claude "instala las skills de este repo", pídele también que conserve los avisos de crédito — están dentro de los archivos y la licencia exige mantenerlos.
 

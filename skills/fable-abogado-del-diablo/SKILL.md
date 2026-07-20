@@ -42,6 +42,6 @@ veredicto, la crítica fue entretenimiento.
 
 ---
 
-© 2026 Nicolas Cardona — Nivaldyr Technologies. Licencia CC BY 4.0:
+© 2026 Nicolas Cardona Carrillo. Licencia CC BY 4.0:
 puede usarse y adaptarse conservando este crédito.
 Origen: https://github.com/NicoCardona1106/claude-skills
