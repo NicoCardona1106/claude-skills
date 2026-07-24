@@ -15,8 +15,8 @@ description: >
 
 (Prefijo NC = Nicolas Cardona: marca las skills creadas por/para él.)
 
-Destilado de su banco de landings (`Desktop/Claude Code/landing pages/`, ~15
-piezas, julio 2026) y de sus 4 favoritas: **morpho, plata, cattleya y cafeto**.
+Destilado de su banco de landings (`Desktop/Claude Code/personal/landing
+pages/`, ~15 piezas, julio 2026) y de sus 4 favoritas: **morpho, plata, cattleya y cafeto**.
 De las cuatro, **cattleya y cafeto son la vara máxima** — las piezas más
 premium que ha hecho: ante la duda de nivel, dirección o acabado, compararse
 contra esas dos. El objetivo no es decorar: es que cada pieza tenga concepto,
@@ -40,23 +40,38 @@ oficio y detalle de nivel showcase (referencia de vara: horizonx.so).
    Italiana, Newsreader, Gabarito, Big Shoulders, Bricolage Grotesque son
    precedentes del banco — buscar ese nivel de intención, no copiarlas siempre.
 
-4. **Motion como lenguaje, no como adorno.** El movimiento deriva del concepto:
+4. **Materia, luz y profundidad — nunca "paredes pintadas".** Un fondo de
+   color plano con texto encima no es premium por buena que sea la paleta
+   (feedback directo de Nicolas, 2026-07-23). Cada viewport necesita capas:
+   (a) *luz ambiental* — glows direccionales, gradientes que implican una
+   fuente de luz, glare sobre superficies; (b) *textura* — grano/ruido sutil
+   (feTurbulence como data-URI), polvo de luz o partículas en canvas, patrones
+   finos; (c) *profundidad* — elementos que se solapan (la imagen atraviesa la
+   palabra, tarjetas glass flotando sobre el hero), vidrio con reflejo,
+   sombras coloreadas, parallax de capas. Las favoritas lo cumplen todas.
+   Si el encargo permite fotografía, elegir UNA imagen protagonista de calidad
+   e integrarla con mask/brightness (patrón morpho/cattleya); si la pieza debe
+   ser 100% autocontenida, construir la atmósfera con canvas y CSS. Test
+   rápido antes de entregar: pausa en cada sección — si parece una pared
+   pintada con texto pegado, falta materia.
+
+5. **Motion como lenguaje, no como adorno.** El movimiento deriva del concepto:
    dirección, easing y stagger cuentan la misma historia en toda la página.
    Stack probado: GSAP + ScrollTrigger + Lenis (CDN jsdelivr en piezas
    estáticas). Animar solo transform/opacity (lección vertigo: nunca animar
    width/height — usar scale).
 
-5. **Resiliencia y accesibilidad no se negocian.** Texto decorativo gigante con
+6. **Resiliencia y accesibilidad no se negocian.** Texto decorativo gigante con
    `aria-hidden` + heading real oculto accesible; clase `.js` en `<html>` para
    que sin JavaScript nada quede atrapado; `prefers-reduced-motion` respetado;
    cursor custom y hovers solo bajo `hover:hover and (pointer: fine)`;
    `aria-live` en resultados dinámicos.
 
-6. **Performance con presupuesto.** DPR cap ~1.5 en canvas/WebGL, menos
+7. **Performance con presupuesto.** DPR cap ~1.5 en canvas/WebGL, menos
    partículas en móvil (regla del banco: ~la mitad), efectos pesados apagados
    donde no aportan. Premium lento no es premium.
 
-7. **Verificado, no supuesto.** Toda pieza se prueba en 1440 y 390 (Playwright
+8. **Verificado, no supuesto.** Toda pieza se prueba en 1440 y 390 (Playwright
    si está disponible): consola limpia, cero overflow horizontal, formularios y
    estados funcionando. Las decisiones visuales finas (recorte de foto, blend,
    contraste) se prueban en navegador con variantes reales antes de fijarlas —
@@ -72,7 +87,8 @@ oficio y detalle de nivel showcase (referencia de vara: horizonx.so).
    inventar una nueva al mismo nivel; definir las técnicas de soporte.
 4. **Construir** — pieza completa, no mockup: contenido real o verosímil,
    estados de formulario, responsive.
-5. **Verificar** — principio 7 completo antes de mostrar.
+5. **Verificar** — principio 8 completo antes de mostrar, incluyendo el test
+   de "pared pintada" del principio 4 sección por sección.
 6. **Registrar** — actualizar Mempalace (wing del proyecto o `landing-pages`
    si es del banco) con concepto, técnicas y lecciones, según nicolas-mode.
 
@@ -114,6 +130,25 @@ tipografía y motion actuales — extraer PATRONES, nunca copiar una plantilla:
 
 Si Nicolas comparte un link nuevo de inspiración, añadirlo a esta lista
 (quitando parámetros de tracking) y registrarlo en Mempalace.
+
+## Cuando Nicolas entrega una foto
+
+Si el encargo incluye una fotografía, la foto ES el punto de partida de todo:
+
+1. **Leerla de verdad** (visión): sujeto, temperatura de color, luz (dirección
+   y dureza), texturas, mood. El concepto rector sale del sujeto, no de un
+   template.
+2. **Paleta derivada**: construir la paleta OKLCH desde los colores reales de
+   la imagen (dominante como ground, un secundario como acento) — nunca una
+   paleta genérica pegada al lado de la foto.
+3. **Protagonista, no decoración**: integrarla con los patrones del banco —
+   vitrina (morpho), sándwich tipográfico (cattleya), mask-image +
+   brightness() (colibri). La palabra y la foto se entrelazan.
+4. **Probar variantes reales**: recorte, máscara y blend se deciden viendo la
+   foto en el navegador (lección cattleya: 5 variantes; sujeto claro sobre
+   fondo claro se lava — ajustar ground o tratamiento antes que forzar).
+5. La tipografía y el motion siguen el carácter del sujeto (un pomerania no
+   pide lo mismo que una esmeralda).
 
 ## Al proponer para proyectos reales
 

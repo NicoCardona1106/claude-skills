@@ -25,6 +25,23 @@ viene, porque el detalle completo vive en Mempalace (wing `landing-pages`).
 - **Contador 0→100 con cortina clip-path** (vertigo). Visible solo con clase
   `.js` en `<html>` para no atrapar a quien navega sin JavaScript.
 
+## Atmósfera (el antídoto contra "paredes pintadas")
+
+Recetas autocontenidas para dar materia a un fondo cuando no hay fotografía:
+
+- **Grano de película**: overlay fixed con SVG feTurbulence como data-URI
+  (`fractalNoise`, opacidad 0.03-0.06, mix-blend overlay). Cambia todo con
+  casi nada de costo.
+- **Polvo de luz / partículas en canvas** (morpho): puntos con drift lento y
+  parpadeo, 60-150 según viewport.
+- **Blobs de luz**: 2-3 radial-gradients gigantes desenfocados en esquinas
+  opuestas, con hue de la paleta, animación de drift de 20s+ (plata).
+- **Luz direccional**: un linear-gradient sutil que implica de dónde viene la
+  luz (arriba-izquierda más claro), y sombras coloreadas coherentes con ella.
+- **Viñeta**: radial-gradient oscuro en los bordes para enfocar el centro.
+- Regla de capas: fondo = base + luz + textura; contenido = solapamientos y
+  vidrio. Un solo color plano por sección es señal de pieza incompleta.
+
 ## Vidrio, luz y profundidad
 
 - Glass cards flotantes con métricas, sheen y bob senoidal infinito + parallax
