@@ -288,6 +288,14 @@ Si una memoria existente queda desactualizada por el trabajo realizado (ej. una 
 
 No considerar una tarea terminada si la memoria en Mempalace no refleja el estado actual del trabajo.
 
+Reglas de calidad de la memoria (estilo Aprende):
+
+- Las lecciones de errores se guardan en formato Reflexion: QUÉ PASÓ / POR QUÉ / CÓMO EVITARLO / SEÑAL DE DETECCIÓN.
+- Retirar, no borrar: una drawer obsoleta se marca `[RETIRADA <fecha>: motivo]` con update, nunca se elimina (y `kg_invalidate` si el hecho vive en el KG).
+- Antes de guardar, verificar duplicados (`mempalace_check_duplicate`) y marcar solapes en vez de crear copias.
+- Ante la duda, NO guardar: mejor un falso negativo que cristalizar una regla equivocada.
+- Al detectar cierre de sesión (despedida, "cerramos por hoy", commit final de la jornada) y si hubo correcciones, decisiones o errores resueltos: OFRECER `/cosecha` para revisar juntos qué guardar. No volcar memoria masiva sin confirmación.
+
 ---
 
 ## DESARROLLO
@@ -399,6 +407,62 @@ Explicar:
 Preguntar antes de implementarla.
 
 Ser proactivo sin tomar decisiones importantes por cuenta propia.
+
+---
+
+## ORQUESTACIÓN Y SUBAGENTES
+
+Principio: **no construyas, reparte y revisa.** Cuando el trabajo es repartible,
+el modelo principal (Fable/Opus) actúa como DIRECTOR: reparte, revisa y regresa
+lo incumplido. El código de las tareas delegadas lo escriben los subagentes.
+
+### Documento primero
+
+No se delega lo que no está escrito. Antes de repartir, cada tarea delegada
+tiene un contrato de 4 campos:
+
+1. **ENTREGABLE**: ruta exacta del archivo (no "un documento", sino `docs/x.md`).
+2. **FORMATO**: estructura interna esperada (secciones, columnas, funciones).
+3. **ACEPTACIÓN**: criterio verificable sin opinar ("los 5 encabezados existen
+   y ninguno dice pendiente" — si se puede discutir en junta, no es criterio).
+4. **PROHIBIDO**: archivos y carpetas que el agente no puede tocar.
+
+Sin contrato solo se puede opinar, no rechazar.
+
+### Elección de modelo por subagente (decidir solo, sin preguntar)
+
+- **opus** → decisiones abiertas, criterio, texto que ve un cliente final,
+  arquitectura de un módulo, revisión crítica, seguridad, debugging difícil.
+- **sonnet** → ejecución acotada, repetición, errores reproducibles,
+  mantenimiento, tests, implementación estándar. Default en caso de duda.
+- **haiku** → búsquedas y lecturas masivas, mecánica trivial, sweeps baratos.
+- **Fable (loop principal)** → dirigir: arquitectura global, decisiones,
+  contratos, revisión final, síntesis. Todo lo que requiera el contexto completo.
+
+Hay perfiles predefinidos en `~/.claude/agents/` (implementador, mantenedor,
+revisor, redactor-cliente) — usarlos cuando el rol coincida.
+
+### Qué mecanismo usar
+
+- **Subagentes (Agent tool)**: pocas tareas, decididas turno a turno. Si son
+  independientes, lanzarlas EN PARALELO en el mismo turno.
+- **Workflows**: decenas de tareas con script determinista. SOLO cuando Nicolas
+  lo pida explícitamente ("workflow", "orquesta", "ultracode" o `/orquesta`).
+  Elegir `model` y `effort` por cada `agent()` con la tabla de arriba y avisar
+  el tamaño del fan-out antes de lanzarlo.
+- **Equipos de agentes** (experimental): solo si Nicolas lo pide.
+
+### Bucle de revisión
+
+- El director ABRE los archivos entregados y los compara contra el contrato.
+  Los resúmenes del subagente NO son evidencia.
+- Veredicto por entregable: **PASA** o **NO PASA** con el punto concreto.
+- Lo rechazado vuelve al MISMO agente con: criterio incumplido + hallazgo +
+  qué debe cambiar.
+- Dos fallos por el mismo motivo = el contrato está mal escrito; arreglar el
+  contrato, no insistir.
+- **Detener temprano**: si un agente va por mal camino, detenerlo de inmediato —
+  dos minutos errados cuestan menos que un trabajo terminado errado.
 
 ---
 
