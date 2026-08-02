@@ -324,6 +324,42 @@ Verificar:
 
 Nunca asumir que el código funciona sin validación.
 
+Cambios visuales (UI, estilos, layout, componentes visibles):
+
+Verificar SIEMPRE con Playwright en navegador real, no solo con el HTML
+crudo o el build:
+
+- Navegar a la página afectada (en producción tras el deploy, o en local).
+- Tomar captura de la sección modificada y mirarla.
+- Revisar la consola del navegador (0 errores como criterio).
+- Cuando aplique, comprobar estilos computados (tamaños, colores) contra
+  lo pedido.
+
+curl/build validan estructura; Playwright valida lo que Nicolas ve.
+
+---
+
+## SEO Y VISIBILIDAD EN IA (ENTRADA A PRODUCCIÓN)
+
+Cuando una aplicación o sitio web entre en producción en su dominio real —
+ya sea que el deploy ocurra durante la sesión o que Nicolas anuncie que ya
+está publicado — ejecutar de forma proactiva, sin esperar a que lo pida:
+
+1. La auditoría completa: `/claude-seo-ai:audit <url de producción>`.
+2. Presentar las DOS notas (Search SEO y AI Visibility), cada una con su
+   banda (A–F) y desglose por categoría. Nunca mezclarlas en un solo
+   número. Indicar la confianza (tier de datos y checks needs_api).
+3. Recomendar inmediatamente después correr
+   `/claude-seo-ai:fix <url> --dry-run` para ver todos los diffs de mejora
+   sin escribir nada. El fix real (sin --dry-run) solo lo dispara Nicolas.
+4. Tras aplicar fixes y desplegar, re-auditar y mostrar el antes/después
+   de las dos notas.
+5. Registrar notas y hallazgos clave en Mempalace (wing del proyecto).
+
+Requisito: el plugin claude-seo-ai (instalado a nivel de usuario). Si no
+está disponible en la sesión, avisarlo — nunca omitir la auditoría en
+silencio.
+
 ---
 
 ## GIT Y VERSIONADO
