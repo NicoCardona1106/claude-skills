@@ -157,6 +157,95 @@ cattleya y cafeto reemplazaron a veta y vertigo). Presentar como propuesta con
 beneficio/impacto/esfuerzo antes de implementar — nunca imponer un rediseño no
 pedido (regla de alcance de razonamiento).
 
+## Ideas adoptadas de taste-skill (2026-08-20)
+
+Del repo público `Leonxlnx/taste-skill` (anti "AI slop" en frontends).
+Reglas concretas que el banco no tenía explícitas; complementan los
+principios de arriba, no los reemplazan.
+
+1. **Lectura del brief en una línea.** Antes de proponer conceptos, declarar:
+   "Leo esto como: [tipo de página] para [audiencia], con lenguaje [vibe]".
+   La audiencia elige la estética, no el gusto propio; sectores regulados o
+   de confianza-primero (salud, legal, gobierno, pagos) anulan la
+   preferencia estética.
+
+2. **Tres diales de calibración**, declarados al arrancar cada pieza:
+   - VARIANZA (1 = simetría perfecta, 10 = asimetría artística)
+   - MOTION (1 = estático, 10 = cinematográfico)
+   - DENSIDAD (1 = galería de arte, 10 = cabina de mando)
+   Guías: minimal/editorial 5-6 / 3-4 / 2-3 · premium consumer 7-8 / 5-7 /
+   3-4 · agencia/experimental 9-10 / 8-10 / 3-4 · confianza/regulado 3-4 /
+   2-3 / 4-5. Regla dura: si MOTION > 4, la página debe moverse de verdad;
+   si no alcanza el tiempo para construirlo bien, bajar el dial y entregar
+   estática limpia — nunca motion a medias.
+
+3. **Locks de consistencia** (auditar sección por sección antes de entregar):
+   - UN acento de color para toda la página; nada de un CTA azul en la
+     sección 7 de una página cálida.
+   - UN sistema de radios de esquina (todo recto, todo suave, o una regla
+     documentada tipo "botones pill, tarjetas 16px") aplicado en todo.
+   - UN tema: ninguna sección invierte a claro en una página oscura (o
+     viceversa) salvo como recurso deliberado, máximo una vez.
+
+4. **Disciplina de hero.** Máximo 4 elementos de texto: eyebrow O marca
+   (uno o ninguno), headline ≤ 2 líneas, subtexto ≤ 20 palabras, CTAs
+   (1 primario + máx 1 secundario). CTA visible sin scroll. El logo wall de
+   confianza va SIEMPRE debajo del hero, nunca dentro. Headline de más de
+   6 palabras no arranca en tamaño gigante: un titular de 4 líneas es error
+   de font-size, no de copy.
+
+5. **Anti-repetición de layouts.** Una familia de layout (3 tarjetas,
+   cita full-width, split imagen+texto…) aparece máximo 1 vez por página;
+   una página de 8 secciones usa al menos 4 familias distintas. Máximo 2
+   zigzags imagen+texto seguidos. Máximo 1 marquee por página. Eyebrows
+   (labels uppercase con tracking sobre el título de sección): máximo 1 por
+   cada 3 secciones — chequeo mecánico: contar instancias de
+   `uppercase` + `tracking` sobre headlines.
+
+6. **CTAs sin duplicar intención.** "Contáctanos" + "Hablemos" +
+   "Escríbenos" son la misma intención → UNA etiqueta usada en nav, hero y
+   footer. Texto de botón en una sola línea (primario: máx 3 palabras).
+
+7. **Catálogo de tells de IA a vetar** (se suman a Inter y a las "paredes
+   pintadas"):
+   - Datos: "Juan Pérez", "Acme", números perfectos (99.99%, 1234567) →
+     nombres verosímiles del contexto local y datos orgánicos (47.2%). Los
+     números fake-precisos sin fuente se marcan como mock o se eliminan.
+   - Screenshots falsos hechos con divs (dashboard/terminal/lista de tareas
+     de mentira) → screenshot real, imagen generada, o nada.
+   - Micro-decoración: numeración de secciones ("001 · Capacidades"),
+     pills sobre fotos, créditos de foto inventados ("Plate 03 · archivo"),
+     cues de scroll ("Scroll para explorar"), puntos de color decorativos,
+     strips de ciudad/clima/hora, footers con versión (v1.4.2), etiquetas
+     poéticas ("Field notes", "Desde el taller") → etiqueta funcional o
+     ninguna.
+   - Paletas cliché de LLM: morado IA con glow, y el combo beige + latón +
+     espresso como default de toda marca "artesanal/premium" → solo con
+     justificación de marca real (la regla de paleta OKLCH nueva por
+     proyecto ya lo empuja; esto nombra los clichés concretos).
+
+8. **Oficio tipográfico fino:**
+   - Para enfatizar una palabra dentro de un titular, usar itálica o bold
+     de la MISMA fuente — nunca inyectar una serif suelta en un titular
+     sans (ni al revés) solo por interés visual.
+   - Itálicas en display con descendentes (y g j p q): `line-height` mínimo
+     1.1 + reserva de padding inferior, o el trazo se recorta. Auditar cada
+     palabra en itálica antes de entregar.
+
+9. **Estados completos, no solo el caso feliz.** Skeletons con la forma del
+   layout final (no spinners genéricos), empty states compuestos que
+   indican cómo poblarse, errores inline en formularios, feedback táctil en
+   `:active` (`scale(0.98)`).
+
+10. **Auditoría de copy antes de entregar.** Releer cada string visible
+    (titulares, botones, captions, alt text, footer): reescribir lo
+    gramaticalmente roto, los juegos de palabras cute-pero-confusos y la
+    falsa humildad poética. Copy aburrido y claro > copy IA ingenioso.
+
+11. **Mecánica:** `min-h-[100dvh]` en vez de `h-screen` (la barra de iOS
+    Safari rompe el layout); nunca `window.addEventListener('scroll')` —
+    usar ScrollTrigger, IntersectionObserver o scroll-driven animations.
+
 © 2026 Nicolas Cardona Carrillo. Licencia CC BY 4.0:
 puede usarse y adaptarse conservando este crédito.
 Origen: https://github.com/NicoCardona1106/claude-skills

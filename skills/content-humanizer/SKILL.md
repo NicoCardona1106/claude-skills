@@ -454,3 +454,81 @@ python scripts/ai_pattern_detector.py article.md --verbose
 # Analyze content for humanization opportunities
 python scripts/content_scorer.py article.md --json
 ```
+
+---
+
+## Ideas adoptadas de humanizer (2026-08-20)
+
+Adopted from the public repo `blader/humanizer` (based on Wikipedia's "Signs of AI writing," maintained by WikiProject AI Cleanup). Patterns and safeguards not covered above.
+
+### Hard rule: never invent facts
+
+Stronger than "flag the specificity gap": never add a fact, name, number, date, quote, or citation that does not come from the source or the user. Before delivering, ask two questions:
+
+1. "What still sounds AI-generated?"
+2. "Did the rewrite add or lose any fact, name, number, date, quote, or claim?"
+
+Any unsupported addition or lost claim is an error, not a style choice.
+
+### Additional AI patterns to detect
+
+- **"Not X but Y" constructions** — "It's not just a song, it's a statement." Also clipped negative endings ("no guessing"). State the point directly.
+- **Forced groups of three** — "innovation, inspiration, and industry insights." Break the triad unless the ideas genuinely come in threes.
+- **Synonym cycling and repeated openings** — "the protagonist... the main character... the central figure," or three sentences in a row starting with "She." Fix the repeated pattern (merge, reorder), do not ban the word.
+- **False "from X to Y" ranges** — "from the Big Bang to the cosmic web, from stars to dark matter" when X and Y form no real range. List the items plainly.
+- **Shallow -ing add-ons** — "...highlighting," "...reflecting," "...showcasing" tacked onto a fact to fake depth. Cut the phrase; keep the fact.
+- **Avoiding is/are/has** — "serves as," "stands as," "boasts," "features" → "is," "has."
+- **Inflated legacy claims** — "a testament to," "marking a pivotal moment," "underscores its importance," "evolving landscape." State the fact without the significance wrapper.
+- **Sales language for places/products** — "nestled," "vibrant," "breathtaking," "must-visit," "rich cultural heritage."
+- **Vague name-dropping** — listing outlets or follower counts to prove importance ("cited in NYT, BBC, FT, and The Hindu... 500,000 followers") with no context. Keep only citations that say what was said and where.
+- **Passive voice hiding the actor** — "The results are preserved automatically" → "The system preserves the results automatically."
+
+### Formatting tells
+
+- Excessive bold; lists where every item is "**Label:** sentence restating the label."
+- Title Case In Every Heading — use sentence case.
+- Decorative emojis on headings and list items.
+
+### Chatbot artifacts left in the text
+
+- "I hope this helps!", "Certainly!", "Would you like me to expand...?"
+- Knowledge-cutoff disclaimers and speculative gap-fills ("details are scarce... she likely grew up in a middle-class household"). State what the source does not show, or cut the sentence — never present a guess as fact.
+- Announcing the point instead of making it ("Let's dive in," "Here's what you need to know"). Casual versions count too ("one thing that bit me, so pay attention").
+- A heading restated in its own first sentence ("## Performance / Speed matters."). Delete the restatement.
+
+### Meta-discourse tells (subtler)
+
+- **Deeper-truth framing** — "the real question is," "at its core," "what really matters," "fundamentally."
+- **Formulaic sayings** — "X is the Y of Z," "X becomes a trap," "the currency of." Replace the aphorism with the specific claim.
+- **Fake-candid openers as hooks** — standalone "Honestly?", "Look,", "Here's the thing," "Let's be honest" before a routine point. (Mid-sentence "honestly" in casual writing is fine.)
+- **Answering objections no one raised** — "I'm not saying...", "To be clear...", "This isn't really about..." when the objection appears nowhere else. Keep only defenses whose source is named or answered in full.
+- **Rejecting fake alternatives** — "One might be tempted to...", "An obvious approach would be..." introducing an option no reader would consider, dismissed in a clause and never mentioned again.
+
+### Caution: humanization moves that are themselves AI tells
+
+Several techniques taught above become fingerprints when overdone:
+
+- A row of dramatic fragments ("No aesthetic prior. No nostalgia. The old rules were gone.") — one short sentence adds emphasis; a drumroll of fragments reads as staged.
+- "Here's the thing" and similar openers (used in this skill's own examples) — vary or drop them; they are now a recognized AI hook.
+- Stacked qualifiers from repeated editing ("could potentially possibly") — keep one qualifier only when the meaning needs it.
+
+Apply the personality techniques from Workflow 2 Step 5 sparingly, not on every paragraph.
+
+### False positives: what NOT to flag
+
+One tell proves nothing; look for several stock patterns together.
+
+- Em dashes alone — many editors and journalists use them heavily. (Adjust the "2 per 500 words" threshold when the writer's sample shows otherwise.)
+- Curly quotes alone — Word, macOS, and most CMSes auto-curl.
+- Formal or academic vocabulary that is not on the filler list.
+- One short fragment, or deliberate repeated openings for rhythm ("She came. She saw. She conquered.").
+- Letter-style salutations and sign-offs; common transitions ("however," "additionally") in isolation.
+- Never rewrite watched phrases inside quotations, titles, proper names, or examples where the phrase is discussed rather than used.
+
+### Human details to preserve
+
+Keep unless they hurt the meaning: specific odd details ("the lawyer who used to work upstairs from my dentist"), mixed feelings and unresolved tension, era-bound slang and references, genuine asides and self-corrections. A provided writing sample overrides all style rules here — if the writer uses em dashes or quirks, keep them at the writer's own rate.
+
+### File mode
+
+When humanizing a file directly, change prose only: keep code blocks, YAML front matter, data, and link targets intact, and write only the final text to the file (no annotations inside the file).
