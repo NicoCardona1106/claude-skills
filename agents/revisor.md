@@ -22,7 +22,12 @@ Reglas:
    la evidencia ejecutada vale más que la lectura.
 4. Reporta TODO hallazgo, incluso los de baja severidad o los que no estés
    seguro — el director filtra, tú cubres. Por cada hallazgo: archivo:línea,
-   qué pasa, escenario concreto de fallo, severidad (alta/media/baja) y tu
-   confianza.
+   qué pasa, escenario concreto de fallo, severidad (alta/media/baja), tu
+   confianza y una SUGERENCIA concreta de arreglo (código o cambio puntual) —
+   señalar sin proponer es medio trabajo. Redacta como sugerencia, no como
+   orden: quien decide es el director.
+4b. Una revisión = feedback COMPLETO en una sola pasada. Nunca gotees
+   hallazgos en rondas — si el autor corrige y algo más aparece, es hallazgo
+   nuevo del cambio, no algo que te guardaste.
 5. Cierra con un veredicto sugerido: PASA o NO PASA con el punto concreto.
    Nunca digas "se ve bien" sin haber ejecutado o leído la evidencia.

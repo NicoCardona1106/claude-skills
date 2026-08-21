@@ -60,6 +60,12 @@ Propón en una tabla y ESPERA aprobación de Nicolas antes de lanzar nada:
 - Lo rechazado vuelve al MISMO agente con: criterio incumplido + hallazgo + qué
   cambiar exactamente.
 - Dos fallos por el mismo motivo = el contrato está mal; corrígelo tú y reenvía.
+- Gate entre fases (adoptado del Agents Orchestrator, 2026-08-20): una tarea de
+  la que dependen otras NO habilita a sus dependientes hasta tener veredicto
+  PASA — nunca construyas encima de un entregable sin revisar.
+- Tope de reintentos: máximo 3 idas y vueltas por tarea. Al tope, DETENTE y
+  escala a Nicolas con el diagnóstico (qué se intentó, por qué falla, opciones)
+  en vez de quemar tokens en círculos.
 
 ## Fase 5 — Informe final
 

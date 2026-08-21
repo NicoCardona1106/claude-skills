@@ -246,6 +246,25 @@ principios de arriba, no los reemplazan.
     Safari rompe el layout); nunca `window.addEventListener('scroll')` —
     usar ScrollTrigger, IntersectionObserver o scroll-driven animations.
 
+## Skills complementarias (instaladas 2026-08-20 — invocarlas, no reinventar)
+
+Esta skill define el CRITERIO visual; las siguientes aportan la TÉCNICA.
+Cárgalas con la herramienta Skill cuando la tarea lo pida:
+
+- **Animación web** (scroll, timelines, micro-interacciones): cargar
+  `gsap-core` + la que aplique (`gsap-scrolltrigger` para scroll,
+  `gsap-timeline` para secuencias, `gsap-react` si es React/Next.js,
+  `gsap-performance` antes de entregar). Son las skills oficiales de
+  GreenSock — su API manda sobre lo que recuerdes de memoria.
+- **Objetos/productos 3D en páginas** (modelo de producto girando en el
+  hero, escenas 3D): cargar `threejs-fundamentals` + `threejs-loaders`
+  (modelos GLTF) + `threejs-lighting`; `threejs-interaction` si el usuario
+  manipula el objeto. Precedente propio: showcase 3D de Reflexcam.
+- **"Quiero algo como tal sitio"** (clonar el look de una referencia que el
+  cliente señala): cargar `design-dna` para extraer tokens, estilo y efectos
+  de la referencia — y luego filtrar el resultado con los principios y los
+  AI-tells de ESTA skill: design-dna extrae, nc-design decide qué se queda.
+
 © 2026 Nicolas Cardona Carrillo. Licencia CC BY 4.0:
 puede usarse y adaptarse conservando este crédito.
 Origen: https://github.com/NicoCardona1106/claude-skills
