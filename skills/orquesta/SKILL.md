@@ -34,6 +34,30 @@ Propón en una tabla y ESPERA aprobación de Nicolas antes de lanzar nada:
 - Perfiles predefinidos en `~/.claude/agents/`: `implementador` (sonnet),
   `mantenedor` (sonnet), `revisor` (opus), `redactor-cliente` (opus). Si ningún
   perfil calza, usa el Agent tool genérico con `model` explícito.
+- **Perfil externo `agy` (Antigravity, Gemini)** — verificado 2026-08-23 en el
+  Panel Agéntico. Cuándo: segunda opinión de OTRO modelo (revisión cruzada de
+  diffs), tareas masivas baratas de solo-lectura, resúmenes/explicaciones.
+  Cómo: `agy -p "<prompt>" --output-format json [--json-schema <ruta>]
+  [--effort low|medium|high]` — el wrapper JSON trae `response`,
+  `structured_output` (si hay schema) y `usage` con tokens. Límites duros:
+  NO lee stdin en modo print (el prompt viaja como argumento → tope ~25k chars
+  por el límite de línea de comandos de Windows; desde PowerShell 5.1 los
+  argumentos con comillas se rompen — invocarlo desde Node/execFile); no
+  garantiza herramientas de lectura en modo print → embebe el contexto en el
+  prompt. REGLA v1: agy solo lee y opina, nunca escribe en repos. Contrato de
+  4 campos textual en el prompt, igual que con cualquier subagente.
+- **Perfil externo `codex`** (OpenAI Codex CLI, verificado 2026-08-23,
+  v0.149.0, modelo gpt-5.6-terra). LIMITANTE: Nicolas NO paga plan de OpenAI
+  (solo la cuota gratis) — usarlo con moderación, para tercera opinión
+  puntual, nunca para tareas masivas (esas van a agy, que sí tiene Google AI
+  Pro). Cómo:
+  `<prompt por stdin> | codex exec - --color never [-m modelo] [-C dir]
+  [-s read-only] [--output-schema <ruta.json>] [-o <archivo_salida>]` —
+  SÍ lee stdin (sin el límite de argumentos que sufre agy), `--json` emite
+  eventos JSONL, `-o` escribe la respuesta final a archivo. Para revisión:
+  `codex exec review` revisa el repo actual. Regla igual que agy en v1:
+  usarlo con `-s read-only` — solo lee y opina; escribir requiere decisión
+  aparte de Nicolas.
 - Elección de modelo: opus = criterio abierto, texto para cliente, revisión,
   seguridad; sonnet = ejecución acotada, repetición, mantenimiento (default);
   haiku = búsquedas masivas y mecánica trivial.
