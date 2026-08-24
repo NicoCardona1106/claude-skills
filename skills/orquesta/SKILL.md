@@ -46,6 +46,10 @@ Propón en una tabla y ESPERA aprobación de Nicolas antes de lanzar nada:
   garantiza herramientas de lectura en modo print → embebe el contexto en el
   prompt. REGLA v1: agy solo lee y opina, nunca escribe en repos. Contrato de
   4 campos textual en el prompt, igual que con cualquier subagente.
+- **Hermes NO es delegable** (medido 2026-08-24): su modo no interactivo
+  (`hermes -z`) tardó 92.7s en responder "ok" — carga todo su stack Python
+  por llamada. Usarlo solo interactivo (terminal del Panel Agéntico) o para
+  sus propios agentes (whatsapp/gateway), nunca como motor de opinión.
 - **Perfil externo `codex`** (OpenAI Codex CLI, verificado 2026-08-23,
   v0.149.0, modelo gpt-5.6-terra). LIMITANTE: Nicolas NO paga plan de OpenAI
   (solo la cuota gratis) — usarlo con moderación, para tercera opinión
