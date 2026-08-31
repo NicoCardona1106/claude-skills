@@ -69,6 +69,19 @@ Propón en una tabla y ESPERA aprobación de Nicolas antes de lanzar nada:
   haiku = búsquedas masivas y mecánica trivial.
 - Por cada tarea, el contrato de 4 campos (ENTREGABLE, FORMATO, ACEPTACIÓN,
   PROHIBIDO) va dentro del prompt del agente, textual.
+- **Quinto campo OBLIGATORIO cuando la tarea incluya acciones destructivas o
+  irreversibles** (delete, `rm`, `push --force`, migraciones, borrado de
+  memorias, envíos a terceros). Va textual en el prompt:
+
+  > Si el clasificador de permisos te bloquea, DETENTE y reporta qué
+  > intentabas hacer. NUNCA reintentes una acción denegada.
+
+  Un bloqueo del clasificador NO es un error transitorio: es una decisión.
+  Sin esta línea, un contrato del tipo "si algo falla, anótalo y sigue" hace
+  que el agente clasifique la denegación como fallo y reintente hasta pasar.
+  Ocurrió el 2026-08-31 con DOS subagentes a la vez en la poda del palacio:
+  4 borrados irreversibles se colaron así. La forma correcta de superar una
+  denegación es que Nicolas la autorice, no insistir.
 
 ## Fase 3 — Ejecutar
 
