@@ -19,6 +19,28 @@ Dos modos. Elige según el pedido:
 Nunca propongas sin explorar. El plan que se escribe sin leer el código es
 ficción con formato.
 
+### Paso 0 — Clasifica el pedido (antes de explorar)
+Di en voz alta en qué carril entra, para que Nicolas pueda corregirte:
+
+- **Sonda** — una pregunta de factibilidad ("¿se puede...?"). Su entregable
+  es una respuesta, no código que se queda. Explica en 2-3 frases qué vas a
+  probar, pide el visto bueno y averígualo lo más barato posible. Lo que
+  construyas queda marcado como desechable.
+- **Acotado** — un cambio bien delimitado sobre un flujo que YA existe y se
+  puede leer en el repo. Las preguntas que importan, plan corto EN EL CHAT
+  (unos párrafos), y para. Sin blueprint, sin documento.
+- **Arquitectura** — proyecto nuevo, subsistema nuevo o cambio que reordena
+  cómo encajan las piezas. Va el proceso completo (Modo Blueprint).
+
+Entender el tipo de app NO lo vuelve acotado: acotado se mide por el repo,
+no por tu familiaridad. Ante la duda entre dos carriles, toma el más pesado.
+El trinquete es de una sola vía: si aparece complejidad escondida a mitad,
+súbete de carril y dilo; nada baja de carril.
+
+**Nada es "demasiado simple para necesitar aprobación".** Lo que se encoge
+con la simplicidad es el documento, nunca el OK de Nicolas: un plan de dos
+frases sigue siendo un plan que se presenta y se espera.
+
 ### Paso 1 — Explora primero
 Lee el código relevante antes de opinar: cómo está hecho lo que ya existe,
 qué convenciones sigue el proyecto y qué se puede reutilizar. Si vas a
@@ -41,6 +63,31 @@ proponer algo nuevo, primero demuestra que no existe ya.
 - Si una pregunta abierta CAMBIA el plan, se hace antes de escribirlo. Si no
   lo cambia, se decide y se anota la decisión tomada.
 - El plan dice qué archivos se tocan y qué se reutiliza de lo existente.
+
+### Regla de escritura del plan: cero rellenos
+El plan se escribe para alguien que no conoce el proyecto. Estas frases son
+fallas del plan, no de quien lo ejecuta — no se escriben nunca:
+
+- "pendiente", "TBD", "se define después", "completar detalles"
+- "agregar el manejo de errores apropiado" / "validar lo necesario"
+- "escribir las pruebas de lo anterior" (sin decir cuáles)
+- "igual que el paso 3" (repítelo: los pasos se leen desordenados)
+- nombrar una función, tipo o endpoint que ningún paso define
+
+Cuando un paso toca código que otro paso produce, el plan lleva dos líneas
+explícitas:
+
+- **Usa:** qué consume de pasos anteriores, con la firma exacta.
+- **Entrega:** qué nombres y tipos van a depender de este paso.
+
+Quien ejecuta un paso solo ve ese paso: ese bloque es su única forma de
+conocer los nombres del vecino.
+
+**Autorrevisión antes de presentar** (la haces tú, no un subagente): recorre
+el objetivo punto por punto y señala qué paso lo cumple — lo que no tenga
+paso es un hueco; y revisa que los nombres del paso 7 sean los mismos que
+definiste en el paso 3. `limpiarCapas()` en uno y `limpiarCapasFull()` en
+otro ya es un bug.
 
 ### Regla de cierre
 Presenta el plan y espera el OK antes de tocar código. Un plan aprobado a
@@ -150,6 +197,8 @@ El material de `architect/` menciona skills que aquí se mapean así:
 7. Todo en español, salvo que el proyecto pida otro idioma.
 
 ---
+
+Técnicas adaptadas de obra/superpowers (MIT, © 2025 Jesse Vincent) — https://github.com/obra/superpowers
 
 © 2026 Nicolas Cardona Carrillo. Licencia CC BY 4.0:
 puede usarse y adaptarse conservando este crédito.

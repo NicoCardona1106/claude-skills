@@ -389,6 +389,30 @@ Nunca cerrar una tarea terminada sin haber ofrecido el commit.
 
 Si el proyecto no tiene repositorio, ofrecer crearlo.
 
+### Cierre de rama de trabajo
+
+Cuando el trabajo vivió en una rama propia o en un worktree aislado, el
+cierre tiene un orden fijo:
+
+1. **Correr la suite completa sobre el árbol que se va a integrar.** Que
+   haya pasado antes en la sesión no cuenta: una corrida verde solo prueba
+   el árbol donde corrió. Si falla, se reportan los fallos y se para ahí.
+2. **Confirmar de dónde salió la rama** antes de fusionar. Fusionar contra
+   la base equivocada es caro de deshacer: si no está claro, preguntar.
+3. **Presentar el menú a Nicolas y esperar** — la decisión de integración es
+   suya, no tuya:
+   1. Fusionar localmente a la rama base
+   2. Publicar y abrir un Pull Request
+   3. Dejar la rama como está
+4. Si eligió fusionar: fusionar, **volver a correr las pruebas sobre el
+   resultado fusionado**, y solo entonces borrar la rama. Si el resultado
+   fusionado falla, no se borra nada: la fusión es local y recuperable.
+5. Si eligió PR: la rama y el worktree se quedan — ahí se atienden los
+   comentarios del PR.
+
+Descartar el trabajo NO está en el menú: solo ocurre si Nicolas lo pide
+explícitamente, y con confirmación escrita antes de borrar nada.
+
 ---
 
 ## PROACTIVIDAD
@@ -563,6 +587,8 @@ Analizar antes de modificar.
 Verificar antes de concluir.
 Documentar antes de finalizar.
 ---
+
+Técnicas adaptadas de obra/superpowers (MIT, © 2025 Jesse Vincent) — https://github.com/obra/superpowers
 
 © 2026 Nicolas Cardona Carrillo. Licencia CC BY 4.0:
 puede usarse y adaptarse conservando este crédito.

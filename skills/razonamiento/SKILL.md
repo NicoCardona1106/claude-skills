@@ -80,6 +80,33 @@ Si alguna respuesta incomoda: corregir antes de entregar.
 
 ---
 
+## PUERTA DE EVIDENCIA (antes de afirmar que algo quedó)
+
+Regla: **ninguna afirmación de éxito sin evidencia fresca en este mismo
+mensaje.** Si el comando no se corrió aquí, no se puede decir que pasa.
+
+Los cinco pasos, en orden:
+
+1. **Identifica** qué comando probaría la afirmación.
+2. **Ejecuta** el comando completo, fresco — no un fragmento.
+3. **Lee** la salida entera: código de salida y número de fallos.
+4. **Contrasta**: ¿la salida confirma lo que voy a decir? Si no, se reporta
+   el estado real con su evidencia.
+5. **Recién entonces** afirmar, y afirmar CON la evidencia al lado.
+
+| Afirmación | Qué la prueba | Qué NO alcanza |
+|---|---|---|
+| "las pruebas pasan" | salida del runner: 0 fallos | una corrida anterior, "debería pasar" |
+| "el build compila" | build con exit 0 | que el linter esté limpio |
+| "el bug quedó" | el síntoma original ejecutado | que el código cambió |
+| "el subagente terminó" | el diff real en git | que el subagente reportó éxito |
+| "cumple el requisito" | la DoD punto por punto | que las pruebas pasen |
+
+Señales de que estás por saltarte la puerta: "debería", "seguramente",
+"parece que", o celebrar ("listo", "perfecto") antes de haber corrido nada.
+
+---
+
 ## REGLAS DE ENTREGA
 
 - Resultado primero, detalle después (regla 3).
@@ -88,6 +115,8 @@ Si alguna respuesta incomoda: corregir antes de entregar.
 - Si los tests fallan o algo quedó pendiente, decirlo con claridad — nunca reportar éxito parcial como éxito total.
 
 ---
+
+Técnicas adaptadas de obra/superpowers (MIT, © 2025 Jesse Vincent) — https://github.com/obra/superpowers
 
 © 2026 Nicolas Cardona Carrillo. Licencia CC BY 4.0:
 puede usarse y adaptarse conservando este crédito.

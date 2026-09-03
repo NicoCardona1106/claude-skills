@@ -88,17 +88,81 @@ Propón en una tabla y ESPERA aprobación de Nicolas antes de lanzar nada:
 - **Pocas tareas (≤ ~6)**: Agent tool. Las independientes se lanzan EN PARALELO
   en el mismo turno. Tú no escribes código: si una tarea parece "rápida de hacer
   yo mismo", igual va a un subagente salvo que sea trivial (una línea).
+
+### Cuándo NO paralelizar
+El paralelo solo es más rápido si los dominios son de verdad independientes.
+Antes de lanzar el turno con varios Agent a la vez, verifica las cuatro:
+
+- ¿Los fallos son independientes, o arreglar uno podría arreglar los otros?
+  Si sospechas causa compartida, va UN solo agente a investigarlos juntos.
+- ¿Cada problema se entiende sin el contexto de los demás?
+- ¿Tocan archivos distintos? Dos agentes editando el mismo archivo se pisan.
+- ¿Ya sabes qué está roto? La exploración a ciegas no se reparte: se hace
+  primero y después se reparte lo encontrado.
+
+Si alguna respuesta es no, van en secuencia o en un solo agente.
+
+Los cuatro errores del prompt repartido, cada uno cuesta una ronda entera:
+alcance demasiado amplio ("arregla las pruebas"), sin contexto (pega los
+mensajes de error y los nombres exactos), sin PROHIBIDO (el agente
+refactoriza de más), y sin formato de salida (no sabes qué cambió).
+
 - **Decenas de tareas** (migraciones, sweeps, revisión exhaustiva): herramienta
   Workflow con script determinista — `model` y `effort` por cada `agent()`
   según la tabla; anuncia el tamaño del fan-out (nº de agentes) antes de lanzar.
 - Detén temprano al agente que va mal: dos minutos errados cuestan menos que un
   trabajo terminado errado.
 
+## La bitácora del director (sobrevive a la compactación)
+
+Tu memoria de conversación NO sobrevive a un compact. El fallo más caro
+observado es un director que perdió el hilo y volvió a repartir tareas que
+ya estaban terminadas.
+
+Abre un archivo de bitácora por trabajo (ej. `.orquesta/<plan>/bitacora.md`)
+cuya PRIMERA línea nombre el documento que estás ejecutando, y escribe ahí,
+no solo en los todos:
+
+- `Tarea N: completa (commits <base7>..<head7>, veredicto PASA)`
+- `Tarea N: ronda de arreglo R/3 (X resueltos, Y abiertos: <una línea c/u>)`
+- `Decisión: <qué decidí> — <por qué> — <qué cuesta si me equivoco>`
+
+Al reanudar: una tarea con línea "completa" NO se vuelve a repartir; se
+retoma en la primera sin ella. Si la primera línea nombra otro documento, es
+la bitácora de otro trabajo — déjala quieta y abre la tuya. Después de un
+compact, la bitácora y `git log` mandan sobre tu recuerdo.
+
+Y al cerrar: junta TODAS las líneas `Decisión:` en el informe final de la
+Fase 5. Lo que decidiste en nombre de Nicolas solo le llega por ahí; una
+decisión que muere con el archivo se tomó a escondidas.
+
 ## Fase 4 — El bucle de revisión
 
 - ABRE cada archivo entregado y compáralo contra su contrato. Los resúmenes de
   los agentes NO son evidencia. Para entregables críticos, manda además al
   `revisor` (opus) como verificación independiente.
+
+### El diff viaja como archivo, no por tu contexto
+Tú diriges: revisar el diff tú mismo dentro de la sesión quema el contexto
+que necesitas para seguir dirigiendo. Empaqueta y delega:
+
+1. Fija el rango: `BASE=$(git rev-parse HEAD)` ANTES de lanzar al agente y
+   `HEAD=$(git rev-parse HEAD)` al recibirlo. Nunca uses `HEAD~1`: si la
+   tarea dejó varios commits, se pierden todos menos el último, en silencio.
+2. Vuelca el paquete a un archivo (`git log --oneline`, `git diff --stat` y
+   `git diff -U10` del rango, redirigidos a un archivo con nombre único) y
+   pásale al revisor la RUTA. El diff nunca entra a tu contexto; solo
+   vuelven los hallazgos.
+3. El prompt del revisor lleva: qué se construyó, el contrato de 4 campos de
+   la tarea, la ruta del paquete y las restricciones globales textuales.
+4. Revisión de solo lectura: el revisor no mueve HEAD, no toca el índice y
+   no despacha subagentes propios (un revisor que abre otro revisor duplica
+   el asiento y su veredicto no vale).
+
+Nunca le digas al revisor qué NO marcar. Si crees que un hallazgo será falso
+positivo, deja que lo levante y adjudícalo tú: "no marques X" es prejuzgar
+para ahorrarte una ronda.
+
 - Veredicto por entregable: **PASA** o **NO PASA** con el punto concreto.
 - Lo rechazado vuelve al MISMO agente con: criterio incumplido + hallazgo + qué
   cambiar exactamente.
@@ -116,3 +180,7 @@ Un solo informe estilo nicolas-mode: resultado primero, tabla de tareas con
 veredicto final, hallazgos relevantes, qué quedó pendiente y siguiente paso.
 Actualiza Mempalace/bitácora según las reglas de nicolas-mode y prepara el
 commit esperando autorización.
+
+---
+
+Técnicas adaptadas de obra/superpowers (MIT, © 2025 Jesse Vincent) — https://github.com/obra/superpowers
