@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+html,body{margin:0;background:#0f2a3a;color:#f2f7f5;font-family:Onest,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#f2f7f5;text-decoration:none}a:hover{color:#c8f55a}
+*{box-sizing:border-box}
+@keyframes fadeUp{from{opacity:0;transform:translate3d(0,40px,0)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes rise{from{opacity:0;transform:translate3d(0,80px,0) scale(.9)}to{opacity:1;transform:none}}
+@keyframes floatY{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-16px) rotate(1deg)}}
+@keyframes shine{0%{transform:translateX(-120%) skewX(-20deg)}100%{transform:translateX(220%) skewX(-20deg)}}
+</style>
+</helmet>
+<div ref="{{ rootRef }}" style="background:#0f2a3a;overflow-x:clip">
+
+<section data-screen-label="Hero" style="position:relative;height:100vh;min-height:760px;overflow:hidden;background:linear-gradient(180deg,#0f2a3a 0%,#164a5a 60%,#1c6a70 100%)">
+  <div style="position:absolute;left:0;right:0;bottom:0;height:60%;pointer-events:none;z-index:1"><canvas ref="{{ waveRef }}" style="width:100%;height:100%;display:block"></canvas></div>
+  <div style="position:absolute;inset:0;pointer-events:none;z-index:2"><canvas ref="{{ bubbleRef }}" style="width:100%;height:100%;display:block"></canvas></div>
+
+  <nav style="position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:26px 56px;z-index:6;animation:fadeIn 1s .2s both">
+    <a href="#" style="display:flex;align-items:center;gap:10px;font-weight:600;font-size:16px"><span style="width:30px;height:30px;border-radius:50%;border:2px solid #c8f55a;display:grid;place-items:center;font-size:12px;color:#c8f55a">✿</span>Verde</a>
+    <div style="display:flex;gap:clamp(14px,2vw,34px)px;font-size:13px"><sc-for list="{{ t.nav }}" as="n" hint-placeholder-count="4"><a href="#" style="color:rgba(242,247,245,.7)" style-hover="color:#fff">{{ n }}</a></sc-for></div>
+    <div style="display:flex;gap:8px;align-items:center">
+      <button onClick="{{ toggleLang }}" style="white-space:nowrap;border:1px solid rgba(242,247,245,.25);background:transparent;color:inherit;border-radius:999px;padding:7px 12px;font-size:11px;letter-spacing:.1em;cursor:pointer;font-family:inherit">{{ langLabel }}</button>
+      <sc-for list="{{ socials }}" as="s" hint-placeholder-count="3"><span style="width:34px;height:34px;border-radius:50%;border:1px solid rgba(242,247,245,.3);display:grid;place-items:center;font-size:10px">{{ s }}</span></sc-for>
+      <a href="#" data-magnetic="" style="white-space:nowrap;display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;border:1px solid rgba(242,247,245,.3);font-size:12px;font-weight:500">{{ t.readMore }}<span style="width:22px;height:22px;border-radius:50%;background:#c8f55a;color:#0f2a3a;display:grid;place-items:center;font-size:11px">→</span></a>
+    </div>
+  </nav>
+
+  <!-- island -->
+  <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-44%);width:min(50vw,720px);height:min(70vh,660px);z-index:3"><div data-depth="0.3" style="position:absolute;inset:0"><div style="position:absolute;inset:0;animation:rise 1.8s .5s cubic-bezier(.2,.7,.2,1) both"><div style="position:absolute;inset:0;animation:floatY 8s ease-in-out infinite;filter:drop-shadow(0 60px 60px rgba(0,0,0,.45))">
+    <x-import component-from-global-scope="image-slot" id="verde-hero" shape="rect" placeholder="Isla de musgo con diente 3D, cristales y flores (PNG)" hint-size="100%,100%" style="position:absolute;inset:0;width:100%;height:100%"></x-import>
+  </div></div></div></div>
+
+  <!-- copy left -->
+  <div style="position:absolute;left:56px;top:50%;transform:translateY(-50%);max-width:520px;z-index:4">
+    <div style="font-size:12px;color:rgba(242,247,245,.6);margin-bottom:22px;animation:fadeUp 1s .6s both">{{ t.eyebrow }}</div>
+    <h1 style="font-weight:600;font-size:clamp(48px,6vw,92px);line-height:.95;letter-spacing:-.03em;margin:0 0 26px;text-transform:uppercase">
+      <span style="display:block;animation:fadeUp 1s .8s both">{{ t.h1a }}</span>
+      <span style="display:block;animation:fadeUp 1s .95s both">{{ t.h1b }}</span>
+      <span style="display:block;animation:fadeUp 1s 1.1s both">{{ t.h1c }} <em style="color:#c8f55a;font-style:normal">{{ t.h1em }}</em></span>
+      <span style="display:block;animation:fadeUp 1s 1.25s both">{{ t.h1d }}</span>
+    </h1>
+    <p style="font-size:14px;line-height:1.7;color:rgba(242,247,245,.65);max-width:320px;margin:0 0 30px;animation:fadeUp 1s 1.4s both">{{ t.sub }}</p>
+    <div style="display:flex;gap:12px;align-items:center;animation:fadeUp 1s 1.55s both">
+      <a href="#" data-magnetic="" style="white-space:nowrap;position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:10px;padding:6px 6px 6px 22px;border-radius:999px;background:#c8f55a;color:#0f2a3a;font-size:13px;font-weight:600">{{ t.book }}<span style="width:34px;height:34px;border-radius:50%;background:#0f2a3a;color:#c8f55a;display:grid;place-items:center">→</span><span style="position:absolute;top:0;bottom:0;width:40%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);animation:shine 3s 2s ease-in-out infinite"></span></a>
+      <a href="#" style="font-size:13px;color:rgba(242,247,245,.75);padding:14px 18px">{{ t.contact }}</a>
+    </div>
+  </div>
+
+  <!-- right block -->
+  <div data-depth="0.5" style="position:absolute;right:56px;top:36%;max-width:260px;z-index:4;animation:fadeUp 1.1s 1.5s both">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:22px"><div style="display:flex"><sc-for list="{{ avatars }}" as="a" hint-placeholder-count="4"><span style="width:34px;height:34px;border-radius:50%;background:{{ a }};border:2px solid #164a5a;margin-left:-10px"></span></sc-for></div><span style="width:34px;height:34px;border-radius:50%;background:#c8f55a;color:#0f2a3a;display:grid;place-items:center;font-size:11px;font-weight:700">+</span></div>
+    <h2 style="font-weight:600;font-size:28px;line-height:1;letter-spacing:-.02em;margin:0 0 14px;text-transform:uppercase">{{ t.sideA }}<br>{{ t.sideB }} <span style="color:#c8f55a">{{ t.sideEm }}</span></h2>
+    <p style="font-size:12px;line-height:1.7;color:rgba(242,247,245,.62);margin:0">{{ t.sideText }}</p>
+  </div>
+
+  <!-- stats bottom -->
+  <div style="position:absolute;left:50%;bottom:56px;transform:translateX(-50%);display:flex;gap:24px;z-index:4;animation:fadeUp 1s 1.9s both">
+    <sc-for list="{{ t.stats }}" as="s" hint-placeholder-count="3">
+      <div style="display:flex;align-items:center;gap:14px;padding:12px 18px 12px 12px;border-radius:999px;background:rgba(15,42,58,.45);border:1px solid rgba(242,247,245,.15);backdrop-filter:blur(14px)">
+        <span style="width:36px;height:36px;border-radius:50%;background:rgba(200,245,90,.15);display:grid;place-items:center;color:#c8f55a;font-size:13px">{{ s.icon }}</span>
+        <div><div style="font-weight:600;font-size:20px;line-height:1"><span data-count="{{ s.n }}" data-suffix="{{ s.suffix }}" style="white-space:nowrap">0</span></div><div style="font-size:11px;color:rgba(242,247,245,.55);margin-top:3px">{{ s.l }}</div></div>
+      </div>
+    </sc-for>
+  </div>
+  <div style="position:absolute;left:56px;bottom:56px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(242,247,245,.3);display:grid;place-items:center;font-size:14px;z-index:4;animation:fadeIn 1s 2s both">↓</div>
+</section>
+
+<!-- SERVICES -->
+<section data-screen-label="Servicios" style="padding:140px 56px 100px;background:#f2f7f5;color:#0f2a3a">
+  <div data-reveal="" style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px;gap:40px">
+    <h2 style="font-weight:600;font-size:clamp(36px,4.4vw,68px);line-height:.95;letter-spacing:-.03em;margin:0;text-transform:uppercase;max-width:640px">{{ t.servTitle }} <span style="color:#3aa77a">{{ t.servEm }}</span></h2>
+    <p style="max-width:320px;font-size:14px;line-height:1.7;color:rgba(15,42,58,.65);margin:0">{{ t.servText }}</p>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+    <sc-for list="{{ t.services }}" as="s" hint-placeholder-count="4">
+      <article data-reveal="" data-reveal-delay="{{ s.delay }}" data-tilt="" style="padding:26px;border-radius:24px;background:#fff;min-height:340px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 20px 50px rgba(15,42,58,.06)">
+        <div style="position:relative;height:130px;border-radius:16px;overflow:hidden;background:#e4efe9"><x-import component-from-global-scope="image-slot" id="{{ s.id }}" shape="rounded" radius="16" placeholder="{{ s.title }}" hint-size="100%,100%" style="position:absolute;inset:0;width:100%;height:100%"></x-import></div>
+        <div><div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#3aa77a;margin:22px 0 8px">{{ s.tag }}</div><h3 style="font-weight:600;font-size:20px;letter-spacing:-.01em;margin:0 0 8px">{{ s.title }}</h3><p style="font-size:13px;line-height:1.6;color:rgba(15,42,58,.65);margin:0">{{ s.text }}</p></div>
+      </article>
+    </sc-for>
+  </div>
+</section>
+
+<!-- TEAM + BOOKING -->
+<section data-screen-label="Reserva" style="padding:120px 56px 140px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;background:#f2f7f5;color:#0f2a3a">
+  <div data-reveal="" style="position:relative;height:600px;border-radius:32px;overflow:hidden"><x-import component-from-global-scope="image-slot" id="verde-team" shape="rounded" radius="32" placeholder="Consultorio luminoso con plantas" hint-size="100%,100%" style="position:absolute;inset:0;width:100%;height:100%"></x-import>
+    <div style="position:absolute;left:24px;bottom:24px;padding:16px 20px;border-radius:18px;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);display:flex;gap:14px;align-items:center"><span style="width:44px;height:44px;border-radius:50%;background:#c8f55a"></span><div><div style="font-weight:600;font-size:14px">{{ t.docName }}</div><div style="font-size:12px;color:rgba(15,42,58,.6)">{{ t.docRole }}</div></div></div>
+  </div>
+  <div>
+    <h2 data-reveal="" style="font-weight:600;font-size:clamp(34px,3.8vw,58px);line-height:.98;letter-spacing:-.03em;margin:0 0 20px;text-transform:uppercase">{{ t.bookTitle }}</h2>
+    <p data-reveal="" style="font-size:15px;line-height:1.7;color:rgba(15,42,58,.65);margin:0 0 32px;max-width:420px">{{ t.bookText }}</p>
+    <div data-reveal="" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
+      <input placeholder="{{ t.fName }}" style="padding:16px 18px;border-radius:14px;border:1px solid rgba(15,42,58,.15);background:#fff;font-family:inherit;font-size:14px;outline:none">
+      <input placeholder="{{ t.fPhone }}" style="padding:16px 18px;border-radius:14px;border:1px solid rgba(15,42,58,.15);background:#fff;font-family:inherit;font-size:14px;outline:none">
+    </div>
+    <div data-reveal="" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px"><sc-for list="{{ slots }}" as="s" hint-placeholder-count="5"><button onClick="{{ s.pick }}" style="padding:10px 16px;border-radius:999px;border:1px solid {{ s.border }};background:{{ s.bg }};color:{{ s.fg }};font-family:inherit;font-size:13px;cursor:pointer;transition:all .25s">{{ s.l }}</button></sc-for></div>
+    <a href="#" data-reveal="" data-magnetic="" style="white-space:nowrap;display:inline-flex;align-items:center;gap:12px;padding:6px 6px 6px 24px;border-radius:999px;background:#0f2a3a;color:#fff;font-size:14px;font-weight:600">{{ t.confirm }} · {{ slotLabel }}<span style="width:38px;height:38px;border-radius:50%;background:#c8f55a;color:#0f2a3a;display:grid;place-items:center">→</span></a>
+  </div>
+</section>
+<footer style="display:flex;justify-content:space-between;padding:0 56px 40px;font-size:12px;color:rgba(242,247,245,.4)"><span>© 2026 Verde Dental Wellness</span><span>{{ t.footer }}</span></footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { lang: 'es', slot: 1 };
+  rootRef = React.createRef(); waveRef = React.createRef(); bubbleRef = React.createRef();
+  copy = {
+    es: { nav: ['Inicio', 'Servicios', 'Nosotros', 'Historias'], readMore: 'Leer más', eyebrow: 'Tu sonrisa, fuente de calma', h1a: 'Un enfoque', h1b: 'fresco', h1c: 'para el', h1em: 'bienestar', h1d: 'dental', sub: 'Tratamientos suaves inspirados en la naturaleza, diseñados para una comodidad duradera.', book: 'Reservar ahora', contact: 'Contáctanos', sideA: 'Precisión', sideB: 'para cada', sideEm: 'sonrisa', sideText: 'Cuidado avanzado en un espacio que se siente como un respiro, no como una clínica.',
+      stats: [{ icon: '✦', n: 15, suffix: '+', l: 'Años de experiencia' }, { icon: '◎', n: 98, suffix: '%', l: 'Pacientes satisfechos' }, { icon: '♡', n: 2, suffix: 'K+', l: 'Sonrisas felices' }],
+      servTitle: 'Cuidado que se siente', servEm: 'natural', servText: 'Sin olores químicos, sin luces frías. Tecnología de última generación en un ambiente que baja el pulso.', services: [{ id: 'verde-s1', tag: 'Prevención', title: 'Limpieza consciente', text: 'Higiene profunda con ultrasonido y pastas sin flúor sintético.', delay: '0' }, { id: 'verde-s2', tag: 'Estética', title: 'Blanqueamiento suave', text: 'Resultados visibles en una sesión sin sensibilidad posterior.', delay: '80' }, { id: 'verde-s3', tag: 'Ortodoncia', title: 'Alineadores invisibles', text: 'Planificación 3D y seguimiento remoto desde tu casa.', delay: '160' }, { id: 'verde-s4', tag: 'Restauración', title: 'Implantes biocompatibles', text: 'Zirconio libre de metal, integrado en 8 semanas.', delay: '240' }],
+      docName: 'Dra. Camila Restrepo', docRole: 'Directora clínica · 15 años', bookTitle: 'Tu primera visita, sin prisa', bookText: 'Cuarenta minutos para conocerte, escuchar y hacer un diagnóstico completo. Sin costo si decides no continuar.', fName: 'Tu nombre', fPhone: 'Teléfono', slots: ['Lun 9:00', 'Lun 11:30', 'Mar 15:00', 'Mié 10:00', 'Jue 16:30'], confirm: 'Confirmar', footer: 'Diseño · Nivaldyr Technologies' },
+    en: { nav: ['Home', 'Services', 'About us', 'Patient stories'], readMore: 'Read more', eyebrow: 'Your smile, source of calm', h1a: 'A fresh', h1b: 'approach', h1c: 'to', h1em: 'dental', h1d: 'wellness', sub: 'Gentle treatments inspired by nature, designed for lasting comfort.', book: 'Book now', contact: 'Contact us', sideA: 'Precision', sideB: 'crafted for', sideEm: 'every smile', sideText: 'Advanced care in a space that feels like a breath, not a clinic.',
+      stats: [{ icon: '✦', n: 15, suffix: '+', l: 'Years of experience' }, { icon: '◎', n: 98, suffix: '%', l: 'Satisfied patients' }, { icon: '♡', n: 2, suffix: 'K+', l: 'Happy smiles' }],
+      servTitle: 'Care that feels', servEm: 'natural', servText: 'No chemical smells, no cold lights. Latest-generation technology in an environment that slows your pulse.', services: [{ id: 'verde-s1', tag: 'Prevention', title: 'Mindful cleaning', text: 'Deep hygiene with ultrasound and synthetic-fluoride-free pastes.', delay: '0' }, { id: 'verde-s2', tag: 'Aesthetics', title: 'Gentle whitening', text: 'Visible results in one session with no sensitivity afterwards.', delay: '80' }, { id: 'verde-s3', tag: 'Orthodontics', title: 'Invisible aligners', text: '3D planning and remote follow-up from home.', delay: '160' }, { id: 'verde-s4', tag: 'Restoration', title: 'Biocompatible implants', text: 'Metal-free zirconia, integrated in 8 weeks.', delay: '240' }],
+      docName: 'Dr. Camila Restrepo', docRole: 'Clinical director · 15 years', bookTitle: 'Your first visit, unhurried', bookText: 'Forty minutes to meet you, listen and make a complete diagnosis. Free if you decide not to continue.', fName: 'Your name', fPhone: 'Phone', slots: ['Mon 9:00', 'Mon 11:30', 'Tue 15:00', 'Wed 10:00', 'Thu 16:30'], confirm: 'Confirm', footer: 'Design · Nivaldyr Technologies' },
+  };
+  componentDidMount() { const root = this.rootRef.current; import('./fx.js').then((fx) => { this.cleanups = [fx.parallax(root, { max: 24 }), fx.reveal(root), fx.magnetic(root), fx.tilt(root, { max: 5 }), fx.counters(root), fx.waves(this.waveRef.current, { color: '200,245,90', amp: 22, layers: 3, speed: .8 }), fx.particles(this.bubbleRef.current, { type: 'bubble', count: 26, color: '200,245,90', speed: .5 })]; }); }
+  componentWillUnmount() { (this.cleanups || []).forEach((c) => c()); }
+  renderVals() {
+    const lang = this.state.lang; const t = this.copy[lang]; const i = this.state.slot;
+    return { rootRef: this.rootRef, waveRef: this.waveRef, bubbleRef: this.bubbleRef, t, socials: ['IG', 'FB', 'TK'], avatars: ['#3aa77a', '#c8f55a', '#0f2a3a', '#9fd6c0'], slotLabel: t.slots[i],
+      slots: t.slots.map((l, k) => ({ l, border: k === i ? '#0f2a3a' : 'rgba(15,42,58,.2)', bg: k === i ? '#0f2a3a' : '#fff', fg: k === i ? '#fff' : '#0f2a3a', pick: () => this.setState({ slot: k }) })),
+      langLabel: lang === 'es' ? 'ES · EN' : 'EN · ES', toggleLang: () => this.setState((s) => ({ lang: s.lang === 'es' ? 'en' : 'es' })) };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500&family=Archivo+Black&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+html,body{margin:0;background:#0e0f12;color:#f3f1ec;font-family:Archivo,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#f3f1ec;text-decoration:none}a:hover{color:#ff7a33}
+*{box-sizing:border-box}
+@keyframes fadeUp{from{opacity:0;transform:translate3d(0,40px,0)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes riseWord{from{opacity:0;transform:translate3d(0,110%,0)}to{opacity:1;transform:none}}
+@keyframes glowLine{0%,100%{opacity:.6}50%{opacity:1}}
+</style>
+</helmet>
+<div ref="{{ rootRef }}" style="background:#0e0f12;overflow-x:clip">
+
+<section data-screen-label="Hero" style="position:relative;height:100vh;min-height:760px;overflow:hidden">
+  <div data-depth="0.2" style="position:absolute;inset:-4%">
+    <x-import component-from-global-scope="image-slot" id="elan-hero" shape="rect" placeholder="Casa modernista al anochecer · montañas · luz naranja" hint-size="100%,100%" style="position:absolute;inset:0;width:100%;height:100%"></x-import>
+  </div>
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,15,18,.6),transparent 30%,transparent 55%,rgba(14,15,18,.95))"></div>
+  <div style="position:absolute;left:0;right:0;bottom:24%;height:2px;background:linear-gradient(90deg,transparent,#ff7a33 30%,#ff7a33 70%,transparent);filter:blur(1px);animation:glowLine 3s ease-in-out infinite;opacity:.8"></div>
+
+  <nav style="position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px 56px;z-index:6;animation:fadeIn 1s .2s both">
+    <a href="#" style="width:38px;height:38px;border:1px solid rgba(243,241,236,.4);display:grid;place-items:center;font-family:'Archivo Black',sans-serif;font-size:14px">É</a>
+    <div style="display:flex;gap:6px;padding:5px;border-radius:999px;background:rgba(14,15,18,.4);border:1px solid rgba(243,241,236,.15);backdrop-filter:blur(14px)">
+      <sc-for list="{{ t.nav }}" as="n" hint-placeholder-count="5"><a href="#" style="padding:8px 16px;border-radius:999px;font-size:12px;letter-spacing:.06em;color:rgba(243,241,236,.75)" style-hover="background:#f3f1ec;color:#0e0f12">{{ n }}</a></sc-for>
+    </div>
+    <button onClick="{{ toggleLang }}" style="white-space:nowrap;border:1px solid rgba(243,241,236,.25);background:transparent;color:inherit;border-radius:999px;padding:8px 12px;font-size:11px;letter-spacing:.1em;cursor:pointer;font-family:inherit">{{ langLabel }}</button>
+  </nav>
+
+  <!-- giant brand -->
+  <div style="position:absolute;left:56px;top:15%;z-index:3;overflow:hidden;line-height:.8">
+    <div style="display:flex;font-family:'Archivo Black',sans-serif;font-size:clamp(140px,24vw,380px);letter-spacing:-.04em;line-height:.8;color:#f3f1ec">
+      <sc-for list="{{ letters }}" as="l" hint-placeholder-count="4"><span style="display:inline-block;animation:riseWord 1.2s cubic-bezier(.2,.7,.2,1) both;animation-delay:{{ l.delay }}">{{ l.ch }}</span></sc-for>
+    </div>
+  </div>
+  <p style="position:absolute;left:56px;top:calc(15% + 4px);transform:translateY(-120%);font-size:13px;line-height:1.6;color:rgba(243,241,236,.7);max-width:220px;margin:0;z-index:4;animation:fadeUp 1s 1s both">{{ t.sub }}</p>
+
+  <!-- tagline -->
+  <div style="position:absolute;left:56px;bottom:90px;z-index:4">
+    <h1 style="font-family:Archivo,sans-serif;font-weight:300;font-size:clamp(28px,3vw,44px);line-height:1.05;letter-spacing:-.01em;margin:0 0 30px;text-transform:uppercase;animation:fadeUp 1s 1.2s both">{{ t.h1a }}<br>{{ t.h1b }}<br>{{ t.h1c }}</h1>
+    <a href="#collection" data-magnetic="" style="white-space:nowrap;display:inline-flex;align-items:center;gap:14px;padding:6px 6px 6px 22px;border-radius:999px;background:#f3f1ec;color:#0e0f12;font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;animation:fadeUp 1s 1.4s both">{{ t.cta }}<span style="width:36px;height:36px;border-radius:50%;background:#0e0f12;color:#f3f1ec;display:grid;place-items:center">↗</span></a>
+  </div>
+
+  <!-- stats -->
+  <div data-depth="0.6" style="position:absolute;right:56px;bottom:170px;display:flex;flex-direction:column;gap:10px;z-index:4">
+    <sc-for list="{{ t.stats }}" as="s" hint-placeholder-count="2">
+      <div style="width:170px;padding:16px 18px;border-radius:14px;background:rgba(243,241,236,.08);border:1px solid rgba(243,241,236,.16);backdrop-filter:blur(16px);animation:fadeUp 1s both;animation-delay:{{ s.delay }}">
+        <div style="font-family:'Archivo Black',sans-serif;font-size:30px;line-height:1" data-scramble="{{ s.v }}">{{ s.v }}</div>
+        <div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(243,241,236,.55);margin-top:6px">{{ s.l }}</div>
+      </div>
+    </sc-for>
+  </div>
+  <div style="position:absolute;right:56px;bottom:90px;display:flex;z-index:4;animation:fadeUp 1s 1.8s both">
+    <sc-for list="{{ agents }}" as="a" hint-placeholder-count="4"><span style="width:44px;height:44px;border-radius:50%;border:2px solid #0e0f12;background:{{ a }};margin-left:-10px"></span></sc-for>
+    <span style="margin-left:14px;font-size:12px;color:rgba(243,241,236,.7);align-self:center">{{ t.agents }}</span>
+  </div>
+</section>
+
+<!-- HORIZONTAL STICKY COLLECTION -->
+<section id="collection" data-screen-label="Propiedades" ref="{{ hRef }}" style="position:relative;height:400vh">
+  <div style="position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center">
+    <div style="padding:0 56px;display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:36px">
+      <h2 style="font-family:'Archivo Black',sans-serif;font-size:clamp(36px,4.6vw,72px);letter-spacing:-.03em;line-height:.95;margin:0;text-transform:uppercase">{{ t.colTitle }}<br><span style="color:#ff7a33">{{ t.colTitleB }}</span></h2>
+      <div style="display:flex;align-items:center;gap:16px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(243,241,236,.55)"><span>{{ t.scrollHint }}</span><span style="width:120px;height:2px;background:rgba(243,241,236,.15);position:relative;overflow:hidden"><span ref="{{ barRef }}" style="position:absolute;inset:0;background:#ff7a33;transform-origin:left;transform:scaleX(0)"></span></span></div>
+    </div>
+    <div ref="{{ trackRef }}" style="display:flex;gap:24px;padding-left:56px;will-change:transform">
+      <sc-for list="{{ t.props }}" as="p" hint-placeholder-count="5">
+        <article data-tilt="" style="flex:0 0 min(38vw,560px);height:min(60vh,560px);position:relative;border-radius:18px;overflow:hidden;background:#17181d">
+          <x-import component-from-global-scope="image-slot" id="{{ p.id }}" shape="rect" placeholder="{{ p.ph }}" hint-size="100%,100%" style="position:absolute;inset:0;width:100%;height:100%"></x-import>
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(14,15,18,.95))"></div>
+          <span style="position:absolute;top:18px;left:18px;font-family:'Archivo Black',sans-serif;font-size:13px;letter-spacing:.1em;padding:6px 10px;border-radius:999px;background:rgba(14,15,18,.55);backdrop-filter:blur(8px)">{{ p.num }}</span>
+          <span style="position:absolute;top:18px;right:18px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:6px 10px;border-radius:999px;background:#ff7a33;color:#0e0f12;font-weight:500">{{ p.status }}</span>
+          <div style="position:absolute;left:22px;right:22px;bottom:22px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px">
+            <div><div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#ff7a33;margin-bottom:8px">{{ p.loc }}</div><div style="font-family:'Archivo Black',sans-serif;font-size:28px;letter-spacing:-.02em;line-height:1">{{ p.name }}</div><div style="font-size:12px;color:rgba(243,241,236,.6);margin-top:8px">{{ p.meta }}</div></div>
+            <div style="font-family:'Archivo Black',sans-serif;font-size:22px;white-space:nowrap">{{ p.price }}</div>
+          </div>
+        </article>
+      </sc-for>
+      <div style="flex:0 0 40vw"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES with cursor follow -->
+<section data-screen-label="Servicios" style="padding:140px 56px;display:grid;grid-template-columns:.8fr 1.2fr;gap:80px">
+  <div>
+    <div data-reveal="" style="font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#ff7a33;margin-bottom:18px">{{ t.servEyebrow }}</div>
+    <h2 data-reveal="" style="font-family:'Archivo Black',sans-serif;font-size:clamp(32px,3.6vw,56px);letter-spacing:-.03em;line-height:.98;margin:0 0 24px;text-transform:uppercase">{{ t.servTitle }}</h2>
+    <p data-reveal="" style="font-size:14px;line-height:1.75;color:rgba(243,241,236,.6);margin:0;max-width:360px">{{ t.servText }}</p>
+  </div>
+  <div>
+    <sc-for list="{{ t.services }}" as="s" hint-placeholder-count="4">
+      <a href="#" data-reveal="" data-reveal-delay="{{ s.delay }}" data-follow="{{ s.img }}" style="display:grid;grid-template-columns:50px 1fr auto;gap:20px;align-items:center;padding:30px 0;border-top:1px solid rgba(243,241,236,.14)" style-hover="color:#ff7a33">
+        <span style="font-size:12px;color:rgba(243,241,236,.45)">{{ s.num }}</span>
+        <span style="font-family:'Archivo Black',sans-serif;font-size:clamp(22px,2.4vw,34px);letter-spacing:-.02em;text-transform:uppercase">{{ s.name }}</span>
+        <span style="font-size:12px;color:rgba(243,241,236,.5)">{{ s.meta }}</span>
+      </a>
+    </sc-for>
+    <sc-for list="{{ t.services }}" as="s" hint-placeholder-count="4">
+      <div id="{{ s.img }}" style="position:fixed;left:0;top:0;width:260px;height:180px;border-radius:14px;overflow:hidden;pointer-events:none;opacity:0;scale:.8;transition:opacity .3s,scale .3s;z-index:50;box-shadow:0 30px 60px rgba(0,0,0,.5)">
+        <x-import component-from-global-scope="image-slot" id="{{ s.slot }}" shape="rounded" radius="14" placeholder="{{ s.name }}" hint-size="100%,100%" style="position:absolute;inset:0;width:100%;height:100%"></x-import>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<!-- CTA -->
+<section data-screen-label="CTA" style="margin:0 56px 56px;padding:90px 64px;border-radius:24px;background:#ff7a33;color:#0e0f12;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center">
+  <h2 data-reveal="" style="font-family:'Archivo Black',sans-serif;font-size:clamp(40px,5.4vw,88px);letter-spacing:-.04em;line-height:.9;margin:0;text-transform:uppercase">{{ t.ctaTitle }}</h2>
+  <a href="#" data-reveal="" data-magnetic="" style="white-space:nowrap;padding:22px 36px;border-radius:999px;background:#0e0f12;color:#f3f1ec;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;white-space:nowrap">{{ t.ctaBtn }} ↗</a>
+</section>
+<footer style="display:flex;justify-content:space-between;padding:0 56px 40px;font-size:11px;color:rgba(243,241,236,.4);letter-spacing:.14em;text-transform:uppercase"><span>© 2026 Élan Estates</span><span>{{ t.footer }}</span></footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { lang: 'es' };
+  rootRef = React.createRef(); hRef = React.createRef(); trackRef = React.createRef(); barRef = React.createRef();
+  copy = {
+    es: { nav: ['Inicio', 'Propiedades', 'Nosotros', 'Agentes', 'Contacto'], sub: 'Descubre propiedades exclusivas, curadas para la vida moderna.', h1a: 'Donde el lujo', h1b: 'encuentra', h1c: 'su dirección', cta: 'Consultoría', agents: '12 agentes en línea',
+      stats: [{ v: '250+', l: 'Propiedades premium', delay: '1.4s' }, { v: '42', l: 'Ubicaciones globales', delay: '1.55s' }],
+      colTitle: 'Propiedades', colTitleB: 'seleccionadas', scrollHint: 'Sigue bajando',
+      props: [{ id: 'elan-p1', ph: 'Villa en acantilado', num: '01', status: 'Disponible', loc: 'Ibiza · España', name: 'Casa Horizonte', meta: '620 m² · 5 hab · Piscina infinita', price: '€ 8.9M' }, { id: 'elan-p2', ph: 'Penthouse urbano', num: '02', status: 'Exclusiva', loc: 'Ciudad de México', name: 'Torre Reforma PH', meta: '410 m² · 4 hab · Terraza 360°', price: '$ 6.2M' }, { id: 'elan-p3', ph: 'Casa en el desierto', num: '03', status: 'Nueva', loc: 'Joshua Tree · CA', name: 'Casa Dune', meta: '380 m² · 3 hab · Off-grid', price: '$ 4.1M' }, { id: 'elan-p4', ph: 'Chalet alpino', num: '04', status: 'Reservada', loc: 'Verbier · Suiza', name: 'Chalet Nord', meta: '540 m² · 6 hab · Spa privado', price: 'CHF 11M' }, { id: 'elan-p5', ph: 'Casa frente al lago', num: '05', status: 'Disponible', loc: 'Como · Italia', name: 'Villa Lario', meta: '890 m² · 7 hab · Embarcadero', price: '€ 14M' }],
+      servEyebrow: 'Servicios', servTitle: 'Más que una transacción', servText: 'Acompañamos cada etapa: búsqueda privada, due diligence, diseño de interiores y gestión del patrimonio.', services: [{ num: '01', name: 'Búsqueda privada', meta: 'Off-market', img: 'elan-f1', slot: 'elan-sf1', delay: '0' }, { num: '02', name: 'Asesoría legal', meta: 'Internacional', img: 'elan-f2', slot: 'elan-sf2', delay: '80' }, { num: '03', name: 'Interiorismo', meta: 'Llave en mano', img: 'elan-f3', slot: 'elan-sf3', delay: '160' }, { num: '04', name: 'Gestión de renta', meta: 'Corta y larga estancia', img: 'elan-f4', slot: 'elan-sf4', delay: '240' }],
+      ctaTitle: 'Hablemos de tu próxima dirección', ctaBtn: 'Agendar consultoría', footer: 'Diseño · Nivaldyr Technologies' },
+    en: { nav: ['Home', 'Listings', 'About', 'Agents', 'Contact'], sub: 'Discover exclusive properties curated for modern living.', h1a: 'Where luxury', h1b: 'finds its', h1c: 'address', cta: 'Consultation', agents: '12 agents online',
+      stats: [{ v: '250+', l: 'Premium listings', delay: '1.4s' }, { v: '42', l: 'Global locations', delay: '1.55s' }],
+      colTitle: 'Selected', colTitleB: 'properties', scrollHint: 'Keep scrolling',
+      props: [{ id: 'elan-p1', ph: 'Cliff villa', num: '01', status: 'Available', loc: 'Ibiza · Spain', name: 'Casa Horizonte', meta: '620 m² · 5 bd · Infinity pool', price: '€ 8.9M' }, { id: 'elan-p2', ph: 'Urban penthouse', num: '02', status: 'Exclusive', loc: 'Mexico City', name: 'Torre Reforma PH', meta: '410 m² · 4 bd · 360° terrace', price: '$ 6.2M' }, { id: 'elan-p3', ph: 'Desert house', num: '03', status: 'New', loc: 'Joshua Tree · CA', name: 'Casa Dune', meta: '380 m² · 3 bd · Off-grid', price: '$ 4.1M' }, { id: 'elan-p4', ph: 'Alpine chalet', num: '04', status: 'Reserved', loc: 'Verbier · Switzerland', name: 'Chalet Nord', meta: '540 m² · 6 bd · Private spa', price: 'CHF 11M' }, { id: 'elan-p5', ph: 'Lakefront house', num: '05', status: 'Available', loc: 'Como · Italy', name: 'Villa Lario', meta: '890 m² · 7 bd · Boat dock', price: '€ 14M' }],
+      servEyebrow: 'Services', servTitle: 'More than a transaction', servText: 'We accompany every stage: private search, due diligence, interior design and wealth management.', services: [{ num: '01', name: 'Private search', meta: 'Off-market', img: 'elan-f1', slot: 'elan-sf1', delay: '0' }, { num: '02', name: 'Legal advisory', meta: 'International', img: 'elan-f2', slot: 'elan-sf2', delay: '80' }, { num: '03', name: 'Interior design', meta: 'Turnkey', img: 'elan-f3', slot: 'elan-sf3', delay: '160' }, { num: '04', name: 'Rental management', meta: 'Short & long stay', img: 'elan-f4', slot: 'elan-sf4', delay: '240' }],
+      ctaTitle: 'Let’s talk about your next address', ctaBtn: 'Book a consultation', footer: 'Design · Nivaldyr Technologies' },
+  };
+  componentDidMount() {
+    const root = this.rootRef.current;
+    import('./fx.js').then((fx) => {
+      const track = this.trackRef.current, bar = this.barRef.current;
+      this.cleanups = [fx.parallax(root, { max: 24 }), fx.reveal(root), fx.magnetic(root), fx.tilt(root, { max: 4 }), fx.scramble(root), fx.cursorFollow(root),
+        fx.scrollProgress(this.hRef.current, (p) => { if (!track) return; const max = track.scrollWidth - window.innerWidth + 56; track.style.transform = `translate3d(${(-p * max).toFixed(1)}px,0,0)`; if (bar) bar.style.transform = `scaleX(${p})`; }, { sticky: true })];
+    });
+  }
+  componentWillUnmount() { (this.cleanups || []).forEach((c) => c()); }
+  renderVals() {
+    const lang = this.state.lang; const t = this.copy[lang];
+    return { rootRef: this.rootRef, hRef: this.hRef, trackRef: this.trackRef, barRef: this.barRef, t,
+      letters: 'ÉLAN'.split('').map((ch, i) => ({ ch, delay: (0.4 + i * 0.1) + 's' })), agents: ['#ff7a33', '#c9c4bb', '#6b6f7a', '#f3f1ec'],
+      langLabel: lang === 'es' ? 'ES · EN' : 'EN · ES', toggleLang: () => this.setState((s) => ({ lang: s.lang === 'es' ? 'en' : 'es' })) };
+  }
+}
+</script>
+</body>
+</html>

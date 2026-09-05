@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+html,body{margin:0;background:#1c120c;color:#f1e9df;font-family:'DM Sans',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#f1e9df;text-decoration:none}a:hover{color:#c98a3c}
+*{box-sizing:border-box}
+@keyframes fadeUp{from{opacity:0;transform:translate3d(0,40px,0)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes dropIn{from{opacity:0;transform:translate3d(0,-120%,0) rotate(-8deg)}to{opacity:1;transform:none}}
+@keyframes floatBean{0%,100%{transform:translate(0,0) rotate(var(--r,0deg))}50%{transform:translate(6px,-18px) rotate(calc(var(--r,0deg) + 12deg))}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes steam{0%{opacity:0;transform:translateY(0) scaleX(1)}30%{opacity:.5}100%{opacity:0;transform:translateY(-60px) scaleX(1.6)}}
+</style>
+</helmet>
+<div ref="{{ rootRef }}" style="min-height:100vh;background:#1c120c;overflow-x:hidden">
+
+<section data-screen-label="Hero" style="position:relative;height:100vh;min-height:760px;overflow:hidden;display:grid;grid-template-columns:44% 56%">
+  <!-- paper panel -->
+  <div style="position:relative;background:#efe8dc;color:#1c120c;padding:0 48px;display:flex;flex-direction:column;justify-content:space-between;clip-path:polygon(0 0,100% 0,97% 100%,0 100%)">
+    <nav style="display:flex;align-items:center;justify-content:space-between;gap:24px;padding:30px 0;animation:fadeIn 1s .2s both">
+      <a href="#" style="font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:.14em;color:#1c120c">ORIGEN</a>
+      <button onClick="{{ toggleLang }}" style="white-space:nowrap;border:1px solid rgba(28,18,12,.3);background:transparent;color:inherit;padding:6px 10px;font-size:11px;letter-spacing:.1em;cursor:pointer;font-family:inherit">{{ langLabel }}</button>
+    </nav>
+    <div style="display:flex;align-items:flex-start;gap:32px">
+      <h1 style="margin:0;font-family:'Bebas Neue',sans-serif;font-size:clamp(90px,12.5vh,160px);line-height:.86;letter-spacing:.02em;display:flex;flex-direction:column">
+        <sc-for list="{{ letters }}" as="l" hint-placeholder-count="6"><span style="display:block;animation:dropIn .9s cubic-bezier(.2,.7,.2,1) both;animation-delay:{{ l.delay }}">{{ l.ch }}</span></sc-for>
+      </h1>
+      <div style="padding-top:8px;max-width:220px">
+        <div style="font-size:11px;letter-spacing:.3em;text-transform:uppercase;font-weight:500;margin-bottom:14px;animation:fadeUp 1s .9s both">{{ t.eyebrow }}</div>
+        <p style="font-size:14px;line-height:1.7;color:rgba(28,18,12,.7);margin:0 0 26px;animation:fadeUp 1s 1.1s both">{{ t.sub }}</p>
+        <a href="#process" data-magnetic="" style="white-space:nowrap;display:inline-flex;align-items:center;gap:12px;background:#1c120c;color:#efe8dc;padding:14px 22px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;animation:fadeUp 1s 1.3s both">{{ t.cta }} <span>→</span></a>
+        <div style="margin-top:40px;font-size:12px;line-height:1.8;color:rgba(28,18,12,.6);animation:fadeUp 1s 1.5s both">@origen.cafe<br>www.origencafe.co</div>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;padding:0 0 30px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(28,18,12,.5);animation:fadeIn 1s 1.8s both"><span>{{ t.scroll }} ↓</span><span>Huila · Colombia · 1.850 msnm</span></div>
+  </div>
+
+  <!-- dark image panel -->
+  <div style="position:relative;overflow:hidden">
+    <div data-depth="0.2" style="position:absolute;inset:-4%">
+      <x-import component-from-global-scope="image-slot" id="origen-hero" shape="rect" placeholder="Granos de café cayendo sobre fondo oscuro" hint-size="100%,100%" style="position:absolute;inset:0;width:100%;height:100%"></x-import>
+    </div>
+    <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(28,18,12,.5),transparent 30%)"></div>
+    <div style="position:absolute;inset:0;pointer-events:none;z-index:2;z-index:1"><canvas ref="{{ emberRef }}" style="width:100%;height:100%;display:block"></canvas></div><div style="position:absolute;inset:0;pointer-events:none;z-index:2;z-index:1"><canvas ref="{{ steamRef }}" style="width:100%;height:100%;display:block"></canvas></div>
+    <!-- floating beans -->
+    <sc-for list="{{ beans }}" as="b" hint-placeholder-count="7">
+      <span data-depth="{{ b.depth }}" style="position:absolute;left:{{ b.x }};top:{{ b.y }};width:{{ b.s }};height:{{ b.h }};border-radius:50%;background:linear-gradient(145deg,#8a5a34,#3a2114);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),0 20px 30px rgba(0,0,0,.4);--r:{{ b.r }};animation:floatBean {{ b.dur }} ease-in-out infinite;animation-delay:{{ b.delay }}"><span style="position:absolute;left:48%;top:12%;bottom:12%;width:2px;border-radius:2px;background:#1c120c;transform:rotate(6deg)"></span></span>
+    </sc-for>
+    <!-- cup card -->
+    <div data-depth="0.5" style="position:absolute;right:56px;bottom:56px;width:300px;padding:20px;background:rgba(28,18,12,.55);border:1px solid rgba(241,233,223,.14);backdrop-filter:blur(16px);animation:fadeUp 1.2s 1.6s both">
+      <div style="position:relative;height:150px;overflow:hidden;margin-bottom:16px"><x-import component-from-global-scope="image-slot" id="origen-cup" shape="rect" placeholder="Taza · vista superior" hint-size="100%,100%" style="position:absolute;inset:0;width:100%;height:100%"></x-import>
+        <span style="position:absolute;left:40%;top:10%;width:20px;height:40px;border-radius:50%;background:rgba(241,233,223,.5);filter:blur(6px);animation:steam 3s ease-out infinite"></span>
+        <span style="position:absolute;left:55%;top:14%;width:16px;height:36px;border-radius:50%;background:rgba(241,233,223,.5);filter:blur(6px);animation:steam 3s 1.2s ease-out infinite"></span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:.06em">{{ t.cardTitle }}</span><span style="font-size:12px;color:#c98a3c">{{ t.cardMeta }}</span></div>
+      <p style="font-size:12px;line-height:1.6;color:rgba(241,233,223,.65);margin:8px 0 0">{{ t.cardText }}</p>
+    </div>
+    <div style="position:absolute;right:56px;top:34px;display:flex;gap:28px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;animation:fadeIn 1s .4s both">
+      <sc-for list="{{ t.nav }}" as="n" hint-placeholder-count="4"><a href="#" style="color:rgba(241,233,223,.75)" style-hover="color:#fff">{{ n }}</a></sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div style="background:#c98a3c;color:#1c120c;padding:16px 0;overflow:hidden;white-space:nowrap">
+  <div style="display:inline-flex;gap:48px;animation:marquee 30s linear infinite;font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.14em">
+    <sc-for list="{{ marquee }}" as="w" hint-placeholder-count="10"><span>{{ w }} <span style="margin-left:36px">●</span></span></sc-for>
+  </div>
+</div>
+
+<!-- PROCESS -->
+<section id="process" data-screen-label="Proceso" style="padding:140px 56px 100px">
+  <div data-reveal="" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:64px">
+    <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(56px,7vw,120px);line-height:.9;margin:0;letter-spacing:.02em">{{ t.procTitle }}<br><span style="color:#c98a3c">{{ t.procTitleB }}</span></h2>
+    <p style="font-size:15px;line-height:1.8;color:rgba(241,233,223,.65);margin:0;max-width:420px">{{ t.procText }}</p>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+    <sc-for list="{{ t.steps }}" as="s" hint-placeholder-count="3">
+      <article data-reveal="" data-reveal-delay="{{ s.delay }}" data-tilt="" style="position:relative;height:460px;overflow:hidden;background:#2a1a10">
+        <x-import component-from-global-scope="image-slot" id="{{ s.id }}" shape="rect" placeholder="{{ s.ph }}" hint-size="100%,100%" style="position:absolute;inset:0;width:100%;height:100%"></x-import>
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,18,12,.3),transparent 30%,rgba(28,18,12,.95))"></div>
+        <span style="position:absolute;top:18px;left:20px;font-family:'Bebas Neue',sans-serif;font-size:56px;line-height:1;color:#c98a3c">{{ s.num }}</span>
+        <div style="position:absolute;left:20px;right:20px;bottom:22px"><div style="font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:.06em">{{ s.title }}</div><p style="font-size:13px;line-height:1.6;color:rgba(241,233,223,.65);margin:8px 0 0">{{ s.text }}</p></div>
+      </article>
+    </sc-for>
+  </div>
+</section>
+
+<!-- MENU -->
+<section data-screen-label="Menú" style="padding:60px 56px 140px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start">
+  <div data-reveal="" style="position:relative;height:640px;overflow:hidden"><x-import component-from-global-scope="image-slot" id="origen-menu" shape="rect" placeholder="Barista sirviendo · ambiente" hint-size="100%,100%" style="position:absolute;inset:0;width:100%;height:100%"></x-import></div>
+  <div>
+    <div data-reveal="" style="font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#c98a3c;margin-bottom:16px">{{ t.menuEyebrow }}</div>
+    <h2 data-reveal="" style="font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,5vw,84px);line-height:.9;margin:0 0 40px">{{ t.menuTitle }}</h2>
+    <sc-for list="{{ t.menu }}" as="m" hint-placeholder-count="6">
+      <div data-reveal="" data-reveal-delay="{{ m.delay }}" style="display:grid;grid-template-columns:1fr auto;gap:20px;padding:20px 0;border-top:1px solid rgba(241,233,223,.14)">
+        <div><div style="font-size:17px;font-weight:500">{{ m.name }}</div><div style="font-size:13px;color:rgba(241,233,223,.55);margin-top:4px">{{ m.desc }}</div></div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:26px;color:#c98a3c">{{ m.price }}</div>
+      </div>
+    </sc-for>
+    <a href="#" data-magnetic="" style="white-space:nowrap;display:inline-block;margin-top:36px;background:#efe8dc;color:#1c120c;padding:16px 28px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500">{{ t.menuCta }}</a>
+  </div>
+</section>
+<footer style="display:flex;justify-content:space-between;padding:0 56px 40px;font-size:11px;color:rgba(241,233,223,.4);letter-spacing:.14em;text-transform:uppercase"><span>© 2026 Origen Café de Especialidad</span><span>{{ t.footer }}</span></footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { lang: 'es' };
+  rootRef = React.createRef(); emberRef = React.createRef(); steamRef = React.createRef();
+  copy = {
+    es: { nav: ['Café', 'Proceso', 'Tienda', 'Visítanos'], eyebrow: 'Café de especialidad', sub: 'Del árbol a la taza en menos de 30 días. Tostamos cada semana, en lotes pequeños, para que llegue vivo.', cta: 'Conoce el proceso', scroll: 'Desplázate', cardTitle: 'Lote 042', cardMeta: 'Lavado · 86 pts', cardText: 'Notas de panela, naranja y cacao. Finca La Esperanza, Pitalito.',
+      procTitle: 'Del origen', procTitleB: 'a la taza', procText: 'Tres pasos, cero atajos. Trabajamos directo con 14 familias caficultoras y pagamos un 40% sobre el precio de bolsa.',
+      steps: [{ id: 'origen-s1', ph: 'Cosecha manual', num: '01', title: 'Cosecha', text: 'Cereza madura, seleccionada a mano en la montaña.', delay: '0' }, { id: 'origen-s2', ph: 'Secado en camas africanas', num: '02', title: 'Beneficio', text: 'Fermentación controlada y secado lento al sol.', delay: '120' }, { id: 'origen-s3', ph: 'Tostión', num: '03', title: 'Tostión', text: 'Perfiles ligeros que respetan el terroir de cada lote.', delay: '240' }],
+      menuEyebrow: 'Carta', menuTitle: 'Lo que servimos hoy', menu: [{ name: 'Espresso', desc: 'Lote 042 · doble', price: '8.000', delay: '0' }, { name: 'Flat white', desc: 'Leche de finca · 180 ml', price: '11.000', delay: '60' }, { name: 'V60', desc: 'Filtrado · 300 ml', price: '13.000', delay: '120' }, { name: 'Cold brew', desc: '18 h de infusión', price: '12.000', delay: '180' }, { name: 'Bolsa 340 g', desc: 'Grano · molido a pedido', price: '48.000', delay: '240' }], menuCta: 'Pedir en línea', footer: 'Diseño · Nivaldyr Technologies' },
+    en: { nav: ['Coffee', 'Process', 'Shop', 'Visit'], eyebrow: 'Specialty coffee', sub: 'From tree to cup in under 30 days. We roast weekly, in small batches, so it arrives alive.', cta: 'See the process', scroll: 'Scroll', cardTitle: 'Lot 042', cardMeta: 'Washed · 86 pts', cardText: 'Notes of cane sugar, orange and cocoa. La Esperanza farm, Pitalito.',
+      procTitle: 'From origin', procTitleB: 'to cup', procText: 'Three steps, zero shortcuts. We work directly with 14 coffee-growing families and pay 40% above market price.',
+      steps: [{ id: 'origen-s1', ph: 'Hand harvest', num: '01', title: 'Harvest', text: 'Ripe cherries, hand-picked on the mountain.', delay: '0' }, { id: 'origen-s2', ph: 'Drying on raised beds', num: '02', title: 'Processing', text: 'Controlled fermentation and slow sun drying.', delay: '120' }, { id: 'origen-s3', ph: 'Roasting', num: '03', title: 'Roasting', text: 'Light profiles that honor each lot’s terroir.', delay: '240' }],
+      menuEyebrow: 'Menu', menuTitle: 'What we serve today', menu: [{ name: 'Espresso', desc: 'Lot 042 · double', price: '8.000', delay: '0' }, { name: 'Flat white', desc: 'Farm milk · 180 ml', price: '11.000', delay: '60' }, { name: 'V60', desc: 'Pour over · 300 ml', price: '13.000', delay: '120' }, { name: 'Cold brew', desc: '18 h steep', price: '12.000', delay: '180' }, { name: '340 g bag', desc: 'Whole bean · ground on request', price: '48.000', delay: '240' }], menuCta: 'Order online', footer: 'Design · Nivaldyr Technologies' },
+  };
+  componentDidMount() { const root = this.rootRef.current; import('./fx.js').then((fx) => { this.cleanups = [fx.particles(this.emberRef.current, { type: 'ember', count: 50, color: '201,138,60', speed: .5 }), fx.fog(this.steamRef.current, { count: 5, color: '241,233,223', alpha: .1, speed: .4 }), fx.parallax(root, { max: 26 }), fx.reveal(root), fx.magnetic(root), fx.tilt(root, { max: 5 })]; }); }
+  componentWillUnmount() { (this.cleanups || []).forEach((c) => c()); }
+  renderVals() {
+    const lang = this.state.lang; const t = this.copy[lang];
+    const beans = [[12, 14, 46, .7, -20], [30, 8, 34, .4, 30], [58, 20, 56, .9, -50], [80, 12, 30, .5, 10], [22, 52, 40, .6, 60], [50, 62, 62, .8, -15], [74, 48, 36, .45, 40]].map(([x, y, s, depth, r], i) => ({ x: x + '%', y: y + '%', s: s + 'px', h: Math.round(s * 1.35) + 'px', depth: String(depth), r: r + 'deg', dur: (5 + i * .7) + 's', delay: (i * -.9) + 's' }));
+    return { rootRef: this.rootRef, emberRef: this.emberRef, steamRef: this.steamRef, t, beans,
+      letters: 'ORIGEN'.split('').map((ch, i) => ({ ch, delay: (0.3 + i * 0.1) + 's' })),
+      marquee: ['Huila', 'Lavado', 'Honey', 'Natural', 'Tostión semanal', 'Comercio directo', 'Huila', 'Lavado', 'Honey', 'Natural', 'Tostión semanal', 'Comercio directo'],
+      langLabel: lang === 'es' ? 'ES · EN' : 'EN · ES', toggleLang: () => this.setState((s) => ({ lang: s.lang === 'es' ? 'en' : 'es' })) };
+  }
+}
+</script>
+</body>
+</html>

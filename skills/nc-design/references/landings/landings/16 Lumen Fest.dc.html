@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+html,body{margin:0;background:#0d0b14;color:#f6f2ff;font-family:'Space Mono',monospace;-webkit-font-smoothing:antialiased}
+a{color:#f6f2ff;text-decoration:none}a:hover{color:#d9ff3d}
+*{box-sizing:border-box}
+@keyframes fadeUp{from{opacity:0;transform:translate3d(0,40px,0)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes marqueeL{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes marqueeR{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+@keyframes slam{from{opacity:0;transform:translate3d(0,-40%,0) skewY(-6deg) scale(1.2)}to{opacity:1;transform:none}}
+@keyframes hue{to{filter:hue-rotate(360deg)}}
+@keyframes blob{0%,100%{border-radius:60% 40% 30% 70%/60% 30% 70% 40%}50%{border-radius:30% 60% 70% 40%/50% 60% 30% 60%}}
+@keyframes flicker{0%,100%{opacity:1}92%{opacity:1}93%{opacity:.4}94%{opacity:1}97%{opacity:.6}98%{opacity:1}}
+</style>
+</helmet>
+<div ref="{{ rootRef }}" style="background:#0d0b14;overflow-x:clip">
+
+<section data-screen-label="Hero" style="position:relative;height:100vh;min-height:760px;overflow:hidden">
+  <div data-depth="0.15" style="position:absolute;left:55%;top:50%;width:70vh;height:70vh;transform:translate(-50%,-50%);background:linear-gradient(135deg,#ff3d7f,#7b3dff 50%,#d9ff3d);filter:blur(60px);opacity:.55;animation:blob 12s ease-in-out infinite,hue 24s linear infinite"></div>
+
+  <nav style="position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px 40px;z-index:6;animation:fadeIn 1s .2s both;font-size:12px;text-transform:uppercase">
+    <a href="#" style="font-family:Anton,sans-serif;font-size:26px;letter-spacing:.02em;animation:flicker 6s linear infinite">LUMEN<span style="color:#d9ff3d">'26</span></a>
+    <div style="display:flex;gap:28px"><sc-for list="{{ t.nav }}" as="n" hint-placeholder-count="4"><a href="#" style="color:rgba(246,242,255,.7)" style-hover="color:#d9ff3d">{{ n }}</a></sc-for></div>
+    <div style="display:flex;gap:10px;align-items:center"><button onClick="{{ toggleLang }}" style="white-space:nowrap;border:1px solid rgba(246,242,255,.3);background:transparent;color:inherit;padding:8px 10px;font-size:11px;cursor:pointer;font-family:inherit">{{ langLabel }}</button><a href="#tickets" data-magnetic="" style="white-space:nowrap;padding:12px 20px;background:#d9ff3d;color:#0d0b14;font-weight:700;display:inline-block">{{ t.tickets }}</a></div>
+  </nav>
+
+  <!-- kinetic type rows -->
+  <div style="position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:0;z-index:2;pointer-events:none">
+    <div style="overflow:hidden;white-space:nowrap;animation:slam 1s .4s cubic-bezier(.2,.7,.2,1) both"><div style="display:inline-flex;gap:60px;animation:marqueeL 18s linear infinite;font-family:Anton,sans-serif;font-size:clamp(90px,14vw,220px);line-height:.9;text-transform:uppercase;color:transparent;-webkit-text-stroke:2px rgba(246,242,255,.7)"><sc-for list="{{ row1 }}" as="w" hint-placeholder-count="6"><span>{{ w }}</span></sc-for></div></div>
+    <div style="overflow:hidden;white-space:nowrap;animation:slam 1s .6s cubic-bezier(.2,.7,.2,1) both"><div style="display:inline-flex;gap:60px;animation:marqueeR 22s linear infinite;font-family:Anton,sans-serif;font-size:clamp(90px,14vw,220px);line-height:.9;text-transform:uppercase;color:#f6f2ff"><sc-for list="{{ row2 }}" as="w" hint-placeholder-count="6"><span>{{ w }}</span></sc-for></div></div>
+    <div style="overflow:hidden;white-space:nowrap;animation:slam 1s .8s cubic-bezier(.2,.7,.2,1) both"><div style="display:inline-flex;gap:60px;animation:marqueeL 26s linear infinite;font-family:Anton,sans-serif;font-size:clamp(90px,14vw,220px);line-height:.9;text-transform:uppercase;color:#d9ff3d"><sc-for list="{{ row3 }}" as="w" hint-placeholder-count="6"><span>{{ w }}</span></sc-for></div></div>
+  </div>
+
+  <!-- poster image -->
+  <div style="position:absolute;right:40px;top:50%;transform:translateY(-50%);width:min(24vw,340px);height:min(58vh,520px);z-index:3"><div data-depth="0.5" style="position:absolute;inset:0"><div data-tilt="" style="position:absolute;inset:0;border:2px solid #f6f2ff;transform:rotate(3deg);animation:fadeUp 1.2s 1.2s both;overflow:hidden;background:#1a1626">
+    <x-import component-from-global-scope="image-slot" id="lumen-hero" shape="rect" placeholder="Foto de multitud / artista con luces" hint-size="100%,100%" style="position:absolute;inset:0;width:100%;height:100%"></x-import>
+    <span style="position:absolute;left:12px;bottom:12px;font-size:11px;padding:6px 8px;background:#0d0b14">{{ t.posterTag }}</span>
+  </div></div></div>
+
+  <!-- info -->
+  <div style="position:absolute;left:40px;bottom:40px;z-index:4;display:flex;flex-direction:column;gap:20px">
+    <div style="font-size:13px;line-height:1.6;text-transform:uppercase;animation:fadeUp 1s 1.2s both">{{ t.dates }}<br><span style="color:rgba(246,242,255,.55)">{{ t.place }}</span></div>
+    <div style="display:flex;gap:10px;animation:fadeUp 1s 1.4s both">
+      <sc-for list="{{ countdown }}" as="c" hint-placeholder-count="4"><div style="padding:12px 14px;border:1px solid rgba(246,242,255,.25);min-width:78px;text-align:center"><div style="font-family:Anton,sans-serif;font-size:34px;line-height:1">{{ c.v }}</div><div style="font-size:10px;text-transform:uppercase;color:rgba(246,242,255,.5);margin-top:4px">{{ c.l }}</div></div></sc-for>
+    </div>
+  </div>
+  <div style="position:absolute;right:40px;bottom:40px;z-index:4;font-size:11px;text-transform:uppercase;color:rgba(246,242,255,.5);text-align:right;animation:fadeIn 1s 1.8s both">{{ t.scroll }} ↓<br>3 {{ t.stages }} · 42 {{ t.artists }}</div>
+</section>
+
+<!-- LINEUP -->
+<section id="lineup" data-screen-label="Lineup" style="padding:120px 40px 60px">
+  <div data-reveal="" style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px">
+    <h2 style="font-family:Anton,sans-serif;font-size:clamp(56px,8vw,140px);line-height:.85;margin:0;text-transform:uppercase">{{ t.lineupTitle }}</h2>
+    <div style="display:flex;gap:6px"><sc-for list="{{ days }}" as="d" hint-placeholder-count="3"><button onClick="{{ d.pick }}" style="padding:10px 16px;border:1px solid {{ d.border }};background:{{ d.bg }};color:{{ d.fg }};font-family:inherit;font-size:12px;text-transform:uppercase;cursor:pointer;transition:all .3s">{{ d.l }}</button></sc-for></div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:rgba(246,242,255,.15)">
+    <sc-for list="{{ lineup }}" as="a" hint-placeholder-count="8">
+      <a href="#" data-reveal="" data-reveal-delay="{{ a.delay }}" style="display:block;position:relative;aspect-ratio:1;background:#0d0b14;padding:20px;overflow:hidden" style-hover="background:#d9ff3d;color:#0d0b14">
+        <div style="position:absolute;inset:0;opacity:.35"><x-import component-from-global-scope="image-slot" id="{{ a.id }}" shape="rect" placeholder="{{ a.name }}" hint-size="100%,100%" style="position:absolute;inset:0;width:100%;height:100%"></x-import></div>
+        <div style="position:relative;height:100%;display:flex;flex-direction:column;justify-content:space-between">
+          <div style="display:flex;justify-content:space-between;font-size:11px;text-transform:uppercase"><span>{{ a.stage }}</span><span>{{ a.time }}</span></div>
+          <div style="font-family:Anton,sans-serif;font-size:clamp(26px,3vw,44px);line-height:.95;text-transform:uppercase;letter-spacing:.01em">{{ a.name }}</div>
+        </div>
+      </a>
+    </sc-for>
+  </div>
+</section>
+
+<!-- MARQUEE STRIP -->
+<div style="background:#d9ff3d;color:#0d0b14;padding:14px 0;overflow:hidden;white-space:nowrap;transform:rotate(-1.5deg);margin:60px -20px">
+  <div style="display:inline-flex;gap:40px;animation:marqueeL 20s linear infinite;font-family:Anton,sans-serif;font-size:28px;text-transform:uppercase"><sc-for list="{{ strip }}" as="w" hint-placeholder-count="10"><span>{{ w }} ✦</span></sc-for></div>
+</div>
+
+<!-- TICKETS -->
+<section id="tickets" data-screen-label="Tickets" style="padding:100px 40px 140px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+  <sc-for list="{{ t.passes }}" as="p" hint-placeholder-count="3">
+    <div data-reveal="" data-reveal-delay="{{ p.delay }}" data-tilt="" style="position:relative;padding:32px;border:2px solid {{ p.border }};background:{{ p.bg }};color:{{ p.fg }};min-height:420px;display:flex;flex-direction:column;justify-content:space-between;transform:rotate({{ p.rot }})">
+      <div style="display:flex;justify-content:space-between;font-size:11px;text-transform:uppercase"><span>{{ p.name }}</span><span>{{ p.left }}</span></div>
+      <div><div style="font-family:Anton,sans-serif;font-size:clamp(56px,6vw,96px);line-height:.9">{{ p.price }}</div><div style="font-size:12px;margin-top:10px;opacity:.7;line-height:1.6">{{ p.desc }}</div></div>
+      <a href="#" data-magnetic="" style="white-space:nowrap;display:block;text-align:center;padding:16px;background:{{ p.btnBg }};color:{{ p.btnFg }};font-weight:700;text-transform:uppercase;font-size:12px">{{ p.cta }}</a>
+      <span style="position:absolute;left:-12px;top:50%;width:24px;height:24px;border-radius:50%;background:#0d0b14;transform:translateY(-50%)"></span><span style="position:absolute;right:-12px;top:50%;width:24px;height:24px;border-radius:50%;background:#0d0b14;transform:translateY(-50%)"></span>
+    </div>
+  </sc-for>
+</section>
+<footer style="display:flex;justify-content:space-between;padding:0 40px 40px;font-size:11px;color:rgba(246,242,255,.4);text-transform:uppercase"><span>© 2026 Lumen Festival · Medellín</span><span>{{ t.footer }}</span></footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { lang: 'es', day: 0, now: Date.now() };
+  rootRef = React.createRef();
+  target = new Date('2026-11-13T18:00:00').getTime();
+  copy = {
+    es: { nav: ['Lineup', 'Escenarios', 'Info', 'Tickets'], tickets: 'Tickets', posterTag: 'Edición 2026', dates: '13 — 15 Nov 2026', place: 'Parque Norte · Medellín', scroll: 'Baja', stages: 'escenarios', artists: 'artistas', lineupTitle: 'Lineup', days: ['Vie 13', 'Sáb 14', 'Dom 15'], cd: ['días', 'horas', 'min', 'seg'],
+      strip: ['Early birds agotados', '3 escenarios', 'Camping', 'Arte + luz', 'Sin plástico', 'Early birds agotados', '3 escenarios', 'Camping', 'Arte + luz', 'Sin plástico'],
+      passes: [{ name: 'Pase 1 día', left: 'Quedan 1.240', price: '$180K', desc: 'Acceso a un día. Elige tu fecha al pagar.', cta: 'Comprar', bg: 'transparent', fg: '#f6f2ff', border: 'rgba(246,242,255,.4)', btnBg: '#f6f2ff', btnFg: '#0d0b14', rot: '-1deg', delay: '0' }, { name: 'Pase completo', left: 'Quedan 312', price: '$420K', desc: 'Tres días, todos los escenarios, zona de descanso.', cta: 'Comprar', bg: '#d9ff3d', fg: '#0d0b14', border: '#d9ff3d', btnBg: '#0d0b14', btnFg: '#d9ff3d', rot: '0deg', delay: '100' }, { name: 'VIP', left: 'Quedan 48', price: '$890K', desc: 'Acceso lateral al escenario, bar exclusivo, camping premium.', cta: 'Comprar', bg: '#ff3d7f', fg: '#0d0b14', border: '#ff3d7f', btnBg: '#0d0b14', btnFg: '#ff3d7f', rot: '1deg', delay: '200' }], footer: 'Diseño · Nivaldyr Technologies' },
+    en: { nav: ['Lineup', 'Stages', 'Info', 'Tickets'], tickets: 'Tickets', posterTag: '2026 edition', dates: '13 — 15 Nov 2026', place: 'Parque Norte · Medellín', scroll: 'Scroll', stages: 'stages', artists: 'artists', lineupTitle: 'Lineup', days: ['Fri 13', 'Sat 14', 'Sun 15'], cd: ['days', 'hours', 'min', 'sec'],
+      strip: ['Early birds sold out', '3 stages', 'Camping', 'Art + light', 'Plastic free', 'Early birds sold out', '3 stages', 'Camping', 'Art + light', 'Plastic free'],
+      passes: [{ name: '1-day pass', left: '1,240 left', price: '$45', desc: 'One day access. Pick your date at checkout.', cta: 'Buy', bg: 'transparent', fg: '#f6f2ff', border: 'rgba(246,242,255,.4)', btnBg: '#f6f2ff', btnFg: '#0d0b14', rot: '-1deg', delay: '0' }, { name: 'Full pass', left: '312 left', price: '$105', desc: 'Three days, every stage, chill zone.', cta: 'Buy', bg: '#d9ff3d', fg: '#0d0b14', border: '#d9ff3d', btnBg: '#0d0b14', btnFg: '#d9ff3d', rot: '0deg', delay: '100' }, { name: 'VIP', left: '48 left', price: '$220', desc: 'Side-stage access, private bar, premium camping.', cta: 'Buy', bg: '#ff3d7f', fg: '#0d0b14', border: '#ff3d7f', btnBg: '#0d0b14', btnFg: '#ff3d7f', rot: '1deg', delay: '200' }], footer: 'Design · Nivaldyr Technologies' },
+  };
+  lineups = [
+    [['Nova Ray', 'Main', '23:00'], ['Kaleido', 'Main', '21:30'], ['Sol Nadir', 'Cúpula', '22:15'], ['Bruma', 'Bosque', '20:00'], ['Ámbar Club', 'Cúpula', '00:30'], ['Vera Luz', 'Main', '19:45'], ['Tundra', 'Bosque', '22:45'], ['Ojo Rojo', 'Cúpula', '18:30']],
+    [['Helix', 'Main', '23:00'], ['Mar Adentro', 'Main', '21:30'], ['Pixel Pulso', 'Cúpula', '22:15'], ['Selva', 'Bosque', '20:00'], ['Neón Niño', 'Cúpula', '00:30'], ['Corazón FM', 'Main', '19:45'], ['Oráculo', 'Bosque', '22:45'], ['Delta Vox', 'Cúpula', '18:30']],
+    [['Eclipse', 'Main', '23:00'], ['Los Fantasmas', 'Main', '21:30'], ['Lúmina', 'Cúpula', '22:15'], ['Río', 'Bosque', '20:00'], ['Sistema Solar', 'Cúpula', '00:30'], ['Aurora Beat', 'Main', '19:45'], ['Ceniza', 'Bosque', '22:45'], ['Volt', 'Cúpula', '18:30']],
+  ];
+  componentDidMount() { const root = this.rootRef.current; import('./fx.js').then((fx) => { this.cleanups = [fx.parallax(root, { max: 30 }), fx.reveal(root), fx.magnetic(root), fx.tilt(root, { max: 6 })]; }); this.timer = setInterval(() => this.setState({ now: Date.now() }), 1000); }
+  componentWillUnmount() { (this.cleanups || []).forEach((c) => c()); clearInterval(this.timer); }
+  renderVals() {
+    const lang = this.state.lang; const t = this.copy[lang]; const d = this.state.day;
+    const diff = Math.max(0, this.target - this.state.now); const s = Math.floor(diff / 1000);
+    const vals = [Math.floor(s / 86400), Math.floor(s % 86400 / 3600), Math.floor(s % 3600 / 60), s % 60];
+    return { rootRef: this.rootRef, t,
+      row1: ['Lumen', 'Festival', 'Lumen', 'Festival', 'Lumen', 'Festival'], row2: ['13 — 15', 'Nov', '2026', '13 — 15', 'Nov', '2026'], row3: ['Luz', 'Sonido', 'Cuerpo', 'Luz', 'Sonido', 'Cuerpo'],
+      countdown: vals.map((v, i) => ({ v: String(v).padStart(2, '0'), l: t.cd[i] })),
+      days: t.days.map((l, k) => ({ l, border: k === d ? '#d9ff3d' : 'rgba(246,242,255,.3)', bg: k === d ? '#d9ff3d' : 'transparent', fg: k === d ? '#0d0b14' : '#f6f2ff', pick: () => this.setState({ day: k }) })),
+      lineup: this.lineups[d].map(([name, stage, time], i) => ({ name, stage, time, id: 'lumen-a' + d + '-' + i, delay: String(i * 40) })),
+      strip: t.strip,
+      langLabel: lang === 'es' ? 'ES · EN' : 'EN · ES', toggleLang: () => this.setState((s) => ({ lang: s.lang === 'es' ? 'en' : 'es' })) };
+  }
+}
+</script>
+</body>
+</html>

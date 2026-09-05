@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Karla:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+html,body{margin:0;background:#0d1b26;color:#eef2f4;font-family:Karla,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#eef2f4;text-decoration:none}a:hover{color:#f4b8c4}
+*{box-sizing:border-box}
+@keyframes fadeUp{from{opacity:0;transform:translate3d(0,40px,0)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes lineIn{from{opacity:0;transform:translate3d(-40px,0,0)}to{opacity:1;transform:none}}
+@keyframes bloom{from{opacity:0;transform:scale(.92);filter:blur(16px)}to{opacity:1;transform:none;filter:blur(0)}}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes drift{0%{transform:translate(0,0) scale(1)}50%{transform:translate(40px,-30px) scale(1.1)}100%{transform:translate(0,0) scale(1)}}
+</style>
+</helmet>
+<div ref="{{ rootRef }}" style="background:#0d1b26;overflow-x:clip">
+
+<section data-screen-label="Hero" style="position:relative;height:100vh;min-height:760px;overflow:hidden;background:radial-gradient(ellipse 60% 70% at 55% 45%,#1d3a52 0%,#0d1b26 70%)">
+  <!-- bokeh blobs -->
+  <span style="position:absolute;left:8%;top:18%;width:120px;height:120px;border-radius:50%;background:rgba(244,184,196,.35);filter:blur(30px);animation:drift 14s ease-in-out infinite"></span>
+  <span style="position:absolute;right:12%;top:30%;width:90px;height:90px;border-radius:50%;background:rgba(244,184,196,.3);filter:blur(24px);animation:drift 18s 3s ease-in-out infinite reverse"></span>
+  <span style="position:absolute;left:30%;bottom:12%;width:160px;height:160px;border-radius:50%;background:rgba(120,190,220,.22);filter:blur(40px);animation:drift 20s 6s ease-in-out infinite"></span>
+  <!-- continuous petals -->
+  <div style="position:absolute;inset:0;pointer-events:none;z-index:3"><canvas ref="{{ petalRef }}" style="width:100%;height:100%;display:block"></canvas></div>
+
+  <nav style="position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px 56px;z-index:6;animation:fadeIn 1s .2s both">
+    <a href="#" style="font-family:Italiana,serif;font-size:22px;letter-spacing:.2em">M<span style="color:#f4b8c4">.</span></a>
+    <div style="display:flex;gap:clamp(14px,2vw,30px)px;font-size:12px;letter-spacing:.18em;text-transform:uppercase"><sc-for list="{{ t.nav }}" as="n" hint-placeholder-count="4"><a href="#" style="color:rgba(238,242,244,.65)" style-hover="color:#eef2f4">{{ n }}</a></sc-for></div>
+    <div style="display:flex;gap:12px;align-items:center"><button onClick="{{ toggleLang }}" style="white-space:nowrap;border:1px solid rgba(238,242,244,.25);background:transparent;color:inherit;padding:6px 10px;font-size:10px;letter-spacing:.1em;cursor:pointer;font-family:inherit">{{ langLabel }}</button><span style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:rgba(238,242,244,.5)">{{ t.issue }}</span></div>
+  </nav>
+
+  <!-- figure -->
+  <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-46%);width:min(40vw,560px);height:min(86vh,820px);z-index:2"><div data-depth="0.3" style="position:absolute;inset:0"><div style="position:absolute;inset:0;animation:bloom 2s .4s cubic-bezier(.2,.7,.2,1) both"><div style="position:absolute;inset:0;animation:floatY 9s ease-in-out infinite">
+    <x-import component-from-global-scope="image-slot" id="carcass-hero" shape="rect" placeholder="Busto de cristal con flores de cerezo dentro (PNG)" hint-size="100%,100%" style="position:absolute;inset:0;width:100%;height:100%"></x-import>
+  </div></div></div></div>
+
+  <!-- title -->
+  <div style="position:absolute;left:56px;top:50%;transform:translateY(-56%);max-width:560px;z-index:4">
+    <h1 style="font-family:Italiana,serif;font-weight:400;font-size:clamp(56px,7vw,112px);line-height:.92;letter-spacing:.02em;margin:0 0 30px;text-transform:uppercase">
+      <span style="display:block;animation:lineIn 1.1s .6s both">{{ t.h1a }}</span>
+      <span style="display:block;padding-left:.6em;animation:lineIn 1.1s .75s both">{{ t.h1b }}</span>
+      <span style="display:block;animation:lineIn 1.1s .9s both">{{ t.h1c }}</span>
+    </h1>
+    <p style="font-size:13px;line-height:1.75;color:rgba(238,242,244,.65);max-width:300px;margin:0 0 30px .6em;animation:fadeUp 1s 1.2s both">{{ t.sub }}</p>
+    <a href="#story" data-magnetic="" style="white-space:nowrap;display:inline-block;margin-left:.6em;padding:14px 26px;background:#eef2f4;color:#0d1b26;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;animation:fadeUp 1s 1.4s both">{{ t.read }}</a>
+  </div>
+  <!-- index -->
+  <div style="position:absolute;left:56px;bottom:56px;display:flex;flex-direction:column;gap:12px;font-family:'Cormorant Garamond',serif;font-size:16px;z-index:4;animation:fadeIn 1s 1.8s both">
+    <sc-for list="{{ idx }}" as="i" hint-placeholder-count="3"><span style="display:flex;align-items:center;gap:12px;color:{{ i.c }}">{{ i.n }}<span style="width:{{ i.w }};height:1px;background:currentColor"></span></span></sc-for>
+  </div>
+  <!-- right column -->
+  <div data-depth="0.5" style="position:absolute;right:56px;top:50%;transform:translateY(-50%);max-width:260px;z-index:4;animation:fadeUp 1.2s 1.5s both">
+    <h2 style="font-family:Italiana,serif;font-weight:400;font-size:34px;line-height:1;letter-spacing:.02em;margin:0 0 16px;text-transform:uppercase">{{ t.sideTitle }}</h2>
+    <p style="font-size:12px;line-height:1.75;color:rgba(238,242,244,.62);margin:0 0 24px">{{ t.sideText }}</p>
+    <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;letter-spacing:.02em;border-top:1px solid rgba(238,242,244,.2);padding-top:14px;line-height:1.2">{{ t.sideQuote }}</div>
+  </div>
+</section>
+
+<!-- STORY (editorial columns) -->
+<section id="story" data-screen-label="Historia" style="padding:140px 56px 100px;display:grid;grid-template-columns:200px 1fr 1fr;gap:56px">
+  <div data-reveal="" style="font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:rgba(238,242,244,.5);line-height:2">{{ t.meta1 }}<br>{{ t.meta2 }}<br>{{ t.meta3 }}</div>
+  <div>
+    <h2 data-reveal="" style="font-family:Italiana,serif;font-weight:400;font-size:clamp(36px,3.8vw,60px);line-height:1;letter-spacing:.02em;margin:0 0 30px;text-transform:uppercase">{{ t.storyTitle }}</h2>
+    <p data-reveal="" style="font-family:'Cormorant Garamond',serif;font-size:22px;line-height:1.5;margin:0 0 24px;color:#f4b8c4">{{ t.storyLead }}</p>
+    <p data-reveal="" style="font-size:15px;line-height:1.85;color:rgba(238,242,244,.7);margin:0">{{ t.storyP1 }}</p>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:24px">
+    <div data-reveal="" data-tilt="" style="position:relative;height:420px;overflow:hidden"><x-import component-from-global-scope="image-slot" id="carcass-s1" shape="rect" placeholder="Detalle · flores dentro del cristal" hint-size="100%,100%" style="position:absolute;inset:0;width:100%;height:100%"></x-import></div>
+    <p data-reveal="" style="font-size:15px;line-height:1.85;color:rgba(238,242,244,.7);margin:0">{{ t.storyP2 }}</p>
+  </div>
+</section>
+
+<!-- PULL QUOTE + gallery -->
+<section data-screen-label="Galería" style="padding:60px 56px 140px">
+  <blockquote data-reveal="" style="margin:0 auto 80px;max-width:900px;text-align:center;font-family:Italiana,serif;font-size:clamp(32px,4vw,64px);line-height:1.1;letter-spacing:.02em">“{{ t.quote }}”<footer style="font-family:Karla,sans-serif;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:rgba(238,242,244,.5);margin-top:24px">{{ t.quoteBy }}</footer></blockquote>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px">
+    <sc-for list="{{ t.gallery }}" as="g" hint-placeholder-count="3">
+      <figure data-reveal="" data-reveal-delay="{{ g.delay }}" data-tilt="" style="margin:0;position:relative;height:{{ g.h }};overflow:hidden;margin-top:{{ g.mt }}"><x-import component-from-global-scope="image-slot" id="{{ g.id }}" shape="rect" placeholder="{{ g.cap }}" hint-size="100%,100%" style="position:absolute;inset:0;width:100%;height:100%"></x-import><figcaption style="position:absolute;left:14px;bottom:14px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;padding:6px 10px;background:rgba(13,27,38,.7);backdrop-filter:blur(8px)">{{ g.cap }}</figcaption></figure>
+    </sc-for>
+  </div>
+</section>
+<footer style="display:flex;justify-content:space-between;padding:0 56px 40px;font-size:11px;color:rgba(238,242,244,.4);letter-spacing:.18em;text-transform:uppercase"><span>© 2026 M. Magazine · Issue 14</span><span>{{ t.footer }}</span></footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { lang: 'es' };
+  rootRef = React.createRef(); petalRef = React.createRef();
+  copy = {
+    es: { nav: ['Ensayos', 'Visual', 'Archivo', 'Suscribir'], issue: 'Número 14 · Primavera', h1a: 'El mito', h1b: 'del', h1c: 'cuerpo', sub: 'Un ensayo sobre la conexión entre muerte y renacimiento: el ciclo natural que transforma la fragilidad en florecer.', read: 'Leer la historia', sideTitle: 'Comprar menos', sideText: 'Sobre el consumo, el deseo y los objetos que nos sobreviven. Una conversación con la artista Lin Ahn.', sideQuote: 'Encontrar lo que permanece.',
+      meta1: 'Texto · A. Ferrer', meta2: 'Imagen · Lin Ahn', meta3: '14 min de lectura', storyTitle: 'Lo que florece en el vacío', storyLead: 'No hay decadencia sin promesa. El cerezo lo sabe: florece exactamente cuando parece que ya no queda nada.', storyP1: 'La escultura de Ahn —un busto de cristal atravesado por ramas en flor— no habla de la muerte como final sino como huésped. El cuerpo, vaciado, se convierte en invernadero. Lo que antes era carne es ahora luz y estructura, un lugar donde algo más puede crecer.', storyP2: 'Ahn trabaja con vidrio soplado y flores preservadas durante semanas en resina. El resultado es una imagen imposible: un organismo que ya no respira pero que sigue dando vida. "No me interesa la nostalgia", dice. "Me interesa lo que el vacío permite."',
+      quote: 'El cuerpo no termina. Cambia de habitantes.', quoteBy: 'Lin Ahn · Artista', gallery: [{ id: 'carcass-g1', cap: 'Estudio · 2025', h: '460px', mt: '0', delay: '0' }, { id: 'carcass-g2', cap: 'Cristal soplado', h: '380px', mt: '80px', delay: '100' }, { id: 'carcass-g3', cap: 'Flor preservada', h: '460px', mt: '0', delay: '200' }], footer: 'Diseño · Nivaldyr Technologies' },
+    en: { nav: ['Essays', 'Visual', 'Archive', 'Subscribe'], issue: 'Issue 14 · Spring', h1a: 'The myth', h1b: 'of the', h1c: 'carcass', sub: 'An essay on the fascinating connection between death and rebirth: the natural cycle that transforms fragility into bloom.', read: 'Read the story', sideTitle: 'Buy less stuff', sideText: 'On consumption, desire and the objects that outlive us. A conversation with artist Lin Ahn.', sideQuote: 'Find what remains.',
+      meta1: 'Words · A. Ferrer', meta2: 'Image · Lin Ahn', meta3: '14 min read', storyTitle: 'What blooms in the hollow', storyLead: 'There is no decay without promise. The cherry tree knows: it blooms exactly when nothing seems left.', storyP1: 'Ahn’s sculpture—a glass bust pierced by flowering branches—speaks of death not as an ending but as a guest. The body, emptied, becomes a greenhouse. What was flesh is now light and structure, a place where something else can grow.', storyP2: 'Ahn works with blown glass and flowers preserved for weeks in resin. The result is an impossible image: an organism that no longer breathes yet keeps giving life. “I’m not interested in nostalgia,” she says. “I’m interested in what the hollow allows.”',
+      quote: 'The body does not end. It changes tenants.', quoteBy: 'Lin Ahn · Artist', gallery: [{ id: 'carcass-g1', cap: 'Studio · 2025', h: '460px', mt: '0', delay: '0' }, { id: 'carcass-g2', cap: 'Blown glass', h: '380px', mt: '80px', delay: '100' }, { id: 'carcass-g3', cap: 'Preserved bloom', h: '460px', mt: '0', delay: '200' }], footer: 'Design · Nivaldyr Technologies' },
+  };
+  componentDidMount() { const root = this.rootRef.current; import('./fx.js').then((fx) => { this.cleanups = [fx.parallax(root, { max: 22 }), fx.reveal(root), fx.magnetic(root), fx.tilt(root, { max: 4 }), fx.particles(this.petalRef.current, { type: 'petal', count: 34, color: '244,184,196', speed: .7 })]; }); }
+  componentWillUnmount() { (this.cleanups || []).forEach((c) => c()); }
+  renderVals() { const lang = this.state.lang; const t = this.copy[lang]; return { rootRef: this.rootRef, petalRef: this.petalRef, t, idx: [{ n: '01', c: '#eef2f4', w: '40px' }, { n: '02', c: 'rgba(238,242,244,.4)', w: '16px' }, { n: '03', c: 'rgba(238,242,244,.4)', w: '16px' }], langLabel: lang === 'es' ? 'ES · EN' : 'EN · ES', toggleLang: () => this.setState((s) => ({ lang: s.lang === 'es' ? 'en' : 'es' })) }; }
+}
+</script>
+</body>
+</html>

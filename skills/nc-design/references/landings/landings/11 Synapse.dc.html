@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@300;400;500&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+html,body{margin:0;background:#eef0f4;color:#15161c;font-family:Figtree,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#15161c;text-decoration:none}a:hover{color:#ff5c3a}
+*{box-sizing:border-box}
+@keyframes fadeUp{from{opacity:0;transform:translate3d(0,40px,0)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes pulseRing{0%{transform:scale(1);opacity:.7}100%{transform:scale(2.2);opacity:0}}
+@keyframes glowPulse{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:.9;transform:scale(1.08)}}
+@keyframes wave{to{stroke-dashoffset:0}}
+@keyframes lineGrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+</style>
+</helmet>
+<div ref="{{ rootRef }}" style="background:#eef0f4;overflow-x:clip">
+
+<section data-screen-label="Hero" style="position:relative;height:100vh;min-height:760px;overflow:hidden;background:radial-gradient(ellipse 50% 60% at 62% 50%,#fff 0%,#eef0f4 70%)">
+  <nav style="position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:26px 56px;z-index:6;animation:fadeIn 1s .2s both">
+    <a href="#" style="display:flex;align-items:center;gap:10px;font-weight:600;font-size:15px;letter-spacing:.06em;text-transform:uppercase"><span style="width:22px;height:22px;border-radius:50%;border:2px solid #15161c;display:grid;place-items:center"><span style="width:8px;height:8px;border-radius:50%;background:#ff5c3a"></span></span>Synapse</a>
+    <div style="display:flex;gap:clamp(14px,2vw,34px)px;font-size:14px">
+      <sc-for list="{{ t.nav }}" as="n" hint-placeholder-count="4"><a href="#" style="color:rgba(21,22,28,.6)" style-hover="color:#15161c">{{ n }}</a></sc-for>
+    </div>
+    <div style="display:flex;gap:14px;align-items:center">
+      <button onClick="{{ toggleLang }}" style="white-space:nowrap;border:1px solid rgba(21,22,28,.2);background:transparent;color:inherit;border-radius:999px;padding:7px 12px;font-size:11px;letter-spacing:.1em;cursor:pointer;font-family:inherit">{{ langLabel }}</button>
+      <a href="#" style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600">{{ t.contact }}</a>
+      <span style="width:22px;height:12px;border-top:2px solid #15161c;border-bottom:2px solid #15161c"></span>
+    </div>
+  </nav>
+
+  <!-- brain -->
+  <div style="position:absolute;left:58%;top:52%;transform:translate(-50%,-50%);width:min(44vw,620px);height:min(76vh,720px);z-index:2"><div data-depth="0.3" style="position:absolute;inset:0"><div data-hero-anim="" style="position:absolute;inset:0;animation:fadeIn 1.6s .5s both">
+    <div style="position:absolute;inset:20%;border-radius:50%;background:radial-gradient(circle,rgba(255,92,58,.45),transparent 65%);filter:blur(40px);animation:glowPulse 4s ease-in-out infinite"></div>
+    <x-import component-from-global-scope="image-slot" id="synapse-hero" shape="rect" placeholder="Cerebro 3D translúcido con brillo naranja (PNG)" hint-size="100%,100%" style="position:absolute;inset:0;width:100%;height:100%"></x-import>
+    <!-- play -->
+    <a href="#" data-magnetic="" style="white-space:nowrap;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:84px;height:84px;border-radius:50%;background:#ff5c3a;color:#fff;display:grid;place-items:center;font-size:22px;box-shadow:0 20px 50px rgba(255,92,58,.45);z-index:3">▶
+      <span style="position:absolute;inset:0;border-radius:50%;border:2px solid #ff5c3a;animation:pulseRing 2.2s ease-out infinite"></span>
+      <span style="position:absolute;inset:0;border-radius:50%;border:2px solid #ff5c3a;animation:pulseRing 2.2s 1.1s ease-out infinite"></span>
+    </a>
+  </div></div></div>
+
+  <!-- copy -->
+  <div style="position:absolute;left:56px;top:50%;transform:translateY(-50%);max-width:520px;z-index:4">
+    <h1 data-hero-anim="" style="font-family:Cormorant,serif;font-weight:400;font-size:clamp(56px,6.6vw,104px);line-height:.92;letter-spacing:-.01em;margin:0 0 28px;text-transform:uppercase">
+      <span style="display:block;animation:fadeUp 1.1s .6s both">{{ slide.l1 }}</span>
+      <span style="display:block;animation:fadeUp 1.1s .75s both">{{ slide.l2 }}</span>
+      <span style="display:block;animation:fadeUp 1.1s .9s both"><em style="color:#8c7ad6;font-style:normal">{{ slide.em }}</em> {{ slide.l3 }}</span>
+    </h1>
+    <p data-hero-anim="" style="font-size:15px;line-height:1.7;color:rgba(21,22,28,.62);max-width:340px;margin:0 0 36px;animation:fadeUp 1s 1.1s both">{{ slide.sub }}</p>
+    <a href="#method" data-magnetic="" style="white-space:nowrap;display:inline-flex;align-items:center;gap:16px;padding:8px 24px 8px 8px;border-radius:999px;border:1px solid rgba(21,22,28,.25);background:rgba(255,255,255,.6);font-size:13px;font-weight:600;letter-spacing:.02em;backdrop-filter:blur(10px);animation:fadeUp 1s 1.3s both"><span style="width:44px;height:44px;border-radius:50%;background:#15161c;color:#fff;display:grid;place-items:center;font-size:14px">◎</span>{{ t.start }}<span>→</span></a>
+  </div>
+
+  <!-- glass cards -->
+  <div data-depth="0.6" style="position:absolute;left:44%;bottom:80px;width:200px;padding:16px;border-radius:18px;background:rgba(255,255,255,.55);border:1px solid #fff;backdrop-filter:blur(16px);box-shadow:0 20px 50px rgba(21,22,28,.08);z-index:4;animation:fadeUp 1s 1.5s both">
+    <div style="display:flex;align-items:center;gap:10px"><span style="width:34px;height:34px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#ffd1c4,#ff5c3a)"></span><div><div style="font-size:11px;color:rgba(21,22,28,.55)">Neural</div><div style="font-weight:600;font-size:14px">{{ t.insights }}</div></div></div>
+    <svg viewBox="0 0 160 40" style="width:100%;height:40px;margin-top:12px"><polyline points="0,30 20,26 40,32 60,14 80,22 100,8 120,18 140,6 160,12" fill="none" stroke="#ff5c3a" stroke-width="2" stroke-dasharray="400" stroke-dashoffset="400" style="animation:wave 2.4s 1.8s ease-out forwards"></polyline></svg>
+  </div>
+  <div data-depth="0.7" style="position:absolute;right:56px;top:26%;display:flex;align-items:center;gap:10px;padding:8px 14px 8px 8px;border-radius:999px;background:rgba(255,255,255,.6);border:1px solid #fff;backdrop-filter:blur(14px);z-index:4;animation:fadeUp 1s 1.6s both">
+    <sc-for list="{{ avatars }}" as="a" hint-placeholder-count="4"><span style="width:26px;height:26px;border-radius:50%;background:{{ a }};border:2px solid #fff;margin-left:-8px"></span></sc-for><strong style="font-size:13px">544+</strong><span style="font-size:12px;color:rgba(21,22,28,.55)">{{ t.learners }}</span>
+  </div>
+  <div data-depth="0.5" style="position:absolute;right:56px;bottom:80px;width:230px;padding:20px;border-radius:20px;background:rgba(255,255,255,.55);border:1px solid #fff;backdrop-filter:blur(16px);box-shadow:0 20px 50px rgba(21,22,28,.08);z-index:4;animation:fadeUp 1s 1.7s both">
+    <div style="position:relative;width:120px;height:60px;margin:0 auto 8px;overflow:hidden"><div style="position:absolute;inset:0 0 -60px 0;border-radius:50%;border:8px solid rgba(21,22,28,.1)"></div><div style="position:absolute;inset:0 0 -60px 0;border-radius:50%;border:8px solid transparent;border-top-color:#ff5c3a;border-left-color:#ff5c3a;transform:rotate(-20deg)"></div></div>
+    <div style="text-align:center"><div style="font-family:Cormorant,serif;font-size:36px;line-height:1"><span data-count="345">0</span></div><div style="font-size:11px;color:rgba(21,22,28,.55)">{{ t.sessions }}</div></div>
+    <div style="display:flex;justify-content:space-between;margin-top:16px;padding-top:14px;border-top:1px solid rgba(21,22,28,.1);font-size:11px;color:rgba(21,22,28,.6)"><div><strong style="display:block;font-size:14px;color:#15161c">24K</strong>{{ t.dataPoints }}</div><div><strong style="display:block;font-size:14px;color:#15161c">1.33</strong>{{ t.avgFocus }}</div></div>
+  </div>
+
+  <!-- slide counter -->
+  <div style="position:absolute;left:56px;bottom:64px;display:flex;align-items:center;gap:14px;font-size:13px;z-index:4;animation:fadeIn 1s 1.9s both">
+    <span style="color:rgba(21,22,28,.45)">{{ slidePrev }}</span><span style="width:60px;height:1px;background:rgba(21,22,28,.2);position:relative;overflow:hidden"><span style="position:absolute;inset:0;background:#15161c;transform-origin:left;animation:lineGrow 7s linear infinite"></span></span><span style="font-weight:600">{{ slideNum }}</span>
+  </div>
+  <div style="position:absolute;right:56px;bottom:200px;text-align:right;font-size:13px;line-height:1.2;text-transform:uppercase;letter-spacing:.06em;font-weight:600;z-index:4;animation:fadeUp 1s 1.8s both">{{ t.tag1 }}<br>{{ t.tag2 }}<br>{{ t.tag3 }}</div>
+</section>
+
+<!-- STACKED CARDS -->
+<section id="method" data-screen-label="Método" style="padding:140px 56px 60px">
+  <div data-reveal="" style="text-align:center;max-width:720px;margin:0 auto 80px">
+    <div style="font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#ff5c3a;margin-bottom:16px">{{ t.methodEyebrow }}</div>
+    <h2 style="font-family:Cormorant,serif;font-weight:400;font-size:clamp(44px,5vw,80px);line-height:.95;margin:0;text-transform:uppercase">{{ t.methodTitle }}</h2>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:24px">
+    <sc-for list="{{ t.cards }}" as="c" hint-placeholder-count="3">
+      <article style="position:sticky;top:{{ c.top }};display:grid;grid-template-columns:1fr 1fr;min-height:70vh;border-radius:28px;overflow:hidden;background:{{ c.bg }};color:{{ c.fg }};box-shadow:0 -20px 60px rgba(21,22,28,.08)">
+        <div style="padding:64px;display:flex;flex-direction:column;justify-content:space-between">
+          <span style="font-family:Cormorant,serif;font-size:80px;line-height:1;opacity:.35">{{ c.num }}</span>
+          <div><h3 style="font-family:Cormorant,serif;font-weight:400;font-size:clamp(34px,3.6vw,56px);line-height:1;margin:0 0 20px;text-transform:uppercase">{{ c.title }}</h3><p style="font-size:15px;line-height:1.7;opacity:.75;margin:0;max-width:420px">{{ c.text }}</p></div>
+        </div>
+        <div style="position:relative;min-height:360px"><x-import component-from-global-scope="image-slot" id="{{ c.id }}" shape="rect" placeholder="{{ c.ph }}" hint-size="100%,100%" style="position:absolute;inset:0;width:100%;height:100%"></x-import></div>
+      </article>
+    </sc-for>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section data-screen-label="Planes" style="padding:140px 56px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:end">
+  <sc-for list="{{ t.plans }}" as="p" hint-placeholder-count="3">
+    <div data-reveal="" data-reveal-delay="{{ p.delay }}" data-tilt="" style="padding:36px;border-radius:24px;background:{{ p.bg }};color:{{ p.fg }};border:1px solid rgba(21,22,28,.08);min-height:{{ p.h }};display:flex;flex-direction:column;justify-content:space-between">
+      <div><div style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.6">{{ p.name }}</div><div style="font-family:Cormorant,serif;font-size:64px;line-height:1;margin:18px 0 6px">{{ p.price }}</div><div style="font-size:13px;opacity:.6">{{ p.per }}</div></div>
+      <div style="margin:32px 0"><sc-for list="{{ p.items }}" as="it" hint-placeholder-count="3"><div style="font-size:14px;padding:10px 0;border-top:1px solid rgba(128,128,128,.2)">{{ it }}</div></sc-for></div>
+      <a href="#" data-magnetic="" style="white-space:nowrap;text-align:center;padding:14px;border-radius:999px;background:{{ p.btnBg }};color:{{ p.btnFg }};font-size:13px;font-weight:600">{{ p.cta }}</a>
+    </div>
+  </sc-for>
+</section>
+<footer style="display:flex;justify-content:space-between;padding:0 56px 40px;font-size:12px;color:rgba(21,22,28,.45)"><span>© 2026 Synapse Labs</span><span>{{ t.footer }}</span></footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { lang: 'es', slide: 0 };
+  rootRef = React.createRef();
+  copy = {
+    es: { nav: ['Inicio', 'Cursos', 'Entrenadores', 'Precios'], contact: 'Contáctanos', start: 'Empezar a entrenar', insights: 'Insights', learners: 'alumnos activos', sessions: 'Sesiones registradas', dataPoints: 'Datos', avgFocus: 'Foco medio', tag1: 'Tu mente,', tag2: 'a otro', tag3: 'nivel',
+      slides: [{ l1: 'El primer', l2: 'entrenador', em: 'cerebral', l3: 'personal', sub: 'Entrena tu mente con precisión, adapta en tiempo real y mide el rendimiento cognitivo.' }, { l1: 'Foco', l2: 'medible', em: 'cada', l3: 'día', sub: 'Sesiones de 12 minutos diseñadas por neurocientíficos. Resultados en tres semanas.' }],
+      methodEyebrow: 'El método', methodTitle: 'Tres fases, una mente más clara', cards: [{ num: '01', title: 'Diagnóstico', text: 'Una evaluación de 20 minutos mapea atención, memoria de trabajo y flexibilidad cognitiva.', id: 'syn-c1', ph: 'Evaluación · interfaz', bg: '#fff', fg: '#15161c', top: '80px' }, { num: '02', title: 'Entrenamiento adaptativo', text: 'Ejercicios que suben o bajan de dificultad en tiempo real según tu rendimiento.', id: 'syn-c2', ph: 'Sesión de entrenamiento', bg: '#8c7ad6', fg: '#fff', top: '100px' }, { num: '03', title: 'Progreso visible', text: 'Métricas semanales y un coach humano que revisa tu evolución cada mes.', id: 'syn-c3', ph: 'Dashboard de progreso', bg: '#15161c', fg: '#eef0f4', top: '120px' }],
+      plans: [{ name: 'Inicio', price: '$0', per: 'para siempre', items: ['3 sesiones / semana', 'Métricas básicas', 'Comunidad'], cta: 'Crear cuenta', bg: '#fff', fg: '#15161c', btnBg: '#eef0f4', btnFg: '#15161c', h: '480px', delay: '0' }, { name: 'Pro', price: '$19', per: 'por mes', items: ['Sesiones ilimitadas', 'Plan adaptativo', 'Informe mensual', 'Coach humano'], cta: 'Probar 14 días', bg: '#15161c', fg: '#eef0f4', btnBg: '#ff5c3a', btnFg: '#fff', h: '540px', delay: '100' }, { name: 'Equipos', price: '$12', per: 'por persona / mes', items: ['Todo Pro', 'Panel de equipo', 'SSO'], cta: 'Hablar con ventas', bg: '#fff', fg: '#15161c', btnBg: '#eef0f4', btnFg: '#15161c', h: '480px', delay: '200' }],
+      footer: 'Diseño · Nivaldyr Technologies' },
+    en: { nav: ['Home', 'Courses', 'Trainers', 'Pricing'], contact: 'Contact us', start: 'Start training', insights: 'Insights', learners: 'active learners', sessions: 'Sessions tracked', dataPoints: 'Data points', avgFocus: 'Avg focus', tag1: 'Your mind', tag2: 'upgraded', tag3: '',
+      slides: [{ l1: 'First', l2: 'personal', em: 'brain', l3: 'trainer', sub: 'Train your mind with precision, adapt in real time, and unlock measurable cognitive performance.' }, { l1: 'Focus', l2: 'you can', em: 'measure', l3: 'daily', sub: '12-minute sessions designed by neuroscientists. Results in three weeks.' }],
+      methodEyebrow: 'The method', methodTitle: 'Three phases, one clearer mind', cards: [{ num: '01', title: 'Diagnosis', text: 'A 20-minute assessment maps attention, working memory and cognitive flexibility.', id: 'syn-c1', ph: 'Assessment · interface', bg: '#fff', fg: '#15161c', top: '80px' }, { num: '02', title: 'Adaptive training', text: 'Exercises that scale up or down in real time based on your performance.', id: 'syn-c2', ph: 'Training session', bg: '#8c7ad6', fg: '#fff', top: '100px' }, { num: '03', title: 'Visible progress', text: 'Weekly metrics and a human coach who reviews your evolution monthly.', id: 'syn-c3', ph: 'Progress dashboard', bg: '#15161c', fg: '#eef0f4', top: '120px' }],
+      plans: [{ name: 'Starter', price: '$0', per: 'forever', items: ['3 sessions / week', 'Basic metrics', 'Community'], cta: 'Create account', bg: '#fff', fg: '#15161c', btnBg: '#eef0f4', btnFg: '#15161c', h: '480px', delay: '0' }, { name: 'Pro', price: '$19', per: 'per month', items: ['Unlimited sessions', 'Adaptive plan', 'Monthly report', 'Human coach'], cta: 'Try 14 days', bg: '#15161c', fg: '#eef0f4', btnBg: '#ff5c3a', btnFg: '#fff', h: '540px', delay: '100' }, { name: 'Teams', price: '$12', per: 'per seat / month', items: ['Everything in Pro', 'Team dashboard', 'SSO'], cta: 'Talk to sales', bg: '#fff', fg: '#15161c', btnBg: '#eef0f4', btnFg: '#15161c', h: '480px', delay: '200' }],
+      footer: 'Design · Nivaldyr Technologies' },
+  };
+  componentDidMount() {
+    const root = this.rootRef.current;
+    import('./fx.js').then((fx) => { this.cleanups = [fx.parallax(root, { max: 24 }), fx.reveal(root), fx.magnetic(root), fx.tilt(root, { max: 4 }), fx.counters(root)]; });
+    this.timer = setInterval(() => this.setState((s) => ({ slide: (s.slide + 1) % 2 }), () => this.replayHero()), 7000);
+  }
+  componentWillUnmount() { (this.cleanups || []).forEach((c) => c()); clearInterval(this.timer); }
+  replayHero() { const root = this.rootRef.current; if (!root) return; root.querySelectorAll('[data-hero-anim] > span, [data-hero-anim]').forEach((el) => { const a = el.style.animation; if (!a) return; el.style.animation = 'none'; void el.offsetWidth; el.style.animation = a; }); }
+  renderVals() {
+    const lang = this.state.lang; const t = this.copy[lang]; const i = this.state.slide;
+    return { rootRef: this.rootRef, t, slide: t.slides[i], slideNum: '0' + (i + 1), slidePrev: '0' + ((i + 1) % 2 + 1), avatars: ['#ff5c3a', '#8c7ad6', '#15161c', '#d9dce6'],
+      langLabel: lang === 'es' ? 'ES · EN' : 'EN · ES', toggleLang: () => this.setState((s) => ({ lang: s.lang === 'es' ? 'en' : 'es' })) };
+  }
+}
+</script>
+</body>
+</html>

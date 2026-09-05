@@ -265,6 +265,27 @@ Cárgalas con la herramienta Skill cuando la tarea lo pida:
   de la referencia — y luego filtrar el resultado con los principios y los
   AI-tells de ESTA skill: design-dna extrae, nc-design decide qué se queda.
 
+## Banco 2026-09: 25 landings premium + fx.js (añadido 2026-09-04)
+
+Segundo banco de Nicolas, en `references/landings/` (galería índice en
+`landings/00 Galeria.dc.html`; catálogo, recetas y checklist de pulido en
+`references/efectos.md`). Tres colecciones: hero cinematográfico con fondos
+canvas (01-08), scroll-driven (09-16), 3D + fondos continuos (17-24), y el
+showcase **25 Atlas**, que se suma a cattleya y cafeto como vara de "nivel
+superior": su checklist de 8 pasos (preloader, split text, scroll inercial,
+cursor con label, un fondo continuo, micro-interacciones, grano, una sección
+sticky "wow") es la lista de pulido al portar cualquier pieza premium.
+
+- `references/landings/landings/fx.js`: 25 efectos sin dependencias con
+  cleanup, listos para `useEffect`. Usarlo antes de reescribir un efecto.
+- Las landings son formato Claude Design, no HTML plano: leer `efectos.md`
+  antes de copiar (pendiente convertirlas a HTML plano en el PC principal).
+- **El banco manda** sobre el catálogo de tells de IA de esta skill cuando
+  chocan (decisión de Nicolas 2026-09-04, detalle en `efectos.md`).
+- Regla 11 matizada: `fx.js` usa `scroll` pasivo + rAF en `scrollProgress`,
+  `smoothScroll` y `marqueeVelocity`; aceptado como precedente del banco.
+  Fuera de fx.js sigue prefiriéndose ScrollTrigger / IntersectionObserver.
+
 © 2026 Nicolas Cardona Carrillo. Licencia CC BY 4.0:
 puede usarse y adaptarse conservando este crédito.
 Origen: https://github.com/NicoCardona1106/claude-skills

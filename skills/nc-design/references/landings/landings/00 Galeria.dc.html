@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;background:#0c0c0e;color:#f2f0eb;font-family:'DM Sans',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#f2f0eb;text-decoration:none}a:hover{color:#ffb86b}
+*{box-sizing:border-box}
+@keyframes fadeUp{from{opacity:0;transform:translate3d(0,30px,0)}to{opacity:1;transform:none}}
+</style>
+</helmet>
+<div ref="{{ rootRef }}" style="min-height:100vh;display:grid;grid-template-columns:280px 1fr">
+  <aside style="position:sticky;top:0;height:100vh;padding:36px 32px;border-right:1px solid rgba(242,240,235,.1);display:flex;flex-direction:column;gap:36px">
+    <div>
+      <div style="font-family:Syne,sans-serif;font-weight:800;font-size:22px;letter-spacing:-.02em">Landings<span style="color:#ffb86b">.</span></div>
+      <div style="font-size:12px;color:rgba(242,240,235,.5);margin-top:6px">Repertorio premium · Nivaldyr</div>
+    </div>
+    <nav style="display:flex;flex-direction:column;gap:2px;flex:1;overflow:auto;scrollbar-width:none">
+      <a href="#col3" style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#ffb86b;padding:6px 12px">Colección 03</a>
+      <sc-for list="{{ items3 }}" as="it" hint-placeholder-count="8">
+        <a href="{{ it.href }}" onMouseEnter="{{ it.hover }}" style="display:grid;grid-template-columns:28px 1fr;gap:12px;align-items:baseline;padding:7px 12px;border-radius:10px;background:{{ it.navBg }};transition:background .2s" style-hover="background:rgba(255,255,255,.08)">
+          <span style="font-size:11px;color:rgba(242,240,235,.45);font-variant-numeric:tabular-nums">{{ it.num }}</span>
+          <span><span style="display:block;font-size:13px;font-weight:500">{{ it.name }}</span><span style="display:block;font-size:11px;color:rgba(242,240,235,.5);margin-top:1px">{{ it.niche }}</span></span>
+        </a>
+      </sc-for>
+      <a href="#col2" style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(242,240,235,.5);padding:14px 12px 6px">Colección 02</a>
+      <sc-for list="{{ items2 }}" as="it" hint-placeholder-count="8">
+        <a href="{{ it.href }}" onMouseEnter="{{ it.hover }}" style="display:grid;grid-template-columns:28px 1fr;gap:12px;align-items:baseline;padding:8px 12px;border-radius:10px;background:{{ it.navBg }};transition:background .2s" style-hover="background:rgba(255,255,255,.08)">
+          <span style="font-size:11px;color:rgba(242,240,235,.45);font-variant-numeric:tabular-nums">{{ it.num }}</span>
+          <span><span style="display:block;font-size:13px;font-weight:500">{{ it.name }}</span><span style="display:block;font-size:11px;color:rgba(242,240,235,.5);margin-top:1px">{{ it.niche }}</span></span>
+        </a>
+      </sc-for>
+      <a href="#col1" style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(242,240,235,.5);padding:14px 12px 6px">Colección 01</a>
+      <sc-for list="{{ items }}" as="it" hint-placeholder-count="8">
+        <a href="{{ it.href }}" onMouseEnter="{{ it.hover }}" style="display:grid;grid-template-columns:28px 1fr;gap:12px;align-items:baseline;padding:12px 12px;border-radius:10px;background:{{ it.navBg }};transition:background .2s" style-hover="background:rgba(255,255,255,.08)">
+          <span style="font-size:11px;color:rgba(242,240,235,.45);font-variant-numeric:tabular-nums">{{ it.num }}</span>
+          <span><span style="display:block;font-size:14px;font-weight:500">{{ it.name }}</span><span style="display:block;font-size:11px;color:rgba(242,240,235,.5);margin-top:2px">{{ it.niche }}</span></span>
+        </a>
+      </sc-for>
+    </nav>
+    <div style="font-size:11px;line-height:1.7;color:rgba(242,240,235,.45)">Cada landing: hero animado + 2‑3 secciones · toggle ES/EN · placeholders de imagen que puedes llenar arrastrando.</div>
+  </aside>
+
+  <main style="padding:36px 40px 80px">
+    <header style="display:flex;justify-content:space-between;align-items:end;margin-bottom:32px;animation:fadeUp .8s both">
+      <h1 style="font-family:Syne,sans-serif;font-weight:700;font-size:clamp(32px,3.4vw,52px);letter-spacing:-.04em;line-height:1;margin:0">25 landings premium<br><span style="color:rgba(242,240,235,.45)">con animaciones</span></h1>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;max-width:520px;justify-content:flex-end">
+        <sc-for list="{{ fxTags }}" as="f" hint-placeholder-count="7"><span style="padding:6px 12px;border-radius:999px;border:1px solid rgba(242,240,235,.18);font-size:11px;color:rgba(242,240,235,.7)">{{ f }}</span></sc-for>
+      </div>
+    </header>
+    <div id="col3" style="display:flex;align-items:center;gap:16px;margin:8px 0 22px"><span style="font-family:Syne,sans-serif;font-weight:700;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:#ffb86b">Colección 03</span><span style="flex:1;height:1px;background:rgba(242,240,235,.12)"></span><span style="font-size:12px;color:rgba(242,240,235,.5)">Fondos vivos (canvas) · 3D CSS · partículas · globo</span></div>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-bottom:64px">
+      <sc-for list="{{ items3 }}" as="it" hint-placeholder-count="8">
+        <a href="{{ it.href }}" onMouseEnter="{{ it.hover }}" style="display:block;border-radius:16px;overflow:hidden;background:#15151a;border:1px solid rgba(242,240,235,.1);animation:fadeUp .8s both;animation-delay:{{ it.delay }};transition:transform .4s cubic-bezier(.2,.7,.2,1),border-color .3s" style-hover="transform:translateY(-6px);border-color:rgba(255,184,107,.5)">
+          <div style="position:relative;aspect-ratio:16/10;overflow:hidden;background:{{ it.bg }}">
+            <iframe src="{{ it.href }}" loading="lazy" tabIndex="-1" style="position:absolute;left:0;top:0;width:1440px;height:900px;border:0;transform-origin:0 0;transform:scale(var(--s,.42));pointer-events:none" title="{{ it.name }}"></iframe>
+            <span style="position:absolute;top:12px;left:12px;padding:5px 10px;border-radius:999px;background:rgba(12,12,14,.7);backdrop-filter:blur(8px);font-size:11px;letter-spacing:.08em">{{ it.num }}</span>
+          </div>
+          <div style="padding:16px 18px;display:flex;justify-content:space-between;align-items:center;gap:16px">
+            <div><div style="font-family:Syne,sans-serif;font-weight:600;font-size:17px;letter-spacing:-.01em">{{ it.name }}</div><div style="font-size:12px;color:rgba(242,240,235,.55);margin-top:3px">{{ it.niche }} · {{ it.fx }}</div></div>
+            <span style="width:36px;height:36px;border-radius:50%;border:1px solid rgba(242,240,235,.2);display:grid;place-items:center;flex:none">↗</span>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+    <div id="col2" style="display:flex;align-items:center;gap:16px;margin:8px 0 22px"><span style="font-family:Syne,sans-serif;font-weight:700;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:#ffb86b">Colección 02</span><span style="flex:1;height:1px;background:rgba(242,240,235,.12)"></span><span style="font-size:12px;color:rgba(242,240,235,.5)">Scroll-driven · sticky · cursor follow · before/after · countdown</span></div>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-bottom:64px">
+      <sc-for list="{{ items2 }}" as="it" hint-placeholder-count="8">
+        <a href="{{ it.href }}" onMouseEnter="{{ it.hover }}" style="display:block;border-radius:16px;overflow:hidden;background:#15151a;border:1px solid rgba(242,240,235,.1);animation:fadeUp .8s both;animation-delay:{{ it.delay }};transition:transform .4s cubic-bezier(.2,.7,.2,1),border-color .3s" style-hover="transform:translateY(-6px);border-color:rgba(255,184,107,.5)">
+          <div style="position:relative;aspect-ratio:16/10;overflow:hidden;background:{{ it.bg }}">
+            <iframe src="{{ it.href }}" loading="lazy" tabIndex="-1" style="position:absolute;left:0;top:0;width:1440px;height:900px;border:0;transform-origin:0 0;transform:scale(var(--s,.42));pointer-events:none" title="{{ it.name }}"></iframe>
+            <span style="position:absolute;top:12px;left:12px;padding:5px 10px;border-radius:999px;background:rgba(12,12,14,.7);backdrop-filter:blur(8px);font-size:11px;letter-spacing:.08em">{{ it.num }}</span>
+          </div>
+          <div style="padding:16px 18px;display:flex;justify-content:space-between;align-items:center;gap:16px">
+            <div><div style="font-family:Syne,sans-serif;font-weight:600;font-size:17px;letter-spacing:-.01em">{{ it.name }}</div><div style="font-size:12px;color:rgba(242,240,235,.55);margin-top:3px">{{ it.niche }} · {{ it.fx }}</div></div>
+            <span style="width:36px;height:36px;border-radius:50%;border:1px solid rgba(242,240,235,.2);display:grid;place-items:center;flex:none">↗</span>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+    <div id="col1" style="display:flex;align-items:center;gap:16px;margin:8px 0 22px"><span style="font-family:Syne,sans-serif;font-weight:700;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:rgba(242,240,235,.5)">Colección 01</span><span style="flex:1;height:1px;background:rgba(242,240,235,.12)"></span><span style="font-size:12px;color:rgba(242,240,235,.5)">Modernizada · fondos canvas continuos · 3D · parallax · slides</span></div>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:22px">
+      <sc-for list="{{ items }}" as="it" hint-placeholder-count="8">
+        <a href="{{ it.href }}" onMouseEnter="{{ it.hover }}" style="display:block;border-radius:16px;overflow:hidden;background:#15151a;border:1px solid rgba(242,240,235,.1);animation:fadeUp .8s both;animation-delay:{{ it.delay }};transition:transform .4s cubic-bezier(.2,.7,.2,1),border-color .3s" style-hover="transform:translateY(-6px);border-color:rgba(255,184,107,.5)">
+          <div style="position:relative;aspect-ratio:16/10;overflow:hidden;background:{{ it.bg }}">
+            <iframe src="{{ it.href }}" loading="lazy" tabIndex="-1" style="position:absolute;left:0;top:0;width:1440px;height:900px;border:0;transform-origin:0 0;transform:scale(var(--s,.42));pointer-events:none" title="{{ it.name }}"></iframe>
+            <span style="position:absolute;top:12px;left:12px;padding:5px 10px;border-radius:999px;background:rgba(12,12,14,.7);backdrop-filter:blur(8px);font-size:11px;letter-spacing:.08em">{{ it.num }}</span>
+          </div>
+          <div style="padding:16px 18px;display:flex;justify-content:space-between;align-items:center;gap:16px">
+            <div><div style="font-family:Syne,sans-serif;font-weight:600;font-size:17px;letter-spacing:-.01em">{{ it.name }}</div><div style="font-size:12px;color:rgba(242,240,235,.55);margin-top:3px">{{ it.niche }} · {{ it.fx }}</div></div>
+            <span style="width:36px;height:36px;border-radius:50%;border:1px solid rgba(242,240,235,.2);display:grid;place-items:center;flex:none">↗</span>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { hovered: -1 };
+  rootRef = React.createRef();
+  list = [
+    { href: '01 Hotel Aurora.dc.html', name: 'Aurora', niche: 'Hotel / resort', fx: 'polvo dorado · barrido de luz · slides 01/04', bg: '#0b0a0c' },
+    { href: '02 Velocita.dc.html', name: 'Velocità', niche: 'Automotriz', fx: 'speed streaks · grid 3D · switch de modelo', bg: '#07060a' },
+    { href: '03 Primae.dc.html', name: 'Primae', niche: 'Joyería / moda', fx: 'letras 3D parallax · pétalos · clip reveal', bg: '#f4f2ee' },
+    { href: '04 Nebula.dc.html', name: 'Nébula', niche: 'Producto 3D / tech', fx: 'anillos orbitando en 3D · burbujas · glass', bg: '#dfe7f2' },
+    { href: '05 Crystal Flora.dc.html', name: 'Cristalyne', niche: 'Botánico', fx: 'cristales + niebla canvas · índice 01/03', bg: '#070d1a' },
+    { href: '06 Terra.dc.html', name: 'Terra & Co.', niche: 'Expediciones', fx: 'nieve + niebla canvas · ken burns · sticky', bg: '#0a0908' },
+    { href: '07 Origen Cafe.dc.html', name: 'Origen', niche: 'Café', fx: 'ascuas + vapor canvas · letras cayendo', bg: '#1c120c' },
+    { href: '08 Studio Koan.dc.html', name: 'Kōan', niche: 'Agencia creativa', fx: 'gradient mesh · malla de puntos · typewriter', bg: '#f5f3ee' },
+  ];
+  list2 = [
+    { href: '09 Elan.dc.html', name: 'Élan', niche: 'Inmobiliaria de lujo', fx: 'galería horizontal por scroll · scramble · imagen sigue al cursor', bg: '#0e0f12' },
+    { href: '10 Bluebird.dc.html', name: 'Bluebird', niche: 'Ciberseguridad / IA', fx: 'radar animado · pasos sticky por scroll', bg: '#dde9f5' },
+    { href: '11 Synapse.dc.html', name: 'Synapse', niche: 'Bienestar / brain trainer', fx: 'tarjetas apiladas sticky · slides 01/02', bg: '#eef0f4' },
+    { href: '12 Pulse SaaS.dc.html', name: 'Pulse', niche: 'SaaS / dashboard', fx: 'mockup 3D que se endereza · bento · toggle precios', bg: '#08090c' },
+    { href: '13 Noir Parfum.dc.html', name: 'Noir', niche: 'Perfumería', fx: 'máscara que se abre con scroll · humo · selector', bg: '#050505' },
+    { href: '14 Chrono.dc.html', name: 'Chrono', niche: 'Relojería', fx: 'reloj rota con scroll · specs pineadas', bg: '#0a0a0b' },
+    { href: '15 Forma.dc.html', name: 'Forma', niche: 'Arquitectura', fx: 'antes/después · líneas blueprint · lista con preview', bg: '#f7f6f2' },
+    { href: '16 Lumen Fest.dc.html', name: 'Lumen', niche: 'Festival de música', fx: 'tipografía cinética · countdown live · lineup por día', bg: '#0d0b14' },
+  ];
+  list3 = [
+    { href: '17 Veldrah.dc.html', name: 'Veldrah', niche: 'Saga / mundo fantástico', fx: 'ascuas canvas continuas · capítulos 01/04', bg: '#120a0e' },
+    { href: '18 M. Magazine.dc.html', name: 'M. Magazine', niche: 'Revista editorial', fx: 'pétalos cayendo · bokeh · columnas', bg: '#0d1b26' },
+    { href: '19 Verde Dental.dc.html', name: 'Verde', niche: 'Clínica dental / wellness', fx: 'olas canvas · burbujas · isla 3D', bg: '#0f2a3a' },
+    { href: '20 Aurelia.dc.html', name: 'Aurelia', niche: 'Residencias premium', fx: 'estrellas twinkle · barrido de luz · slides', bg: '#0b1016' },
+    { href: '21 Orbe.dc.html', name: 'Orbe', niche: 'E-commerce objetos', fx: 'anillo 3D arrastrable · aurora', bg: '#0a0a0f' },
+    { href: '22 Aether.dc.html', name: 'Aether', niche: 'IA / infraestructura', fx: 'esfera de partículas three.js · orbit', bg: '#03060c' },
+    { href: '23 Drift.dc.html', name: 'Drift', niche: 'Surf / outdoor', fx: 'olas + aurora + sol · widget live', bg: '#04121c' },
+    { href: '25 Atlas Showcase.dc.html', name: 'Atlas · Showcase', niche: 'Catálogo premium completo', fx: 'preloader · split text · scroll inercial · image trail · marquee por velocidad · FLIP · scrub · grano · cursor blend', bg: '#0e0e0e' },
+    { href: '24 Prisma.dc.html', name: 'Prisma', niche: 'Herramienta de diseño', fx: 'cubo CSS 3D · gradient mesh · chips en órbita', bg: '#f3f1ff' },
+  ];
+  componentDidMount() {
+    // escala los iframes al ancho real de su tarjeta
+    const root = this.rootRef.current;
+    const fit = () => root.querySelectorAll('iframe').forEach((f) => { const w = f.parentElement.clientWidth; f.style.setProperty('--s', (w / 1440).toFixed(4)); });
+    fit(); this.ro = new ResizeObserver(fit); this.ro.observe(root);
+  }
+  componentWillUnmount() { if (this.ro) this.ro.disconnect(); }
+  renderVals() {
+    const h = this.state.hovered;
+    return { rootRef: this.rootRef,
+      items: this.list.map((it, i) => ({ ...it, num: String(i + 1).padStart(2, '0'), delay: (i * .07) + 's', navBg: h === i ? 'rgba(255,255,255,.08)' : 'transparent', hover: () => this.setState({ hovered: i }) })),
+      items3: this.list3.map((it, i) => ({ ...it, num: String(i + 17).padStart(2, '0'), delay: (i * .07) + 's', navBg: h === i + 16 ? 'rgba(255,255,255,.08)' : 'transparent', hover: () => this.setState({ hovered: i + 16 }) })),
+      items2: this.list2.map((it, i) => ({ ...it, num: String(i + 9).padStart(2, '0'), delay: (i * .07) + 's', navBg: h === i + 8 ? 'rgba(255,255,255,.08)' : 'transparent', hover: () => this.setState({ hovered: i + 8 }) })),
+      fxTags: ['Entrada cinematográfica', 'Parallax mouse', 'Glass flotante', 'Scroll reveal', 'Slides 01/05', 'Hover magnético', 'Typewriter', 'Scroll-driven', 'Sticky pin', 'Cursor follow', 'Before/After', 'Countdown', '3D ring', 'three.js', 'Canvas continuo', 'Gradient mesh', 'Preloader', 'Split text', 'Scroll inercial', 'Image trail', 'FLIP', 'Film grain'] };
+  }
+}
+</script>
+</body>
+</html>

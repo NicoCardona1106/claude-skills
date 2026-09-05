@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+html,body{margin:0;background:#070d1a;color:#e8eef8;font-family:Manrope,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#e8eef8;text-decoration:none}a:hover{color:#9cc4ff}
+*{box-sizing:border-box}
+@keyframes fadeUp{from{opacity:0;transform:translate3d(0,40px,0)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes bloom{from{opacity:0;transform:scale(.8);filter:blur(20px)}to{opacity:1;transform:none;filter:blur(0)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes shimmer{0%,100%{opacity:.4}50%{opacity:1}}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+</style>
+</helmet>
+<div ref="{{ rootRef }}" style="min-height:100vh;background:#070d1a;overflow-x:hidden">
+
+<section data-screen-label="Hero" style="position:relative;height:100vh;min-height:760px;overflow:hidden;background:radial-gradient(ellipse 60% 70% at 55% 50%,#1b3358 0%,#070d1a 70%)">
+  <div style="position:absolute;inset:0;pointer-events:none;z-index:2;z-index:3"><canvas ref="{{ snowRef }}" style="width:100%;height:100%;display:block"></canvas></div><div style="position:absolute;inset:0;pointer-events:none;z-index:2;z-index:1"><canvas ref="{{ fogRef }}" style="width:100%;height:100%;display:block"></canvas></div>
+  <div data-depth="0.1" style="position:absolute;inset:0;background-image:radial-gradient(rgba(156,196,255,.35) 1px,transparent 1px);background-size:64px 64px;opacity:.35;mask-image:radial-gradient(ellipse at center,black,transparent 70%)"></div>
+
+  <nav style="position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px 56px;z-index:6;animation:fadeIn 1s .2s both">
+    <a href="#" style="font-family:'Cormorant Garamond',serif;font-size:20px;letter-spacing:.24em;text-transform:uppercase">Cristalyne</a>
+    <div style="display:flex;gap:6px;padding:6px;border-radius:999px;border:1px solid rgba(232,238,248,.15);background:rgba(255,255,255,.04);backdrop-filter:blur(12px)">
+      <sc-for list="{{ t.nav }}" as="n" hint-placeholder-count="5"><a href="#" style="padding:8px 16px;border-radius:999px;font-size:12px;letter-spacing:.06em;color:rgba(232,238,248,.7)" style-hover="background:rgba(255,255,255,.1);color:#fff">{{ n }}</a></sc-for>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center">
+      <button onClick="{{ toggleLang }}" style="white-space:nowrap;border:1px solid rgba(232,238,248,.2);background:transparent;color:inherit;border-radius:999px;padding:8px 12px;font-size:11px;letter-spacing:.1em;cursor:pointer;font-family:inherit">{{ langLabel }}</button>
+      <span style="width:40px;height:40px;border-radius:50%;border:1px solid rgba(232,238,248,.2);display:grid;place-items:center;font-size:14px">⋮⋮</span>
+    </div>
+  </nav>
+
+  <!-- flower -->
+  <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-48%);width:min(52vw,760px);height:min(80vh,780px);z-index:2"><div data-depth="0.3" style="position:absolute;inset:0"><div data-hero-anim="" style="position:absolute;inset:0;animation:bloom 1.8s .4s cubic-bezier(.2,.7,.2,1) both">
+    <div style="position:absolute;inset:20%;border-radius:50%;background:radial-gradient(circle,rgba(156,196,255,.35),transparent 65%);filter:blur(40px);animation:shimmer 6s ease-in-out infinite"></div>
+    <x-import component-from-global-scope="image-slot" id="flora-hero" shape="rect" placeholder="Flor de cristal (PNG transparente)" hint-size="100%,100%" style="position:absolute;inset:0;width:100%;height:100%"></x-import>
+  </div></div></div>
+
+  <!-- left copy + index -->
+  <div style="position:absolute;left:56px;top:50%;transform:translateY(-50%);max-width:380px;z-index:4">
+    <h1 data-hero-anim="" style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(48px,5.4vw,84px);line-height:.95;letter-spacing:.02em;margin:0 0 40px;text-transform:uppercase;animation:fadeUp 1.1s .7s both">{{ flower.l1 }}<br>{{ flower.l2 }}</h1>
+    <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:40px">
+      <sc-for list="{{ flowers }}" as="f" hint-placeholder-count="3">
+        <button onClick="{{ f.pick }}" style="display:flex;align-items:center;gap:20px;background:none;border:none;color:inherit;font-family:inherit;cursor:pointer;padding:0;text-align:left;opacity:{{ f.opacity }};transition:opacity .4s">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:16px;letter-spacing:.1em">{{ f.num }}</span>
+          <span style="font-size:13px;letter-spacing:.06em">{{ f.name }}</span>
+        </button>
+      </sc-for>
+    </div>
+    <p data-hero-anim="" style="font-size:13px;line-height:1.75;color:rgba(232,238,248,.62);margin:0 0 28px;font-weight:300;animation:fadeUp 1s 1s both">{{ flower.desc }}</p>
+    <a href="#collection" data-magnetic="" style="white-space:nowrap;display:inline-block;padding:12px 26px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(10px);font-size:12px;letter-spacing:.14em;text-transform:uppercase;animation:fadeUp 1s 1.2s both">{{ t.know }}</a>
+  </div>
+
+  <!-- right stats -->
+  <div data-depth="0.6" style="position:absolute;right:56px;top:20%;display:flex;flex-direction:column;gap:12px;z-index:4">
+    <sc-for list="{{ flower.stats }}" as="s" hint-placeholder-count="2">
+      <div data-hero-anim="" style="width:150px;padding:20px 18px;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(16px);text-align:center;animation:fadeUp 1s both;animation-delay:{{ s.delay }}">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:36px;line-height:1">{{ s.v }}<span style="font-size:14px;margin-left:3px;color:#9cc4ff">{{ s.u }}</span></div>
+        <div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(232,238,248,.5);margin-top:8px">{{ s.l }}</div>
+      </div>
+    </sc-for>
+  </div>
+
+  <!-- bottom right card -->
+  <div data-depth="0.5" data-hero-anim="" style="position:absolute;right:56px;bottom:72px;display:flex;gap:18px;align-items:flex-end;z-index:4;animation:fadeUp 1.1s 1.4s both">
+    <div style="max-width:220px">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:26px;line-height:1.05;text-transform:uppercase;letter-spacing:.04em">{{ t.craftedTitle }}</div>
+      <p style="font-size:12px;line-height:1.6;color:rgba(232,238,248,.6);margin:10px 0 0">{{ t.craftedText }}</p>
+    </div>
+    <div style="width:150px;height:170px;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.14);animation:floatY 6s ease-in-out infinite"><x-import component-from-global-scope="image-slot" id="flora-mini" shape="rounded" radius="16" placeholder="Detalle" hint-size="100%,100%" style="width:100%;height:100%"></x-import></div>
+  </div>
+
+  <div style="position:absolute;left:56px;bottom:56px;width:80px;height:80px;z-index:4;animation:fadeIn 1s 1.8s both">
+    <svg viewBox="0 0 100 100" style="width:100%;height:100%;animation:spin 16s linear infinite;fill:rgba(232,238,248,.5);font-size:10px;letter-spacing:.3em;font-family:Manrope"><defs><path id="c2" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"></path></defs><text><textPath href="#c2">SCROLL · DOWN · SCROLL ·</textPath></text></svg>
+    <span style="position:absolute;inset:0;display:grid;place-items:center">↓</span>
+  </div>
+</section>
+
+<!-- COLLECTION (horizontal) -->
+<section id="collection" data-screen-label="Colección" style="padding:140px 0 100px">
+  <div data-reveal="" style="padding:0 56px;display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px">
+    <h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(40px,4.6vw,72px);line-height:1;margin:0;text-transform:uppercase">{{ t.colTitle }}</h2>
+    <span style="font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:rgba(232,238,248,.5)">{{ t.colSub }}</span>
+  </div>
+  <div style="display:flex;gap:18px;padding:0 56px;overflow-x:auto;scrollbar-width:none">
+    <sc-for list="{{ t.pieces }}" as="p" hint-placeholder-count="5">
+      <article data-reveal="" data-reveal-delay="{{ p.delay }}" data-tilt="" style="flex:0 0 300px;height:420px;border-radius:20px;overflow:hidden;position:relative;background:#0f1a2e;border:1px solid rgba(255,255,255,.08)">
+        <x-import component-from-global-scope="image-slot" id="{{ p.id }}" shape="rect" placeholder="{{ p.name }}" hint-size="100%,100%" style="position:absolute;inset:0;width:100%;height:100%"></x-import>
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(7,13,26,.9))"></div>
+        <div style="position:absolute;left:20px;right:20px;bottom:20px"><div style="font-family:'Cormorant Garamond',serif;font-size:26px;text-transform:uppercase">{{ p.name }}</div><div style="font-size:12px;color:rgba(232,238,248,.55);margin-top:6px">{{ p.meta }}</div></div>
+        <span style="position:absolute;top:16px;right:16px;font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:.1em">{{ p.num }}</span>
+      </article>
+    </sc-for>
+  </div>
+</section>
+
+<!-- CRAFT -->
+<section data-screen-label="Oficio" style="padding:60px 56px 140px;display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:center">
+  <div>
+    <div data-reveal="" style="font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:#9cc4ff;margin-bottom:18px">{{ t.craftEyebrow }}</div>
+    <h2 data-reveal="" style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(36px,3.8vw,58px);line-height:1;margin:0 0 28px;text-transform:uppercase">{{ t.craftTitle }}</h2>
+    <p data-reveal="" style="font-size:14px;line-height:1.8;color:rgba(232,238,248,.65);font-weight:300;margin:0 0 36px">{{ t.craftText }}</p>
+    <div style="display:flex;gap:36px">
+      <sc-for list="{{ t.craftStats }}" as="s" hint-placeholder-count="3"><div data-reveal="" data-reveal-delay="{{ s.delay }}"><div style="font-family:'Cormorant Garamond',serif;font-size:42px;line-height:1"><span data-count="{{ s.n }}" data-suffix="{{ s.suffix }}" style="white-space:nowrap">0</span></div><div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(232,238,248,.5);margin-top:8px">{{ s.label }}</div></div></sc-for>
+    </div>
+  </div>
+  <div data-reveal="" style="position:relative;height:580px;border-radius:24px;overflow:hidden;border:1px solid rgba(255,255,255,.1)"><x-import component-from-global-scope="image-slot" id="flora-craft" shape="rect" placeholder="Taller de vidrio soplado" hint-size="100%,100%" style="position:absolute;inset:0;width:100%;height:100%"></x-import></div>
+</section>
+<footer style="display:flex;justify-content:space-between;padding:0 56px 40px;font-size:12px;color:rgba(232,238,248,.4);letter-spacing:.08em"><span>© 2026 Cristalyne Atelier</span><span>{{ t.footer }}</span></footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { lang: 'es', flower: 0 };
+  rootRef = React.createRef(); snowRef = React.createRef(); fogRef = React.createRef();
+  copy = {
+    es: { nav: ['Inicio', 'Colección', 'Servicios', 'Diario', 'Galería'], know: 'Saber más', craftedTitle: 'Tallado en cristal', craftedText: 'Una mezcla de pureza natural y artesanía humana; cada pétalo, un testimonio de atemporalidad.',
+      flowers: [
+        { name: 'Dalia Helada', l1: 'Crystal', l2: 'Lotus', desc: 'Una flor acuática elegante, admirada por su simetría perfecta y presencia serena.', stats: [{ v: '164', u: 'lm', l: 'Exposición de luz', delay: '1.3s' }, { v: '84', u: 'cm', l: 'Altura media', delay: '1.45s' }] },
+        { name: 'Orquídea Ártica', l1: 'Glass', l2: 'Orchid', desc: 'Pétalos afilados como escarcha, soplados a mano durante catorce horas continuas.', stats: [{ v: '210', u: 'lm', l: 'Exposición de luz', delay: '0s' }, { v: '62', u: 'cm', l: 'Altura media', delay: '.15s' }] },
+        { name: 'Peonía Boreal', l1: 'Boreal', l2: 'Peony', desc: 'Capas translúcidas que capturan la luz del norte y la devuelven en tonos azules.', stats: [{ v: '98', u: 'lm', l: 'Exposición de luz', delay: '0s' }, { v: '110', u: 'cm', l: 'Altura media', delay: '.15s' }] }],
+      colTitle: 'La colección', colSub: '05 piezas · edición 2026', pieces: [{ id: 'flora-c1', name: 'Lotus', meta: 'Cristal de Murano · 84 cm', num: '01', delay: '0' }, { id: 'flora-c2', name: 'Orchid', meta: 'Cristal soplado · 62 cm', num: '02', delay: '100' }, { id: 'flora-c3', name: 'Peony', meta: 'Cristal boreal · 110 cm', num: '03', delay: '200' }, { id: 'flora-c4', name: 'Iris', meta: 'Cristal ahumado · 70 cm', num: '04', delay: '300' }, { id: 'flora-c5', name: 'Lily', meta: 'Cristal blanco · 96 cm', num: '05', delay: '400' }],
+      craftEyebrow: 'El oficio', craftTitle: 'Fuego, aliento y paciencia', craftText: 'Cada flor nace a 1.200 °C y se enfría durante tres días. No hay moldes: solo el pulso de nuestros maestros vidrieros.', craftStats: [{ n: 1200, suffix: '°', label: 'Temperatura', delay: '0' }, { n: 14, suffix: 'h', label: 'Por pieza', delay: '100' }, { n: 6, suffix: '', label: 'Maestros', delay: '200' }], footer: 'Diseño · Nivaldyr Technologies' },
+    en: { nav: ['Home', 'Collection', 'Services', 'Journal', 'Gallery'], know: 'Know more', craftedTitle: 'Crafted in crystal', craftedText: 'A blend of nature’s purity and human craftsmanship; each petal a testament to timelessness.',
+      flowers: [
+        { name: 'Frost Dahlia', l1: 'Crystal', l2: 'Lotus', desc: 'A graceful aquatic flower, admired for its perfect symmetry and calming presence.', stats: [{ v: '164', u: 'lm', l: 'Light exposure', delay: '1.3s' }, { v: '84', u: 'cm', l: 'Average height', delay: '1.45s' }] },
+        { name: 'Arctic Orchid', l1: 'Glass', l2: 'Orchid', desc: 'Petals sharp as frost, hand-blown over fourteen uninterrupted hours.', stats: [{ v: '210', u: 'lm', l: 'Light exposure', delay: '0s' }, { v: '62', u: 'cm', l: 'Average height', delay: '.15s' }] },
+        { name: 'Boreal Peony', l1: 'Boreal', l2: 'Peony', desc: 'Translucent layers that catch the northern light and return it in blue.', stats: [{ v: '98', u: 'lm', l: 'Light exposure', delay: '0s' }, { v: '110', u: 'cm', l: 'Average height', delay: '.15s' }] }],
+      colTitle: 'The collection', colSub: '05 pieces · 2026 edition', pieces: [{ id: 'flora-c1', name: 'Lotus', meta: 'Murano crystal · 84 cm', num: '01', delay: '0' }, { id: 'flora-c2', name: 'Orchid', meta: 'Blown crystal · 62 cm', num: '02', delay: '100' }, { id: 'flora-c3', name: 'Peony', meta: 'Boreal crystal · 110 cm', num: '03', delay: '200' }, { id: 'flora-c4', name: 'Iris', meta: 'Smoked crystal · 70 cm', num: '04', delay: '300' }, { id: 'flora-c5', name: 'Lily', meta: 'White crystal · 96 cm', num: '05', delay: '400' }],
+      craftEyebrow: 'The craft', craftTitle: 'Fire, breath and patience', craftText: 'Every flower is born at 1,200 °C and cools for three days. No molds: only the pulse of our master glassblowers.', craftStats: [{ n: 1200, suffix: '°', label: 'Temperature', delay: '0' }, { n: 14, suffix: 'h', label: 'Per piece', delay: '100' }, { n: 6, suffix: '', label: 'Masters', delay: '200' }], footer: 'Design · Nivaldyr Technologies' },
+  };
+  componentDidMount() {
+    const root = this.rootRef.current;
+    import('./fx.js').then((fx) => { this.cleanups = [fx.particles(this.snowRef.current, { type: 'star', count: 120, color: '156,196,255' }), fx.particles(this.fogRef.current, { type: 'snow', count: 60, color: '232,238,248', speed: .5 }), fx.parallax(root, { max: 30 }), fx.reveal(root), fx.magnetic(root), fx.tilt(root, { max: 6 }), fx.counters(root)]; });
+  }
+  componentWillUnmount() { (this.cleanups || []).forEach((c) => c()); }
+  replayHero() { const root = this.rootRef.current; if (!root) return; root.querySelectorAll('[data-hero-anim]').forEach((el) => { const a = el.style.animation; el.style.animation = 'none'; void el.offsetWidth; el.style.animation = a; }); }
+  renderVals() {
+    const lang = this.state.lang; const t = this.copy[lang]; const i = this.state.flower; const flower = t.flowers[i];
+    return { rootRef: this.rootRef, snowRef: this.snowRef, fogRef: this.fogRef, t, flower,
+      flowers: t.flowers.map((f, k) => ({ num: String(k + 1).padStart(2, '0'), name: f.name, opacity: k === i ? 1 : .4, pick: () => this.setState({ flower: k }, () => this.replayHero()) })),
+      langLabel: lang === 'es' ? 'ES · EN' : 'EN · ES', toggleLang: () => this.setState((s) => ({ lang: s.lang === 'es' ? 'en' : 'es' })) };
+  }
+}
+</script>
+</body>
+</html>

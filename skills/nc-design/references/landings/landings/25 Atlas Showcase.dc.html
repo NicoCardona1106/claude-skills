@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=PP+Neue+Montreal&family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+html,body{margin:0;background:#0e0e0e;color:#f2efe9;font-family:'Inter Tight',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#f2efe9;text-decoration:none}a:hover{color:#d8c7a0}
+*{box-sizing:border-box}
+@keyframes fadeUp{from{opacity:0;transform:translate3d(0,40px,0)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes kenBurns{from{transform:scale(1.1)}to{transform:scale(1)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+</helmet>
+<div ref="{{ rootRef }}" style="background:#0e0e0e;overflow-x:clip;position:relative">
+<!-- film grain -->
+<div style="position:fixed;inset:0;pointer-events:none;z-index:900;mix-blend-mode:overlay;opacity:.7"><canvas ref="{{ noiseRef }}" style="width:100%;height:100%;display:block"></canvas></div>
+<!-- preloader -->
+<div ref="{{ curtainRef }}" style="position:fixed;inset:0;background:#0e0e0e;z-index:1000;display:flex;align-items:flex-end;justify-content:space-between;padding:40px 56px">
+  <span style="font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:rgba(242,239,233,.5)">Atlas Studio · {{ t.loading }}</span>
+  <span ref="{{ counterRef }}" style="font-family:'Instrument Serif',serif;font-size:clamp(80px,14vw,200px);line-height:.8;letter-spacing:-.04em">000</span>
+</div>
+
+<section data-screen-label="Hero" ref="{{ heroRef }}" style="position:relative;height:100vh;min-height:760px;overflow:hidden">
+  <div data-depth="0.15" style="position:absolute;inset:-4%;animation:kenBurns 4s cubic-bezier(.2,.7,.2,1) both">
+    <x-import component-from-global-scope="image-slot" id="atlas-hero" shape="rect" placeholder="Paisaje abstracto · dunas / arquitectura brutalista · B&W" hint-size="100%,100%" style="position:absolute;inset:0;width:100%;height:100%"></x-import>
+  </div>
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,14,14,.6),transparent 30%,transparent 60%,rgba(14,14,14,.95))"></div>
+
+  <nav style="position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px 56px;z-index:6;animation:fadeIn 1s 2.6s both">
+    <a href="#" style="font-family:'Instrument Serif',serif;font-size:24px;letter-spacing:-.01em">Atlas<em style="color:#d8c7a0">.</em></a>
+    <div style="display:flex;gap:clamp(14px,2vw,34px);font-size:13px;letter-spacing:.04em"><sc-for list="{{ t.nav }}" as="n" hint-placeholder-count="4"><a href="#" data-cursor="→" style="color:rgba(242,239,233,.65)" style-hover="color:#f2efe9">{{ n }}</a></sc-for></div>
+    <div style="display:flex;gap:10px;align-items:center"><button onClick="{{ toggleLang }}" style="white-space:nowrap;border:1px solid rgba(242,239,233,.25);background:transparent;color:inherit;padding:7px 12px;font-size:11px;letter-spacing:.1em;cursor:pointer;font-family:inherit">{{ langLabel }}</button><a href="#" data-magnetic="" style="white-space:nowrap;padding:11px 22px;background:#f2efe9;color:#0e0e0e;font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;display:inline-block">{{ t.cta }}</a></div>
+  </nav>
+
+  <div style="position:absolute;left:56px;right:56px;bottom:80px;z-index:4">
+    <div style="font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#d8c7a0;margin-bottom:24px;animation:fadeIn 1s 2.8s both">{{ t.eyebrow }}</div>
+    <h1 data-split="words" style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(56px,8.4vw,140px);line-height:.92;letter-spacing:-.03em;margin:0 0 30px;max-width:1100px">{{ t.h1 }}</h1>
+    <div style="display:grid;grid-template-columns:1fr auto;gap:40px;align-items:end;animation:fadeUp 1s 3.4s both">
+      <p style="font-size:15px;line-height:1.7;color:rgba(242,239,233,.65);max-width:420px;margin:0">{{ t.sub }}</p>
+      <div style="display:flex;gap:14px;align-items:center"><a href="#work" data-magnetic="" data-cursor="{{ t.cursorSee }}" style="white-space:nowrap;display:inline-flex;align-items:center;gap:14px;padding:6px 6px 6px 24px;border-radius:999px;border:1px solid rgba(242,239,233,.3);font-size:13px;letter-spacing:.04em">{{ t.primary }}<span style="width:40px;height:40px;border-radius:50%;background:#f2efe9;color:#0e0e0e;display:grid;place-items:center">↓</span></a></div>
+    </div>
+  </div>
+  <div style="position:absolute;right:56px;top:50%;transform:translateY(-50%);width:80px;height:80px;z-index:4;animation:fadeIn 1s 3.6s both"><svg viewBox="0 0 100 100" style="width:100%;height:100%;animation:spin 16s linear infinite;fill:rgba(242,239,233,.5);font-size:10px;letter-spacing:.3em;font-family:'Inter Tight'"><defs><path id="c5" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"></path></defs><text><textPath href="#c5">MOVE · YOUR · MOUSE ·</textPath></text></svg></div>
+</section>
+
+<!-- VELOCITY MARQUEE -->
+<div style="border-top:1px solid rgba(242,239,233,.1);border-bottom:1px solid rgba(242,239,233,.1);padding:22px 0;overflow:hidden;white-space:nowrap">
+  <div ref="{{ marqueeRef }}" style="display:inline-flex;gap:60px;will-change:transform;font-family:'Instrument Serif',serif;font-size:clamp(28px,4vw,64px);line-height:1;letter-spacing:-.02em"><sc-for list="{{ marquee }}" as="w" hint-placeholder-count="8"><span>{{ w }} <em style="color:#d8c7a0;font-style:normal">✦</em></span></sc-for></div>
+</div>
+
+<!-- IMAGE TRAIL ZONE -->
+<section data-screen-label="Manifiesto" ref="{{ trailRef }}" style="position:relative;padding:160px 56px;min-height:80vh;display:grid;place-items:center;text-align:center;overflow:hidden">
+  <div style="position:relative;z-index:6;max-width:900px;pointer-events:none">
+    <div data-reveal="" style="font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#d8c7a0;margin-bottom:24px">{{ t.manEyebrow }}</div>
+    <h2 data-split="words" style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(40px,5.6vw,92px);line-height:1;letter-spacing:-.02em;margin:0">{{ t.manifesto }}</h2>
+    <div data-reveal="" style="font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:rgba(242,239,233,.4);margin-top:40px">{{ t.trailHint }}</div>
+  </div>
+</section>
+
+<!-- WORK · FLIP grid/list -->
+<section id="work" data-screen-label="Trabajo" style="padding:60px 56px 140px">
+  <div data-reveal="" style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px;gap:24px">
+    <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(36px,4.4vw,72px);line-height:1;letter-spacing:-.02em;margin:0">{{ t.workTitle }}</h2>
+    <div style="display:flex;gap:4px;padding:4px;border:1px solid rgba(242,239,233,.15)"><button onClick="{{ setGrid }}" style="padding:8px 14px;border:none;font-family:inherit;font-size:12px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;background:{{ gridBg }};color:{{ gridFg }}">Grid</button><button onClick="{{ setList }}" style="padding:8px 14px;border:none;font-family:inherit;font-size:12px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;background:{{ listBg }};color:{{ listFg }}">{{ t.list }}</button></div>
+  </div>
+  <div ref="{{ workRef }}" style="display:grid;grid-template-columns:{{ workCols }};gap:18px">
+    <sc-for list="{{ t.work }}" as="w" hint-placeholder-count="6">
+      <a href="#" data-cursor="{{ t.cursorOpen }}" style="position:relative;display:grid;grid-template-columns:{{ itemCols }};gap:20px;align-items:center;background:#161616;border:1px solid rgba(242,239,233,.08);overflow:hidden">
+        <div style="position:relative;height:{{ imgH }};overflow:hidden;background:#1d1d1d"><x-import component-from-global-scope="image-slot" id="{{ w.id }}" shape="rect" placeholder="{{ w.name }}" hint-size="100%,100%" style="position:absolute;inset:0;width:100%;height:100%"></x-import></div>
+        <div style="padding:{{ padInfo }};display:flex;justify-content:space-between;align-items:baseline;gap:16px"><div><div style="font-family:'Instrument Serif',serif;font-size:26px;line-height:1">{{ w.name }}</div><div style="font-size:12px;color:rgba(242,239,233,.5);margin-top:6px">{{ w.type }}</div></div><span style="font-size:12px;letter-spacing:.1em;color:rgba(242,239,233,.5)">{{ w.year }}</span></div>
+      </a>
+    </sc-for>
+  </div>
+</section>
+
+<!-- SCROLL SCRUB sequence -->
+<section data-screen-label="Proceso" ref="{{ scrubRef }}" style="position:relative;height:300vh">
+  <div style="position:sticky;top:0;height:100vh;overflow:hidden;display:grid;place-items:center">
+    <div style="position:absolute;inset:0;background:#0e0e0e"></div>
+    <div ref="{{ frameRef }}" style="position:absolute;left:50%;top:50%;width:min(60vw,820px);height:min(70vh,600px);transform:translate(-50%,-50%);will-change:transform,clip-path;clip-path:inset(30% 30% 30% 30%)">
+      <sc-for list="{{ frames }}" as="f" hint-placeholder-count="4"><div style="position:absolute;inset:0;opacity:{{ f.op }};transition:opacity .3s"><x-import component-from-global-scope="image-slot" id="{{ f.id }}" shape="rect" placeholder="{{ f.ph }}" hint-size="100%,100%" style="position:absolute;inset:0;width:100%;height:100%"></x-import></div></sc-for>
+    </div>
+    <div style="position:absolute;left:56px;bottom:56px;z-index:2"><div style="font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#d8c7a0;margin-bottom:12px">{{ t.procEyebrow }}</div><div style="font-family:'Instrument Serif',serif;font-size:clamp(28px,3vw,48px);line-height:1">{{ frameLabel }}</div></div>
+    <div style="position:absolute;right:56px;bottom:56px;font-family:'Instrument Serif',serif;font-size:64px;line-height:1;z-index:2">{{ frameNum }}<span style="font-size:20px;color:rgba(242,239,233,.4)"> / 04</span></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section data-screen-label="CTA" style="padding:140px 56px;text-align:center">
+  <h2 data-split="chars" style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,9vw,160px);line-height:.9;letter-spacing:-.04em;margin:0 0 40px">{{ t.ctaTitle }}</h2>
+  <a href="#" data-magnetic="" data-cursor="✉" style="white-space:nowrap;display:inline-block;padding:18px 36px;border-radius:999px;background:#f2efe9;color:#0e0e0e;font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:600">{{ t.ctaBtn }}</a>
+</section>
+<footer style="display:flex;justify-content:space-between;padding:0 56px 40px;font-size:11px;color:rgba(242,239,233,.4);letter-spacing:.14em;text-transform:uppercase"><span>© 2026 Atlas Studio</span><span>{{ t.footer }}</span></footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { lang: 'es', view: 'grid', frame: 0 };
+  rootRef = React.createRef(); noiseRef = React.createRef(); curtainRef = React.createRef(); counterRef = React.createRef(); heroRef = React.createRef(); marqueeRef = React.createRef(); trailRef = React.createRef(); workRef = React.createRef(); scrubRef = React.createRef(); frameRef = React.createRef();
+  copy = {
+    es: { nav: ['Trabajo', 'Estudio', 'Diario', 'Contacto'], cta: 'Hablemos', loading: 'cargando', eyebrow: 'Estudio de diseño & motion · Showcase de efectos', h1: 'Pulido hasta el último píxel.', sub: 'Una landing que reúne todo el catálogo premium: preloader, split text, scroll inercial, estela de imágenes, marquee por velocidad, FLIP y secuencia por scroll.', primary: 'Ver el trabajo', cursorSee: 'Ver', cursorOpen: 'Abrir', manEyebrow: 'Manifiesto', manifesto: 'El detalle no es decoración. Es la diferencia entre algo que funciona y algo que se recuerda.', trailHint: 'Mueve el mouse por esta zona', workTitle: 'Trabajo seleccionado', list: 'Lista', work: [{ id: 'atlas-w-nébula', name: 'Nébula', type: 'Producto · Web', year: '2026' }, { id: 'atlas-w-veldrah', name: 'Veldrah', type: 'Saga · Mundo', year: '2026' }, { id: 'atlas-w-chrono', name: 'Chrono', type: 'Relojería · Campaña', year: '2025' }, { id: 'atlas-w-orbe', name: 'Orbe', type: 'E-commerce · 3D', year: '2025' }, { id: 'atlas-w-aether', name: 'Aether', type: 'IA · Identidad', year: '2025' }, { id: 'atlas-w-noir', name: 'Noir', type: 'Perfumería · Web', year: '2024' }], procEyebrow: 'Proceso', frames: ['Investigación', 'Concepto', 'Diseño', 'Motion & código'], ctaTitle: 'Hablemos.', ctaBtn: 'Iniciar un proyecto', footer: 'Diseño · Nivaldyr Technologies' },
+    en: { nav: ['Work', 'Studio', 'Journal', 'Contact'], cta: 'Let’s talk', loading: 'loading', eyebrow: 'Design & motion studio · Effects showcase', h1: 'Polished to the last pixel.', sub: 'One landing that gathers the whole premium catalogue: preloader, split text, inertial scroll, image trail, velocity marquee, FLIP and scroll-scrubbed sequence.', primary: 'See the work', cursorSee: 'View', cursorOpen: 'Open', manEyebrow: 'Manifesto', manifesto: 'Detail is not decoration. It is the difference between something that works and something you remember.', trailHint: 'Move your mouse across this area', workTitle: 'Selected work', list: 'List', work: [{ id: 'atlas-w-nébula', name: 'Nébula', type: 'Product · Web', year: '2026' }, { id: 'atlas-w-veldrah', name: 'Veldrah', type: 'Saga · World', year: '2026' }, { id: 'atlas-w-chrono', name: 'Chrono', type: 'Watches · Campaign', year: '2025' }, { id: 'atlas-w-orbe', name: 'Orbe', type: 'E-commerce · 3D', year: '2025' }, { id: 'atlas-w-aether', name: 'Aether', type: 'AI · Identity', year: '2025' }, { id: 'atlas-w-noir', name: 'Noir', type: 'Perfume · Web', year: '2024' }], procEyebrow: 'Process', frames: ['Research', 'Concept', 'Design', 'Motion & code'], ctaTitle: 'Let’s talk.', ctaBtn: 'Start a project', footer: 'Design · Nivaldyr Technologies' },
+  };
+  componentDidMount() {
+    const root = this.rootRef.current;
+    import('./fx.js').then((fx) => {
+      this.fx = fx;
+      this.cleanups = [fx.noiseOverlay(this.noiseRef.current, { alpha: .05 }), fx.parallax(root, { max: 16 }), fx.reveal(root), fx.magnetic(root), fx.cursorBlend(root, { color: '#f2efe9' }), fx.marqueeVelocity(this.marqueeRef.current, { base: .7 }),
+        fx.imageTrail(this.trailRef.current, ['linear-gradient(135deg,#d8c7a0,#8a7a55)', 'linear-gradient(135deg,#3a3a3a,#161616)', 'linear-gradient(135deg,#6b5a3a,#d8c7a0)', 'linear-gradient(135deg,#f2efe9,#8a8a8a)'], { size: 160 }),
+        fx.scrollScrub(this.scrubRef.current, null, { onFrame: (p) => { const el = this.frameRef.current; if (el) { const k = Math.min(1, p * 1.6); const ins = 30 - 30 * k; el.style.clipPath = `inset(${ins}% ${ins}% ${ins}% ${ins}%)`; } const f = Math.min(3, Math.floor(p * 4)); if (f !== this.state.frame) this.setState({ frame: f }); } }),
+        fx.preloader(this.curtainRef.current, this.counterRef.current, { duration: 1800, onDone: () => { this.cleanups.push(fx.splitText(root, { stagger: 60 }), fx.smoothScroll({ ease: .1 })); } })];
+    });
+  }
+  componentWillUnmount() { (this.cleanups || []).forEach((c) => c()); }
+  setView(view) { if (view === this.state.view) return; const el = this.workRef.current; if (this.fx && el) this.fx.flip(el, () => { this.setState({ view }); this.forceUpdate(); }); else this.setState({ view }); }
+  renderVals() {
+    const lang = this.state.lang; const t = this.copy[lang]; const grid = this.state.view === 'grid'; const fr = this.state.frame;
+    return { rootRef: this.rootRef, noiseRef: this.noiseRef, curtainRef: this.curtainRef, counterRef: this.counterRef, heroRef: this.heroRef, marqueeRef: this.marqueeRef, trailRef: this.trailRef, workRef: this.workRef, scrubRef: this.scrubRef, frameRef: this.frameRef, t,
+      marquee: ['Preloader', 'Split text', 'Inertia', 'Image trail', 'FLIP', 'Scrub', 'Grain', 'Cursor', 'Preloader', 'Split text', 'Inertia', 'Image trail', 'FLIP', 'Scrub', 'Grain', 'Cursor'],
+      workCols: grid ? 'repeat(3,1fr)' : '1fr', itemCols: grid ? '1fr' : '220px 1fr', imgH: grid ? '300px' : '120px', padInfo: grid ? '20px 22px' : '0 22px 0 0',
+      gridBg: grid ? '#f2efe9' : 'transparent', gridFg: grid ? '#0e0e0e' : '#f2efe9', listBg: grid ? 'transparent' : '#f2efe9', listFg: grid ? '#f2efe9' : '#0e0e0e',
+      setGrid: () => this.setView('grid'), setList: () => this.setView('list'),
+      frames: t.frames.map((ph, i) => ({ id: 'atlas-f' + i, ph, op: i === fr ? 1 : 0 })), frameLabel: t.frames[fr], frameNum: '0' + (fr + 1),
+      langLabel: lang === 'es' ? 'ES · EN' : 'EN · ES', toggleLang: () => this.setState((s) => ({ lang: s.lang === 'es' ? 'en' : 'es' })) };
+  }
+}
+</script>
+</body>
+</html>

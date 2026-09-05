@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,500;12..96,700;12..96,800&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+html,body{margin:0;background:#04121c;color:#eaf6ff;font-family:'Bricolage Grotesque',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#eaf6ff;text-decoration:none}a:hover{color:#ffb547}
+*{box-sizing:border-box}
+@keyframes fadeUp{from{opacity:0;transform:translate3d(0,40px,0)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes aurora1{0%,100%{transform:translateX(-10%) skewX(-10deg)}50%{transform:translateX(10%) skewX(10deg)}}
+@keyframes aurora2{0%,100%{transform:translateX(8%) skewX(6deg);opacity:.6}50%{transform:translateX(-12%) skewX(-8deg);opacity:1}}
+@keyframes sun{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-8px) rotate(2deg)}}
+</style>
+</helmet>
+<div ref="{{ rootRef }}" style="background:#04121c;overflow-x:clip">
+
+<section data-screen-label="Hero" style="position:relative;height:100vh;min-height:760px;overflow:hidden;background:linear-gradient(180deg,#04121c 0%,#0a3550 45%,#0e5a6e 70%,#0a3550 100%)">
+  <!-- aurora bands -->
+  <div style="position:absolute;left:-20%;right:-20%;top:5%;height:40%;background:linear-gradient(90deg,transparent,rgba(94,234,212,.28),rgba(255,181,71,.18),transparent);filter:blur(50px);animation:aurora1 14s ease-in-out infinite;pointer-events:none"></div>
+  <div style="position:absolute;left:-20%;right:-20%;top:15%;height:30%;background:linear-gradient(90deg,transparent,rgba(124,140,255,.3),transparent);filter:blur(60px);animation:aurora2 18s ease-in-out infinite;pointer-events:none"></div>
+  <!-- sun -->
+  <div style="position:absolute;left:50%;top:28%;width:180px;height:180px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle at 40% 40%,#ffd98a,#ffb547 60%,#ff7a3d);box-shadow:0 0 120px rgba(255,181,71,.6);animation:sun 8s ease-in-out infinite"></div>
+  <!-- waves -->
+  <div style="position:absolute;left:0;right:0;bottom:0;height:62%;pointer-events:none;z-index:1"><canvas ref="{{ waveRef }}" style="width:100%;height:100%;display:block"></canvas></div>
+  <!-- stars -->
+  <div style="position:absolute;inset:0 0 50% 0;pointer-events:none"><canvas ref="{{ starRef }}" style="width:100%;height:100%;display:block"></canvas></div>
+
+  <nav style="position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:26px 56px;z-index:6;animation:fadeIn 1s .2s both">
+    <a href="#" style="font-weight:800;font-size:22px;letter-spacing:-.03em">drift<span style="color:#ffb547">~</span></a>
+    <div style="display:flex;gap:clamp(14px,2vw,30px)px;font-size:14px;font-weight:500"><sc-for list="{{ t.nav }}" as="n" hint-placeholder-count="4"><a href="#" style="color:rgba(234,246,255,.75)" style-hover="color:#fff">{{ n }}</a></sc-for></div>
+    <div style="display:flex;gap:10px;align-items:center"><button onClick="{{ toggleLang }}" style="white-space:nowrap;border:1px solid rgba(234,246,255,.25);background:transparent;color:inherit;border-radius:999px;padding:7px 12px;font-size:11px;letter-spacing:.1em;cursor:pointer;font-family:inherit">{{ langLabel }}</button><a href="#" data-magnetic="" style="white-space:nowrap;padding:10px 20px;border-radius:999px;background:#ffb547;color:#04121c;font-size:13px;font-weight:700;display:inline-block">{{ t.cta }}</a></div>
+  </nav>
+
+  <div style="position:absolute;left:56px;bottom:100px;max-width:640px;z-index:4">
+    <div style="font-size:13px;font-weight:500;color:#ffb547;margin-bottom:16px;animation:fadeUp 1s .5s both">{{ t.eyebrow }}</div>
+    <h1 style="font-weight:800;font-size:clamp(56px,8vw,128px);line-height:.9;letter-spacing:-.05em;margin:0 0 26px;animation:fadeUp 1s .7s both">{{ t.h1 }}<br><span style="font-weight:300;font-style:italic">{{ t.h1b }}</span></h1>
+    <p style="font-size:16px;line-height:1.6;color:rgba(234,246,255,.7);max-width:400px;margin:0 0 30px;animation:fadeUp 1s .9s both">{{ t.sub }}</p>
+    <div style="display:flex;gap:10px;animation:fadeUp 1s 1.1s both"><a href="#trips" data-magnetic="" style="white-space:nowrap;padding:16px 28px;border-radius:999px;background:#eaf6ff;color:#04121c;font-size:14px;font-weight:700;display:inline-block">{{ t.primary }}</a><a href="#" style="white-space:nowrap;padding:16px 24px;border-radius:999px;border:1px solid rgba(234,246,255,.3);font-size:14px;font-weight:500;backdrop-filter:blur(8px)">{{ t.secondary }}</a></div>
+  </div>
+
+  <!-- surfer -->
+  <div style="position:absolute;right:8%;bottom:14%;width:min(30vw,420px);height:min(50vh,460px);z-index:3"><div data-depth="0.4" style="position:absolute;inset:0"><div style="position:absolute;inset:0;animation:bob 6s ease-in-out infinite;filter:drop-shadow(0 40px 50px rgba(0,0,0,.4))">
+    <x-import component-from-global-scope="image-slot" id="drift-hero" shape="rect" placeholder="Surfista / tabla (PNG transparente)" hint-size="100%,100%" style="position:absolute;inset:0;width:100%;height:100%"></x-import>
+  </div></div></div>
+
+  <!-- conditions widget -->
+  <div data-depth="0.6" style="position:absolute;right:56px;top:120px;width:220px;padding:18px;border-radius:20px;background:rgba(4,18,28,.5);border:1px solid rgba(234,246,255,.15);backdrop-filter:blur(14px);z-index:4;animation:fadeUp 1s 1.4s both">
+    <div style="display:flex;justify-content:space-between;font-size:11px;color:rgba(234,246,255,.55)"><span>{{ t.condTitle }}</span><span style="color:#5eead4">● live</span></div>
+    <div style="font-weight:800;font-size:44px;letter-spacing:-.04em;line-height:1;margin:12px 0 4px">2.1<span style="font-size:16px;font-weight:500;margin-left:4px">m</span></div>
+    <div style="font-size:12px;color:rgba(234,246,255,.6)">{{ t.condMeta }}</div>
+    <div style="display:flex;gap:6px;margin-top:14px"><sc-for list="{{ cond }}" as="c" hint-placeholder-count="7"><span style="flex:1;height:{{ c.h }};border-radius:3px;background:{{ c.c }};align-self:flex-end"></span></sc-for></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div style="background:#ffb547;color:#04121c;padding:14px 0;overflow:hidden;white-space:nowrap"><div style="display:inline-flex;gap:48px;animation:marquee 24s linear infinite;font-weight:800;font-size:20px;letter-spacing:-.02em"><sc-for list="{{ marquee }}" as="w" hint-placeholder-count="10"><span>{{ w }} ~</span></sc-for></div></div>
+
+<!-- TRIPS -->
+<section id="trips" data-screen-label="Viajes" style="padding:140px 56px 100px">
+  <div data-reveal="" style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px"><h2 style="font-weight:800;font-size:clamp(40px,5vw,80px);letter-spacing:-.05em;line-height:.9;margin:0">{{ t.tripsTitle }}</h2><span style="font-size:13px;color:rgba(234,246,255,.55)">{{ t.tripsSub }}</span></div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px">
+    <sc-for list="{{ t.trips }}" as="tr" hint-placeholder-count="3">
+      <article data-reveal="" data-reveal-delay="{{ tr.delay }}" data-tilt="" style="position:relative;height:520px;border-radius:28px;overflow:hidden;background:#0a3550">
+        <x-import component-from-global-scope="image-slot" id="{{ tr.id }}" shape="rounded" radius="28" placeholder="{{ tr.ph }}" hint-size="100%,100%" style="position:absolute;inset:0;width:100%;height:100%"></x-import>
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(4,18,28,.95))"></div>
+        <span style="position:absolute;top:18px;left:18px;padding:6px 12px;border-radius:999px;background:#ffb547;color:#04121c;font-size:11px;font-weight:700">{{ tr.level }}</span>
+        <div style="position:absolute;left:22px;right:22px;bottom:22px"><div style="font-size:12px;color:#5eead4;font-weight:500;margin-bottom:6px">{{ tr.where }}</div><div style="font-weight:800;font-size:30px;letter-spacing:-.03em;line-height:1">{{ tr.name }}</div><div style="display:flex;justify-content:space-between;margin-top:14px;padding-top:12px;border-top:1px solid rgba(234,246,255,.15);font-size:13px"><span style="color:rgba(234,246,255,.6)">{{ tr.days }}</span><span style="font-weight:700">{{ tr.price }}</span></div></div>
+      </article>
+    </sc-for>
+  </div>
+</section>
+
+<!-- WHY -->
+<section data-screen-label="Por qué" style="padding:60px 56px 140px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center">
+  <div data-reveal="" style="position:relative;height:560px;border-radius:32px;overflow:hidden"><x-import component-from-global-scope="image-slot" id="drift-why" shape="rounded" radius="32" placeholder="Campamento en la playa · fogata" hint-size="100%,100%" style="position:absolute;inset:0;width:100%;height:100%"></x-import><div style="position:absolute;left:0;right:0;bottom:0;height:45%;pointer-events:none"><canvas ref="{{ wave2Ref }}" style="width:100%;height:100%;display:block"></canvas></div></div>
+  <div>
+    <h2 data-reveal="" style="font-weight:800;font-size:clamp(34px,4vw,60px);letter-spacing:-.04em;line-height:.95;margin:0 0 30px">{{ t.whyTitle }}</h2>
+    <sc-for list="{{ t.why }}" as="w" hint-placeholder-count="4"><div data-reveal="" data-reveal-delay="{{ w.delay }}" style="display:grid;grid-template-columns:48px 1fr;gap:18px;padding:20px 0;border-top:1px solid rgba(234,246,255,.14)"><span style="width:40px;height:40px;border-radius:50%;background:rgba(255,181,71,.15);color:#ffb547;display:grid;place-items:center;font-size:16px">{{ w.icon }}</span><div><div style="font-weight:700;font-size:18px">{{ w.title }}</div><p style="font-size:14px;line-height:1.6;color:rgba(234,246,255,.62);margin:6px 0 0">{{ w.text }}</p></div></div></sc-for>
+  </div>
+</section>
+<footer style="display:flex;justify-content:space-between;padding:0 56px 40px;font-size:12px;color:rgba(234,246,255,.4)"><span>© 2026 Drift Surf Co.</span><span>{{ t.footer }}</span></footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { lang: 'es' };
+  rootRef = React.createRef(); waveRef = React.createRef(); wave2Ref = React.createRef(); starRef = React.createRef();
+  copy = {
+    es: { nav: ['Viajes', 'Escuela', 'Tienda', 'Comunidad'], cta: 'Reservar', eyebrow: 'Surf trips · Pacífico colombiano', h1: 'Persigue', h1b: 'la marea.', sub: 'Viajes de surf de 5 a 12 días con guías locales, olas sin multitudes y campamentos frente al mar.', primary: 'Ver viajes', secondary: 'Cómo funciona', condTitle: 'Condiciones · Nuquí', condMeta: 'Viento offshore · 14 s · 26 °C', tripsTitle: 'Próximas salidas', tripsSub: 'Grupos de máx. 8 personas', trips: [{ id: 'drift-t1', ph: 'Nuquí', level: 'Todos los niveles', where: 'Chocó · Colombia', name: 'Nuquí Selva & Mar', days: '7 días', price: '$1.290', delay: '0' }, { id: 'drift-t2', ph: 'Santa Teresa', level: 'Intermedio', where: 'Guanacaste · Costa Rica', name: 'Santa Teresa Swell', days: '9 días', price: '$1.890', delay: '100' }, { id: 'drift-t3', ph: 'Chicama', level: 'Avanzado', where: 'La Libertad · Perú', name: 'Chicama · La ola infinita', days: '6 días', price: '$1.450', delay: '200' }],
+      whyTitle: 'Menos hotel, más océano.', why: [{ icon: '~', title: 'Guías locales', text: 'Surfistas de la zona que conocen cada banco de arena y cada marea.', delay: '0' }, { icon: '◐', title: 'Olas sin multitudes', text: 'Elegimos spots remotos y horarios que nadie más usa.', delay: '80' }, { icon: '✦', title: 'Campamentos frente al mar', text: 'Duermes a 30 metros de la rompiente. Te despierta el sonido.', delay: '160' }, { icon: '♻', title: 'Impacto positivo', text: '10% de cada viaje va a programas de limpieza costera.', delay: '240' }], footer: 'Diseño · Nivaldyr Technologies' },
+    en: { nav: ['Trips', 'School', 'Shop', 'Community'], cta: 'Book', eyebrow: 'Surf trips · Colombian Pacific', h1: 'Chase', h1b: 'the tide.', sub: '5 to 12-day surf trips with local guides, uncrowded waves and oceanfront camps.', primary: 'See trips', secondary: 'How it works', condTitle: 'Conditions · Nuquí', condMeta: 'Offshore wind · 14 s · 26 °C', tripsTitle: 'Upcoming departures', tripsSub: 'Groups of max. 8', trips: [{ id: 'drift-t1', ph: 'Nuquí', level: 'All levels', where: 'Chocó · Colombia', name: 'Nuquí Jungle & Sea', days: '7 days', price: '$1,290', delay: '0' }, { id: 'drift-t2', ph: 'Santa Teresa', level: 'Intermediate', where: 'Guanacaste · Costa Rica', name: 'Santa Teresa Swell', days: '9 days', price: '$1,890', delay: '100' }, { id: 'drift-t3', ph: 'Chicama', level: 'Advanced', where: 'La Libertad · Peru', name: 'Chicama · The endless wave', days: '6 days', price: '$1,450', delay: '200' }],
+      whyTitle: 'Less hotel, more ocean.', why: [{ icon: '~', title: 'Local guides', text: 'Surfers from the area who know every sandbar and every tide.', delay: '0' }, { icon: '◐', title: 'Uncrowded waves', text: 'We pick remote spots and hours nobody else uses.', delay: '80' }, { icon: '✦', title: 'Oceanfront camps', text: 'You sleep 30 meters from the break. The sound wakes you.', delay: '160' }, { icon: '♻', title: 'Positive impact', text: '10% of every trip funds coastal clean-up programs.', delay: '240' }], footer: 'Design · Nivaldyr Technologies' },
+  };
+  componentDidMount() { const root = this.rootRef.current; import('./fx.js').then((fx) => { this.cleanups = [fx.parallax(root, { max: 24 }), fx.reveal(root), fx.magnetic(root), fx.tilt(root, { max: 5 }), fx.waves(this.waveRef.current, { color: '94,234,212', amp: 30, layers: 4, speed: 1 }), fx.waves(this.wave2Ref.current, { color: '255,181,71', amp: 14, layers: 2, speed: .8 }), fx.particles(this.starRef.current, { type: 'star', count: 90, color: '234,246,255' })]; }); }
+  componentWillUnmount() { (this.cleanups || []).forEach((c) => c()); }
+  renderVals() {
+    const lang = this.state.lang; const t = this.copy[lang];
+    return { rootRef: this.rootRef, waveRef: this.waveRef, wave2Ref: this.wave2Ref, starRef: this.starRef, t,
+      cond: [30, 45, 60, 80, 65, 50, 40].map((h, i) => ({ h: h + 'px', c: i === 3 ? '#ffb547' : 'rgba(94,234,212,.5)' })),
+      marquee: ['Nuquí', 'Santa Teresa', 'Chicama', 'Pavones', 'Máncora', 'Nuquí', 'Santa Teresa', 'Chicama', 'Pavones', 'Máncora'],
+      langLabel: lang === 'es' ? 'ES · EN' : 'EN · ES', toggleLang: () => this.setState((s) => ({ lang: s.lang === 'es' ? 'en' : 'es' })) };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+html,body{margin:0;background:#f4f2ee;color:#17161a;font-family:Jost,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#17161a;text-decoration:none}a:hover{color:#6b2fb3}
+*{box-sizing:border-box}
+@keyframes letterIn{from{opacity:0;transform:translate3d(0,60%,0) rotate(4deg)}to{opacity:1;transform:none}}
+@keyframes fadeUp{from{opacity:0;transform:translate3d(0,30px,0)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes revealClip{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 0 0)}}
+</style>
+</helmet>
+<div ref="{{ rootRef }}" style="min-height:100vh;background:#f4f2ee;overflow-x:hidden">
+
+<section data-screen-label="Hero" style="position:relative;height:100vh;min-height:760px;overflow:hidden">
+  <div style="position:absolute;inset:0;pointer-events:none;z-index:2;z-index:4"><canvas ref="{{ petalRef }}" style="width:100%;height:100%;display:block"></canvas></div>
+  <nav style="position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:30px 56px;z-index:6;animation:fadeIn 1s .2s both">
+    <div style="display:flex;gap:clamp(14px,2vw,30px)px;font-size:12px;letter-spacing:.16em;text-transform:uppercase">
+      <sc-for list="{{ t.navL }}" as="n" hint-placeholder-count="3"><a href="#" style="color:rgba(23,22,26,.65)" style-hover="color:#17161a">{{ n }}</a></sc-for>
+    </div>
+    <a href="#" style="font-family:Italiana,serif;font-size:26px;letter-spacing:.3em">PRIMAE</a>
+    <div style="display:flex;gap:30px;align-items:center;font-size:12px;letter-spacing:.16em;text-transform:uppercase">
+      <sc-for list="{{ t.navR }}" as="n" hint-placeholder-count="2"><a href="#" style="color:rgba(23,22,26,.65)" style-hover="color:#17161a">{{ n }}</a></sc-for>
+      <button onClick="{{ toggleLang }}" style="white-space:nowrap;border:1px solid rgba(23,22,26,.3);background:transparent;color:inherit;border-radius:999px;padding:6px 12px;font-size:11px;letter-spacing:.1em;cursor:pointer;font-family:inherit">{{ langLabel }}</button>
+    </div>
+  </nav>
+
+  <!-- image center -->
+  <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(46vw,640px);height:min(78vh,760px);z-index:2"><div data-depth="0.2" style="position:absolute;inset:0;animation:revealClip 1.6s .4s cubic-bezier(.7,0,.2,1) both">
+    <x-import component-from-global-scope="image-slot" id="primae-hero" shape="rect" placeholder="Retrato editorial con joya · fondo claro" hint-size="100%,100%" style="position:absolute;inset:0;width:100%;height:100%"></x-import>
+  </div></div>
+
+  <!-- giant letters -->
+  <h1 style="position:absolute;left:0;right:0;top:50%;transform:translateY(-58%);margin:0;display:flex;justify-content:space-between;padding:0 4vw;font-family:Italiana,serif;font-weight:400;font-size:clamp(120px,22vw,340px);line-height:1;z-index:3;pointer-events:none;mix-blend-mode:multiply;color:#2b1a4a;perspective:900px;transform-style:preserve-3d">
+    <sc-for list="{{ letters }}" as="l" hint-placeholder-count="6">
+      <span data-depth="{{ l.depth }}" style="display:inline-block;animation:letterIn 1.2s cubic-bezier(.2,.7,.2,1) both;animation-delay:{{ l.delay }};color:{{ l.color }};text-shadow:0 30px 60px rgba(43,26,74,.25)">{{ l.ch }}</span>
+    </sc-for>
+  </h1>
+
+  <!-- copy left -->
+  <div style="position:absolute;left:56px;bottom:110px;max-width:300px;z-index:4">
+    <h2 style="font-family:Italiana,serif;font-size:40px;line-height:1.05;margin:0 0 16px;animation:fadeUp 1s 1.5s both">{{ t.tagline }}</h2>
+    <p style="font-size:13px;line-height:1.7;color:rgba(23,22,26,.65);margin:0 0 26px;animation:fadeUp 1s 1.7s both">{{ t.sub }}</p>
+    <a href="#collection" data-magnetic="" style="white-space:nowrap;display:inline-flex;align-items:center;gap:14px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;animation:fadeUp 1s 1.9s both">{{ t.discover }}<span style="width:44px;height:44px;border-radius:50%;border:1px solid #17161a;display:grid;place-items:center">→</span></a>
+  </div>
+
+  <!-- product cards right -->
+  <div data-depth="0.6" style="position:absolute;right:56px;bottom:110px;display:flex;flex-direction:column;gap:14px;z-index:4;animation:fadeUp 1.2s 1.8s both">
+    <div style="display:flex;gap:12px">
+      <div style="width:120px;height:140px;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 20px 50px rgba(43,26,74,.12);animation:floatY 6s ease-in-out infinite">
+        <x-import component-from-global-scope="image-slot" id="primae-p1" shape="rounded" radius="14" placeholder="Anillo" hint-size="100%,100%" style="width:100%;height:100%"></x-import>
+      </div>
+      <div style="width:120px;height:140px;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 20px 50px rgba(43,26,74,.12);animation:floatY 6s 1s ease-in-out infinite">
+        <x-import component-from-global-scope="image-slot" id="primae-p2" shape="rounded" radius="14" placeholder="Collar" hint-size="100%,100%" style="width:100%;height:100%"></x-import>
+      </div>
+    </div>
+    <div style="display:flex;gap:10px;justify-content:flex-end">
+      <span style="width:40px;height:40px;border-radius:12px;background:#fff;box-shadow:0 10px 30px rgba(43,26,74,.1);display:grid;place-items:center;font-size:14px">◇</span>
+      <span style="width:40px;height:40px;border-radius:12px;background:#fff;box-shadow:0 10px 30px rgba(43,26,74,.1);display:grid;place-items:center;font-size:14px">◈</span>
+    </div>
+  </div>
+
+  <div style="position:absolute;left:56px;top:50%;transform:translateY(-50%) rotate(-90deg);transform-origin:left center;font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:rgba(23,22,26,.4);z-index:4;animation:fadeIn 1s 2s both">{{ t.season }}</div>
+</section>
+
+<!-- COLLECTION -->
+<section id="collection" data-screen-label="Colección" style="padding:140px 56px 100px">
+  <div data-reveal="" style="text-align:center;margin-bottom:64px">
+    <div style="font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:#6b2fb3;margin-bottom:16px">{{ t.colEyebrow }}</div>
+    <h2 style="font-family:Italiana,serif;font-size:clamp(44px,5vw,80px);line-height:1;margin:0">{{ t.colTitle }}</h2>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px">
+    <sc-for list="{{ t.pieces }}" as="p" hint-placeholder-count="4">
+      <article data-reveal="" data-reveal-delay="{{ p.delay }}" style="cursor:pointer">
+        <div data-tilt="" style="position:relative;height:420px;border-radius:6px;overflow:hidden;background:#e9e5df;margin-top:{{ p.offset }}">
+          <x-import component-from-global-scope="image-slot" id="{{ p.id }}" shape="rect" placeholder="{{ p.ph }}" hint-size="100%,100%" style="position:absolute;inset:0;width:100%;height:100%"></x-import>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:18px">
+          <div><div style="font-family:Italiana,serif;font-size:24px">{{ p.name }}</div><div style="font-size:12px;color:rgba(23,22,26,.55);margin-top:4px;letter-spacing:.06em">{{ p.mat }}</div></div>
+          <div style="font-size:14px">{{ p.price }}</div>
+        </div>
+      </article>
+    </sc-for>
+  </div>
+</section>
+
+<!-- CRAFT -->
+<section data-screen-label="Oficio" style="padding:80px 56px 140px;display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch;background:#17161a;color:#f4f2ee;margin:0 56px;border-radius:6px">
+  <div data-reveal="" style="position:relative;min-height:640px">
+    <x-import component-from-global-scope="image-slot" id="primae-craft" shape="rect" placeholder="Manos del artesano · taller" hint-size="100%,100%" style="position:absolute;inset:0;width:100%;height:100%"></x-import>
+  </div>
+  <div style="padding:80px 72px;display:flex;flex-direction:column;justify-content:center">
+    <div data-reveal="" style="font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:#c9a6ff;margin-bottom:20px">{{ t.craftEyebrow }}</div>
+    <h2 data-reveal="" style="font-family:Italiana,serif;font-size:clamp(40px,4vw,64px);line-height:1;margin:0 0 30px">{{ t.craftTitle }}</h2>
+    <p data-reveal="" style="font-size:15px;line-height:1.8;color:rgba(244,242,238,.7);font-weight:300;margin:0 0 40px;max-width:440px">{{ t.craftText }}</p>
+    <div style="display:flex;gap:40px">
+      <sc-for list="{{ t.craftStats }}" as="s" hint-placeholder-count="3">
+        <div data-reveal="" data-reveal-delay="{{ s.delay }}"><div style="font-family:Italiana,serif;font-size:44px;line-height:1"><span data-count="{{ s.n }}" data-suffix="{{ s.suffix }}" style="white-space:nowrap">0</span></div><div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,242,238,.5);margin-top:8px">{{ s.label }}</div></div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section data-screen-label="Newsletter" style="padding:0 56px 100px;text-align:center">
+  <div data-reveal="" style="max-width:560px;margin:0 auto">
+    <h2 style="font-family:Italiana,serif;font-size:clamp(36px,3.6vw,56px);line-height:1;margin:0 0 30px">{{ t.newsTitle }}</h2>
+    <div style="display:flex;border-bottom:1px solid #17161a;padding-bottom:12px">
+      <input placeholder="{{ t.email }}" style="flex:1;border:none;background:transparent;font-family:inherit;font-size:15px;outline:none;color:inherit">
+      <button style="border:none;background:none;font-family:inherit;font-size:12px;letter-spacing:.18em;text-transform:uppercase;cursor:pointer">{{ t.join }} →</button>
+    </div>
+  </div>
+</section>
+<footer style="display:flex;justify-content:space-between;padding:0 56px 40px;font-size:11px;color:rgba(23,22,26,.45);letter-spacing:.1em;text-transform:uppercase"><span>© 2026 Primae Maison</span><span>{{ t.footer }}</span></footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { lang: 'es' };
+  rootRef = React.createRef(); petalRef = React.createRef();
+  copy = {
+    es: { navL: ['Colección', 'Alta joyería', 'Novias'], navR: ['Atelier', 'Boutiques'], tagline: 'Libera tu belleza interior', sub: 'Elegancia y artesanía en una colección de joyería exquisita, diseñada para inspirar y perdurar.', discover: 'Descubrir', season: 'Otoño / Invierno 2026',
+      colEyebrow: 'La colección', colTitle: 'Piezas que permanecen', pieces: [
+        { id: 'primae-c1', ph: 'Anillo solitario', name: 'Solitaire', mat: 'Oro blanco 18k · Diamante', price: '€ 4.900', delay: '0', offset: '0' },
+        { id: 'primae-c2', ph: 'Pendientes', name: 'Aurore', mat: 'Oro rosa · Zafiro', price: '€ 2.350', delay: '100', offset: '48px' },
+        { id: 'primae-c3', ph: 'Collar', name: 'Lumière', mat: 'Platino · Perlas Akoya', price: '€ 6.800', delay: '200', offset: '0' },
+        { id: 'primae-c4', ph: 'Brazalete', name: 'Ondine', mat: 'Oro amarillo · Esmeralda', price: '€ 3.100', delay: '300', offset: '48px' }],
+      craftEyebrow: 'El oficio', craftTitle: 'Hecho a mano, pensado para siempre', craftText: 'Cada pieza nace en nuestro atelier de Florencia. Más de 200 horas de trabajo, gemas trazables y un compromiso con la permanencia.', craftStats: [{ n: 200, suffix: 'h', label: 'Por pieza', delay: '0' }, { n: 14, suffix: '', label: 'Maestros orfebres', delay: '100' }, { n: 100, suffix: '%', label: 'Gemas trazables', delay: '200' }],
+      newsTitle: 'Reciba la próxima colección antes que nadie', email: 'Su correo electrónico', join: 'Unirse', footer: 'Diseño · Nivaldyr Technologies' },
+    en: { navL: ['Collection', 'High jewelry', 'Bridal'], navR: ['Atelier', 'Boutiques'], tagline: 'Unleash your inner beauty', sub: 'Elegance and craftsmanship in an exquisite jewelry collection, designed to inspire and endure.', discover: 'Discover', season: 'Autumn / Winter 2026',
+      colEyebrow: 'The collection', colTitle: 'Pieces that remain', pieces: [
+        { id: 'primae-c1', ph: 'Solitaire ring', name: 'Solitaire', mat: '18k white gold · Diamond', price: '€ 4,900', delay: '0', offset: '0' },
+        { id: 'primae-c2', ph: 'Earrings', name: 'Aurore', mat: 'Rose gold · Sapphire', price: '€ 2,350', delay: '100', offset: '48px' },
+        { id: 'primae-c3', ph: 'Necklace', name: 'Lumière', mat: 'Platinum · Akoya pearls', price: '€ 6,800', delay: '200', offset: '0' },
+        { id: 'primae-c4', ph: 'Bracelet', name: 'Ondine', mat: 'Yellow gold · Emerald', price: '€ 3,100', delay: '300', offset: '48px' }],
+      craftEyebrow: 'The craft', craftTitle: 'Handmade, meant to last forever', craftText: 'Every piece is born in our Florence atelier. Over 200 hours of work, traceable gems and a commitment to permanence.', craftStats: [{ n: 200, suffix: 'h', label: 'Per piece', delay: '0' }, { n: 14, suffix: '', label: 'Master goldsmiths', delay: '100' }, { n: 100, suffix: '%', label: 'Traceable gems', delay: '200' }],
+      newsTitle: 'Receive the next collection before anyone', email: 'Your email address', join: 'Join', footer: 'Design · Nivaldyr Technologies' },
+  };
+  componentDidMount() {
+    const root = this.rootRef.current;
+    import('./fx.js').then((fx) => { this.cleanups = [fx.particles(this.petalRef.current, { type: 'petal', count: 22, color: '201,166,255', speed: .5 }), fx.parallax(root, { max: 24 }), fx.reveal(root), fx.magnetic(root), fx.tilt(root, { max: 5 }), fx.counters(root)]; });
+  }
+  componentWillUnmount() { (this.cleanups || []).forEach((c) => c()); }
+  renderVals() {
+    const lang = this.state.lang; const t = this.copy[lang];
+    const colors = ['#2b1a4a', '#2b1a4a', '#6b2fb3', '#6b2fb3', '#2b1a4a', '#2b1a4a'];
+    return {
+      rootRef: this.rootRef, petalRef: this.petalRef, t,
+      letters: 'PRIMAE'.split('').map((ch, i) => ({ ch, delay: (0.5 + i * 0.12) + 's', color: colors[i], depth: String(.15 + (i % 3) * .2) })),
+      langLabel: lang === 'es' ? 'ES · EN' : 'EN · ES',
+      toggleLang: () => this.setState((s) => ({ lang: s.lang === 'es' ? 'en' : 'es' })),
+    };
+  }
+}
+</script>
+</body>
+</html>
