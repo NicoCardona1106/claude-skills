@@ -18,7 +18,7 @@ checklist de pulido o al reutilizar `landings/fx.js`.
 > **Regla "el banco manda" (Nicolas, 2026-09-04).** Donde estas landings
 > choquen con el catálogo de tells de IA de SKILL.md (numeración de secciones
 > 01/04, cues de scroll o de mouse, eyebrows uppercase en cada sección, Inter
-> Tight en Atlas), gana el banco: son recursos válidos si están al servicio del
+> Tight en `20 Aurelia` — Atlas usa Instrument Sans + Instrument Serif), gana el banco: son recursos válidos si están al servicio del
 > concepto. Los tells siguen vigentes para todo lo que el banco no use.
 
 ---

@@ -14,6 +14,13 @@ Sirve como fuente de verdad porque los entornos remotos de Claude Code (tablet, 
 - `skills/fable-arranque/` — arranque de proyectos nuevos: alcance de v1, stack aburrido, día 1 no negociable.
 - `skills/fable-chequeo-seguridad/` — chequeo de seguridad: mapa de superficie, orden fijo de revisión, hallazgos con explotación.
 - `skills/fable-abogado-del-diablo/` — crítica constructiva: steelman, las 4 preguntas, riesgos rankeados, veredicto obligatorio.
+- `skills/verificacion-visual/` — DoD visual: 1440 y 390 con Playwright, consola limpia, sin overflow, fullPage; con script propio listo.
+- `skills/exportar-pdf/` — artefacto/HTML/Markdown → PDF imprimible (http local + page.pdf de Playwright).
+- `skills/portar-landing/` — porta una landing de Claude Design (`.dc.html`) o HTML a HTML plano o componente Next/React con fx.js.
+- `skills/modo-ahorro/` — trabajar con poco plan de Claude: estimar gasto, recortar lecturas y verificación de forma visible, cerrar a tiempo.
+- `skills/statusline/` — instalar o reconstruir la barra de estado de Claude Code, Antigravity y Codex (scripts en N-Coterminal).
+- `skills/viaje/` — protocolo para trabajar desde un equipo secundario (MEMORIA-VIAJE.md, RETORNO.md, junctions, cosecha al volver).
+- `agents/` — perfiles de subagente: implementador, mantenedor, revisor, redactor-cliente; y para UI (2026-09-06): verificador-visual, portador, disenador-landing, auditor-tells.
 
 ## Flujo de trabajo
 

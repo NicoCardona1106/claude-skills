@@ -75,7 +75,10 @@ oficio y detalle de nivel showcase (referencia de vara: horizonx.so).
    si está disponible): consola limpia, cero overflow horizontal, formularios y
    estados funcionando. Las decisiones visuales finas (recorte de foto, blend,
    contraste) se prueban en navegador con variantes reales antes de fijarlas —
-   en el banco se probaron 3-5 candidatas por decisión difícil.
+   en el banco se probaron 3-5 candidatas por decisión difícil. El
+   procedimiento exacto está en la skill `verificacion-visual`; si hay
+   subagentes, delegarlo al `verificador-visual` (sonnet) y, para la revisión
+   de locks y tells, al `auditor-tells` (opus).
 
 ## Flujo de trabajo
 

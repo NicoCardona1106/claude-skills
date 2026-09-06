@@ -32,7 +32,13 @@ Propón en una tabla y ESPERA aprobación de Nicolas antes de lanzar nada:
 | Agente | Perfil/modelo | Razón del modelo | Tareas | Archivos propios | Prohibido | ¿Paralelo? |
 
 - Perfiles predefinidos en `~/.claude/agents/`: `implementador` (sonnet),
-  `mantenedor` (sonnet), `revisor` (opus), `redactor-cliente` (opus). Si ningún
+  `mantenedor` (sonnet), `revisor` (opus), `redactor-cliente` (opus). Para UI
+  (añadidos 2026-09-06): `verificador-visual` (sonnet, solo Playwright: capturas,
+  consola, overflow — barato, no gasta contexto del director), `portador`
+  (sonnet, ejecuta la skill `portar-landing` archivo por archivo, ideal para
+  repartir 25 landings), `disenador-landing` (opus, pieza completa bajo
+  nc-design, verifica antes de entregar) y `auditor-tells` (opus, solo lectura,
+  PASA/NO PASA por sección contra los locks y tells de nc-design). Si ningún
   perfil calza, usa el Agent tool genérico con `model` explícito.
 - **Perfil externo `agy` (Antigravity, Gemini)** — verificado 2026-08-23 en el
   Panel Agéntico. Cuándo: segunda opinión de OTRO modelo (revisión cruzada de

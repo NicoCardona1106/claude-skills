@@ -295,6 +295,7 @@ Reglas de calidad de la memoria (estilo Aprende):
 - Antes de guardar, verificar duplicados (`mempalace_check_duplicate`) y marcar solapes en vez de crear copias.
 - Ante la duda, NO guardar: mejor un falso negativo que cristalizar una regla equivocada.
 - Al detectar cierre de sesión (despedida, "cerramos por hoy", commit final de la jornada) y si hubo correcciones, decisiones o errores resueltos: OFRECER `/cosecha` para revisar juntos qué guardar. No volcar memoria masiva sin confirmación.
+- Si el tee de la statusline (`~/.claude/panel-status/<session_id>.json`, clave `rate_limits.five_hour.used_percentage`) supera 70, o Nicolas dice que le queda poco plan: OFRECER `/modo-ahorro`. Nunca activarlo solo.
 
 ---
 
@@ -464,7 +465,8 @@ Sin contrato solo se puede opinar, no rechazar.
   contratos, revisión final, síntesis. Todo lo que requiera el contexto completo.
 
 Hay perfiles predefinidos en `~/.claude/agents/` (implementador, mantenedor,
-revisor, redactor-cliente) — usarlos cuando el rol coincida.
+revisor, redactor-cliente; y para UI: verificador-visual, portador,
+disenador-landing, auditor-tells) — usarlos cuando el rol coincida.
 
 ### Qué mecanismo usar
 
