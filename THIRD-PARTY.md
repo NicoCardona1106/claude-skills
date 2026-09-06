@@ -55,6 +55,12 @@ plugin superpowers de Jesse Vincent (obra/superpowers, licencia MIT). El
 plugin completo NO se instala (su hook reinyecta metodología en inglés en cada
 compactación); solo se conservan estas dos skills traducidas y recortadas.
 
+## Hoài Nhớ (img2threejs/img2threejs)
+
+`img2threejs` — imagen de referencia → modelo Three.js procedural en código.
+Apache-2.0. Instalada localmente el 2026-09-06 (solo en `~/.claude/skills`, no se
+redistribuye en este repo). Fuente: https://github.com/img2threejs/img2threejs
+
 ## Origen por confirmar
 
 `animation-vocabulary`, `banner-design`, `brand`, `content-research-writer`,
