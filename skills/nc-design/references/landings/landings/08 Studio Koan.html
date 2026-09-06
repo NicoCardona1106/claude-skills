@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Studio Koan</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;background:#f5f3ee;color:#111;font-family:'DM Sans',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#111;text-decoration:none}a:hover{color:#ff5a1f}
+*{box-sizing:border-box}
+@keyframes fadeUp{from{opacity:0;transform:translate3d(0,40px,0)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes mesh1{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(12%,-8%) scale(1.15)}66%{transform:translate(-8%,10%) scale(.95)}}
+@keyframes mesh2{0%,100%{transform:translate(0,0) scale(1.1)}33%{transform:translate(-14%,6%) scale(.9)}66%{transform:translate(10%,-10%) scale(1.2)}}
+</style>
+<style>
+.hv-0:hover{color:#111}
+.hv-1:hover{color:#111}
+.hv-2:hover{color:#111}
+.hv-3:hover{color:#111}
+</style>
+</head>
+<body>
+<div data-fx-ref="rootRef" style="min-height:100vh;background:#f5f3ee;overflow-x:hidden;cursor:none">
+<div data-fx-ref="cursorRef" style="position:fixed;left:0;top:0;width:14px;height:14px;border-radius:50%;background:#ff5a1f;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:multiply;transition:width .2s,height .2s"></div>
+
+<section data-screen-label="Hero" style="position:relative;min-height:100vh;padding:0 56px;display:flex;flex-direction:column">
+  <div style="position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0"><div style="position:absolute;right:-10%;top:-20%;width:60%;height:80%;border-radius:50%;background:#ffd6c2;filter:blur(90px);opacity:.7;animation:mesh1 18s ease-in-out infinite"></div><div style="position:absolute;left:-10%;bottom:-30%;width:50%;height:70%;border-radius:50%;background:#e4e0ff;filter:blur(90px);opacity:.7;animation:mesh2 22s ease-in-out infinite"></div></div>
+  <div style="position:absolute;inset:0;pointer-events:none;z-index:2;z-index:0"><canvas data-fx-ref="dotRef" style="width:100%;height:100%;display:block"></canvas></div>
+  <nav style="position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:30px 0;animation:fadeIn 1s .2s both">
+    <a href="#" style="font-family:Syne,sans-serif;font-weight:800;font-size:20px;letter-spacing:-.02em">KŌAN<span style="color:#ff5a1f">.</span></a>
+    <div style="display:flex;gap:clamp(14px,2vw,34px)px;font-size:14px">
+      <a href="#" data-magnetic="" style="white-space:nowrap;color:rgba(17,17,17,.7);display:inline-block" class="hv-0">Trabajo</a><a href="#" data-magnetic="" style="white-space:nowrap;color:rgba(17,17,17,.7);display:inline-block" class="hv-1">Servicios</a><a href="#" data-magnetic="" style="white-space:nowrap;color:rgba(17,17,17,.7);display:inline-block" class="hv-2">Estudio</a><a href="#" data-magnetic="" style="white-space:nowrap;color:rgba(17,17,17,.7);display:inline-block" class="hv-3">Diario</a>
+    </div>
+    <div style="display:flex;gap:12px;align-items:center">
+      <button style="white-space:nowrap;border:1px solid rgba(17,17,17,.25);background:transparent;color:inherit;border-radius:999px;padding:7px 12px;font-size:11px;letter-spacing:.1em;cursor:none;font-family:inherit">ES · EN</button>
+      <a href="#" data-magnetic="" style="white-space:nowrap;padding:12px 22px;border-radius:999px;background:#111;color:#f5f3ee;font-size:13px;font-weight:500;display:inline-block">Hablemos</a>
+    </div>
+  </nav>
+
+  <div style="position:relative;z-index:2;flex:1;display:grid;grid-template-columns:1fr 380px;gap:60px;align-items:end;padding-bottom:60px">
+    <div>
+      <div style="display:flex;align-items:center;gap:14px;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:rgba(17,17,17,.55);margin-bottom:34px;animation:fadeUp 1s .5s both"><span style="width:8px;height:8px;border-radius:50%;background:#ff5a1f"></span>Estudio creativo · Bogotá — Lisboa</div>
+      <h1 style="font-family:Syne,sans-serif;font-weight:700;font-size:clamp(60px,8.4vw,136px);line-height:.92;letter-spacing:-.045em;margin:0 0 40px">
+        <span style="display:block;animation:fadeUp 1.1s .7s both">Diseñamos</span>
+        <span style="display:block;color:#ff5a1f;animation:fadeUp 1.1s .9s both;min-height:.92em"><span style="display:inline-block;width:.06em;height:.8em;background:#111;margin-left:.04em;vertical-align:-.05em;animation:blink 1s step-end infinite"></span></span>
+        <span style="display:block;animation:fadeUp 1.1s 1.1s both">que se recuerdan.</span>
+      </h1>
+      <div style="display:flex;gap:16px;align-items:center;animation:fadeUp 1s 1.4s both">
+        <a href="#work" data-magnetic="" style="white-space:nowrap;display:inline-flex;align-items:center;gap:14px;padding:8px 8px 8px 24px;border-radius:999px;background:#111;color:#f5f3ee;font-size:14px;font-weight:500">Ver trabajo<span style="width:40px;height:40px;border-radius:50%;background:#ff5a1f;display:grid;place-items:center">↗</span></a>
+        <a href="#" data-magnetic="" style="white-space:nowrap;padding:16px 24px;border-radius:999px;border:1px solid rgba(17,17,17,.25);font-size:14px;display:inline-block">Sobre nosotros</a>
+      </div>
+    </div>
+    <div data-depth="0.4" style="position:relative;height:460px;border-radius:24px;overflow:hidden;background:#111;animation:fadeUp 1.2s 1.2s both">
+      <img alt="Showreel · frame" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EShowreel%20%C2%B7%20frame%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:24px">
+      <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:110px;height:110px">
+        <svg viewBox="0 0 100 100" style="width:100%;height:100%;animation:spin 12s linear infinite;fill:#f5f3ee;font-size:10px;letter-spacing:.3em;font-family:'DM Sans'"><defs><path id="c3" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"></path></defs><text><textPath href="#c3">SHOWREEL · 2026 · PLAY ·</textPath></text></svg>
+        <span style="position:absolute;inset:30px;border-radius:50%;background:#ff5a1f;display:grid;place-items:center;font-size:14px;color:#111">▶</span>
+      </div>
+      <div style="position:absolute;left:18px;bottom:18px;right:18px;display:flex;justify-content:space-between;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,243,238,.7)"><span>Reel 2026</span><span>02:14</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENT MARQUEE -->
+<div style="border-top:1px solid rgba(17,17,17,.12);border-bottom:1px solid rgba(17,17,17,.12);padding:22px 0;overflow:hidden;white-space:nowrap">
+  <div style="display:inline-flex;gap:80px;animation:marquee 32s linear infinite;font-family:Syne,sans-serif;font-weight:600;font-size:22px;letter-spacing:-.01em;color:rgba(17,17,17,.5)">
+    <span>Nébula</span><span>Origen</span><span>Terra & Co.</span><span>Velocità</span><span>Primae</span><span>Cristalyne</span><span>Aurora</span><span>Nivaldyr</span><span>Nébula</span><span>Origen</span><span>Terra & Co.</span><span>Velocità</span><span>Primae</span><span>Cristalyne</span><span>Aurora</span><span>Nivaldyr</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section data-screen-label="Servicios" style="padding:140px 56px 100px;display:grid;grid-template-columns:1fr 1.4fr;gap:80px">
+  <div>
+    <div data-reveal="" style="font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:rgba(17,17,17,.55);margin-bottom:20px">Servicios</div>
+    <h2 data-reveal="" style="font-family:Syne,sans-serif;font-weight:700;font-size:clamp(36px,4vw,64px);line-height:.98;letter-spacing:-.04em;margin:0 0 24px">Menos ruido, más señal.</h2>
+    <p data-reveal="" style="font-size:15px;line-height:1.7;color:rgba(17,17,17,.6);margin:0;max-width:380px">Un equipo pequeño y senior que se involucra de principio a fin. Sin capas, sin intermediarios.</p>
+  </div>
+  <div>
+    
+      <div data-reveal="" data-reveal-delay="0" style="display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:center;padding:30px 0;border-top:1px solid rgba(17,17,17,.14);cursor:none">
+        <span style="font-size:12px;color:rgba(17,17,17,.45)">01</span>
+        <div><div style="font-family:Syne,sans-serif;font-weight:600;font-size:clamp(24px,2.4vw,36px);letter-spacing:-.02em;color:#111;transition:color .3s">Identidad de marca</div><div style="font-size:13px;color:rgba(17,17,17,.55);margin-top:6px">Estrategia, naming, sistema visual</div></div>
+        <span style="width:44px;height:44px;border-radius:50%;border:1px solid rgba(17,17,17,.2);display:grid;place-items:center;background:transparent;color:#111;transition:all .3s">↗</span>
+      </div>
+    
+      <div data-reveal="" data-reveal-delay="80" style="display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:center;padding:30px 0;border-top:1px solid rgba(17,17,17,.14);cursor:none">
+        <span style="font-size:12px;color:rgba(17,17,17,.45)">02</span>
+        <div><div style="font-family:Syne,sans-serif;font-weight:600;font-size:clamp(24px,2.4vw,36px);letter-spacing:-.02em;color:#111;transition:color .3s">Producto digital</div><div style="font-size:13px;color:rgba(17,17,17,.55);margin-top:6px">UX/UI, design systems, prototipos</div></div>
+        <span style="width:44px;height:44px;border-radius:50%;border:1px solid rgba(17,17,17,.2);display:grid;place-items:center;background:transparent;color:#111;transition:all .3s">↗</span>
+      </div>
+    
+      <div data-reveal="" data-reveal-delay="160" style="display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:center;padding:30px 0;border-top:1px solid rgba(17,17,17,.14);cursor:none">
+        <span style="font-size:12px;color:rgba(17,17,17,.45)">03</span>
+        <div><div style="font-family:Syne,sans-serif;font-weight:600;font-size:clamp(24px,2.4vw,36px);letter-spacing:-.02em;color:#111;transition:color .3s">Web & motion</div><div style="font-size:13px;color:rgba(17,17,17,.55);margin-top:6px">Sitios de alto impacto, animación, 3D</div></div>
+        <span style="width:44px;height:44px;border-radius:50%;border:1px solid rgba(17,17,17,.2);display:grid;place-items:center;background:transparent;color:#111;transition:all .3s">↗</span>
+      </div>
+    
+      <div data-reveal="" data-reveal-delay="240" style="display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:center;padding:30px 0;border-top:1px solid rgba(17,17,17,.14);cursor:none">
+        <span style="font-size:12px;color:rgba(17,17,17,.45)">04</span>
+        <div><div style="font-family:Syne,sans-serif;font-weight:600;font-size:clamp(24px,2.4vw,36px);letter-spacing:-.02em;color:#111;transition:color .3s">Dirección creativa</div><div style="font-size:13px;color:rgba(17,17,17,.55);margin-top:6px">Campañas, contenido, arte</div></div>
+        <span style="width:44px;height:44px;border-radius:50%;border:1px solid rgba(17,17,17,.2);display:grid;place-items:center;background:transparent;color:#111;transition:all .3s">↗</span>
+      </div>
+    
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work" data-screen-label="Trabajo" style="padding:40px 56px 140px">
+  <div data-reveal="" style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:40px">
+    <h2 style="font-family:Syne,sans-serif;font-weight:700;font-size:clamp(36px,4vw,64px);line-height:1;letter-spacing:-.04em;margin:0">Trabajo seleccionado</h2>
+    <a href="#" style="font-size:13px;border-bottom:1px solid #111;padding-bottom:3px">Ver todos los proyectos →</a>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+    
+      <article data-reveal="" data-reveal-delay="0" data-tilt="" style="position:relative;height:520px;border-radius:20px;overflow:hidden;background:#1e5eff;margin-top:0;cursor:none">
+        <img alt="Proyecto 01" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EProyecto%2001%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:20px">
+        <div style="position:absolute;left:20px;top:20px;display:flex;gap:6px"><span style="padding:6px 12px;border-radius:999px;background:rgba(245,243,238,.85);backdrop-filter:blur(8px);font-size:11px;letter-spacing:.06em">Web</span><span style="padding:6px 12px;border-radius:999px;background:rgba(245,243,238,.85);backdrop-filter:blur(8px);font-size:11px;letter-spacing:.06em">3D</span></div>
+        <div style="position:absolute;left:20px;bottom:20px;right:20px;display:flex;justify-content:space-between;align-items:end;color:#f5f3ee"><div><div style="font-family:Syne,sans-serif;font-weight:600;font-size:26px;letter-spacing:-.02em">Nébula Labs</div><div style="font-size:12px;opacity:.7;margin-top:4px">2026 · Producto</div></div><span style="width:44px;height:44px;border-radius:50%;background:#f5f3ee;color:#111;display:grid;place-items:center">↗</span></div>
+      </article>
+    
+      <article data-reveal="" data-reveal-delay="120" data-tilt="" style="position:relative;height:420px;border-radius:20px;overflow:hidden;background:#3a2114;margin-top:100px;cursor:none">
+        <img alt="Proyecto 02" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EProyecto%2002%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:20px">
+        <div style="position:absolute;left:20px;top:20px;display:flex;gap:6px"><span style="padding:6px 12px;border-radius:999px;background:rgba(245,243,238,.85);backdrop-filter:blur(8px);font-size:11px;letter-spacing:.06em">Identidad</span></div>
+        <div style="position:absolute;left:20px;bottom:20px;right:20px;display:flex;justify-content:space-between;align-items:end;color:#f5f3ee"><div><div style="font-family:Syne,sans-serif;font-weight:600;font-size:26px;letter-spacing:-.02em">Origen Café</div><div style="font-size:12px;opacity:.7;margin-top:4px">2025 · Marca</div></div><span style="width:44px;height:44px;border-radius:50%;background:#f5f3ee;color:#111;display:grid;place-items:center">↗</span></div>
+      </article>
+    
+      <article data-reveal="" data-reveal-delay="0" data-tilt="" style="position:relative;height:420px;border-radius:20px;overflow:hidden;background:#2b1a4a;margin-top:0;cursor:none">
+        <img alt="Proyecto 03" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EProyecto%2003%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:20px">
+        <div style="position:absolute;left:20px;top:20px;display:flex;gap:6px"><span style="padding:6px 12px;border-radius:999px;background:rgba(245,243,238,.85);backdrop-filter:blur(8px);font-size:11px;letter-spacing:.06em">Web</span><span style="padding:6px 12px;border-radius:999px;background:rgba(245,243,238,.85);backdrop-filter:blur(8px);font-size:11px;letter-spacing:.06em">Motion</span></div>
+        <div style="position:absolute;left:20px;bottom:20px;right:20px;display:flex;justify-content:space-between;align-items:end;color:#f5f3ee"><div><div style="font-family:Syne,sans-serif;font-weight:600;font-size:26px;letter-spacing:-.02em">Terra & Co.</div><div style="font-size:12px;opacity:.7;margin-top:4px">2025 · Web</div></div><span style="width:44px;height:44px;border-radius:50%;background:#f5f3ee;color:#111;display:grid;place-items:center">↗</span></div>
+      </article>
+    
+      <article data-reveal="" data-reveal-delay="120" data-tilt="" style="position:relative;height:520px;border-radius:20px;overflow:hidden;background:#c5124d;margin-top:-100px;cursor:none">
+        <img alt="Proyecto 04" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EProyecto%2004%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:20px">
+        <div style="position:absolute;left:20px;top:20px;display:flex;gap:6px"><span style="padding:6px 12px;border-radius:999px;background:rgba(245,243,238,.85);backdrop-filter:blur(8px);font-size:11px;letter-spacing:.06em">Dirección</span></div>
+        <div style="position:absolute;left:20px;bottom:20px;right:20px;display:flex;justify-content:space-between;align-items:end;color:#f5f3ee"><div><div style="font-family:Syne,sans-serif;font-weight:600;font-size:26px;letter-spacing:-.02em">Velocità</div><div style="font-size:12px;opacity:.7;margin-top:4px">2024 · Campaña</div></div><span style="width:44px;height:44px;border-radius:50%;background:#f5f3ee;color:#111;display:grid;place-items:center">↗</span></div>
+      </article>
+    
+  </div>
+</section>
+
+<!-- CTA -->
+<section data-screen-label="CTA" style="margin:0 56px 56px;padding:100px 64px;border-radius:32px;background:#111;color:#f5f3ee;display:grid;grid-template-columns:1fr auto;gap:60px;align-items:center">
+  <h2 data-reveal="" style="font-family:Syne,sans-serif;font-weight:700;font-size:clamp(44px,5.6vw,92px);line-height:.92;letter-spacing:-.045em;margin:0">¿Tienes un proyecto <span style="color:#ff5a1f">en mente?</span></h2>
+  <a href="#" data-reveal="" data-magnetic="" style="white-space:nowrap;width:180px;height:180px;border-radius:50%;background:#ff5a1f;color:#111;display:grid;place-items:center;text-align:center;font-family:Syne,sans-serif;font-weight:700;font-size:16px;line-height:1.2;letter-spacing:-.01em">Empecemos →</a>
+</section>
+<footer style="display:flex;justify-content:space-between;padding:0 56px 40px;font-size:12px;color:rgba(17,17,17,.45)"><span>© 2026 Studio Kōan · Bogotá — Lisboa</span><span>Diseño · Nivaldyr Technologies</span></footer>
+</div>
+<script type="module">
+window.React = { createRef: () => ({ current: null }) };
+class DCLogic { constructor() { this.state = {}; this.props = {}; } setState() {} }
+class Component extends DCLogic {
+  state = { lang: 'es', typed: '', hovered: -1 };
+  rootRef = React.createRef(); dotRef = React.createRef(); cursorRef = React.createRef();
+  copy = {
+    es: { nav: ['Trabajo', 'Servicios', 'Estudio', 'Diario'], cta: 'Hablemos', eyebrow: 'Estudio creativo · Bogotá — Lisboa', h1: 'Diseñamos', h1c: 'que se recuerdan.', phrases: ['marcas', 'productos', 'experiencias', 'historias'], primary: 'Ver trabajo', secondary: 'Sobre nosotros', reelMeta: 'Reel 2026',
+      servEyebrow: 'Servicios', servTitle: 'Menos ruido, más señal.', servText: 'Un equipo pequeño y senior que se involucra de principio a fin. Sin capas, sin intermediarios.',
+      services: [{ name: 'Identidad de marca', desc: 'Estrategia, naming, sistema visual' }, { name: 'Producto digital', desc: 'UX/UI, design systems, prototipos' }, { name: 'Web & motion', desc: 'Sitios de alto impacto, animación, 3D' }, { name: 'Dirección creativa', desc: 'Campañas, contenido, arte' }],
+      workTitle: 'Trabajo seleccionado', workAll: 'Ver todos los proyectos →', work: [{ id: 'koan-w1', ph: 'Proyecto 01', name: 'Nébula Labs', year: '2026 · Producto', tags: ['Web', '3D'], h: '520px', mt: '0', bg: '#1e5eff', delay: '0' }, { id: 'koan-w2', ph: 'Proyecto 02', name: 'Origen Café', year: '2025 · Marca', tags: ['Identidad'], h: '420px', mt: '100px', bg: '#3a2114', delay: '120' }, { id: 'koan-w3', ph: 'Proyecto 03', name: 'Terra & Co.', year: '2025 · Web', tags: ['Web', 'Motion'], h: '420px', mt: '0', bg: '#2b1a4a', delay: '0' }, { id: 'koan-w4', ph: 'Proyecto 04', name: 'Velocità', year: '2024 · Campaña', tags: ['Dirección'], h: '520px', mt: '-100px', bg: '#c5124d', delay: '120' }],
+      ctaTitle: '¿Tienes un proyecto', ctaEm: 'en mente?', ctaBtn: 'Empecemos →', footer: 'Diseño · Nivaldyr Technologies' },
+    en: { nav: ['Work', 'Services', 'Studio', 'Journal'], cta: 'Let’s talk', eyebrow: 'Creative studio · Bogotá — Lisbon', h1: 'We design', h1c: 'people remember.', phrases: ['brands', 'products', 'experiences', 'stories'], primary: 'See work', secondary: 'About us', reelMeta: 'Reel 2026',
+      servEyebrow: 'Services', servTitle: 'Less noise, more signal.', servText: 'A small senior team involved from start to finish. No layers, no middlemen.',
+      services: [{ name: 'Brand identity', desc: 'Strategy, naming, visual system' }, { name: 'Digital product', desc: 'UX/UI, design systems, prototypes' }, { name: 'Web & motion', desc: 'High-impact sites, animation, 3D' }, { name: 'Creative direction', desc: 'Campaigns, content, art' }],
+      workTitle: 'Selected work', workAll: 'View all projects →', work: [{ id: 'koan-w1', ph: 'Project 01', name: 'Nébula Labs', year: '2026 · Product', tags: ['Web', '3D'], h: '520px', mt: '0', bg: '#1e5eff', delay: '0' }, { id: 'koan-w2', ph: 'Project 02', name: 'Origen Café', year: '2025 · Brand', tags: ['Identity'], h: '420px', mt: '100px', bg: '#3a2114', delay: '120' }, { id: 'koan-w3', ph: 'Project 03', name: 'Terra & Co.', year: '2025 · Web', tags: ['Web', 'Motion'], h: '420px', mt: '0', bg: '#2b1a4a', delay: '0' }, { id: 'koan-w4', ph: 'Project 04', name: 'Velocità', year: '2024 · Campaign', tags: ['Direction'], h: '520px', mt: '-100px', bg: '#c5124d', delay: '120' }],
+      ctaTitle: 'Have a project', ctaEm: 'in mind?', ctaBtn: 'Let’s start →', footer: 'Design · Nivaldyr Technologies' },
+  };
+  startTyping() { if (this.stopTyping) this.stopTyping(); if (!this.fx) return; this.stopTyping = this.fx.typewriter(this.copy[this.state.lang].phrases, (typed) => this.setState({ typed })); }
+  componentDidMount() {
+    const root = this.rootRef.current;
+    import('./fx.js').then((fx) => { this.fx = fx; this.cleanups = [fx.dotWave(this.dotRef.current, { gap: 36, color: '17,17,17', amp: 5, speed: .8 }), fx.reveal(root), fx.magnetic(root, { strength: .3 }), fx.tilt(root, { max: 4 }), fx.parallax(root, { max: 18 })]; this.startTyping(); });
+    const cur = this.cursorRef.current;
+    this.onMove = (e) => { if (!cur) return; cur.style.left = e.clientX + 'px'; cur.style.top = e.clientY + 'px'; const big = e.target.closest && e.target.closest('a,button,[data-tilt]'); cur.style.width = cur.style.height = big ? '44px' : '14px'; };
+    window.addEventListener('mousemove', this.onMove);
+  }
+  componentWillUnmount() { (this.cleanups || []).forEach((c) => c()); if (this.stopTyping) this.stopTyping(); window.removeEventListener('mousemove', this.onMove); }
+  renderVals() {
+    const lang = this.state.lang; const t = this.copy[lang]; const h = this.state.hovered;
+    return { rootRef: this.rootRef, dotRef: this.dotRef, cursorRef: this.cursorRef, t, typed: this.state.typed,
+      services: t.services.map((s, i) => ({ ...s, num: '0' + (i + 1), delay: String(i * 80), color: h === i ? '#ff5a1f' : '#111', bg: h === i ? '#111' : 'transparent', fg: h === i ? '#f5f3ee' : '#111', enter: () => this.setState({ hovered: i }) })),
+      clients: ['Nébula', 'Origen', 'Terra & Co.', 'Velocità', 'Primae', 'Cristalyne', 'Aurora', 'Nivaldyr', 'Nébula', 'Origen', 'Terra & Co.', 'Velocità', 'Primae', 'Cristalyne', 'Aurora', 'Nivaldyr'],
+      langLabel: lang === 'es' ? 'ES · EN' : 'EN · ES', toggleLang: () => this.setState((s) => ({ lang: s.lang === 'es' ? 'en' : 'es', typed: '' }), () => this.startTyping()) };
+  }
+}
+const c = new Component();
+document.querySelectorAll('[data-fx-ref]').forEach((el) => { const n = el.dataset.fxRef; if (c[n]) c[n].current = el; });
+if (c.componentDidMount) c.componentDidMount();
+</script>
+</body>
+</html>

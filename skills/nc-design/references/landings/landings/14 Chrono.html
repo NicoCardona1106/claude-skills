@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chrono</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;background:#0a0a0b;color:#e9e7e2;font-family:Outfit,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#e9e7e2;text-decoration:none}a:hover{color:#b9a27a}
+*{box-sizing:border-box}
+@keyframes fadeUp{from{opacity:0;transform:translate3d(0,40px,0)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes tick{to{transform:rotate(360deg)}}
+@keyframes lineGrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes lineGrowY{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+</style>
+<style>
+.hv-0:hover{color:#e9e7e2}
+.hv-1:hover{color:#e9e7e2}
+.hv-2:hover{color:#e9e7e2}
+.hv-3:hover{color:#e9e7e2}
+.hv-4:hover{background:#b9a27a;color:#0a0a0b}
+</style>
+</head>
+<body>
+<div data-fx-ref="rootRef" style="background:#0a0a0b;overflow-x:clip">
+
+<!-- HERO + SCROLL PIN -->
+<section data-screen-label="Hero" data-fx-ref="pinRef" style="position:relative;height:400vh">
+  <div style="position:sticky;top:0;height:100vh;overflow:hidden;background:radial-gradient(ellipse 50% 60% at 50% 50%,#1c1913 0%,#0a0a0b 70%)">
+    <nav style="position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:30px 56px;z-index:6;animation:fadeIn 1s .2s both">
+      <a href="#" style="font-family:Cinzel,serif;font-size:20px;letter-spacing:.3em">CHRONO</a>
+      <div style="display:flex;gap:clamp(14px,2vw,34px)px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:300"><a href="#" style="color:rgba(233,231,226,.6)" class="hv-0">Colección</a><a href="#" style="color:rgba(233,231,226,.6)" class="hv-1">Manufactura</a><a href="#" style="color:rgba(233,231,226,.6)" class="hv-2">Herencia</a><a href="#" style="color:rgba(233,231,226,.6)" class="hv-3">Boutiques</a></div>
+      <div style="display:flex;gap:10px;align-items:center"><button style="white-space:nowrap;border:1px solid rgba(233,231,226,.25);background:transparent;color:inherit;padding:7px 10px;font-size:10px;letter-spacing:.1em;cursor:pointer;font-family:inherit">ES · EN</button><a href="#" data-magnetic="" style="white-space:nowrap;padding:11px 22px;border:1px solid #b9a27a;color:#b9a27a;font-size:10px;letter-spacing:.24em;text-transform:uppercase;display:inline-block" class="hv-4">Solicitar cita</a></div>
+    </nav>
+
+    <!-- watch (rotates & scales with scroll) -->
+    <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(60vh,640px);height:min(60vh,640px);z-index:2">
+      <div data-fx-ref="watchRef" style="position:absolute;inset:0;will-change:transform;animation:fadeIn 1.6s .4s both">
+        <div style="position:absolute;inset:-6%;border-radius:50%;border:1px solid rgba(185,162,122,.2)"></div>
+        <div style="position:absolute;inset:-6%;border-radius:50%;border-top:1px solid #b9a27a;animation:tick 60s linear infinite"></div>
+        <img alt="Reloj de pulsera · vista frontal (PNG)" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EReloj%20de%20pulsera%20%C2%B7%20vista%20frontal%20(PNG)%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+      </div>
+    </div>
+
+    <!-- title (fades out with scroll) -->
+    <div data-fx-ref="titleRef" style="position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;z-index:1;pointer-events:none;will-change:opacity,transform">
+      <h1 style="font-family:Cinzel,serif;font-weight:400;font-size:clamp(90px,15vw,240px);line-height:1;letter-spacing:.12em;margin:0;color:transparent;-webkit-text-stroke:1px rgba(233,231,226,.35);animation:fadeIn 1.6s .6s both">MERIDIAN</h1>
+    </div>
+
+    <div data-fx-ref="heroCopyRef" style="position:absolute;left:56px;bottom:90px;max-width:320px;z-index:4;will-change:opacity,transform">
+      <div style="font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:#b9a27a;margin-bottom:16px;animation:fadeUp 1s 1s both">Calibre 1962 · Manufactura propia</div>
+      <h2 style="font-family:Cinzel,serif;font-weight:400;font-size:30px;line-height:1.15;margin:0 0 16px;animation:fadeUp 1s 1.15s both">El tiempo, medido con paciencia.</h2>
+      <p style="font-size:13px;line-height:1.75;color:rgba(233,231,226,.6);font-weight:300;margin:0;animation:fadeUp 1s 1.3s both">Un cronógrafo de cuerda manual, ensamblado a mano en Ginebra. 312 componentes; 14 meses por pieza.</p>
+    </div>
+    <div style="position:absolute;right:56px;bottom:90px;text-align:right;z-index:4;animation:fadeUp 1s 1.3s both">
+      <div style="font-family:Cinzel,serif;font-size:36px;line-height:1">CHF 48.500</div>
+      <div style="font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:rgba(233,231,226,.5);margin-top:8px">Edición limitada · 88 piezas</div>
+    </div>
+
+    <!-- specs that pin in as you scroll -->
+    
+      <div style="position:absolute;left:56px;top:22%;text-align:left;z-index:5;opacity:0;transform:translateY(30px);transition:opacity .6s,transform .8s cubic-bezier(.2,.7,.2,1);pointer-events:none;width:220px">
+        <div style="font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#b9a27a">Movimiento</div>
+        <div style="font-family:Cinzel,serif;font-size:30px;line-height:1.1;margin:8px 0">Cal. 1962</div>
+        <div style="font-size:12px;color:rgba(233,231,226,.55);font-weight:300;line-height:1.6">Cuerda manual, 72 h de reserva de marcha, 28.800 alt/h.</div>
+        <span style="display:block;width:100%;height:1px;background:linear-gradient(90deg,#b9a27a,transparent);margin-top:14px"></span>
+      </div>
+    
+      <div style="position:absolute;left:calc(100% - 276px);top:22%;text-align:right;z-index:5;opacity:0;transform:translateY(30px);transition:opacity .6s,transform .8s cubic-bezier(.2,.7,.2,1);pointer-events:none;width:220px">
+        <div style="font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#b9a27a">Caja</div>
+        <div style="font-family:Cinzel,serif;font-size:30px;line-height:1.1;margin:8px 0">40 mm</div>
+        <div style="font-size:12px;color:rgba(233,231,226,.55);font-weight:300;line-height:1.6">Platino 950, cepillado y pulido a mano. Fondo de zafiro.</div>
+        <span style="display:block;width:100%;height:1px;background:linear-gradient(90deg,transparent,#b9a27a);margin-top:14px"></span>
+      </div>
+    
+      <div style="position:absolute;left:56px;top:58%;text-align:left;z-index:5;opacity:0;transform:translateY(30px);transition:opacity .6s,transform .8s cubic-bezier(.2,.7,.2,1);pointer-events:none;width:220px">
+        <div style="font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#b9a27a">Esfera</div>
+        <div style="font-family:Cinzel,serif;font-size:30px;line-height:1.1;margin:8px 0">Esmalte grand feu</div>
+        <div style="font-size:12px;color:rgba(233,231,226,.55);font-weight:300;line-height:1.6">Doce capas cocidas a 800 °C. Índices de oro aplicados.</div>
+        <span style="display:block;width:100%;height:1px;background:linear-gradient(90deg,#b9a27a,transparent);margin-top:14px"></span>
+      </div>
+    
+      <div style="position:absolute;left:calc(100% - 276px);top:58%;text-align:right;z-index:5;opacity:0;transform:translateY(30px);transition:opacity .6s,transform .8s cubic-bezier(.2,.7,.2,1);pointer-events:none;width:220px">
+        <div style="font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#b9a27a">Correa</div>
+        <div style="font-family:Cinzel,serif;font-size:30px;line-height:1.1;margin:8px 0">Aligátor</div>
+        <div style="font-size:12px;color:rgba(233,231,226,.55);font-weight:300;line-height:1.6">Curtido en Francia, cosido a mano, hebilla desplegable de platino.</div>
+        <span style="display:block;width:100%;height:1px;background:linear-gradient(90deg,transparent,#b9a27a);margin-top:14px"></span>
+      </div>
+    
+
+    <!-- progress -->
+    <div style="position:absolute;left:50%;bottom:36px;transform:translateX(-50%);display:flex;align-items:center;gap:14px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:rgba(233,231,226,.4);z-index:6"><span>Explora</span><span style="width:120px;height:1px;background:rgba(233,231,226,.15);position:relative;overflow:hidden"><span data-fx-ref="barRef" style="position:absolute;inset:0;background:#b9a27a;transform-origin:left;transform:scaleX(0)"></span></span><span>00 / 04</span></div>
+  </div>
+</section>
+
+<!-- CRAFT -->
+<section data-screen-label="Manufactura" style="padding:140px 56px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center">
+  <div data-reveal="" data-tilt="" style="position:relative;height:620px;overflow:hidden;border:1px solid rgba(233,231,226,.1)"><img alt="Relojero con lupa · macro del movimiento" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3ERelojero%20con%20lupa%20%C2%B7%20macro%20del%20movimiento%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
+  <div>
+    <div data-reveal="" style="font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:#b9a27a;margin-bottom:18px">Manufactura</div>
+    <h2 data-reveal="" style="font-family:Cinzel,serif;font-weight:400;font-size:clamp(34px,3.6vw,54px);line-height:1.1;margin:0 0 28px">Trescientos doce componentes. Dos manos.</h2>
+    <p data-reveal="" style="font-size:15px;line-height:1.8;color:rgba(233,231,226,.62);font-weight:300;margin:0 0 40px">Cada Meridian es ensamblado, regulado y decorado por un solo relojero, cuyo nombre queda grabado en el puente del volante.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0">
+      <div data-reveal="" data-reveal-delay="0" style="padding:22px 0;border-top:1px solid rgba(233,231,226,.12)"><div style="font-family:Cinzel,serif;font-size:36px;line-height:1"><span data-count="312" data-suffix="" style="white-space:nowrap">0</span></div><div style="font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:rgba(233,231,226,.5);margin-top:8px">Componentes</div></div><div data-reveal="" data-reveal-delay="80" style="padding:22px 0;border-top:1px solid rgba(233,231,226,.12)"><div style="font-family:Cinzel,serif;font-size:36px;line-height:1"><span data-count="14" data-suffix=" meses" style="white-space:nowrap">0</span></div><div style="font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:rgba(233,231,226,.5);margin-top:8px">Por pieza</div></div><div data-reveal="" data-reveal-delay="160" style="padding:22px 0;border-top:1px solid rgba(233,231,226,.12)"><div style="font-family:Cinzel,serif;font-size:36px;line-height:1"><span data-count="72" data-suffix=" h" style="white-space:nowrap">0</span></div><div style="font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:rgba(233,231,226,.5);margin-top:8px">Reserva de marcha</div></div><div data-reveal="" data-reveal-delay="240" style="padding:22px 0;border-top:1px solid rgba(233,231,226,.12)"><div style="font-family:Cinzel,serif;font-size:36px;line-height:1"><span data-count="88" data-suffix="" style="white-space:nowrap">0</span></div><div style="font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:rgba(233,231,226,.5);margin-top:8px">Piezas en el mundo</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- COLLECTION -->
+<section data-screen-label="Colección" style="padding:0 56px 140px">
+  <div data-reveal="" style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;border-bottom:1px solid rgba(233,231,226,.12);padding-bottom:24px">
+    <h2 style="font-family:Cinzel,serif;font-weight:400;font-size:clamp(32px,3.4vw,52px);line-height:1;margin:0">La colección 2026</h2><span style="font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:rgba(233,231,226,.5)">Tres referencias</span>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+    
+      <article data-reveal="" data-reveal-delay="0" data-tilt="" style="position:relative;padding:32px;border:1px solid rgba(233,231,226,.1);background:#0f0f11;min-height:520px;display:flex;flex-direction:column;justify-content:space-between">
+        <div style="display:flex;justify-content:space-between;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:rgba(233,231,226,.5)"><span>Ref. 1962-P</span><span>88 pzs</span></div>
+        <div style="position:relative;height:280px;margin:20px 0"><img alt="Meridian" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EMeridian%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
+        <div style="display:flex;justify-content:space-between;align-items:flex-end"><div><div style="font-family:Cinzel,serif;font-size:24px">Meridian</div><div style="font-size:12px;color:rgba(233,231,226,.5);margin-top:6px;font-weight:300">Platino · Esmalte negro</div></div><div style="font-family:Cinzel,serif;font-size:18px;color:#b9a27a">CHF 48.500</div></div>
+      </article>
+    
+      <article data-reveal="" data-reveal-delay="100" data-tilt="" style="position:relative;padding:32px;border:1px solid rgba(233,231,226,.1);background:#0f0f11;min-height:520px;display:flex;flex-direction:column;justify-content:space-between">
+        <div style="display:flex;justify-content:space-between;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:rgba(233,231,226,.5)"><span>Ref. 1962-R</span><span>150 pzs</span></div>
+        <div style="position:relative;height:280px;margin:20px 0"><img alt="Meridian Rose" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EMeridian%20Rose%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
+        <div style="display:flex;justify-content:space-between;align-items:flex-end"><div><div style="font-family:Cinzel,serif;font-size:24px">Meridian Rose</div><div style="font-size:12px;color:rgba(233,231,226,.5);margin-top:6px;font-weight:300">Oro rosa · Esfera crema</div></div><div style="font-family:Cinzel,serif;font-size:18px;color:#b9a27a">CHF 39.800</div></div>
+      </article>
+    
+      <article data-reveal="" data-reveal-delay="200" data-tilt="" style="position:relative;padding:32px;border:1px solid rgba(233,231,226,.1);background:#0f0f11;min-height:520px;display:flex;flex-direction:column;justify-content:space-between">
+        <div style="display:flex;justify-content:space-between;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:rgba(233,231,226,.5)"><span>Ref. 1970-S</span><span>250 pzs</span></div>
+        <div style="position:relative;height:280px;margin:20px 0"><img alt="Aviateur" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EAviateur%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
+        <div style="display:flex;justify-content:space-between;align-items:flex-end"><div><div style="font-family:Cinzel,serif;font-size:24px">Aviateur</div><div style="font-size:12px;color:rgba(233,231,226,.5);margin-top:6px;font-weight:300">Acero · Esfera azul</div></div><div style="font-family:Cinzel,serif;font-size:18px;color:#b9a27a">CHF 21.200</div></div>
+      </article>
+    
+  </div>
+</section>
+<footer style="display:flex;justify-content:space-between;padding:0 56px 40px;font-size:10px;color:rgba(233,231,226,.4);letter-spacing:.24em;text-transform:uppercase"><span>© 2026 Chrono Manufacture · Genève</span><span>Diseño · Nivaldyr Technologies</span></footer>
+</div>
+<script type="module">
+window.React = { createRef: () => ({ current: null }) };
+class DCLogic { constructor() { this.state = {}; this.props = {}; } setState() {} }
+class Component extends DCLogic {
+  state = { lang: 'es', step: 0 };
+  rootRef = React.createRef(); pinRef = React.createRef(); watchRef = React.createRef(); titleRef = React.createRef(); heroCopyRef = React.createRef(); barRef = React.createRef();
+  copy = {
+    es: { nav: ['Colección', 'Manufactura', 'Herencia', 'Boutiques'], cta: 'Solicitar cita', model: 'MERIDIAN', eyebrow: 'Calibre 1962 · Manufactura propia', h2: 'El tiempo, medido con paciencia.', sub: 'Un cronógrafo de cuerda manual, ensamblado a mano en Ginebra. 312 componentes; 14 meses por pieza.', price: 'CHF 48.500', edition: 'Edición limitada · 88 piezas', scroll: 'Explora',
+      specs: [{ label: 'Movimiento', value: 'Cal. 1962', text: 'Cuerda manual, 72 h de reserva de marcha, 28.800 alt/h.' }, { label: 'Caja', value: '40 mm', text: 'Platino 950, cepillado y pulido a mano. Fondo de zafiro.' }, { label: 'Esfera', value: 'Esmalte grand feu', text: 'Doce capas cocidas a 800 °C. Índices de oro aplicados.' }, { label: 'Correa', value: 'Aligátor', text: 'Curtido en Francia, cosido a mano, hebilla desplegable de platino.' }],
+      craftEyebrow: 'Manufactura', craftTitle: 'Trescientos doce componentes. Dos manos.', craftText: 'Cada Meridian es ensamblado, regulado y decorado por un solo relojero, cuyo nombre queda grabado en el puente del volante.', craftStats: [{ n: 312, suffix: '', label: 'Componentes', delay: '0' }, { n: 14, suffix: ' meses', label: 'Por pieza', delay: '80' }, { n: 72, suffix: ' h', label: 'Reserva de marcha', delay: '160' }, { n: 88, suffix: '', label: 'Piezas en el mundo', delay: '240' }],
+      colTitle: 'La colección 2026', colSub: 'Tres referencias', col: [{ ref: 'Ref. 1962-P', limit: '88 pzs', id: 'chrono-c1', name: 'Meridian', meta: 'Platino · Esmalte negro', price: 'CHF 48.500', delay: '0' }, { ref: 'Ref. 1962-R', limit: '150 pzs', id: 'chrono-c2', name: 'Meridian Rose', meta: 'Oro rosa · Esfera crema', price: 'CHF 39.800', delay: '100' }, { ref: 'Ref. 1970-S', limit: '250 pzs', id: 'chrono-c3', name: 'Aviateur', meta: 'Acero · Esfera azul', price: 'CHF 21.200', delay: '200' }], footer: 'Diseño · Nivaldyr Technologies' },
+    en: { nav: ['Collection', 'Manufacture', 'Heritage', 'Boutiques'], cta: 'Request appointment', model: 'MERIDIAN', eyebrow: 'Calibre 1962 · In-house manufacture', h2: 'Time, measured with patience.', sub: 'A hand-wound chronograph, assembled by hand in Geneva. 312 components; 14 months per piece.', price: 'CHF 48,500', edition: 'Limited edition · 88 pieces', scroll: 'Explore',
+      specs: [{ label: 'Movement', value: 'Cal. 1962', text: 'Hand-wound, 72 h power reserve, 28,800 vph.' }, { label: 'Case', value: '40 mm', text: 'Platinum 950, hand brushed and polished. Sapphire back.' }, { label: 'Dial', value: 'Grand feu enamel', text: 'Twelve layers fired at 800 °C. Applied gold indices.' }, { label: 'Strap', value: 'Alligator', text: 'Tanned in France, hand stitched, platinum folding clasp.' }],
+      craftEyebrow: 'Manufacture', craftTitle: 'Three hundred twelve components. Two hands.', craftText: 'Every Meridian is assembled, regulated and decorated by a single watchmaker, whose name is engraved on the balance bridge.', craftStats: [{ n: 312, suffix: '', label: 'Components', delay: '0' }, { n: 14, suffix: ' months', label: 'Per piece', delay: '80' }, { n: 72, suffix: ' h', label: 'Power reserve', delay: '160' }, { n: 88, suffix: '', label: 'Pieces worldwide', delay: '240' }],
+      colTitle: 'The 2026 collection', colSub: 'Three references', col: [{ ref: 'Ref. 1962-P', limit: '88 pcs', id: 'chrono-c1', name: 'Meridian', meta: 'Platinum · Black enamel', price: 'CHF 48,500', delay: '0' }, { ref: 'Ref. 1962-R', limit: '150 pcs', id: 'chrono-c2', name: 'Meridian Rose', meta: 'Rose gold · Cream dial', price: 'CHF 39,800', delay: '100' }, { ref: 'Ref. 1970-S', limit: '250 pcs', id: 'chrono-c3', name: 'Aviateur', meta: 'Steel · Blue dial', price: 'CHF 21,200', delay: '200' }], footer: 'Design · Nivaldyr Technologies' },
+  };
+  componentDidMount() {
+    const root = this.rootRef.current;
+    import('./fx.js').then((fx) => { this.cleanups = [fx.reveal(root), fx.magnetic(root), fx.tilt(root, { max: 4 }), fx.counters(root),
+      fx.scrollProgress(this.pinRef.current, (p) => {
+        const w = this.watchRef.current, ti = this.titleRef.current, hc = this.heroCopyRef.current, bar = this.barRef.current;
+        if (w) w.style.transform = `rotate(${(p * 180).toFixed(1)}deg) scale(${(1 + p * .25).toFixed(3)})`;
+        if (ti) { ti.style.opacity = String(Math.max(0, 1 - p * 4)); ti.style.transform = `translateY(-50%) scale(${1 + p})`; }
+        if (hc) { hc.style.opacity = String(Math.max(0, 1 - p * 5)); hc.style.transform = `translateY(${p * 60}px)`; }
+        if (bar) bar.style.transform = `scaleX(${p})`;
+        const step = p < .12 ? 0 : Math.min(4, 1 + Math.floor((p - .12) / .22)); if (step !== this.state.step) this.setState({ step });
+      }, { sticky: true })]; });
+  }
+  componentWillUnmount() { (this.cleanups || []).forEach((c) => c()); }
+  renderVals() {
+    const lang = this.state.lang; const t = this.copy[lang]; const st = this.state.step;
+    const pos = [{ x: '56px', y: '22%', align: 'left', gradA: '#b9a27a', gradB: 'transparent' }, { x: 'calc(100% - 276px)', y: '22%', align: 'right', gradA: 'transparent', gradB: '#b9a27a' }, { x: '56px', y: '58%', align: 'left', gradA: '#b9a27a', gradB: 'transparent' }, { x: 'calc(100% - 276px)', y: '58%', align: 'right', gradA: 'transparent', gradB: '#b9a27a' }];
+    return { rootRef: this.rootRef, pinRef: this.pinRef, watchRef: this.watchRef, titleRef: this.titleRef, heroCopyRef: this.heroCopyRef, barRef: this.barRef, t,
+      specs: t.specs.map((s, i) => ({ ...s, ...pos[i], op: st >= i + 1 ? 1 : 0, ty: st >= i + 1 ? '0' : '30px' })),
+      stepLabel: '0' + st + ' / 04',
+      langLabel: lang === 'es' ? 'ES · EN' : 'EN · ES', toggleLang: () => this.setState((s) => ({ lang: s.lang === 'es' ? 'en' : 'es' })) };
+  }
+}
+const c = new Component();
+document.querySelectorAll('[data-fx-ref]').forEach((el) => { const n = el.dataset.fxRef; if (c[n]) c[n].current = el; });
+if (c.componentDidMount) c.componentDidMount();
+</script>
+</body>
+</html>

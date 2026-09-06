@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prisma</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;background:#f3f1ff;color:#14112b;font-family:Manrope,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#14112b;text-decoration:none}a:hover{color:#6d4aff}
+*{box-sizing:border-box}
+@keyframes fadeUp{from{opacity:0;transform:translate3d(0,40px,0)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes mesh1{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(12%,-8%) scale(1.15)}66%{transform:translate(-8%,10%) scale(.95)}}
+@keyframes mesh2{0%,100%{transform:translate(0,0) scale(1.1)}33%{transform:translate(-14%,6%) scale(.9)}66%{transform:translate(10%,-10%) scale(1.2)}}
+@keyframes mesh3{0%,100%{transform:translate(0,0)}50%{transform:translate(-10%,-14%) scale(1.25)}}
+@keyframes spinCube{from{transform:rotateX(-20deg) rotateY(0deg)}to{transform:rotateX(-20deg) rotateY(360deg)}}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+@keyframes orbit{from{transform:rotate(0deg) translateX(240px) rotate(0deg)}to{transform:rotate(360deg) translateX(240px) rotate(-360deg)}}
+</style>
+<style>
+.hv-0:hover{background:#fff;color:#14112b}
+.hv-1:hover{background:#fff;color:#14112b}
+.hv-2:hover{background:#fff;color:#14112b}
+.hv-3:hover{background:#fff;color:#14112b}
+</style>
+</head>
+<body>
+<div data-fx-ref="rootRef" style="background:#f3f1ff;overflow-x:clip">
+
+<section data-screen-label="Hero" style="position:relative;height:100vh;min-height:760px;overflow:hidden">
+  <!-- gradient mesh continuous -->
+  <div style="position:absolute;inset:0;overflow:hidden;pointer-events:none">
+    <div style="position:absolute;left:10%;top:-10%;width:60%;height:70%;border-radius:50%;background:#c4b5ff;filter:blur(90px);opacity:.8;animation:mesh1 18s ease-in-out infinite"></div>
+    <div style="position:absolute;right:-10%;top:20%;width:55%;height:70%;border-radius:50%;background:#ffc9e3;filter:blur(90px);opacity:.75;animation:mesh2 22s ease-in-out infinite"></div>
+    <div style="position:absolute;left:20%;bottom:-20%;width:60%;height:60%;border-radius:50%;background:#b8f0ff;filter:blur(90px);opacity:.8;animation:mesh3 20s ease-in-out infinite"></div>
+  </div>
+
+  <nav style="position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:26px 56px;z-index:6;animation:fadeIn 1s .2s both">
+    <a href="#" style="font-weight:800;font-size:20px;letter-spacing:-.03em">prisma</a>
+    <div style="display:flex;gap:4px;padding:4px;border-radius:999px;background:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.8);backdrop-filter:blur(14px)"><a href="#" style="padding:8px 16px;border-radius:999px;font-size:13px;font-weight:600;color:rgba(20,17,43,.7)" class="hv-0">Producto</a><a href="#" style="padding:8px 16px;border-radius:999px;font-size:13px;font-weight:600;color:rgba(20,17,43,.7)" class="hv-1">Plantillas</a><a href="#" style="padding:8px 16px;border-radius:999px;font-size:13px;font-weight:600;color:rgba(20,17,43,.7)" class="hv-2">Precios</a><a href="#" style="padding:8px 16px;border-radius:999px;font-size:13px;font-weight:600;color:rgba(20,17,43,.7)" class="hv-3">Recursos</a></div>
+    <div style="display:flex;gap:10px;align-items:center"><button style="white-space:nowrap;border:1px solid rgba(20,17,43,.2);background:transparent;color:inherit;border-radius:999px;padding:7px 12px;font-size:11px;letter-spacing:.1em;cursor:pointer;font-family:inherit">ES · EN</button><a href="#" data-magnetic="" style="white-space:nowrap;padding:10px 20px;border-radius:999px;background:#14112b;color:#fff;font-size:13px;font-weight:600;display:inline-block">Probar gratis</a></div>
+  </nav>
+
+  <div style="position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:0 56px;z-index:3">
+    <div style="max-width:560px">
+      <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 12px 6px 6px;border-radius:999px;background:rgba(255,255,255,.6);border:1px solid #fff;font-size:12px;font-weight:600;margin-bottom:26px;animation:fadeUp 1s .5s both"><span style="padding:3px 8px;border-radius:999px;background:#6d4aff;color:#fff;font-size:11px">Nuevo</span>Prisma 3.0 con IA generativa</div>
+      <h1 style="font-weight:800;font-size:clamp(48px,6vw,92px);line-height:.95;letter-spacing:-.05em;margin:0 0 24px;animation:fadeUp 1s .7s both">Diseña en<br><span style="background:linear-gradient(90deg,#6d4aff,#ff5fa2,#22c1e8);-webkit-background-clip:text;background-clip:text;color:transparent">tres dimensiones.</span></h1>
+      <p style="font-size:17px;line-height:1.6;color:rgba(20,17,43,.65);max-width:440px;margin:0 0 32px;animation:fadeUp 1s .9s both">La herramienta de diseño donde cada capa vive en el espacio. Prototipos interactivos, motion y 3D sin salir del lienzo.</p>
+      <div style="display:flex;gap:10px;animation:fadeUp 1s 1.1s both"><a href="#" data-magnetic="" style="white-space:nowrap;display:inline-flex;align-items:center;gap:12px;padding:6px 6px 6px 22px;border-radius:999px;background:#14112b;color:#fff;font-size:14px;font-weight:600">Empezar gratis<span style="width:36px;height:36px;border-radius:50%;background:#6d4aff;display:grid;place-items:center">→</span></a><a href="#" style="white-space:nowrap;padding:16px 24px;border-radius:999px;background:rgba(255,255,255,.6);border:1px solid #fff;font-size:14px;font-weight:600;backdrop-filter:blur(8px)">Ver demo</a></div>
+      <div style="display:flex;gap:30px;margin-top:44px;animation:fadeUp 1s 1.4s both"><div><div style="font-weight:800;font-size:28px;letter-spacing:-.04em"><span data-count="120" data-suffix="K" style="white-space:nowrap">0</span></div><div style="font-size:12px;color:rgba(20,17,43,.55)">Diseñadores</div></div><div><div style="font-weight:800;font-size:28px;letter-spacing:-.04em"><span data-count="4" data-suffix=".9" style="white-space:nowrap">0</span></div><div style="font-size:12px;color:rgba(20,17,43,.55)">Valoración</div></div><div><div style="font-weight:800;font-size:28px;letter-spacing:-.04em"><span data-count="38" data-suffix="" style="white-space:nowrap">0</span></div><div style="font-size:12px;color:rgba(20,17,43,.55)">Plugins</div></div></div>
+    </div>
+
+    <!-- CSS 3D CUBE -->
+    <div style="position:relative;height:560px;perspective:1200px;animation:fadeIn 1.4s .8s both">
+      <div style="position:absolute;left:50%;top:50%;width:0;height:0;animation:floatY 7s ease-in-out infinite">
+        <div style="position:absolute;left:-130px;top:-130px;width:260px;height:260px;transform-style:preserve-3d;animation:spinCube 22s linear infinite">
+          
+            <div style="position:absolute;inset:0;transform:rotateY(0deg) translateZ(130px);background:rgba(230,220,255,.85);border:1px solid rgba(255,255,255,.7);backdrop-filter:blur(6px);border-radius:18px;display:flex;flex-direction:column;justify-content:space-between;padding:20px;box-shadow:0 30px 60px rgba(109,74,255,.15)">
+              <span style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(20,17,43,.5)">01</span>
+              <span style="font-weight:800;font-size:30px;letter-spacing:-.04em;line-height:1">Capas</span>
+            </div>
+          
+            <div style="position:absolute;inset:0;transform:rotateY(90deg) translateZ(130px);background:rgba(255,217,236,.85);border:1px solid rgba(255,255,255,.7);backdrop-filter:blur(6px);border-radius:18px;display:flex;flex-direction:column;justify-content:space-between;padding:20px;box-shadow:0 30px 60px rgba(109,74,255,.15)">
+              <span style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(20,17,43,.5)">02</span>
+              <span style="font-weight:800;font-size:30px;letter-spacing:-.04em;line-height:1">Motion</span>
+            </div>
+          
+            <div style="position:absolute;inset:0;transform:rotateY(180deg) translateZ(130px);background:rgba(212,244,255,.85);border:1px solid rgba(255,255,255,.7);backdrop-filter:blur(6px);border-radius:18px;display:flex;flex-direction:column;justify-content:space-between;padding:20px;box-shadow:0 30px 60px rgba(109,74,255,.15)">
+              <span style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(20,17,43,.5)">03</span>
+              <span style="font-weight:800;font-size:30px;letter-spacing:-.04em;line-height:1">3D</span>
+            </div>
+          
+            <div style="position:absolute;inset:0;transform:rotateY(-90deg) translateZ(130px);background:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.7);backdrop-filter:blur(6px);border-radius:18px;display:flex;flex-direction:column;justify-content:space-between;padding:20px;box-shadow:0 30px 60px rgba(109,74,255,.15)">
+              <span style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(20,17,43,.5)">04</span>
+              <span style="font-weight:800;font-size:30px;letter-spacing:-.04em;line-height:1">Prototipo</span>
+            </div>
+          
+            <div style="position:absolute;inset:0;transform:rotateX(90deg) translateZ(130px);background:rgba(230,220,255,.85);border:1px solid rgba(255,255,255,.7);backdrop-filter:blur(6px);border-radius:18px;display:flex;flex-direction:column;justify-content:space-between;padding:20px;box-shadow:0 30px 60px rgba(109,74,255,.15)">
+              <span style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(20,17,43,.5)">05</span>
+              <span style="font-weight:800;font-size:30px;letter-spacing:-.04em;line-height:1">IA</span>
+            </div>
+          
+            <div style="position:absolute;inset:0;transform:rotateX(-90deg) translateZ(130px);background:rgba(212,244,255,.85);border:1px solid rgba(255,255,255,.7);backdrop-filter:blur(6px);border-radius:18px;display:flex;flex-direction:column;justify-content:space-between;padding:20px;box-shadow:0 30px 60px rgba(109,74,255,.15)">
+              <span style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(20,17,43,.5)">06</span>
+              <span style="font-weight:800;font-size:30px;letter-spacing:-.04em;line-height:1">Export</span>
+            </div>
+          
+        </div>
+      </div>
+      <!-- orbiting chips -->
+      <div style="position:absolute;left:50%;top:50%;width:0;height:0">
+        
+          <div style="position:absolute;left:0;top:0;animation:orbit 16s linear infinite;animation-delay:0s"><span style="display:inline-flex;align-items:center;gap:8px;transform:translate(-50%,-50%);padding:8px 14px;border-radius:999px;background:#fff;box-shadow:0 12px 30px rgba(20,17,43,.12);font-size:12px;font-weight:700;white-space:nowrap"><span style="width:8px;height:8px;border-radius:50%;background:#6d4aff"></span>Auto-layout</span></div>
+        
+          <div style="position:absolute;left:0;top:0;animation:orbit 20s linear infinite;animation-delay:-6s"><span style="display:inline-flex;align-items:center;gap:8px;transform:translate(-50%,-50%);padding:8px 14px;border-radius:999px;background:#fff;box-shadow:0 12px 30px rgba(20,17,43,.12);font-size:12px;font-weight:700;white-space:nowrap"><span style="width:8px;height:8px;border-radius:50%;background:#ff5fa2"></span>Variables</span></div>
+        
+          <div style="position:absolute;left:0;top:0;animation:orbit 24s linear infinite;animation-delay:-12s"><span style="display:inline-flex;align-items:center;gap:8px;transform:translate(-50%,-50%);padding:8px 14px;border-radius:999px;background:#fff;box-shadow:0 12px 30px rgba(20,17,43,.12);font-size:12px;font-weight:700;white-space:nowrap"><span style="width:8px;height:8px;border-radius:50%;background:#22c1e8"></span>Dev mode</span></div>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES bento -->
+<section data-screen-label="Features" style="padding:140px 56px 100px">
+  <div data-reveal="" style="text-align:center;max-width:720px;margin:0 auto 56px"><h2 style="font-weight:800;font-size:clamp(36px,4.4vw,68px);letter-spacing:-.05em;line-height:.95;margin:0 0 16px">Un lienzo que piensa en profundidad</h2><p style="font-size:16px;color:rgba(20,17,43,.6);margin:0">Todo lo que ya sabes de diseño, más una dimensión.</p></div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:260px;gap:16px">
+    
+      <article data-reveal="" data-reveal-delay="0" data-tilt="" style="grid-column:span 2;position:relative;padding:28px;border-radius:28px;background:#e6dcff;color:#14112b;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between">
+        <span style="width:40px;height:40px;border-radius:14px;background:rgba(255,255,255,.5);display:grid;place-items:center;font-size:16px">◈</span>
+        <div><h3 style="font-weight:800;font-size:22px;letter-spacing:-.03em;margin:0 0 8px">Capas con profundidad</h3><p style="font-size:14px;line-height:1.6;opacity:.75;margin:0;max-width:420px">Arrastra en Z. Sombras, perspectiva y parallax se calculan solos.</p></div>
+      </article>
+    
+      <article data-reveal="" data-reveal-delay="100" data-tilt="" style="grid-column:span 1;position:relative;padding:28px;border-radius:28px;background:#14112b;color:#fff;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between">
+        <span style="width:40px;height:40px;border-radius:14px;background:rgba(255,255,255,.5);display:grid;place-items:center;font-size:16px">✦</span>
+        <div><h3 style="font-weight:800;font-size:22px;letter-spacing:-.03em;margin:0 0 8px">IA generativa</h3><p style="font-size:14px;line-height:1.6;opacity:.75;margin:0;max-width:420px">Describe una escena, obtén un layout editable.</p></div>
+      </article>
+    
+      <article data-reveal="" data-reveal-delay="0" data-tilt="" style="grid-column:span 1;position:relative;padding:28px;border-radius:28px;background:#ffd9ec;color:#14112b;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between">
+        <span style="width:40px;height:40px;border-radius:14px;background:rgba(255,255,255,.5);display:grid;place-items:center;font-size:16px">▶</span>
+        <div><h3 style="font-weight:800;font-size:22px;letter-spacing:-.03em;margin:0 0 8px">Motion nativo</h3><p style="font-size:14px;line-height:1.6;opacity:.75;margin:0;max-width:420px">Curvas, springs y timelines sin plugins.</p></div>
+      </article>
+    
+      <article data-reveal="" data-reveal-delay="100" data-tilt="" style="grid-column:span 2;position:relative;padding:28px;border-radius:28px;background:#d4f4ff;color:#14112b;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between">
+        <span style="width:40px;height:40px;border-radius:14px;background:rgba(255,255,255,.5);display:grid;place-items:center;font-size:16px">⬡</span>
+        <div><h3 style="font-weight:800;font-size:22px;letter-spacing:-.03em;margin:0 0 8px">Exporta a código real</h3><p style="font-size:14px;line-height:1.6;opacity:.75;margin:0;max-width:420px">React, Swift o CSS 3D con transformaciones exactas. Lo que ves es lo que se despliega.</p></div>
+      </article>
+    
+  </div>
+</section>
+
+<!-- TESTIMONIAL + CTA -->
+<section data-screen-label="CTA" style="padding:60px 56px 140px">
+  <div data-reveal="" style="position:relative;border-radius:36px;padding:100px 64px;overflow:hidden;background:#14112b;color:#fff;text-align:center">
+    <div style="position:absolute;inset:0;overflow:hidden;pointer-events:none;opacity:.6"><div style="position:absolute;left:0;top:0;width:50%;height:80%;border-radius:50%;background:#6d4aff;filter:blur(90px);animation:mesh1 16s ease-in-out infinite"></div><div style="position:absolute;right:0;bottom:0;width:50%;height:80%;border-radius:50%;background:#ff5fa2;filter:blur(90px);animation:mesh2 20s ease-in-out infinite"></div></div>
+    <div style="position:relative"><p style="font-weight:600;font-size:clamp(22px,2.4vw,34px);line-height:1.3;letter-spacing:-.02em;max-width:800px;margin:0 auto 20px">“Por primera vez, el prototipo y el producto final se ven idénticos. Prisma nos ahorró tres semanas por lanzamiento.”</p><div style="font-size:13px;opacity:.6;margin-bottom:44px">María Torres · Head of Design, Nébula</div><h2 style="font-weight:800;font-size:clamp(40px,5vw,80px);letter-spacing:-.05em;line-height:.95;margin:0 0 30px">Da el salto a 3D.</h2><a href="#" data-magnetic="" style="white-space:nowrap;display:inline-block;padding:16px 32px;border-radius:999px;background:#fff;color:#14112b;font-size:14px;font-weight:700">Crear cuenta gratis</a></div>
+  </div>
+</section>
+<footer style="display:flex;justify-content:space-between;padding:0 56px 40px;font-size:12px;color:rgba(20,17,43,.45)"><span>© 2026 Prisma Studio</span><span>Diseño · Nivaldyr Technologies</span></footer>
+</div>
+<script type="module">
+window.React = { createRef: () => ({ current: null }) };
+class DCLogic { constructor() { this.state = {}; this.props = {}; } setState() {} }
+class Component extends DCLogic {
+  state = { lang: 'es' };
+  rootRef = React.createRef();
+  copy = {
+    es: { nav: ['Producto', 'Plantillas', 'Precios', 'Recursos'], cta: 'Probar gratis', badgeTag: 'Nuevo', badge: 'Prisma 3.0 con IA generativa', h1: 'Diseña en', h1em: 'tres dimensiones.', sub: 'La herramienta de diseño donde cada capa vive en el espacio. Prototipos interactivos, motion y 3D sin salir del lienzo.', primary: 'Empezar gratis', secondary: 'Ver demo', stats: [{ n: 120, suffix: 'K', l: 'Diseñadores' }, { n: 4, suffix: '.9', l: 'Valoración' }, { n: 38, suffix: '', l: 'Plugins' }],
+      faces: ['Capas', 'Motion', '3D', 'Prototipo', 'IA', 'Export'], orbits: ['Auto-layout', 'Variables', 'Dev mode'],
+      featTitle: 'Un lienzo que piensa en profundidad', featSub: 'Todo lo que ya sabes de diseño, más una dimensión.', features: [{ icon: '◈', title: 'Capas con profundidad', text: 'Arrastra en Z. Sombras, perspectiva y parallax se calculan solos.', span: '2', bg: '#e6dcff', fg: '#14112b', delay: '0' }, { icon: '✦', title: 'IA generativa', text: 'Describe una escena, obtén un layout editable.', span: '1', bg: '#14112b', fg: '#fff', delay: '100' }, { icon: '▶', title: 'Motion nativo', text: 'Curvas, springs y timelines sin plugins.', span: '1', bg: '#ffd9ec', fg: '#14112b', delay: '0' }, { icon: '⬡', title: 'Exporta a código real', text: 'React, Swift o CSS 3D con transformaciones exactas. Lo que ves es lo que se despliega.', span: '2', bg: '#d4f4ff', fg: '#14112b', delay: '100' }],
+      quote: 'Por primera vez, el prototipo y el producto final se ven idénticos. Prisma nos ahorró tres semanas por lanzamiento.', quoteBy: 'María Torres · Head of Design, Nébula', ctaTitle: 'Da el salto a 3D.', ctaBtn: 'Crear cuenta gratis', footer: 'Diseño · Nivaldyr Technologies' },
+    en: { nav: ['Product', 'Templates', 'Pricing', 'Resources'], cta: 'Try free', badgeTag: 'New', badge: 'Prisma 3.0 with generative AI', h1: 'Design in', h1em: 'three dimensions.', sub: 'The design tool where every layer lives in space. Interactive prototypes, motion and 3D without leaving the canvas.', primary: 'Start free', secondary: 'Watch demo', stats: [{ n: 120, suffix: 'K', l: 'Designers' }, { n: 4, suffix: '.9', l: 'Rating' }, { n: 38, suffix: '', l: 'Plugins' }],
+      faces: ['Layers', 'Motion', '3D', 'Prototype', 'AI', 'Export'], orbits: ['Auto-layout', 'Variables', 'Dev mode'],
+      featTitle: 'A canvas that thinks in depth', featSub: 'Everything you know about design, plus one dimension.', features: [{ icon: '◈', title: 'Layers with depth', text: 'Drag in Z. Shadows, perspective and parallax compute themselves.', span: '2', bg: '#e6dcff', fg: '#14112b', delay: '0' }, { icon: '✦', title: 'Generative AI', text: 'Describe a scene, get an editable layout.', span: '1', bg: '#14112b', fg: '#fff', delay: '100' }, { icon: '▶', title: 'Native motion', text: 'Curves, springs and timelines without plugins.', span: '1', bg: '#ffd9ec', fg: '#14112b', delay: '0' }, { icon: '⬡', title: 'Export to real code', text: 'React, Swift or CSS 3D with exact transforms. What you see is what ships.', span: '2', bg: '#d4f4ff', fg: '#14112b', delay: '100' }],
+      quote: 'For the first time, the prototype and the final product look identical. Prisma saved us three weeks per launch.', quoteBy: 'María Torres · Head of Design, Nébula', ctaTitle: 'Make the leap to 3D.', ctaBtn: 'Create free account', footer: 'Design · Nivaldyr Technologies' },
+  };
+  componentDidMount() { const root = this.rootRef.current; import('./fx.js').then((fx) => { this.cleanups = [fx.reveal(root), fx.magnetic(root), fx.tilt(root, { max: 4 }), fx.counters(root)]; }); }
+  componentWillUnmount() { (this.cleanups || []).forEach((c) => c()); }
+  renderVals() {
+    const lang = this.state.lang; const t = this.copy[lang];
+    const tfs = ['rotateY(0deg) translateZ(130px)', 'rotateY(90deg) translateZ(130px)', 'rotateY(180deg) translateZ(130px)', 'rotateY(-90deg) translateZ(130px)', 'rotateX(90deg) translateZ(130px)', 'rotateX(-90deg) translateZ(130px)'];
+    const bgs = ['rgba(230,220,255,.85)', 'rgba(255,217,236,.85)', 'rgba(212,244,255,.85)', 'rgba(255,255,255,.85)', 'rgba(230,220,255,.85)', 'rgba(212,244,255,.85)'];
+    return { rootRef: this.rootRef, t,
+      faces: t.faces.map((label, i) => ({ label, tag: '0' + (i + 1), tf: tfs[i], bg: bgs[i] })),
+      orbits: t.orbits.map((l, i) => ({ l, dur: (16 + i * 4) + 's', delay: (-i * 6) + 's', c: ['#6d4aff', '#ff5fa2', '#22c1e8'][i] })),
+      langLabel: lang === 'es' ? 'ES · EN' : 'EN · ES', toggleLang: () => this.setState((s) => ({ lang: s.lang === 'es' ? 'en' : 'es' })) };
+  }
+}
+const c = new Component();
+document.querySelectorAll('[data-fx-ref]').forEach((el) => { const n = el.dataset.fxRef; if (c[n]) c[n].current = el; });
+if (c.componentDidMount) c.componentDidMount();
+</script>
+</body>
+</html>

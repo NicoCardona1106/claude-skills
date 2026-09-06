@@ -97,3 +97,18 @@ Patrón de montaje: `componentDidMount → import('./fx.js') → this.cleanups=[
 
 ## Checklist responsive (ya aplicado)
 nav con `gap:24px` y links con `gap:clamp(14px,2vw,34px)`; `white-space:nowrap` en botones, tags y contadores; títulos con `clamp()`.
+
+## Versiones HTML plano (2026-09-05)
+
+Cada landing tiene su gemela SIN runtime de Claude Design: `landings/NN Nombre.html`
+(generadas con `landings/convertir.mjs`; regenerar con `node convertir.mjs`).
+Qué cambia frente a la `.dc.html`: plantilla evaluada con los textos en ESPAÑOL,
+`<sc-for>` expandido, `style-hover` volcado a clases CSS, `<image-slot>` →
+`<img>` placeholder SVG, y los efectos de fx.js montados con el
+`componentDidMount` original vía un shim (setState = no-op, así que el toggle
+ES/EN y demás interactividad de estado quedan congelados en el estado inicial —
+el diseño y las animaciones quedan completos). `00 Galeria.html` enlaza a las
+versiones planas. Verificado 2026-09-05 con Playwright en 1440 y 390: 25/26 sin
+errores de consola ni overflow (la galería desborda en móvil igual que su
+original: es índice de escritorio); `prefers-reduced-motion` deja los efectos
+decorativos quietos y `mobileCount` da la mitad de partículas en móvil.

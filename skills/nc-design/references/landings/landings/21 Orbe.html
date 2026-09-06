@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Orbe</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;background:#0a0a0f;color:#f3f3f7;font-family:Sora,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#f3f3f7;text-decoration:none}a:hover{color:#a78bfa}
+*{box-sizing:border-box}
+@keyframes fadeUp{from{opacity:0;transform:translate3d(0,40px,0)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes auroraA{0%,100%{transform:translate(-10%,-10%) rotate(0deg) scale(1)}50%{transform:translate(10%,5%) rotate(30deg) scale(1.2)}}
+@keyframes auroraB{0%,100%{transform:translate(10%,10%) rotate(0deg) scale(1.1)}50%{transform:translate(-8%,-6%) rotate(-25deg) scale(.9)}}
+@keyframes ringGlow{0%,100%{opacity:.4}50%{opacity:.8}}
+</style>
+<style>
+.hv-0:hover{background:rgba(243,243,247,.1);color:#fff}
+.hv-1:hover{background:rgba(243,243,247,.1);color:#fff}
+.hv-2:hover{background:rgba(243,243,247,.1);color:#fff}
+.hv-3:hover{background:rgba(243,243,247,.1);color:#fff}
+</style>
+</head>
+<body>
+<div data-fx-ref="rootRef" style="background:#0a0a0f;overflow-x:clip">
+
+<section data-screen-label="Hero" style="position:relative;height:100vh;min-height:760px;overflow:hidden">
+  <!-- continuous aurora bg -->
+  <div style="position:absolute;inset:-20%;pointer-events:none">
+    <div style="position:absolute;left:20%;top:20%;width:60%;height:60%;border-radius:50%;background:radial-gradient(circle,rgba(167,139,250,.45),transparent 60%);filter:blur(60px);animation:auroraA 16s ease-in-out infinite"></div>
+    <div style="position:absolute;left:30%;top:30%;width:50%;height:50%;border-radius:50%;background:radial-gradient(circle,rgba(56,189,248,.35),transparent 60%);filter:blur(70px);animation:auroraB 20s ease-in-out infinite"></div>
+  </div>
+  <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(243,243,247,.12) 1px,transparent 1px);background-size:32px 32px;mask-image:radial-gradient(ellipse at center,black 20%,transparent 70%)"></div>
+
+  <nav style="position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:26px 56px;z-index:10;animation:fadeIn 1s .2s both">
+    <a href="#" style="display:flex;align-items:center;gap:10px;font-weight:700;font-size:17px;letter-spacing:-.02em"><span style="width:22px;height:22px;border-radius:50%;background:conic-gradient(#a78bfa,#38bdf8,#a78bfa);display:inline-block"></span>Orbe</a>
+    <div style="display:flex;gap:4px;padding:4px;border-radius:999px;border:1px solid rgba(243,243,247,.12);background:rgba(243,243,247,.03);backdrop-filter:blur(12px)"><a href="#" style="padding:8px 16px;border-radius:999px;font-size:13px;color:rgba(243,243,247,.7)" class="hv-0">Colección</a><a href="#" style="padding:8px 16px;border-radius:999px;font-size:13px;color:rgba(243,243,247,.7)" class="hv-1">Objetos</a><a href="#" style="padding:8px 16px;border-radius:999px;font-size:13px;color:rgba(243,243,247,.7)" class="hv-2">Estudio</a><a href="#" style="padding:8px 16px;border-radius:999px;font-size:13px;color:rgba(243,243,247,.7)" class="hv-3">Diario</a></div>
+    <div style="display:flex;gap:10px;align-items:center"><button style="white-space:nowrap;border:1px solid rgba(243,243,247,.2);background:transparent;color:inherit;border-radius:999px;padding:7px 12px;font-size:11px;letter-spacing:.1em;cursor:pointer;font-family:inherit">ES · EN</button><a href="#" data-magnetic="" style="white-space:nowrap;padding:10px 18px;border-radius:999px;background:#f3f3f7;color:#0a0a0f;font-size:13px;font-weight:600;display:inline-block">Carrito (0)</a></div>
+  </nav>
+
+  <div style="position:absolute;left:0;right:0;top:15%;text-align:center;z-index:2;pointer-events:none">
+    <div style="font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#a78bfa;margin-bottom:18px;animation:fadeUp 1s .5s both">Objetos para el hogar · Edición 03</div>
+    <h1 style="font-weight:600;font-size:clamp(44px,5.6vw,84px);line-height:1;letter-spacing:-.04em;margin:0;animation:fadeUp 1s .7s both">Gira la colección.<br><span style="font-weight:300;color:rgba(243,243,247,.6)">Ocho objetos, un anillo.</span></h1>
+  </div>
+
+  <!-- 3D RING -->
+  <div style="position:absolute;left:0;right:0;top:50%;height:440px;transform:translateY(-38%);perspective:1400px;z-index:3;animation:fadeIn 1.4s 1s both">
+    <div style="position:absolute;left:50%;top:50%;width:0;height:0;transform-style:preserve-3d;will-change:transform" data-fx-ref="ringRef">
+      
+        <div data-tilt="" style="width:240px;height:320px;border-radius:22px;overflow:hidden;background:linear-gradient(160deg,rgba(243,243,247,.1),rgba(243,243,247,.02));border:1px solid rgba(243,243,247,.18);backdrop-filter:blur(10px);box-shadow:0 40px 80px rgba(0,0,0,.5);transition:opacity .3s">
+          <div style="position:absolute;inset:14px 14px 90px;border-radius:14px;overflow:hidden;background:#2b2350"><img alt="Lámpara Halo" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EL%C3%A1mpara%20Halo%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:14px"></div>
+          <div style="position:absolute;left:18px;right:18px;bottom:18px"><div style="font-weight:600;font-size:16px">Lámpara Halo</div><div style="display:flex;justify-content:space-between;font-size:12px;color:rgba(243,243,247,.6);margin-top:4px"><span>Iluminación</span><span>$240</span></div></div>
+        </div>
+      
+        <div data-tilt="" style="width:240px;height:320px;border-radius:22px;overflow:hidden;background:linear-gradient(160deg,rgba(243,243,247,.1),rgba(243,243,247,.02));border:1px solid rgba(243,243,247,.18);backdrop-filter:blur(10px);box-shadow:0 40px 80px rgba(0,0,0,.5);transition:opacity .3s">
+          <div style="position:absolute;inset:14px 14px 90px;border-radius:14px;overflow:hidden;background:#0f2f3f"><img alt="Vaso Bruma" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EVaso%20Bruma%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:14px"></div>
+          <div style="position:absolute;left:18px;right:18px;bottom:18px"><div style="font-weight:600;font-size:16px">Vaso Bruma</div><div style="display:flex;justify-content:space-between;font-size:12px;color:rgba(243,243,247,.6);margin-top:4px"><span>Vidrio</span><span>$68</span></div></div>
+        </div>
+      
+        <div data-tilt="" style="width:240px;height:320px;border-radius:22px;overflow:hidden;background:linear-gradient(160deg,rgba(243,243,247,.1),rgba(243,243,247,.02));border:1px solid rgba(243,243,247,.18);backdrop-filter:blur(10px);box-shadow:0 40px 80px rgba(0,0,0,.5);transition:opacity .3s">
+          <div style="position:absolute;inset:14px 14px 90px;border-radius:14px;overflow:hidden;background:#3a1f2b"><img alt="Silla Ola" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3ESilla%20Ola%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:14px"></div>
+          <div style="position:absolute;left:18px;right:18px;bottom:18px"><div style="font-weight:600;font-size:16px">Silla Ola</div><div style="display:flex;justify-content:space-between;font-size:12px;color:rgba(243,243,247,.6);margin-top:4px"><span>Mobiliario</span><span>$890</span></div></div>
+        </div>
+      
+        <div data-tilt="" style="width:240px;height:320px;border-radius:22px;overflow:hidden;background:linear-gradient(160deg,rgba(243,243,247,.1),rgba(243,243,247,.02));border:1px solid rgba(243,243,247,.18);backdrop-filter:blur(10px);box-shadow:0 40px 80px rgba(0,0,0,.5);transition:opacity .3s">
+          <div style="position:absolute;inset:14px 14px 90px;border-radius:14px;overflow:hidden;background:#1b2e22"><img alt="Maceta Musgo" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EMaceta%20Musgo%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:14px"></div>
+          <div style="position:absolute;left:18px;right:18px;bottom:18px"><div style="font-weight:600;font-size:16px">Maceta Musgo</div><div style="display:flex;justify-content:space-between;font-size:12px;color:rgba(243,243,247,.6);margin-top:4px"><span>Cerámica</span><span>$120</span></div></div>
+        </div>
+      
+        <div data-tilt="" style="width:240px;height:320px;border-radius:22px;overflow:hidden;background:linear-gradient(160deg,rgba(243,243,247,.1),rgba(243,243,247,.02));border:1px solid rgba(243,243,247,.18);backdrop-filter:blur(10px);box-shadow:0 40px 80px rgba(0,0,0,.5);transition:opacity .3s">
+          <div style="position:absolute;inset:14px 14px 90px;border-radius:14px;overflow:hidden;background:#2a2a3a"><img alt="Reloj Nube" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EReloj%20Nube%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:14px"></div>
+          <div style="position:absolute;left:18px;right:18px;bottom:18px"><div style="font-weight:600;font-size:16px">Reloj Nube</div><div style="display:flex;justify-content:space-between;font-size:12px;color:rgba(243,243,247,.6);margin-top:4px"><span>Decoración</span><span>$180</span></div></div>
+        </div>
+      
+        <div data-tilt="" style="width:240px;height:320px;border-radius:22px;overflow:hidden;background:linear-gradient(160deg,rgba(243,243,247,.1),rgba(243,243,247,.02));border:1px solid rgba(243,243,247,.18);backdrop-filter:blur(10px);box-shadow:0 40px 80px rgba(0,0,0,.5);transition:opacity .3s">
+          <div style="position:absolute;inset:14px 14px 90px;border-radius:14px;overflow:hidden;background:#3b2a12"><img alt="Bandeja Sol" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EBandeja%20Sol%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:14px"></div>
+          <div style="position:absolute;left:18px;right:18px;bottom:18px"><div style="font-weight:600;font-size:16px">Bandeja Sol</div><div style="display:flex;justify-content:space-between;font-size:12px;color:rgba(243,243,247,.6);margin-top:4px"><span>Latón</span><span>$95</span></div></div>
+        </div>
+      
+        <div data-tilt="" style="width:240px;height:320px;border-radius:22px;overflow:hidden;background:linear-gradient(160deg,rgba(243,243,247,.1),rgba(243,243,247,.02));border:1px solid rgba(243,243,247,.18);backdrop-filter:blur(10px);box-shadow:0 40px 80px rgba(0,0,0,.5);transition:opacity .3s">
+          <div style="position:absolute;inset:14px 14px 90px;border-radius:14px;overflow:hidden;background:#14283a"><img alt="Difusor Marea" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EDifusor%20Marea%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:14px"></div>
+          <div style="position:absolute;left:18px;right:18px;bottom:18px"><div style="font-weight:600;font-size:16px">Difusor Marea</div><div style="display:flex;justify-content:space-between;font-size:12px;color:rgba(243,243,247,.6);margin-top:4px"><span>Aromas</span><span>$74</span></div></div>
+        </div>
+      
+        <div data-tilt="" style="width:240px;height:320px;border-radius:22px;overflow:hidden;background:linear-gradient(160deg,rgba(243,243,247,.1),rgba(243,243,247,.02));border:1px solid rgba(243,243,247,.18);backdrop-filter:blur(10px);box-shadow:0 40px 80px rgba(0,0,0,.5);transition:opacity .3s">
+          <div style="position:absolute;inset:14px 14px 90px;border-radius:14px;overflow:hidden;background:#2f1b3a"><img alt="Espejo Eco" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EEspejo%20Eco%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:14px"></div>
+          <div style="position:absolute;left:18px;right:18px;bottom:18px"><div style="font-weight:600;font-size:16px">Espejo Eco</div><div style="display:flex;justify-content:space-between;font-size:12px;color:rgba(243,243,247,.6);margin-top:4px"><span>Decoración</span><span>$310</span></div></div>
+        </div>
+      
+    </div>
+    <div style="position:absolute;left:50%;top:50%;width:1100px;height:1100px;transform:translate(-50%,-50%) rotateX(80deg);border-radius:50%;border:1px solid rgba(167,139,250,.35);box-shadow:0 0 80px rgba(167,139,250,.25) inset;animation:ringGlow 4s ease-in-out infinite;pointer-events:none"></div>
+  </div>
+
+  <!-- active product -->
+  <div style="position:absolute;left:56px;bottom:56px;max-width:360px;z-index:4;animation:fadeUp 1s 1.4s both">
+    <div style="font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:rgba(243,243,247,.45);margin-bottom:10px">En pantalla · 01 / 08</div>
+    <div style="font-weight:600;font-size:34px;letter-spacing:-.03em;line-height:1;transition:all .3s">Lámpara Halo</div>
+    <p style="font-size:14px;line-height:1.6;color:rgba(243,243,247,.6);margin:12px 0 22px">Anillo de luz cálida regulable con base de mármol travertino.</p>
+    <a href="#" data-magnetic="" style="white-space:nowrap;display:inline-flex;align-items:center;gap:12px;padding:6px 6px 6px 20px;border-radius:999px;background:#a78bfa;color:#0a0a0f;font-size:13px;font-weight:600">Añadir · $240<span style="width:34px;height:34px;border-radius:50%;background:#0a0a0f;color:#a78bfa;display:grid;place-items:center">+</span></a>
+  </div>
+  <div style="position:absolute;right:56px;bottom:56px;text-align:right;font-size:12px;color:rgba(243,243,247,.45);line-height:1.8;z-index:4;animation:fadeIn 1s 1.8s both">Arrastra para girar<br><span style="color:#a78bfa">← ⟲ →</span></div>
+</section>
+
+<!-- FEATURED grid -->
+<section data-screen-label="Destacados" style="padding:140px 56px 100px">
+  <div data-reveal="" style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px"><h2 style="font-weight:600;font-size:clamp(34px,4vw,60px);letter-spacing:-.04em;line-height:1;margin:0">La colección completa</h2><span style="font-size:12px;color:rgba(243,243,247,.5)">08 objetos · envío mundial</span></div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+    
+      <article data-reveal="" data-reveal-delay="0" data-tilt="" style="position:relative;aspect-ratio:3/4;border-radius:20px;overflow:hidden;background:#2b2350;border:1px solid rgba(243,243,247,.1)">
+        <img alt="Lámpara Halo" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EL%C3%A1mpara%20Halo%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:20px">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(10,10,15,.9))"></div>
+        <div style="position:absolute;left:18px;right:18px;bottom:18px;display:flex;justify-content:space-between;align-items:end"><div><div style="font-weight:600;font-size:16px">Lámpara Halo</div><div style="font-size:12px;color:rgba(243,243,247,.6)">Iluminación</div></div><span style="font-size:13px;font-weight:600">$240</span></div>
+      </article>
+    
+      <article data-reveal="" data-reveal-delay="80" data-tilt="" style="position:relative;aspect-ratio:3/4;border-radius:20px;overflow:hidden;background:#0f2f3f;border:1px solid rgba(243,243,247,.1)">
+        <img alt="Vaso Bruma" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EVaso%20Bruma%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:20px">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(10,10,15,.9))"></div>
+        <div style="position:absolute;left:18px;right:18px;bottom:18px;display:flex;justify-content:space-between;align-items:end"><div><div style="font-weight:600;font-size:16px">Vaso Bruma</div><div style="font-size:12px;color:rgba(243,243,247,.6)">Vidrio</div></div><span style="font-size:13px;font-weight:600">$68</span></div>
+      </article>
+    
+      <article data-reveal="" data-reveal-delay="160" data-tilt="" style="position:relative;aspect-ratio:3/4;border-radius:20px;overflow:hidden;background:#3a1f2b;border:1px solid rgba(243,243,247,.1)">
+        <img alt="Silla Ola" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3ESilla%20Ola%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:20px">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(10,10,15,.9))"></div>
+        <div style="position:absolute;left:18px;right:18px;bottom:18px;display:flex;justify-content:space-between;align-items:end"><div><div style="font-weight:600;font-size:16px">Silla Ola</div><div style="font-size:12px;color:rgba(243,243,247,.6)">Mobiliario</div></div><span style="font-size:13px;font-weight:600">$890</span></div>
+      </article>
+    
+      <article data-reveal="" data-reveal-delay="240" data-tilt="" style="position:relative;aspect-ratio:3/4;border-radius:20px;overflow:hidden;background:#1b2e22;border:1px solid rgba(243,243,247,.1)">
+        <img alt="Maceta Musgo" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EMaceta%20Musgo%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:20px">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(10,10,15,.9))"></div>
+        <div style="position:absolute;left:18px;right:18px;bottom:18px;display:flex;justify-content:space-between;align-items:end"><div><div style="font-weight:600;font-size:16px">Maceta Musgo</div><div style="font-size:12px;color:rgba(243,243,247,.6)">Cerámica</div></div><span style="font-size:13px;font-weight:600">$120</span></div>
+      </article>
+    
+      <article data-reveal="" data-reveal-delay="0" data-tilt="" style="position:relative;aspect-ratio:3/4;border-radius:20px;overflow:hidden;background:#2a2a3a;border:1px solid rgba(243,243,247,.1)">
+        <img alt="Reloj Nube" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EReloj%20Nube%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:20px">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(10,10,15,.9))"></div>
+        <div style="position:absolute;left:18px;right:18px;bottom:18px;display:flex;justify-content:space-between;align-items:end"><div><div style="font-weight:600;font-size:16px">Reloj Nube</div><div style="font-size:12px;color:rgba(243,243,247,.6)">Decoración</div></div><span style="font-size:13px;font-weight:600">$180</span></div>
+      </article>
+    
+      <article data-reveal="" data-reveal-delay="80" data-tilt="" style="position:relative;aspect-ratio:3/4;border-radius:20px;overflow:hidden;background:#3b2a12;border:1px solid rgba(243,243,247,.1)">
+        <img alt="Bandeja Sol" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EBandeja%20Sol%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:20px">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(10,10,15,.9))"></div>
+        <div style="position:absolute;left:18px;right:18px;bottom:18px;display:flex;justify-content:space-between;align-items:end"><div><div style="font-weight:600;font-size:16px">Bandeja Sol</div><div style="font-size:12px;color:rgba(243,243,247,.6)">Latón</div></div><span style="font-size:13px;font-weight:600">$95</span></div>
+      </article>
+    
+      <article data-reveal="" data-reveal-delay="160" data-tilt="" style="position:relative;aspect-ratio:3/4;border-radius:20px;overflow:hidden;background:#14283a;border:1px solid rgba(243,243,247,.1)">
+        <img alt="Difusor Marea" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EDifusor%20Marea%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:20px">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(10,10,15,.9))"></div>
+        <div style="position:absolute;left:18px;right:18px;bottom:18px;display:flex;justify-content:space-between;align-items:end"><div><div style="font-weight:600;font-size:16px">Difusor Marea</div><div style="font-size:12px;color:rgba(243,243,247,.6)">Aromas</div></div><span style="font-size:13px;font-weight:600">$74</span></div>
+      </article>
+    
+      <article data-reveal="" data-reveal-delay="240" data-tilt="" style="position:relative;aspect-ratio:3/4;border-radius:20px;overflow:hidden;background:#2f1b3a;border:1px solid rgba(243,243,247,.1)">
+        <img alt="Espejo Eco" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EEspejo%20Eco%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:20px">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(10,10,15,.9))"></div>
+        <div style="position:absolute;left:18px;right:18px;bottom:18px;display:flex;justify-content:space-between;align-items:end"><div><div style="font-weight:600;font-size:16px">Espejo Eco</div><div style="font-size:12px;color:rgba(243,243,247,.6)">Decoración</div></div><span style="font-size:13px;font-weight:600">$310</span></div>
+      </article>
+    
+  </div>
+</section>
+
+<!-- CTA -->
+<section data-screen-label="CTA" style="margin:0 56px 56px;padding:100px 64px;border-radius:32px;position:relative;overflow:hidden;background:#12121a;text-align:center">
+  <div style="position:absolute;inset:-30%;pointer-events:none"><div style="position:absolute;left:30%;top:30%;width:40%;height:40%;border-radius:50%;background:radial-gradient(circle,rgba(167,139,250,.5),transparent 60%);filter:blur(60px);animation:auroraA 14s ease-in-out infinite"></div></div>
+  <div data-reveal="" style="position:relative"><h2 style="font-weight:600;font-size:clamp(40px,5vw,80px);letter-spacing:-.04em;line-height:.95;margin:0 0 30px">Objetos que giran contigo.</h2><a href="#" data-magnetic="" style="white-space:nowrap;display:inline-block;padding:16px 32px;border-radius:999px;background:#f3f3f7;color:#0a0a0f;font-size:14px;font-weight:600">Ver toda la tienda</a></div>
+</section>
+<footer style="display:flex;justify-content:space-between;padding:0 56px 40px;font-size:12px;color:rgba(243,243,247,.4)"><span>© 2026 Orbe Objects</span><span>Diseño · Nivaldyr Technologies</span></footer>
+</div>
+<script type="module">
+window.React = { createRef: () => ({ current: null }) };
+class DCLogic { constructor() { this.state = {}; this.props = {}; } setState() {} }
+class Component extends DCLogic {
+  state = { lang: 'es', active: 0 };
+  rootRef = React.createRef(); ringRef = React.createRef();
+  bgs = ['#2b2350', '#0f2f3f', '#3a1f2b', '#1b2e22', '#2a2a3a', '#3b2a12', '#14283a', '#2f1b3a'];
+  copy = {
+    es: { nav: ['Colección', 'Objetos', 'Estudio', 'Diario'], cta: 'Carrito (0)', eyebrow: 'Objetos para el hogar · Edición 03', h1: 'Gira la colección.', h1b: 'Ocho objetos, un anillo.', nowShowing: 'En pantalla', addCart: 'Añadir', dragHint: 'Arrastra para girar', featTitle: 'La colección completa', featSub: '08 objetos · envío mundial', ctaTitle: 'Objetos que giran contigo.', ctaBtn: 'Ver toda la tienda',
+      products: [{ name: 'Lámpara Halo', cat: 'Iluminación', price: '$240', desc: 'Anillo de luz cálida regulable con base de mármol travertino.' }, { name: 'Vaso Bruma', cat: 'Vidrio', price: '$68', desc: 'Vidrio soplado con degradado azul ahumado. Set de dos.' }, { name: 'Silla Ola', cat: 'Mobiliario', price: '$890', desc: 'Contrachapado curvado en una sola pieza continua.' }, { name: 'Maceta Musgo', cat: 'Cerámica', price: '$120', desc: 'Gres esmaltado a mano con textura de liquen.' }, { name: 'Reloj Nube', cat: 'Decoración', price: '$180', desc: 'Sin números. Solo dos agujas y una sombra suave.' }, { name: 'Bandeja Sol', cat: 'Latón', price: '$95', desc: 'Latón cepillado que envejece con el uso.' }, { name: 'Difusor Marea', cat: 'Aromas', price: '$74', desc: 'Piedra volcánica y aceites de sal marina.' }, { name: 'Espejo Eco', cat: 'Decoración', price: '$310', desc: 'Vidrio con tinte violeta y marco de roble ahumado.' }], footer: 'Diseño · Nivaldyr Technologies' },
+    en: { nav: ['Collection', 'Objects', 'Studio', 'Journal'], cta: 'Cart (0)', eyebrow: 'Objects for the home · Edition 03', h1: 'Spin the collection.', h1b: 'Eight objects, one ring.', nowShowing: 'Now showing', addCart: 'Add', dragHint: 'Drag to rotate', featTitle: 'The full collection', featSub: '08 objects · worldwide shipping', ctaTitle: 'Objects that turn with you.', ctaBtn: 'Browse the shop',
+      products: [{ name: 'Halo Lamp', cat: 'Lighting', price: '$240', desc: 'Dimmable warm light ring on a travertine marble base.' }, { name: 'Mist Glass', cat: 'Glass', price: '$68', desc: 'Blown glass with a smoky blue gradient. Set of two.' }, { name: 'Wave Chair', cat: 'Furniture', price: '$890', desc: 'Bent plywood in a single continuous piece.' }, { name: 'Moss Planter', cat: 'Ceramics', price: '$120', desc: 'Hand-glazed stoneware with lichen texture.' }, { name: 'Cloud Clock', cat: 'Decor', price: '$180', desc: 'No numbers. Just two hands and a soft shadow.' }, { name: 'Sun Tray', cat: 'Brass', price: '$95', desc: 'Brushed brass that ages with use.' }, { name: 'Tide Diffuser', cat: 'Scent', price: '$74', desc: 'Volcanic stone and sea salt oils.' }, { name: 'Echo Mirror', cat: 'Decor', price: '$310', desc: 'Violet-tinted glass with a smoked oak frame.' }], footer: 'Design · Nivaldyr Technologies' },
+  };
+  componentDidMount() { const root = this.rootRef.current; import('./fx.js').then((fx) => { this.cleanups = [fx.reveal(root), fx.magnetic(root), fx.ring3d(this.ringRef.current, { radius: 460, autoSpeed: .1, onIndex: (i) => this.setState({ active: i }) })]; }); }
+  componentWillUnmount() { (this.cleanups || []).forEach((c) => c()); }
+  renderVals() {
+    const lang = this.state.lang; const t = this.copy[lang]; const a = this.state.active;
+    return { rootRef: this.rootRef, ringRef: this.ringRef, t, active: t.products[a], activeNum: '0' + (a + 1),
+      products: t.products.map((p, i) => ({ ...p, id: 'orbe-r' + i, gid: 'orbe-g' + i, bg: this.bgs[i], delay: String((i % 4) * 80) })),
+      langLabel: lang === 'es' ? 'ES · EN' : 'EN · ES', toggleLang: () => this.setState((s) => ({ lang: s.lang === 'es' ? 'en' : 'es' })) };
+  }
+}
+const c = new Component();
+document.querySelectorAll('[data-fx-ref]').forEach((el) => { const n = el.dataset.fxRef; if (c[n]) c[n].current = el; });
+if (c.componentDidMount) c.componentDidMount();
+</script>
+</body>
+</html>

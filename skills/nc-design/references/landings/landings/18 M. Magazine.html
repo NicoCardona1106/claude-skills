@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M. Magazine</title>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Karla:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;background:#0d1b26;color:#eef2f4;font-family:Karla,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#eef2f4;text-decoration:none}a:hover{color:#f4b8c4}
+*{box-sizing:border-box}
+@keyframes fadeUp{from{opacity:0;transform:translate3d(0,40px,0)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes lineIn{from{opacity:0;transform:translate3d(-40px,0,0)}to{opacity:1;transform:none}}
+@keyframes bloom{from{opacity:0;transform:scale(.92);filter:blur(16px)}to{opacity:1;transform:none;filter:blur(0)}}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes drift{0%{transform:translate(0,0) scale(1)}50%{transform:translate(40px,-30px) scale(1.1)}100%{transform:translate(0,0) scale(1)}}
+</style>
+<style>
+.hv-0:hover{color:#eef2f4}
+.hv-1:hover{color:#eef2f4}
+.hv-2:hover{color:#eef2f4}
+.hv-3:hover{color:#eef2f4}
+</style>
+</head>
+<body>
+<div data-fx-ref="rootRef" style="background:#0d1b26;overflow-x:clip">
+
+<section data-screen-label="Hero" style="position:relative;height:100vh;min-height:760px;overflow:hidden;background:radial-gradient(ellipse 60% 70% at 55% 45%,#1d3a52 0%,#0d1b26 70%)">
+  <!-- bokeh blobs -->
+  <span style="position:absolute;left:8%;top:18%;width:120px;height:120px;border-radius:50%;background:rgba(244,184,196,.35);filter:blur(30px);animation:drift 14s ease-in-out infinite"></span>
+  <span style="position:absolute;right:12%;top:30%;width:90px;height:90px;border-radius:50%;background:rgba(244,184,196,.3);filter:blur(24px);animation:drift 18s 3s ease-in-out infinite reverse"></span>
+  <span style="position:absolute;left:30%;bottom:12%;width:160px;height:160px;border-radius:50%;background:rgba(120,190,220,.22);filter:blur(40px);animation:drift 20s 6s ease-in-out infinite"></span>
+  <!-- continuous petals -->
+  <div style="position:absolute;inset:0;pointer-events:none;z-index:3"><canvas data-fx-ref="petalRef" style="width:100%;height:100%;display:block"></canvas></div>
+
+  <nav style="position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px 56px;z-index:6;animation:fadeIn 1s .2s both">
+    <a href="#" style="font-family:Italiana,serif;font-size:22px;letter-spacing:.2em">M<span style="color:#f4b8c4">.</span></a>
+    <div style="display:flex;gap:clamp(14px,2vw,30px)px;font-size:12px;letter-spacing:.18em;text-transform:uppercase"><a href="#" style="color:rgba(238,242,244,.65)" class="hv-0">Ensayos</a><a href="#" style="color:rgba(238,242,244,.65)" class="hv-1">Visual</a><a href="#" style="color:rgba(238,242,244,.65)" class="hv-2">Archivo</a><a href="#" style="color:rgba(238,242,244,.65)" class="hv-3">Suscribir</a></div>
+    <div style="display:flex;gap:12px;align-items:center"><button style="white-space:nowrap;border:1px solid rgba(238,242,244,.25);background:transparent;color:inherit;padding:6px 10px;font-size:10px;letter-spacing:.1em;cursor:pointer;font-family:inherit">ES · EN</button><span style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:rgba(238,242,244,.5)">Número 14 · Primavera</span></div>
+  </nav>
+
+  <!-- figure -->
+  <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-46%);width:min(40vw,560px);height:min(86vh,820px);z-index:2"><div data-depth="0.3" style="position:absolute;inset:0"><div style="position:absolute;inset:0;animation:bloom 2s .4s cubic-bezier(.2,.7,.2,1) both"><div style="position:absolute;inset:0;animation:floatY 9s ease-in-out infinite">
+    <img alt="Busto de cristal con flores de cerezo dentro (PNG)" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EBusto%20de%20cristal%20con%20flores%20de%20cerezo%20dentro%20(PNG)%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+  </div></div></div></div>
+
+  <!-- title -->
+  <div style="position:absolute;left:56px;top:50%;transform:translateY(-56%);max-width:560px;z-index:4">
+    <h1 style="font-family:Italiana,serif;font-weight:400;font-size:clamp(56px,7vw,112px);line-height:.92;letter-spacing:.02em;margin:0 0 30px;text-transform:uppercase">
+      <span style="display:block;animation:lineIn 1.1s .6s both">El mito</span>
+      <span style="display:block;padding-left:.6em;animation:lineIn 1.1s .75s both">del</span>
+      <span style="display:block;animation:lineIn 1.1s .9s both">cuerpo</span>
+    </h1>
+    <p style="font-size:13px;line-height:1.75;color:rgba(238,242,244,.65);max-width:300px;margin:0 0 30px .6em;animation:fadeUp 1s 1.2s both">Un ensayo sobre la conexión entre muerte y renacimiento: el ciclo natural que transforma la fragilidad en florecer.</p>
+    <a href="#story" data-magnetic="" style="white-space:nowrap;display:inline-block;margin-left:.6em;padding:14px 26px;background:#eef2f4;color:#0d1b26;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;animation:fadeUp 1s 1.4s both">Leer la historia</a>
+  </div>
+  <!-- index -->
+  <div style="position:absolute;left:56px;bottom:56px;display:flex;flex-direction:column;gap:12px;font-family:'Cormorant Garamond',serif;font-size:16px;z-index:4;animation:fadeIn 1s 1.8s both">
+    <span style="display:flex;align-items:center;gap:12px;color:#eef2f4">01<span style="width:40px;height:1px;background:currentColor"></span></span><span style="display:flex;align-items:center;gap:12px;color:rgba(238,242,244,.4)">02<span style="width:16px;height:1px;background:currentColor"></span></span><span style="display:flex;align-items:center;gap:12px;color:rgba(238,242,244,.4)">03<span style="width:16px;height:1px;background:currentColor"></span></span>
+  </div>
+  <!-- right column -->
+  <div data-depth="0.5" style="position:absolute;right:56px;top:50%;transform:translateY(-50%);max-width:260px;z-index:4;animation:fadeUp 1.2s 1.5s both">
+    <h2 style="font-family:Italiana,serif;font-weight:400;font-size:34px;line-height:1;letter-spacing:.02em;margin:0 0 16px;text-transform:uppercase">Comprar menos</h2>
+    <p style="font-size:12px;line-height:1.75;color:rgba(238,242,244,.62);margin:0 0 24px">Sobre el consumo, el deseo y los objetos que nos sobreviven. Una conversación con la artista Lin Ahn.</p>
+    <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;letter-spacing:.02em;border-top:1px solid rgba(238,242,244,.2);padding-top:14px;line-height:1.2">Encontrar lo que permanece.</div>
+  </div>
+</section>
+
+<!-- STORY (editorial columns) -->
+<section id="story" data-screen-label="Historia" style="padding:140px 56px 100px;display:grid;grid-template-columns:200px 1fr 1fr;gap:56px">
+  <div data-reveal="" style="font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:rgba(238,242,244,.5);line-height:2">Texto · A. Ferrer<br>Imagen · Lin Ahn<br>14 min de lectura</div>
+  <div>
+    <h2 data-reveal="" style="font-family:Italiana,serif;font-weight:400;font-size:clamp(36px,3.8vw,60px);line-height:1;letter-spacing:.02em;margin:0 0 30px;text-transform:uppercase">Lo que florece en el vacío</h2>
+    <p data-reveal="" style="font-family:'Cormorant Garamond',serif;font-size:22px;line-height:1.5;margin:0 0 24px;color:#f4b8c4">No hay decadencia sin promesa. El cerezo lo sabe: florece exactamente cuando parece que ya no queda nada.</p>
+    <p data-reveal="" style="font-size:15px;line-height:1.85;color:rgba(238,242,244,.7);margin:0">La escultura de Ahn —un busto de cristal atravesado por ramas en flor— no habla de la muerte como final sino como huésped. El cuerpo, vaciado, se convierte en invernadero. Lo que antes era carne es ahora luz y estructura, un lugar donde algo más puede crecer.</p>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:24px">
+    <div data-reveal="" data-tilt="" style="position:relative;height:420px;overflow:hidden"><img alt="Detalle · flores dentro del cristal" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EDetalle%20%C2%B7%20flores%20dentro%20del%20cristal%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
+    <p data-reveal="" style="font-size:15px;line-height:1.85;color:rgba(238,242,244,.7);margin:0">Ahn trabaja con vidrio soplado y flores preservadas durante semanas en resina. El resultado es una imagen imposible: un organismo que ya no respira pero que sigue dando vida. "No me interesa la nostalgia", dice. "Me interesa lo que el vacío permite."</p>
+  </div>
+</section>
+
+<!-- PULL QUOTE + gallery -->
+<section data-screen-label="Galería" style="padding:60px 56px 140px">
+  <blockquote data-reveal="" style="margin:0 auto 80px;max-width:900px;text-align:center;font-family:Italiana,serif;font-size:clamp(32px,4vw,64px);line-height:1.1;letter-spacing:.02em">“El cuerpo no termina. Cambia de habitantes.”<footer style="font-family:Karla,sans-serif;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:rgba(238,242,244,.5);margin-top:24px">Lin Ahn · Artista</footer></blockquote>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px">
+    
+      <figure data-reveal="" data-reveal-delay="0" data-tilt="" style="margin:0;position:relative;height:460px;overflow:hidden;margin-top:0"><img alt="Estudio · 2025" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EEstudio%20%C2%B7%202025%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"><figcaption style="position:absolute;left:14px;bottom:14px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;padding:6px 10px;background:rgba(13,27,38,.7);backdrop-filter:blur(8px)">Estudio · 2025</figcaption></figure>
+    
+      <figure data-reveal="" data-reveal-delay="100" data-tilt="" style="margin:0;position:relative;height:380px;overflow:hidden;margin-top:80px"><img alt="Cristal soplado" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3ECristal%20soplado%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"><figcaption style="position:absolute;left:14px;bottom:14px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;padding:6px 10px;background:rgba(13,27,38,.7);backdrop-filter:blur(8px)">Cristal soplado</figcaption></figure>
+    
+      <figure data-reveal="" data-reveal-delay="200" data-tilt="" style="margin:0;position:relative;height:460px;overflow:hidden;margin-top:0"><img alt="Flor preservada" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EFlor%20preservada%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"><figcaption style="position:absolute;left:14px;bottom:14px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;padding:6px 10px;background:rgba(13,27,38,.7);backdrop-filter:blur(8px)">Flor preservada</figcaption></figure>
+    
+  </div>
+</section>
+<footer style="display:flex;justify-content:space-between;padding:0 56px 40px;font-size:11px;color:rgba(238,242,244,.4);letter-spacing:.18em;text-transform:uppercase"><span>© 2026 M. Magazine · Issue 14</span><span>Diseño · Nivaldyr Technologies</span></footer>
+</div>
+<script type="module">
+window.React = { createRef: () => ({ current: null }) };
+class DCLogic { constructor() { this.state = {}; this.props = {}; } setState() {} }
+class Component extends DCLogic {
+  state = { lang: 'es' };
+  rootRef = React.createRef(); petalRef = React.createRef();
+  copy = {
+    es: { nav: ['Ensayos', 'Visual', 'Archivo', 'Suscribir'], issue: 'Número 14 · Primavera', h1a: 'El mito', h1b: 'del', h1c: 'cuerpo', sub: 'Un ensayo sobre la conexión entre muerte y renacimiento: el ciclo natural que transforma la fragilidad en florecer.', read: 'Leer la historia', sideTitle: 'Comprar menos', sideText: 'Sobre el consumo, el deseo y los objetos que nos sobreviven. Una conversación con la artista Lin Ahn.', sideQuote: 'Encontrar lo que permanece.',
+      meta1: 'Texto · A. Ferrer', meta2: 'Imagen · Lin Ahn', meta3: '14 min de lectura', storyTitle: 'Lo que florece en el vacío', storyLead: 'No hay decadencia sin promesa. El cerezo lo sabe: florece exactamente cuando parece que ya no queda nada.', storyP1: 'La escultura de Ahn —un busto de cristal atravesado por ramas en flor— no habla de la muerte como final sino como huésped. El cuerpo, vaciado, se convierte en invernadero. Lo que antes era carne es ahora luz y estructura, un lugar donde algo más puede crecer.', storyP2: 'Ahn trabaja con vidrio soplado y flores preservadas durante semanas en resina. El resultado es una imagen imposible: un organismo que ya no respira pero que sigue dando vida. "No me interesa la nostalgia", dice. "Me interesa lo que el vacío permite."',
+      quote: 'El cuerpo no termina. Cambia de habitantes.', quoteBy: 'Lin Ahn · Artista', gallery: [{ id: 'carcass-g1', cap: 'Estudio · 2025', h: '460px', mt: '0', delay: '0' }, { id: 'carcass-g2', cap: 'Cristal soplado', h: '380px', mt: '80px', delay: '100' }, { id: 'carcass-g3', cap: 'Flor preservada', h: '460px', mt: '0', delay: '200' }], footer: 'Diseño · Nivaldyr Technologies' },
+    en: { nav: ['Essays', 'Visual', 'Archive', 'Subscribe'], issue: 'Issue 14 · Spring', h1a: 'The myth', h1b: 'of the', h1c: 'carcass', sub: 'An essay on the fascinating connection between death and rebirth: the natural cycle that transforms fragility into bloom.', read: 'Read the story', sideTitle: 'Buy less stuff', sideText: 'On consumption, desire and the objects that outlive us. A conversation with artist Lin Ahn.', sideQuote: 'Find what remains.',
+      meta1: 'Words · A. Ferrer', meta2: 'Image · Lin Ahn', meta3: '14 min read', storyTitle: 'What blooms in the hollow', storyLead: 'There is no decay without promise. The cherry tree knows: it blooms exactly when nothing seems left.', storyP1: 'Ahn’s sculpture—a glass bust pierced by flowering branches—speaks of death not as an ending but as a guest. The body, emptied, becomes a greenhouse. What was flesh is now light and structure, a place where something else can grow.', storyP2: 'Ahn works with blown glass and flowers preserved for weeks in resin. The result is an impossible image: an organism that no longer breathes yet keeps giving life. “I’m not interested in nostalgia,” she says. “I’m interested in what the hollow allows.”',
+      quote: 'The body does not end. It changes tenants.', quoteBy: 'Lin Ahn · Artist', gallery: [{ id: 'carcass-g1', cap: 'Studio · 2025', h: '460px', mt: '0', delay: '0' }, { id: 'carcass-g2', cap: 'Blown glass', h: '380px', mt: '80px', delay: '100' }, { id: 'carcass-g3', cap: 'Preserved bloom', h: '460px', mt: '0', delay: '200' }], footer: 'Design · Nivaldyr Technologies' },
+  };
+  componentDidMount() { const root = this.rootRef.current; import('./fx.js').then((fx) => { this.cleanups = [fx.parallax(root, { max: 22 }), fx.reveal(root), fx.magnetic(root), fx.tilt(root, { max: 4 }), fx.particles(this.petalRef.current, { type: 'petal', count: 34, color: '244,184,196', speed: .7 })]; }); }
+  componentWillUnmount() { (this.cleanups || []).forEach((c) => c()); }
+  renderVals() { const lang = this.state.lang; const t = this.copy[lang]; return { rootRef: this.rootRef, petalRef: this.petalRef, t, idx: [{ n: '01', c: '#eef2f4', w: '40px' }, { n: '02', c: 'rgba(238,242,244,.4)', w: '16px' }, { n: '03', c: 'rgba(238,242,244,.4)', w: '16px' }], langLabel: lang === 'es' ? 'ES · EN' : 'EN · ES', toggleLang: () => this.setState((s) => ({ lang: s.lang === 'es' ? 'en' : 'es' })) }; }
+}
+const c = new Component();
+document.querySelectorAll('[data-fx-ref]').forEach((el) => { const n = el.dataset.fxRef; if (c[n]) c[n].current = el; });
+if (c.componentDidMount) c.componentDidMount();
+</script>
+</body>
+</html>

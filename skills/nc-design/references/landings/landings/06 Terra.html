@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terra</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;background:#0a0908;color:#f1ebe0;font-family:Manrope,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#f1ebe0;text-decoration:none}a:hover{color:#d4a95a}
+*{box-sizing:border-box}
+@keyframes fadeUp{from{opacity:0;transform:translate3d(0,40px,0)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes kenBurns{from{transform:scale(1.15) translateY(-2%)}to{transform:scale(1) translateY(0)}}
+@keyframes wipe{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes lineGrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+</style>
+<style>
+.hv-0:hover{color:#fff}
+.hv-1:hover{color:#fff}
+.hv-2:hover{color:#fff}
+.hv-3:hover{color:#fff}
+.hv-4:hover{background:#d4a95a;color:#0a0908}
+</style>
+</head>
+<body>
+<div data-fx-ref="rootRef" style="min-height:100vh;background:#0a0908;overflow-x:hidden">
+
+<section data-screen-label="Hero" style="position:relative;height:100vh;min-height:760px;overflow:hidden">
+  <div style="position:absolute;inset:0;pointer-events:none;z-index:2;z-index:3"><canvas data-fx-ref="snowRef" style="width:100%;height:100%;display:block"></canvas></div><div style="position:absolute;inset:0;pointer-events:none;z-index:2;z-index:2"><canvas data-fx-ref="fogRef" style="width:100%;height:100%;display:block"></canvas></div>
+  <div data-depth="0.2" style="position:absolute;inset:-4%;animation:kenBurns 3s cubic-bezier(.2,.7,.2,1) both">
+    <img alt="Paisaje épico: cordillera al amanecer" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EPaisaje%20%C3%A9pico%3A%20cordillera%20al%20amanecer%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+  </div>
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,9,8,.7) 0%,rgba(10,9,8,.15) 35%,rgba(10,9,8,.2) 60%,rgba(10,9,8,.95) 100%)"></div>
+
+  <nav style="position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px 56px;z-index:6;animation:fadeIn 1s .2s both">
+    <a href="#" style="font-family:'Playfair Display',serif;font-size:22px;letter-spacing:.1em">TERRA <em style="color:#d4a95a">&amp;</em> CO.</a>
+    <div style="display:flex;gap:clamp(14px,2vw,34px)px;font-size:12px;letter-spacing:.16em;text-transform:uppercase">
+      <a href="#" style="color:rgba(241,235,224,.7)" class="hv-0">Destinos</a><a href="#" style="color:rgba(241,235,224,.7)" class="hv-1">Expediciones</a><a href="#" style="color:rgba(241,235,224,.7)" class="hv-2">Guías</a><a href="#" style="color:rgba(241,235,224,.7)" class="hv-3">Diario</a>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center">
+      <button style="white-space:nowrap;border:1px solid rgba(241,235,224,.25);background:transparent;color:inherit;padding:8px 12px;font-size:11px;letter-spacing:.1em;cursor:pointer;font-family:inherit">ES · EN</button>
+      <a href="#" data-magnetic="" style="white-space:nowrap;padding:12px 22px;border:1px solid #d4a95a;color:#d4a95a;font-size:11px;letter-spacing:.18em;text-transform:uppercase;display:inline-block" class="hv-4">Planificar viaje</a>
+    </div>
+  </nav>
+
+  <div style="position:absolute;left:56px;right:56px;bottom:130px;z-index:4;display:grid;grid-template-columns:1fr auto;gap:60px;align-items:end">
+    <div>
+      <div style="font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:#d4a95a;margin-bottom:24px;animation:fadeUp 1s .6s both">Expediciones a medida · desde 2014</div>
+      <h1 style="font-family:'Playfair Display',serif;font-weight:400;font-size:clamp(52px,6.4vw,104px);line-height:1;margin:0 0 30px;max-width:900px">
+        <span style="display:block;animation:fadeUp 1.1s .8s both">Los terrenos más</span>
+        <span style="display:block;animation:fadeUp 1.1s 1s both"><em style="color:#d4a95a">extraordinarios</em> del mundo</span>
+      </h1>
+      <div style="display:flex;gap:28px;align-items:center;animation:fadeUp 1s 1.3s both">
+        <a href="#destinations" data-magnetic="" style="white-space:nowrap;padding:16px 30px;background:#f1ebe0;color:#0a0908;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;display:inline-block">Explorar destinos</a>
+        <a href="#" style="display:inline-flex;align-items:center;gap:12px;font-size:11px;letter-spacing:.18em;text-transform:uppercase"><span style="width:40px;height:40px;border-radius:50%;border:1px solid rgba(241,235,224,.5);display:grid;place-items:center;font-size:10px">▶</span>Ver la película</a>
+      </div>
+    </div>
+    <div style="display:flex;gap:48px;animation:fadeUp 1s 1.5s both">
+      
+        <div style="text-align:center;border-left:1px solid rgba(241,235,224,.2);padding-left:32px">
+          <div style="font-family:'Playfair Display',serif;font-size:44px;line-height:1;color:#d4a95a"><span data-count="47" data-suffix="+" style="white-space:nowrap">0</span></div>
+          <div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(241,235,224,.55);margin-top:10px">Rutas curadas</div>
+        </div>
+      
+        <div style="text-align:center;border-left:1px solid rgba(241,235,224,.2);padding-left:32px">
+          <div style="font-family:'Playfair Display',serif;font-size:44px;line-height:1;color:#d4a95a"><span data-count="18" data-suffix="" style="white-space:nowrap">0</span></div>
+          <div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(241,235,224,.55);margin-top:10px">Países</div>
+        </div>
+      
+        <div style="text-align:center;border-left:1px solid rgba(241,235,224,.2);padding-left:32px">
+          <div style="font-family:'Playfair Display',serif;font-size:44px;line-height:1;color:#d4a95a"><span data-count="12" data-suffix="" style="white-space:nowrap">0</span></div>
+          <div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(241,235,224,.55);margin-top:10px">Años de excelencia</div>
+        </div>
+      
+    </div>
+  </div>
+
+  <div style="position:absolute;left:56px;bottom:48px;right:56px;display:flex;justify-content:space-between;align-items:center;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(241,235,224,.45);z-index:4;animation:fadeIn 1s 1.8s both">
+    <span>Desplázate ↓</span>
+    <span>Est. 2014 · Reykjavík — Cusco — Kathmandu</span>
+  </div>
+</section>
+
+<!-- DESTINATIONS -->
+<section id="destinations" data-screen-label="Destinos" style="padding:140px 56px 100px">
+  <div data-reveal="" style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px">
+    <div>
+      <div style="font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:#d4a95a;margin-bottom:18px">Destinos</div>
+      <h2 style="font-family:'Playfair Display',serif;font-weight:400;font-size:clamp(40px,4.6vw,72px);line-height:1;margin:0">Elige tu <em style="color:#d4a95a">próximo</em> horizonte</h2>
+    </div>
+    <a href="#" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;border-bottom:1px solid #d4a95a;padding-bottom:6px;color:#d4a95a">Ver todos</a>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+    
+      <article data-reveal="" data-reveal-delay="0" style="position:relative;height:500px;overflow:hidden;background:#141210;cursor:pointer">
+        <img alt="Patagonia" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EPatagonia%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(10,9,8,.92))"></div>
+        <div style="position:absolute;top:18px;left:18px;display:flex;gap:6px">
+          <span style="padding:5px 10px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;background:#d4a95a;color:#0a0908">Exigente</span>
+        </div>
+        <div style="position:absolute;left:20px;right:20px;bottom:22px">
+          <div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#d4a95a;margin-bottom:8px">Argentina · Chile</div>
+          <div style="font-family:'Playfair Display',serif;font-size:28px;line-height:1.05">Patagonia Austral</div>
+          <div style="display:flex;justify-content:space-between;margin-top:14px;padding-top:12px;border-top:1px solid rgba(241,235,224,.15);font-size:11px;color:rgba(241,235,224,.6)"><span>12 días</span><span>desde $6.400</span></div>
+        </div>
+      </article>
+    
+      <article data-reveal="" data-reveal-delay="100" style="position:relative;height:500px;overflow:hidden;background:#141210;cursor:pointer">
+        <img alt="Islandia" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EIslandia%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(10,9,8,.92))"></div>
+        <div style="position:absolute;top:18px;left:18px;display:flex;gap:6px">
+          <span style="padding:5px 10px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;background:rgba(241,235,224,.9);color:#0a0908">Moderado</span>
+        </div>
+        <div style="position:absolute;left:20px;right:20px;bottom:22px">
+          <div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#d4a95a;margin-bottom:8px">Islandia</div>
+          <div style="font-family:'Playfair Display',serif;font-size:28px;line-height:1.05">Tierras Altas</div>
+          <div style="display:flex;justify-content:space-between;margin-top:14px;padding-top:12px;border-top:1px solid rgba(241,235,224,.15);font-size:11px;color:rgba(241,235,224,.6)"><span>8 días</span><span>desde $4.900</span></div>
+        </div>
+      </article>
+    
+      <article data-reveal="" data-reveal-delay="200" style="position:relative;height:500px;overflow:hidden;background:#141210;cursor:pointer">
+        <img alt="Himalaya" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EHimalaya%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(10,9,8,.92))"></div>
+        <div style="position:absolute;top:18px;left:18px;display:flex;gap:6px">
+          <span style="padding:5px 10px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;background:#8a2b1f;color:#f1ebe0">Extremo</span>
+        </div>
+        <div style="position:absolute;left:20px;right:20px;bottom:22px">
+          <div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#d4a95a;margin-bottom:8px">Nepal</div>
+          <div style="font-family:'Playfair Display',serif;font-size:28px;line-height:1.05">Circuito Annapurna</div>
+          <div style="display:flex;justify-content:space-between;margin-top:14px;padding-top:12px;border-top:1px solid rgba(241,235,224,.15);font-size:11px;color:rgba(241,235,224,.6)"><span>18 días</span><span>desde $7.800</span></div>
+        </div>
+      </article>
+    
+      <article data-reveal="" data-reveal-delay="300" style="position:relative;height:500px;overflow:hidden;background:#141210;cursor:pointer">
+        <img alt="Namibia" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3ENamibia%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(10,9,8,.92))"></div>
+        <div style="position:absolute;top:18px;left:18px;display:flex;gap:6px">
+          <span style="padding:5px 10px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;background:rgba(241,235,224,.9);color:#0a0908">Moderado</span>
+        </div>
+        <div style="position:absolute;left:20px;right:20px;bottom:22px">
+          <div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#d4a95a;margin-bottom:8px">Namibia</div>
+          <div style="font-family:'Playfair Display',serif;font-size:28px;line-height:1.05">Dunas de Sossusvlei</div>
+          <div style="display:flex;justify-content:space-between;margin-top:14px;padding-top:12px;border-top:1px solid rgba(241,235,224,.15);font-size:11px;color:rgba(241,235,224,.6)"><span>10 días</span><span>desde $5.600</span></div>
+        </div>
+      </article>
+    
+  </div>
+</section>
+
+<!-- ITINERARY -->
+<section data-screen-label="Itinerario" style="padding:60px 56px 140px;display:grid;grid-template-columns:1fr 1fr;gap:80px">
+  <div data-reveal="" style="position:sticky;top:80px;align-self:start;height:70vh;min-height:480px;overflow:hidden">
+    <img alt="Campamento base · noche estrellada" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3ECampamento%20base%20%C2%B7%20noche%20estrellada%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+    <div style="position:absolute;left:24px;bottom:24px;font-family:'Playfair Display',serif;font-size:14px;letter-spacing:.14em;text-transform:uppercase;padding:10px 14px;background:rgba(10,9,8,.6);backdrop-filter:blur(8px)">Día 06 · Campo base Torres</div>
+  </div>
+  <div>
+    <div data-reveal="" style="font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:#d4a95a;margin-bottom:18px">Itinerario tipo</div>
+    <h2 data-reveal="" style="font-family:'Playfair Display',serif;font-weight:400;font-size:clamp(34px,3.6vw,54px);line-height:1.05;margin:0 0 48px">Doce días en la Patagonia Austral</h2>
+    
+      <div data-reveal="" data-reveal-delay="0" style="display:grid;grid-template-columns:80px 1fr;gap:24px;padding:26px 0;border-top:1px solid rgba(241,235,224,.14)">
+        <div style="font-family:'Playfair Display',serif;font-size:30px;color:#d4a95a;line-height:1">01</div>
+        <div><div style="font-size:16px;font-weight:500;margin-bottom:8px">Llegada a El Calafate</div><p style="font-size:13px;line-height:1.7;color:rgba(241,235,224,.6);margin:0;font-weight:300">Recepción privada, briefing con el guía líder y cena frente al lago Argentino.</p><div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(241,235,224,.4);margin-top:12px">Hotel · 200 m</div></div>
+      </div>
+    
+      <div data-reveal="" data-reveal-delay="80" style="display:grid;grid-template-columns:80px 1fr;gap:24px;padding:26px 0;border-top:1px solid rgba(241,235,224,.14)">
+        <div style="font-family:'Playfair Display',serif;font-size:30px;color:#d4a95a;line-height:1">03</div>
+        <div><div style="font-size:16px;font-weight:500;margin-bottom:8px">Glaciar Perito Moreno</div><p style="font-size:13px;line-height:1.7;color:rgba(241,235,224,.6);margin:0;font-weight:300">Trekking sobre hielo con crampones. Cuatro horas de silencio azul.</p><div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(241,235,224,.4);margin-top:12px">Refugio · 1.100 m</div></div>
+      </div>
+    
+      <div data-reveal="" data-reveal-delay="160" style="display:grid;grid-template-columns:80px 1fr;gap:24px;padding:26px 0;border-top:1px solid rgba(241,235,224,.14)">
+        <div style="font-family:'Playfair Display',serif;font-size:30px;color:#d4a95a;line-height:1">06</div>
+        <div><div style="font-size:16px;font-weight:500;margin-bottom:8px">Base de las Torres</div><p style="font-size:13px;line-height:1.7;color:rgba(241,235,224,.6);margin:0;font-weight:300">Ascenso al mirador antes del amanecer. El momento que da nombre al viaje.</p><div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(241,235,224,.4);margin-top:12px">Campamento · 2.400 m</div></div>
+      </div>
+    
+      <div data-reveal="" data-reveal-delay="240" style="display:grid;grid-template-columns:80px 1fr;gap:24px;padding:26px 0;border-top:1px solid rgba(241,235,224,.14)">
+        <div style="font-family:'Playfair Display',serif;font-size:30px;color:#d4a95a;line-height:1">09</div>
+        <div><div style="font-size:16px;font-weight:500;margin-bottom:8px">Valle del Francés</div><p style="font-size:13px;line-height:1.7;color:rgba(241,235,224,.6);margin:0;font-weight:300">Jornada larga entre bosques de lenga y paredes de granito.</p><div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(241,235,224,.4);margin-top:12px">Campamento · 1.800 m</div></div>
+      </div>
+    
+      <div data-reveal="" data-reveal-delay="320" style="display:grid;grid-template-columns:80px 1fr;gap:24px;padding:26px 0;border-top:1px solid rgba(241,235,224,.14)">
+        <div style="font-family:'Playfair Display',serif;font-size:30px;color:#d4a95a;line-height:1">12</div>
+        <div><div style="font-size:16px;font-weight:500;margin-bottom:8px">Regreso</div><p style="font-size:13px;line-height:1.7;color:rgba(241,235,224,.6);margin:0;font-weight:300">Última mañana en el lago Pehoé. Traslado privado a Punta Arenas.</p><div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(241,235,224,.4);margin-top:12px">Vuelo · 17:40</div></div>
+      </div>
+    
+  </div>
+</section>
+
+<!-- CTA -->
+<section data-screen-label="CTA" style="position:relative;padding:140px 56px;text-align:center;overflow:hidden">
+  <div style="position:absolute;inset:0;opacity:.5"><img alt="Desierto al atardecer · panorámica" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EDesierto%20al%20atardecer%20%C2%B7%20panor%C3%A1mica%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,#0a0908,transparent 30%,transparent 70%,#0a0908)"></div>
+  <div data-reveal="" style="position:relative">
+    <h2 style="font-family:'Playfair Display',serif;font-weight:400;font-size:clamp(44px,6vw,92px);line-height:1;margin:0 0 36px"><em style="color:#d4a95a">Tu expedición</em> empieza con una conversación</h2>
+    <a href="#" data-magnetic="" style="white-space:nowrap;display:inline-block;padding:18px 40px;background:#d4a95a;color:#0a0908;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:600">Hablar con un experto</a>
+  </div>
+</section>
+<footer style="display:flex;justify-content:space-between;padding:0 56px 40px;font-size:11px;color:rgba(241,235,224,.4);letter-spacing:.14em;text-transform:uppercase"><span>© 2026 Terra &amp; Co. Expeditions</span><span>Diseño · Nivaldyr Technologies</span></footer>
+</div>
+<script type="module">
+window.React = { createRef: () => ({ current: null }) };
+class DCLogic { constructor() { this.state = {}; this.props = {}; } setState() {} }
+class Component extends DCLogic {
+  state = { lang: 'es' };
+  rootRef = React.createRef(); snowRef = React.createRef(); fogRef = React.createRef();
+  copy = {
+    es: { nav: ['Destinos', 'Expediciones', 'Guías', 'Diario'], cta: 'Planificar viaje', eyebrow: 'Expediciones a medida · desde 2014', h1a: 'Los terrenos más', h1em: 'extraordinarios', h1b: 'del mundo', primary: 'Explorar destinos', film: 'Ver la película', scroll: 'Desplázate',
+      stats: [{ n: 47, suffix: '+', label: 'Rutas curadas' }, { n: 18, suffix: '', label: 'Países' }, { n: 12, suffix: '', label: 'Años de excelencia' }],
+      destEyebrow: 'Destinos', destTitle: 'Elige tu', destEm: 'próximo', destTitleB: 'horizonte', viewAll: 'Ver todos',
+      dests: [{ id: 'terra-d1', ph: 'Patagonia', tag: 'Exigente', tagBg: '#d4a95a', tagColor: '#0a0908', country: 'Argentina · Chile', name: 'Patagonia Austral', days: '12 días', price: 'desde $6.400', delay: '0' }, { id: 'terra-d2', ph: 'Islandia', tag: 'Moderado', tagBg: 'rgba(241,235,224,.9)', tagColor: '#0a0908', country: 'Islandia', name: 'Tierras Altas', days: '8 días', price: 'desde $4.900', delay: '100' }, { id: 'terra-d3', ph: 'Himalaya', tag: 'Extremo', tagBg: '#8a2b1f', tagColor: '#f1ebe0', country: 'Nepal', name: 'Circuito Annapurna', days: '18 días', price: 'desde $7.800', delay: '200' }, { id: 'terra-d4', ph: 'Namibia', tag: 'Moderado', tagBg: 'rgba(241,235,224,.9)', tagColor: '#0a0908', country: 'Namibia', name: 'Dunas de Sossusvlei', days: '10 días', price: 'desde $5.600', delay: '300' }],
+      itinEyebrow: 'Itinerario tipo', itinTitle: 'Doce días en la Patagonia Austral', itinCaption: 'Día 06 · Campo base Torres',
+      days: [{ day: '01', title: 'Llegada a El Calafate', text: 'Recepción privada, briefing con el guía líder y cena frente al lago Argentino.', meta: 'Hotel · 200 m', delay: '0' }, { day: '03', title: 'Glaciar Perito Moreno', text: 'Trekking sobre hielo con crampones. Cuatro horas de silencio azul.', meta: 'Refugio · 1.100 m', delay: '80' }, { day: '06', title: 'Base de las Torres', text: 'Ascenso al mirador antes del amanecer. El momento que da nombre al viaje.', meta: 'Campamento · 2.400 m', delay: '160' }, { day: '09', title: 'Valle del Francés', text: 'Jornada larga entre bosques de lenga y paredes de granito.', meta: 'Campamento · 1.800 m', delay: '240' }, { day: '12', title: 'Regreso', text: 'Última mañana en el lago Pehoé. Traslado privado a Punta Arenas.', meta: 'Vuelo · 17:40', delay: '320' }],
+      ctaEm: 'Tu expedición', ctaTitle: 'empieza con una conversación', ctaBtn: 'Hablar con un experto', footer: 'Diseño · Nivaldyr Technologies' },
+    en: { nav: ['Destinations', 'Expeditions', 'Guides', 'Journal'], cta: 'Plan a trip', eyebrow: 'Bespoke expeditions · since 2014', h1a: 'The world’s most', h1em: 'extraordinary', h1b: 'terrain', primary: 'Explore destinations', film: 'Watch the film', scroll: 'Scroll',
+      stats: [{ n: 47, suffix: '+', label: 'Curated routes' }, { n: 18, suffix: '', label: 'Countries' }, { n: 12, suffix: '', label: 'Years of excellence' }],
+      destEyebrow: 'Destinations', destTitle: 'Choose your', destEm: 'next', destTitleB: 'horizon', viewAll: 'View all',
+      dests: [{ id: 'terra-d1', ph: 'Patagonia', tag: 'Challenging', tagBg: '#d4a95a', tagColor: '#0a0908', country: 'Argentina · Chile', name: 'Southern Patagonia', days: '12 days', price: 'from $6,400', delay: '0' }, { id: 'terra-d2', ph: 'Iceland', tag: 'Moderate', tagBg: 'rgba(241,235,224,.9)', tagColor: '#0a0908', country: 'Iceland', name: 'The Highlands', days: '8 days', price: 'from $4,900', delay: '100' }, { id: 'terra-d3', ph: 'Himalaya', tag: 'Extreme', tagBg: '#8a2b1f', tagColor: '#f1ebe0', country: 'Nepal', name: 'Annapurna Circuit', days: '18 days', price: 'from $7,800', delay: '200' }, { id: 'terra-d4', ph: 'Namibia', tag: 'Moderate', tagBg: 'rgba(241,235,224,.9)', tagColor: '#0a0908', country: 'Namibia', name: 'Sossusvlei Dunes', days: '10 days', price: 'from $5,600', delay: '300' }],
+      itinEyebrow: 'Sample itinerary', itinTitle: 'Twelve days in Southern Patagonia', itinCaption: 'Day 06 · Torres base camp',
+      days: [{ day: '01', title: 'Arrival in El Calafate', text: 'Private welcome, briefing with the lead guide and dinner by Lago Argentino.', meta: 'Hotel · 200 m', delay: '0' }, { day: '03', title: 'Perito Moreno Glacier', text: 'Ice trekking with crampons. Four hours of blue silence.', meta: 'Refuge · 1,100 m', delay: '80' }, { day: '06', title: 'Base of the Towers', text: 'Pre-dawn climb to the viewpoint. The moment that names the journey.', meta: 'Camp · 2,400 m', delay: '160' }, { day: '09', title: 'French Valley', text: 'A long day among lenga forests and granite walls.', meta: 'Camp · 1,800 m', delay: '240' }, { day: '12', title: 'Return', text: 'Last morning at Lake Pehoé. Private transfer to Punta Arenas.', meta: 'Flight · 17:40', delay: '320' }],
+      ctaEm: 'Your expedition', ctaTitle: 'begins with a conversation', ctaBtn: 'Talk to an expert', footer: 'Design · Nivaldyr Technologies' },
+  };
+  componentDidMount() { const root = this.rootRef.current; import('./fx.js').then((fx) => { this.cleanups = [fx.particles(this.snowRef.current, { type: 'snow', count: 90, color: '241,235,224', speed: .6 }), fx.fog(this.fogRef.current, { count: 7, color: '212,169,90', alpha: .14, speed: .6 }), fx.parallax(root, { max: 20 }), fx.reveal(root), fx.magnetic(root), fx.counters(root)]; }); }
+  componentWillUnmount() { (this.cleanups || []).forEach((c) => c()); }
+  renderVals() { const lang = this.state.lang; const t = this.copy[lang]; return { rootRef: this.rootRef, snowRef: this.snowRef, fogRef: this.fogRef, t, langLabel: lang === 'es' ? 'ES · EN' : 'EN · ES', toggleLang: () => this.setState((s) => ({ lang: s.lang === 'es' ? 'en' : 'es' })) }; }
+}
+const c = new Component();
+document.querySelectorAll('[data-fx-ref]').forEach((el) => { const n = el.dataset.fxRef; if (c[n]) c[n].current = el; });
+if (c.componentDidMount) c.componentDidMount();
+</script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aether</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"}}</script>
+<style>
+html,body{margin:0;background:#03060c;color:#e8eefc;font-family:'Instrument Sans',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#e8eefc;text-decoration:none}a:hover{color:#5eead4}
+*{box-sizing:border-box}
+@keyframes fadeUp{from{opacity:0;transform:translate3d(0,40px,0)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.15}}
+@keyframes scan{from{transform:translateY(-100%)}to{transform:translateY(100vh)}}
+@keyframes ticker{from{transform:translateY(0)}to{transform:translateY(-50%)}}
+</style>
+<style>
+.hv-0:hover{color:#5eead4}
+.hv-1:hover{color:#5eead4}
+.hv-2:hover{color:#5eead4}
+.hv-3:hover{color:#5eead4}
+.hv-4:hover{border-color:rgba(94,234,212,.4)}
+.hv-5:hover{border-color:rgba(94,234,212,.4)}
+.hv-6:hover{border-color:rgba(94,234,212,.4)}
+.hv-7:hover{border-color:rgba(94,234,212,.4)}
+.hv-8:hover{border-color:rgba(94,234,212,.4)}
+.hv-9:hover{border-color:rgba(94,234,212,.4)}
+</style>
+</head>
+<body>
+<div data-fx-ref="rootRef" style="background:#03060c;overflow-x:clip">
+
+<section data-screen-label="Hero" style="position:relative;height:100vh;min-height:760px;overflow:hidden">
+  <!-- three.js particle sphere -->
+  <div data-fx-ref="glRef" style="position:absolute;inset:0;z-index:1"></div>
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,transparent 30%,#03060c 85%);z-index:2;pointer-events:none"></div>
+  <div style="position:absolute;left:0;right:0;height:120px;background:linear-gradient(180deg,transparent,rgba(94,234,212,.06),transparent);animation:scan 9s linear infinite;pointer-events:none;z-index:2"></div>
+
+  <nav style="position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:26px 56px;z-index:6;animation:fadeIn 1s .2s both">
+    <a href="#" style="display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px;letter-spacing:.02em"><span style="width:8px;height:8px;border-radius:50%;background:#5eead4;box-shadow:0 0 14px #5eead4;animation:blink 2s ease-in-out infinite"></span>AETHER</a>
+    <div style="display:flex;gap:clamp(14px,2vw,30px)px;font-size:13px;font-family:'JetBrains Mono',monospace"><a href="#" style="color:rgba(232,238,252,.65)" class="hv-0">producto</a><a href="#" style="color:rgba(232,238,252,.65)" class="hv-1">docs</a><a href="#" style="color:rgba(232,238,252,.65)" class="hv-2">precios</a><a href="#" style="color:rgba(232,238,252,.65)" class="hv-3">blog</a></div>
+    <div style="display:flex;gap:10px;align-items:center"><button style="white-space:nowrap;border:1px solid rgba(232,238,252,.2);background:transparent;color:inherit;border-radius:6px;padding:7px 12px;font-size:11px;letter-spacing:.1em;cursor:pointer;font-family:inherit">ES · EN</button><a href="#" data-magnetic="" style="white-space:nowrap;padding:10px 18px;border-radius:6px;background:#5eead4;color:#03060c;font-size:13px;font-weight:600;display:inline-block">Empezar</a></div>
+  </nav>
+
+  <div style="position:absolute;left:56px;top:50%;transform:translateY(-50%);max-width:560px;z-index:4">
+    <div style="display:inline-flex;align-items:center;gap:10px;padding:6px 12px;border-radius:6px;border:1px solid rgba(94,234,212,.3);font-family:'JetBrains Mono',monospace;font-size:11px;color:#5eead4;margin-bottom:26px;animation:fadeUp 1s .5s both">aether-2 · disponible ahora</div>
+    <h1 style="font-weight:600;font-size:clamp(46px,5.8vw,88px);line-height:.98;letter-spacing:-.04em;margin:0 0 24px;animation:fadeUp 1s .7s both">Agentes que razonan <span style="color:#5eead4">a escala.</span></h1>
+    <p style="font-size:16px;line-height:1.65;color:rgba(232,238,252,.65);max-width:440px;margin:0 0 34px;animation:fadeUp 1s .9s both">Infraestructura para desplegar agentes autónomos con memoria, herramientas y límites claros. De prototipo a producción en una tarde.</p>
+    <div style="display:flex;gap:10px;animation:fadeUp 1s 1.1s both">
+      <a href="#" data-magnetic="" style="white-space:nowrap;padding:14px 26px;border-radius:6px;background:#e8eefc;color:#03060c;font-size:14px;font-weight:600;display:inline-block">Crear cuenta</a>
+      <a href="#" style="white-space:nowrap;padding:14px 22px;border-radius:6px;border:1px solid rgba(232,238,252,.15);font-size:14px;font-family:'JetBrains Mono',monospace;display:inline-flex;gap:10px;align-items:center"><span style="color:#5eead4">$</span>npm i @aether/sdk</a>
+    </div>
+  </div>
+
+  <!-- live ticker -->
+  <div style="position:absolute;right:56px;bottom:140px;width:320px;padding:18px;border-radius:12px;background:rgba(3,6,12,.6);border:1px solid rgba(232,238,252,.12);backdrop-filter:blur(14px);z-index:4;font-family:'JetBrains Mono',monospace;font-size:12px;animation:fadeUp 1s 1.4s both">
+    <div style="display:flex;justify-content:space-between;color:rgba(232,238,252,.5);margin-bottom:12px;font-size:11px"><span>agentes en ejecución</span><span style="color:#5eead4">● live</span></div>
+    <div style="height:160px;overflow:hidden;mask-image:linear-gradient(180deg,black 70%,transparent)"><div style="animation:ticker 14s linear infinite"><div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(232,238,252,.06)"><span style="color:rgba(232,238,252,.75);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-right:12px">lead-qualifier</span><span style="color:#5eead4;white-space:nowrap">38 ok</span></div><div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(232,238,252,.06)"><span style="color:rgba(232,238,252,.75);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-right:12px">invoice-parser</span><span style="color:#e8eefc;white-space:nowrap">1.2k docs</span></div><div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(232,238,252,.06)"><span style="color:rgba(232,238,252,.75);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-right:12px">support-triage</span><span style="color:#e8eefc;white-space:nowrap">p50 41ms</span></div><div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(232,238,252,.06)"><span style="color:rgba(232,238,252,.75);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-right:12px">research-crawl</span><span style="color:#e8eefc;white-space:nowrap">412 pages</span></div><div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(232,238,252,.06)"><span style="color:rgba(232,238,252,.75);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-right:12px">churn-predict</span><span style="color:#5eead4;white-space:nowrap">0.93 auc</span></div><div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(232,238,252,.06)"><span style="color:rgba(232,238,252,.75);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-right:12px">email-drafter</span><span style="color:#e8eefc;white-space:nowrap">12 sent</span></div><div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(232,238,252,.06)"><span style="color:rgba(232,238,252,.75);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-right:12px">lead-qualifier</span><span style="color:#5eead4;white-space:nowrap">38 ok</span></div><div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(232,238,252,.06)"><span style="color:rgba(232,238,252,.75);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-right:12px">invoice-parser</span><span style="color:#e8eefc;white-space:nowrap">1.2k docs</span></div><div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(232,238,252,.06)"><span style="color:rgba(232,238,252,.75);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-right:12px">support-triage</span><span style="color:#e8eefc;white-space:nowrap">p50 41ms</span></div><div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(232,238,252,.06)"><span style="color:rgba(232,238,252,.75);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-right:12px">research-crawl</span><span style="color:#e8eefc;white-space:nowrap">412 pages</span></div><div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(232,238,252,.06)"><span style="color:rgba(232,238,252,.75);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-right:12px">churn-predict</span><span style="color:#5eead4;white-space:nowrap">0.93 auc</span></div><div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(232,238,252,.06)"><span style="color:rgba(232,238,252,.75);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-right:12px">email-drafter</span><span style="color:#e8eefc;white-space:nowrap">12 sent</span></div></div></div>
+  </div>
+
+  <div style="position:absolute;left:56px;bottom:56px;right:56px;display:flex;justify-content:space-between;align-items:flex-end;z-index:4;animation:fadeIn 1s 1.8s both">
+    <div style="display:flex;gap:40px"><div><div style="font-weight:600;font-size:28px;letter-spacing:-.03em;font-family:'JetBrains Mono',monospace"><span data-count="12" data-suffix="M" style="white-space:nowrap">0</span></div><div style="font-size:11px;color:rgba(232,238,252,.5);margin-top:4px">Tareas / día</div></div><div><div style="font-weight:600;font-size:28px;letter-spacing:-.03em;font-family:'JetBrains Mono',monospace"><span data-count="48" data-suffix="ms" style="white-space:nowrap">0</span></div><div style="font-size:11px;color:rgba(232,238,252,.5);margin-top:4px">Latencia p50</div></div><div><div style="font-weight:600;font-size:28px;letter-spacing:-.03em;font-family:'JetBrains Mono',monospace"><span data-count="99" data-suffix=".98%" style="white-space:nowrap">0</span></div><div style="font-size:11px;color:rgba(232,238,252,.5);margin-top:4px">Uptime</div></div></div>
+    <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(232,238,252,.4)">arrastra para orbitar</span>
+  </div>
+</section>
+
+<!-- CAPABILITIES -->
+<section data-screen-label="Capacidades" style="padding:140px 56px 100px">
+  <div data-reveal="" style="max-width:700px;margin-bottom:56px"><div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#5eead4;margin-bottom:16px">// capacidades</div><h2 style="font-weight:600;font-size:clamp(34px,4vw,60px);line-height:1;letter-spacing:-.04em;margin:0">Todo lo que un agente necesita para no romperse en producción.</h2></div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+    
+      <article data-reveal="" data-reveal-delay="0" data-tilt="" style="padding:28px;border-radius:14px;background:rgba(232,238,252,.03);border:1px solid rgba(232,238,252,.08);min-height:220px;display:flex;flex-direction:column;justify-content:space-between" class="hv-4">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(232,238,252,.4)">01</span>
+        <div><h3 style="font-weight:600;font-size:20px;letter-spacing:-.02em;margin:0 0 10px">Memoria persistente</h3><p style="font-size:14px;line-height:1.6;color:rgba(232,238,252,.6);margin:0">Contexto que sobrevive sesiones, con control de retención por usuario.</p></div>
+      </article>
+    
+      <article data-reveal="" data-reveal-delay="80" data-tilt="" style="padding:28px;border-radius:14px;background:rgba(232,238,252,.03);border:1px solid rgba(232,238,252,.08);min-height:220px;display:flex;flex-direction:column;justify-content:space-between" class="hv-5">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(232,238,252,.4)">02</span>
+        <div><h3 style="font-weight:600;font-size:20px;letter-spacing:-.02em;margin:0 0 10px">Herramientas tipadas</h3><p style="font-size:14px;line-height:1.6;color:rgba(232,238,252,.6);margin:0">Define funciones en TypeScript; el agente las descubre y valida.</p></div>
+      </article>
+    
+      <article data-reveal="" data-reveal-delay="160" data-tilt="" style="padding:28px;border-radius:14px;background:rgba(232,238,252,.03);border:1px solid rgba(232,238,252,.08);min-height:220px;display:flex;flex-direction:column;justify-content:space-between" class="hv-6">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(232,238,252,.4)">03</span>
+        <div><h3 style="font-weight:600;font-size:20px;letter-spacing:-.02em;margin:0 0 10px">Guardrails</h3><p style="font-size:14px;line-height:1.6;color:rgba(232,238,252,.6);margin:0">Políticas declarativas: qué puede hacer, cuánto puede gastar.</p></div>
+      </article>
+    
+      <article data-reveal="" data-reveal-delay="0" data-tilt="" style="padding:28px;border-radius:14px;background:rgba(232,238,252,.03);border:1px solid rgba(232,238,252,.08);min-height:220px;display:flex;flex-direction:column;justify-content:space-between" class="hv-7">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(232,238,252,.4)">04</span>
+        <div><h3 style="font-weight:600;font-size:20px;letter-spacing:-.02em;margin:0 0 10px">Trazas completas</h3><p style="font-size:14px;line-height:1.6;color:rgba(232,238,252,.6);margin:0">Cada decisión, cada llamada, reproducible paso a paso.</p></div>
+      </article>
+    
+      <article data-reveal="" data-reveal-delay="80" data-tilt="" style="padding:28px;border-radius:14px;background:rgba(232,238,252,.03);border:1px solid rgba(232,238,252,.08);min-height:220px;display:flex;flex-direction:column;justify-content:space-between" class="hv-8">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(232,238,252,.4)">05</span>
+        <div><h3 style="font-weight:600;font-size:20px;letter-spacing:-.02em;margin:0 0 10px">Evaluaciones</h3><p style="font-size:14px;line-height:1.6;color:rgba(232,238,252,.6);margin:0">Suites de evaluación que corren en cada deploy.</p></div>
+      </article>
+    
+      <article data-reveal="" data-reveal-delay="160" data-tilt="" style="padding:28px;border-radius:14px;background:rgba(232,238,252,.03);border:1px solid rgba(232,238,252,.08);min-height:220px;display:flex;flex-direction:column;justify-content:space-between" class="hv-9">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(232,238,252,.4)">06</span>
+        <div><h3 style="font-weight:600;font-size:20px;letter-spacing:-.02em;margin:0 0 10px">Multi-modelo</h3><p style="font-size:14px;line-height:1.6;color:rgba(232,238,252,.6);margin:0">Enruta por costo, latencia o calidad. Sin lock-in.</p></div>
+      </article>
+    
+  </div>
+</section>
+
+<!-- CODE + CTA -->
+<section data-screen-label="Integración" style="padding:60px 56px 140px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center">
+  <div>
+    <h2 data-reveal="" style="font-weight:600;font-size:clamp(32px,3.6vw,54px);line-height:1;letter-spacing:-.04em;margin:0 0 20px">Diez líneas. Un agente en producción.</h2>
+    <p data-reveal="" style="font-size:15px;line-height:1.7;color:rgba(232,238,252,.62);margin:0 0 30px;max-width:420px">SDK para TypeScript y Python. Streaming, reintentos y observabilidad incluidos.</p>
+    <a href="#" data-reveal="" data-magnetic="" style="white-space:nowrap;display:inline-block;padding:14px 26px;border-radius:6px;background:#5eead4;color:#03060c;font-size:14px;font-weight:600">Leer la documentación</a>
+  </div>
+  <div data-reveal="" style="border-radius:14px;background:#070c16;border:1px solid rgba(232,238,252,.1);overflow:hidden;font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.8">
+    <div style="display:flex;gap:8px;padding:12px 16px;border-bottom:1px solid rgba(232,238,252,.08)"><span style="width:10px;height:10px;border-radius:50%;background:#ff5f57"></span><span style="width:10px;height:10px;border-radius:50%;background:#febc2e"></span><span style="width:10px;height:10px;border-radius:50%;background:#28c840"></span><span style="margin-left:12px;font-size:11px;color:rgba(232,238,252,.4)">agent.ts</span></div>
+    <pre style="margin:0;padding:22px 24px;color:rgba(232,238,252,.85);white-space:pre-wrap"><span style="color:#c792ea">import</span> { Aether } <span style="color:#c792ea">from</span> <span style="color:#5eead4">"@aether/sdk"</span><br><br><span style="color:#c792ea">const</span> agent = <span style="color:#c792ea">new</span> <span style="color:#82aaff">Aether</span>({ model: <span style="color:#5eead4">"aether-2"</span> })<br><br><span style="color:#c792ea">const</span> res = <span style="color:#c792ea">await</span> agent.<span style="color:#82aaff">run</span>({<br>  goal: <span style="color:#5eead4">"Califica los leads de esta semana"</span>,<br>  tools: [search, crm, email],<br>})<br><span style="color:rgba(232,238,252,.4)">// → 38 leads calificados · 12 emails enviados</span></pre>
+  </div>
+</section>
+<footer style="display:flex;justify-content:space-between;padding:0 56px 40px;font-size:12px;color:rgba(232,238,252,.4)"><span>© 2026 Aether Intelligence</span><span>Diseño · Nivaldyr Technologies</span></footer>
+</div>
+<script type="module">
+window.React = { createRef: () => ({ current: null }) };
+class DCLogic { constructor() { this.state = {}; this.props = {}; } setState() {} }
+class Component extends DCLogic {
+  state = { lang: 'es' };
+  rootRef = React.createRef(); glRef = React.createRef();
+  copy = {
+    es: { nav: ['producto', 'docs', 'precios', 'blog'], cta: 'Empezar', badge: 'aether-2 · disponible ahora', h1: 'Agentes que razonan', h1em: 'a escala.', sub: 'Infraestructura para desplegar agentes autónomos con memoria, herramientas y límites claros. De prototipo a producción en una tarde.', primary: 'Crear cuenta', secondary: 'npm i @aether/sdk', tickerTitle: 'agentes en ejecución', dragHint: 'arrastra para orbitar', stats: [{ n: 12, suffix: 'M', l: 'Tareas / día' }, { n: 48, suffix: 'ms', l: 'Latencia p50' }, { n: 99, suffix: '.98%', l: 'Uptime' }],
+      capEyebrow: 'capacidades', capTitle: 'Todo lo que un agente necesita para no romperse en producción.', caps: [{ num: '01', title: 'Memoria persistente', text: 'Contexto que sobrevive sesiones, con control de retención por usuario.', delay: '0' }, { num: '02', title: 'Herramientas tipadas', text: 'Define funciones en TypeScript; el agente las descubre y valida.', delay: '80' }, { num: '03', title: 'Guardrails', text: 'Políticas declarativas: qué puede hacer, cuánto puede gastar.', delay: '160' }, { num: '04', title: 'Trazas completas', text: 'Cada decisión, cada llamada, reproducible paso a paso.', delay: '0' }, { num: '05', title: 'Evaluaciones', text: 'Suites de evaluación que corren en cada deploy.', delay: '80' }, { num: '06', title: 'Multi-modelo', text: 'Enruta por costo, latencia o calidad. Sin lock-in.', delay: '160' }],
+      codeTitle: 'Diez líneas. Un agente en producción.', codeText: 'SDK para TypeScript y Python. Streaming, reintentos y observabilidad incluidos.', codeCta: 'Leer la documentación', codeGoal: 'Califica los leads de esta semana', codeOut: '38 leads calificados · 12 emails enviados', footer: 'Diseño · Nivaldyr Technologies' },
+    en: { nav: ['product', 'docs', 'pricing', 'blog'], cta: 'Get started', badge: 'aether-2 · available now', h1: 'Agents that reason', h1em: 'at scale.', sub: 'Infrastructure to deploy autonomous agents with memory, tools and clear limits. From prototype to production in an afternoon.', primary: 'Create account', secondary: 'npm i @aether/sdk', tickerTitle: 'agents running', dragHint: 'drag to orbit', stats: [{ n: 12, suffix: 'M', l: 'Tasks / day' }, { n: 48, suffix: 'ms', l: 'p50 latency' }, { n: 99, suffix: '.98%', l: 'Uptime' }],
+      capEyebrow: 'capabilities', capTitle: 'Everything an agent needs to not break in production.', caps: [{ num: '01', title: 'Persistent memory', text: 'Context that survives sessions, with per-user retention control.', delay: '0' }, { num: '02', title: 'Typed tools', text: 'Define functions in TypeScript; the agent discovers and validates them.', delay: '80' }, { num: '03', title: 'Guardrails', text: 'Declarative policies: what it can do, how much it can spend.', delay: '160' }, { num: '04', title: 'Full traces', text: 'Every decision, every call, reproducible step by step.', delay: '0' }, { num: '05', title: 'Evaluations', text: 'Eval suites that run on every deploy.', delay: '80' }, { num: '06', title: 'Multi-model', text: 'Route by cost, latency or quality. No lock-in.', delay: '160' }],
+      codeTitle: 'Ten lines. One agent in production.', codeText: 'SDK for TypeScript and Python. Streaming, retries and observability included.', codeCta: 'Read the docs', codeGoal: 'Qualify this week’s leads', codeOut: '38 leads qualified · 12 emails sent', footer: 'Design · Nivaldyr Technologies' },
+  };
+  componentDidMount() {
+    const root = this.rootRef.current;
+    import('./fx.js').then((fx) => { this.cleanups = [fx.reveal(root), fx.magnetic(root), fx.tilt(root, { max: 3 }), fx.counters(root)]; });
+    this.initGL();
+  }
+  async initGL() {
+    const THREE = await import('three'); const host = this.glRef.current; if (!host) return;
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }); renderer.setPixelRatio(Math.min(2, window.devicePixelRatio)); host.appendChild(renderer.domElement);
+    const scene = new THREE.Scene(); const camera = new THREE.PerspectiveCamera(50, 1, .1, 100); camera.position.set(0, 0, 7.5);
+    const N = 6000, pos = new Float32Array(N * 3), col = new Float32Array(N * 3), ca = new THREE.Color('#5eead4'), cb = new THREE.Color('#7c8cff');
+    for (let i = 0; i < N; i++) { const phi = Math.acos(1 - 2 * (i + .5) / N), th = Math.PI * (1 + Math.sqrt(5)) * i; const r = 2.6 + (Math.random() - .5) * .08; pos.set([r * Math.sin(phi) * Math.cos(th), r * Math.cos(phi), r * Math.sin(phi) * Math.sin(th)], i * 3); const c = ca.clone().lerp(cb, Math.random()); col.set([c.r, c.g, c.b], i * 3); }
+    const geo = new THREE.BufferGeometry(); geo.setAttribute('position', new THREE.BufferAttribute(pos, 3)); geo.setAttribute('color', new THREE.BufferAttribute(col, 3));
+    const pts = new THREE.Points(geo, new THREE.PointsMaterial({ size: .028, vertexColors: true, transparent: true, opacity: .9, sizeAttenuation: true }));
+    const wire = new THREE.Mesh(new THREE.IcosahedronGeometry(2.62, 2), new THREE.MeshBasicMaterial({ color: '#5eead4', wireframe: true, transparent: true, opacity: .06 }));
+    const ringG = new THREE.TorusGeometry(3.6, .006, 8, 200); const ring1 = new THREE.Mesh(ringG, new THREE.MeshBasicMaterial({ color: '#7c8cff', transparent: true, opacity: .5 })); ring1.rotation.x = Math.PI / 2.4; const ring2 = ring1.clone(); ring2.rotation.x = Math.PI / 1.7; ring2.rotation.y = .6;
+    const group = new THREE.Group(); group.add(pts, wire, ring1, ring2); group.position.x = 1.6; scene.add(group);
+    let tx = 0, ty = 0, rx = 0, ry = 0, dragging = false, lx = 0, ly = 0;
+    const onMove = (e) => { const x = e.clientX ?? (e.touches && e.touches[0].clientX), y = e.clientY ?? (e.touches && e.touches[0].clientY); if (x == null) return; if (dragging) { ty += (x - lx) * .005; tx += (y - ly) * .005; } else { ty = (x / window.innerWidth - .5) * .6; tx = (y / window.innerHeight - .5) * .4; } lx = x; ly = y; };
+    const down = (e) => { dragging = true; lx = e.clientX ?? e.touches[0].clientX; ly = e.clientY ?? e.touches[0].clientY; }; const up = () => { dragging = false; };
+    window.addEventListener('mousemove', onMove); host.addEventListener('mousedown', down); window.addEventListener('mouseup', up); host.addEventListener('touchstart', down, { passive: true }); window.addEventListener('touchmove', onMove, { passive: true }); window.addEventListener('touchend', up);
+    const resize = () => { const w = host.clientWidth, h = host.clientHeight; renderer.setSize(w, h); camera.aspect = w / h; camera.updateProjectionMatrix(); group.position.x = w < 900 ? 0 : 1.6; }; resize(); const ro = new ResizeObserver(resize); ro.observe(host);
+    let raf = 0, t = 0; const loop = () => { t += .004; rx += (tx - rx) * .05; ry += (ty - ry) * .05; group.rotation.y = t + ry; group.rotation.x = rx * .6; ring1.rotation.z = t * .7; ring2.rotation.z = -t * .5; const s = 1 + Math.sin(t * 3) * .015; pts.scale.setScalar(s); renderer.render(scene, camera); raf = requestAnimationFrame(loop); }; loop();
+    this.glCleanup = () => { cancelAnimationFrame(raf); ro.disconnect(); window.removeEventListener('mousemove', onMove); window.removeEventListener('mouseup', up); window.removeEventListener('touchmove', onMove); window.removeEventListener('touchend', up); renderer.dispose(); host.innerHTML = ''; };
+  }
+  componentWillUnmount() { (this.cleanups || []).forEach((c) => c()); if (this.glCleanup) this.glCleanup(); }
+  renderVals() {
+    const lang = this.state.lang; const t = this.copy[lang];
+    const rows = [['lead-qualifier', '38 ok', '#5eead4'], ['invoice-parser', '1.2k docs', '#e8eefc'], ['support-triage', 'p50 41ms', '#e8eefc'], ['research-crawl', '412 pages', '#e8eefc'], ['churn-predict', '0.93 auc', '#5eead4'], ['email-drafter', '12 sent', '#e8eefc']];
+    return { rootRef: this.rootRef, glRef: this.glRef, t, ticker: [...rows, ...rows].map(([k, v, c]) => ({ k, v, c })), langLabel: lang === 'es' ? 'ES · EN' : 'EN · ES', toggleLang: () => this.setState((s) => ({ lang: s.lang === 'es' ? 'en' : 'es' })) };
+  }
+}
+const c = new Component();
+document.querySelectorAll('[data-fx-ref]').forEach((el) => { const n = el.dataset.fxRef; if (c[n]) c[n].current = el; });
+if (c.componentDidMount) c.componentDidMount();
+</script>
+</body>
+</html>

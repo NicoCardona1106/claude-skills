@@ -278,8 +278,12 @@ sticky "wow") es la lista de pulido al portar cualquier pieza premium.
 
 - `references/landings/landings/fx.js`: 25 efectos sin dependencias con
   cleanup, listos para `useEffect`. Usarlo antes de reescribir un efecto.
-- Las landings son formato Claude Design, no HTML plano: leer `efectos.md`
-  antes de copiar (pendiente convertirlas a HTML plano en el PC principal).
+- Cada landing tiene DOS versiones: la fuente Claude Design (`NN Nombre.dc.html`)
+  y su gemela **HTML plano** (`NN Nombre.html`, generada 2026-09-05 con
+  `landings/convertir.mjs` y verificada en navegador). **Para copiar markup,
+  estilos o estructura usa la versión plana** — abre sola en el navegador, sin
+  runtime; solo la interactividad de estado (toggle ES/EN) está congelada en
+  español. La fuente `.dc.html` queda como referencia del original.
 - **El banco manda** sobre el catálogo de tells de IA de esta skill cuando
   chocan (decisión de Nicolas 2026-09-04, detalle en `efectos.md`).
 - Regla 11 matizada: `fx.js` usa `scroll` pasivo + rAF en `scrollProgress`,

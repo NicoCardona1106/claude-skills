@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Velocita</title>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;800&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;background:#07060a;color:#f2eef7;font-family:'Space Grotesk',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#f2eef7;text-decoration:none}a:hover{color:#ff2d6f}
+*{box-sizing:border-box}
+@keyframes fadeUp{from{opacity:0;transform:translate3d(0,50px,0)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideIn{from{opacity:0;transform:translate3d(80px,0,0) scale(.96)}to{opacity:1;transform:none}}
+@keyframes glow{0%,100%{opacity:.55}50%{opacity:.95}}
+@keyframes lineGrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes gridMove{from{background-position:0 0}to{background-position:0 80px}}
+</style>
+<style>
+.hv-0:hover{color:#fff}
+.hv-1:hover{color:#fff}
+.hv-2:hover{color:#fff}
+.hv-3:hover{color:#fff}
+.hv-4:hover{color:#fff}
+</style>
+</head>
+<body>
+<div data-fx-ref="rootRef" style="min-height:100vh;background:#07060a;overflow-x:hidden">
+
+<section data-screen-label="Hero" style="position:relative;height:100vh;min-height:760px;overflow:hidden;background:radial-gradient(ellipse 70% 60% at 70% 60%,#2a0a3a 0%,#07060a 70%)">
+  <div style="position:absolute;left:-20%;right:-20%;bottom:0;height:60%;perspective:600px;pointer-events:none;overflow:hidden"><div style="position:absolute;inset:0;transform-origin:bottom;transform:rotateX(62deg);background-image:linear-gradient(rgba(255,45,111,.22) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px);background-size:80px 80px;animation:gridMove 1.4s linear infinite;mask-image:linear-gradient(180deg,transparent,black 40%)"></div></div>
+  <div style="position:absolute;inset:0;pointer-events:none;z-index:2;"><canvas data-fx-ref="streakRef" style="width:100%;height:100%;display:block"></canvas></div>
+  <div data-depth="0.15" style="position:absolute;right:-5%;bottom:-10%;width:60%;height:70%;background:radial-gradient(ellipse,rgba(255,45,111,.35),transparent 65%);filter:blur(40px);animation:glow 5s ease-in-out infinite"></div>
+
+  <nav style="position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px 56px;z-index:6;animation:fadeIn 1s .2s both">
+    <a href="#" style="font-family:Unbounded,sans-serif;font-weight:800;font-size:15px;letter-spacing:.2em">VELOCITÀ</a>
+    <div style="display:flex;gap:clamp(14px,2vw,34px)px;font-size:13px;letter-spacing:.06em;text-transform:uppercase">
+      <a href="#" style="color:rgba(242,238,247,.7)" class="hv-0">Modelos</a><a href="#" style="color:rgba(242,238,247,.7)" class="hv-1">Rendimiento</a><a href="#" style="color:rgba(242,238,247,.7)" class="hv-2">Tecnología</a><a href="#" style="color:rgba(242,238,247,.7)" class="hv-3">Galería</a><a href="#" style="color:rgba(242,238,247,.7)" class="hv-4">Contacto</a>
+    </div>
+    <div style="display:flex;gap:12px;align-items:center">
+      <button style="white-space:nowrap;border:1px solid rgba(242,238,247,.25);background:transparent;color:inherit;border-radius:4px;padding:8px 12px;font-size:12px;letter-spacing:.1em;cursor:pointer;font-family:inherit">ES · EN</button>
+      <a href="#" data-magnetic="" style="white-space:nowrap;padding:12px 22px;background:#ff2d6f;color:#fff;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;display:inline-block;clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px)">Test drive</a>
+    </div>
+  </nav>
+
+  <!-- giant word behind -->
+  <div data-depth="0.1" style="position:absolute;left:0;right:0;top:16%;text-align:center;font-family:Unbounded,sans-serif;font-weight:800;font-size:clamp(120px,19vw,300px);line-height:.85;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1px rgba(242,238,247,.16);pointer-events:none;animation:fadeIn 2s .3s both;user-select:none">VELOCITÀ</div>
+
+  <!-- car -->
+  <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-44%);width:62vw;max-width:1100px;height:38vw;max-height:520px"><div data-depth="0.45" data-hero-anim="" style="position:absolute;inset:0;animation:slideIn 1.4s .5s cubic-bezier(.2,.7,.2,1) both">
+    <img alt="Supercar 3/4 frontal, fondo transparente o negro" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3ESupercar%203%2F4%20frontal%2C%20fondo%20transparente%20o%20negro%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+    <div style="position:absolute;left:10%;right:10%;bottom:-8%;height:60px;background:radial-gradient(ellipse,rgba(255,45,111,.5),transparent 70%);filter:blur(20px)"></div>
+  </div></div>
+
+  <!-- copy -->
+  <div style="position:absolute;left:56px;bottom:100px;max-width:520px;z-index:4">
+    <h1 data-hero-anim="" style="font-family:Unbounded,sans-serif;font-weight:300;font-size:clamp(34px,3.8vw,58px);line-height:1.05;margin:0 0 20px;text-transform:uppercase;animation:fadeUp 1s .8s both">Velocidad más allá<br><strong style="font-weight:800">de los límites</strong></h1>
+    <p data-hero-anim="" style="font-size:14px;line-height:1.7;color:rgba(242,238,247,.65);max-width:380px;margin:0 0 30px;animation:fadeUp 1s 1s both">Un motor híbrido V8 que redefine lo que significa conducir. Ingeniería italiana, alma eléctrica.</p>
+    <div style="display:flex;gap:14px;animation:fadeUp 1s 1.2s both">
+      <a href="#" data-magnetic="" style="white-space:nowrap;padding:16px 28px;background:#f2eef7;color:#07060a;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;clip-path:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px)">Configurar</a>
+      <a href="#specs" style="white-space:nowrap;padding:16px 28px;border:1px solid rgba(242,238,247,.3);font-size:12px;letter-spacing:.14em;text-transform:uppercase">Ver specs</a>
+    </div>
+  </div>
+
+  <!-- spec cards -->
+  <div data-depth="0.7" style="position:absolute;right:56px;bottom:100px;display:flex;gap:12px;z-index:4">
+    
+      <div data-hero-anim="" style="width:150px;padding:18px;border-radius:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(16px);animation:fadeUp 1s both;animation-delay:1.3s">
+        <div style="font-family:Unbounded,sans-serif;font-weight:600;font-size:28px;line-height:1">330<span style="font-size:12px;font-weight:300;margin-left:4px;color:#ff2d6f">km/h</span></div>
+        <div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(242,238,247,.5);margin-top:8px">Vel. máxima</div>
+      </div>
+    
+      <div data-hero-anim="" style="width:150px;padding:18px;border-radius:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(16px);animation:fadeUp 1s both;animation-delay:1.45s">
+        <div style="font-family:Unbounded,sans-serif;font-weight:600;font-size:28px;line-height:1">2.9<span style="font-size:12px;font-weight:300;margin-left:4px;color:#ff2d6f">s</span></div>
+        <div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(242,238,247,.5);margin-top:8px">0–100 km/h</div>
+      </div>
+    
+      <div data-hero-anim="" style="width:150px;padding:18px;border-radius:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(16px);animation:fadeUp 1s both;animation-delay:1.6s">
+        <div style="font-family:Unbounded,sans-serif;font-weight:600;font-size:28px;line-height:1">830<span style="font-size:12px;font-weight:300;margin-left:4px;color:#ff2d6f">cv</span></div>
+        <div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(242,238,247,.5);margin-top:8px">Potencia</div>
+      </div>
+    
+  </div>
+
+  <!-- model switcher -->
+  <div style="position:absolute;left:56px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:18px;z-index:5;animation:fadeIn 1s 1.4s both">
+    
+      <button style="display:flex;align-items:center;gap:14px;background:none;border:none;cursor:pointer;color:inherit;font-family:inherit;padding:0;text-align:left;opacity:1">
+        <span style="font-family:Unbounded,sans-serif;font-size:12px;letter-spacing:.1em">01</span>
+        <span style="width:48px;height:1px;background:#ff2d6f;transition:width .5s"></span>
+        <span style="font-size:12px;letter-spacing:.1em;text-transform:uppercase">GT Stradale</span>
+      </button>
+    
+      <button style="display:flex;align-items:center;gap:14px;background:none;border:none;cursor:pointer;color:inherit;font-family:inherit;padding:0;text-align:left;opacity:0.4">
+        <span style="font-family:Unbounded,sans-serif;font-size:12px;letter-spacing:.1em">02</span>
+        <span style="width:18px;height:1px;background:#ff2d6f;transition:width .5s"></span>
+        <span style="font-size:12px;letter-spacing:.1em;text-transform:uppercase">Tempesta S</span>
+      </button>
+    
+      <button style="display:flex;align-items:center;gap:14px;background:none;border:none;cursor:pointer;color:inherit;font-family:inherit;padding:0;text-align:left;opacity:0.4">
+        <span style="font-family:Unbounded,sans-serif;font-size:12px;letter-spacing:.1em">03</span>
+        <span style="width:18px;height:1px;background:#ff2d6f;transition:width .5s"></span>
+        <span style="font-size:12px;letter-spacing:.1em;text-transform:uppercase">Elettra E</span>
+      </button>
+    
+  </div>
+
+  <div style="position:absolute;right:56px;top:50%;transform:translateY(-50%) rotate(90deg);transform-origin:right center;font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:rgba(242,238,247,.4);animation:fadeIn 1s 1.6s both">Desplázate —</div>
+</section>
+
+<!-- MARQUEE -->
+<div style="border-top:1px solid rgba(242,238,247,.1);border-bottom:1px solid rgba(242,238,247,.1);padding:18px 0;overflow:hidden;white-space:nowrap">
+  <div style="display:inline-flex;gap:60px;animation:marquee 26s linear infinite;font-family:Unbounded,sans-serif;font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:rgba(242,238,247,.55)">
+    <span>Hybrid V8 <span style="color:#ff2d6f;margin-left:40px">◆</span></span><span>Carbon monocoque <span style="color:#ff2d6f;margin-left:40px">◆</span></span><span>Active aero <span style="color:#ff2d6f;margin-left:40px">◆</span></span><span>Torque vectoring <span style="color:#ff2d6f;margin-left:40px">◆</span></span><span>Hybrid V8 <span style="color:#ff2d6f;margin-left:40px">◆</span></span><span>Carbon monocoque <span style="color:#ff2d6f;margin-left:40px">◆</span></span><span>Active aero <span style="color:#ff2d6f;margin-left:40px">◆</span></span><span>Torque vectoring <span style="color:#ff2d6f;margin-left:40px">◆</span></span>
+  </div>
+</div>
+
+<!-- SPECS -->
+<section id="specs" data-screen-label="Specs" style="padding:140px 56px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center">
+  <div>
+    <div data-reveal="" style="font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:#ff2d6f;margin-bottom:20px">Rendimiento</div>
+    <h2 data-reveal="" style="font-family:Unbounded,sans-serif;font-weight:300;font-size:clamp(36px,3.8vw,60px);line-height:1.05;margin:0 0 40px;text-transform:uppercase">Cifras que hablan solas</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px">
+      
+        <div data-reveal="" data-reveal-delay="0" style="padding:28px 24px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)">
+          <div style="font-family:Unbounded,sans-serif;font-weight:600;font-size:clamp(24px,2.4vw,40px);line-height:1;white-space:nowrap"><span data-count="830" data-suffix=" cv" style="white-space:nowrap">0</span></div>
+          <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:rgba(242,238,247,.5);margin-top:10px">Potencia combinada</div>
+        </div>
+      
+        <div data-reveal="" data-reveal-delay="100" style="padding:28px 24px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)">
+          <div style="font-family:Unbounded,sans-serif;font-weight:600;font-size:clamp(24px,2.4vw,40px);line-height:1;white-space:nowrap"><span data-count="330" data-suffix=" km/h" style="white-space:nowrap">0</span></div>
+          <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:rgba(242,238,247,.5);margin-top:10px">Velocidad máxima</div>
+        </div>
+      
+        <div data-reveal="" data-reveal-delay="200" style="padding:28px 24px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)">
+          <div style="font-family:Unbounded,sans-serif;font-weight:600;font-size:clamp(24px,2.4vw,40px);line-height:1;white-space:nowrap"><span data-count="1390" data-suffix=" kg" style="white-space:nowrap">0</span></div>
+          <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:rgba(242,238,247,.5);margin-top:10px">Peso en seco</div>
+        </div>
+      
+        <div data-reveal="" data-reveal-delay="300" style="padding:28px 24px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)">
+          <div style="font-family:Unbounded,sans-serif;font-weight:600;font-size:clamp(24px,2.4vw,40px);line-height:1;white-space:nowrap"><span data-count="7" data-suffix=" vel." style="white-space:nowrap">0</span></div>
+          <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:rgba(242,238,247,.5);margin-top:10px">Doble embrague</div>
+        </div>
+      
+    </div>
+  </div>
+  <div data-reveal="" data-tilt="" style="position:relative;height:600px;border-radius:16px;overflow:hidden;background:#100c16">
+    <img alt="Detalle: faro / llanta / interior" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EDetalle%3A%20faro%20%2F%20llanta%20%2F%20interior%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+    <div style="position:absolute;left:24px;bottom:24px;padding:14px 18px;border-radius:10px;background:rgba(7,6,10,.6);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(12px);font-size:12px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap">Faro LED matricial</div>
+  </div>
+</section>
+
+<!-- GALLERY STRIP -->
+<section data-screen-label="Galería" style="padding:0 56px 140px">
+  <div data-reveal="" style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:36px">
+    <h2 style="font-family:Unbounded,sans-serif;font-weight:300;font-size:clamp(30px,3vw,48px);line-height:1;margin:0;text-transform:uppercase">En detalle</h2>
+    <span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(242,238,247,.5)">12 imágenes</span>
+  </div>
+  <div style="display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:280px 280px;gap:14px">
+    <div data-reveal="" style="grid-row:span 2;border-radius:14px;overflow:hidden;position:relative"><img alt="Lateral en pista" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3ELateral%20en%20pista%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
+    <div data-reveal="" data-reveal-delay="100" style="border-radius:14px;overflow:hidden;position:relative"><img alt="Volante" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EVolante%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
+    <div data-reveal="" data-reveal-delay="200" style="border-radius:14px;overflow:hidden;position:relative"><img alt="Motor V8" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EMotor%20V8%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
+    <div data-reveal="" data-reveal-delay="300" style="grid-column:span 2;border-radius:14px;overflow:hidden;position:relative;background:#ff2d6f;display:flex;align-items:center;justify-content:space-between;padding:0 40px">
+      <div style="font-family:Unbounded,sans-serif;font-weight:600;font-size:28px;line-height:1.1;text-transform:uppercase;max-width:360px">Reserva tu experiencia en pista</div>
+      <a href="#" data-magnetic="" style="white-space:nowrap;width:72px;height:72px;border-radius:50%;background:#07060a;display:grid;place-items:center;font-size:22px">→</a>
+    </div>
+  </div>
+</section>
+<footer style="display:flex;justify-content:space-between;padding:0 56px 40px;font-size:12px;color:rgba(242,238,247,.4);letter-spacing:.08em"><span>© 2026 Velocità Motors</span><span>Diseño · Nivaldyr Technologies</span></footer>
+</div>
+<script type="module">
+window.React = { createRef: () => ({ current: null }) };
+class DCLogic { constructor() { this.state = {}; this.props = {}; } setState() {} }
+class Component extends DCLogic {
+  state = { lang: 'es', model: 0 };
+  rootRef = React.createRef(); streakRef = React.createRef();
+  copy = {
+    es: {
+      nav: ['Modelos', 'Rendimiento', 'Tecnología', 'Galería', 'Contacto'], cta: 'Test drive', configure: 'Configurar', specs: 'Ver specs', scroll: 'Desplázate',
+      models: [
+        { word: 'VELOCITÀ', name: 'GT Stradale', h1: 'Velocidad más allá', h1b: 'de los límites', sub: 'Un motor híbrido V8 que redefine lo que significa conducir. Ingeniería italiana, alma eléctrica.', specs: [{ v: '330', u: 'km/h', l: 'Vel. máxima', delay: '1.3s' }, { v: '2.9', u: 's', l: '0–100 km/h', delay: '1.45s' }, { v: '830', u: 'cv', l: 'Potencia', delay: '1.6s' }] },
+        { word: 'TEMPESTA', name: 'Tempesta S', h1: 'El equilibrio perfecto', h1b: 'de la fuerza', sub: 'Chasis de carbono, aerodinámica activa y un sonido que se recuerda toda la vida.', specs: [{ v: '350', u: 'km/h', l: 'Vel. máxima', delay: '0s' }, { v: '2.6', u: 's', l: '0–100 km/h', delay: '.15s' }, { v: '1020', u: 'cv', l: 'Potencia', delay: '.3s' }] },
+        { word: 'ELETTRA', name: 'Elettra E', h1: 'Silencio a', h1b: 'toda potencia', sub: '100% eléctrico. Cuatro motores, tracción vectorial y 620 km de autonomía real.', specs: [{ v: '620', u: 'km', l: 'Autonomía', delay: '0s' }, { v: '2.2', u: 's', l: '0–100 km/h', delay: '.15s' }, { v: '1200', u: 'cv', l: 'Potencia', delay: '.3s' }] },
+      ],
+      perfEyebrow: 'Rendimiento', perfTitle: 'Cifras que hablan solas', perf: [{ n: 830, suffix: ' cv', label: 'Potencia combinada', delay: '0' }, { n: 330, suffix: ' km/h', label: 'Velocidad máxima', delay: '100' }, { n: 1390, suffix: ' kg', label: 'Peso en seco', delay: '200' }, { n: 7, suffix: ' vel.', label: 'Doble embrague', delay: '300' }],
+      detailTag: 'Faro LED matricial', galleryTitle: 'En detalle', gallerySub: '12 imágenes', ctaTitle: 'Reserva tu experiencia en pista', footer: 'Diseño · Nivaldyr Technologies',
+    },
+    en: {
+      nav: ['Models', 'Performance', 'Technology', 'Gallery', 'Contact'], cta: 'Test drive', configure: 'Configure', specs: 'View specs', scroll: 'Scroll',
+      models: [
+        { word: 'VELOCITÀ', name: 'GT Stradale', h1: 'Velocity beyond', h1b: 'limits', sub: 'A hybrid V8 that redefines what driving means. Italian engineering, electric soul.', specs: [{ v: '330', u: 'km/h', l: 'Top speed', delay: '1.3s' }, { v: '2.9', u: 's', l: '0–100 km/h', delay: '1.45s' }, { v: '830', u: 'hp', l: 'Power', delay: '1.6s' }] },
+        { word: 'TEMPESTA', name: 'Tempesta S', h1: 'The perfect balance', h1b: 'of force', sub: 'Carbon chassis, active aero and a sound you remember for life.', specs: [{ v: '350', u: 'km/h', l: 'Top speed', delay: '0s' }, { v: '2.6', u: 's', l: '0–100 km/h', delay: '.15s' }, { v: '1020', u: 'hp', l: 'Power', delay: '.3s' }] },
+        { word: 'ELETTRA', name: 'Elettra E', h1: 'Silence at', h1b: 'full power', sub: '100% electric. Four motors, torque vectoring and 620 km of real range.', specs: [{ v: '620', u: 'km', l: 'Range', delay: '0s' }, { v: '2.2', u: 's', l: '0–100 km/h', delay: '.15s' }, { v: '1200', u: 'hp', l: 'Power', delay: '.3s' }] },
+      ],
+      perfEyebrow: 'Performance', perfTitle: 'Numbers that speak', perf: [{ n: 830, suffix: ' hp', label: 'Combined power', delay: '0' }, { n: 330, suffix: ' km/h', label: 'Top speed', delay: '100' }, { n: 1390, suffix: ' kg', label: 'Dry weight', delay: '200' }, { n: 7, suffix: ' spd', label: 'Dual clutch', delay: '300' }],
+      detailTag: 'Matrix LED headlamp', galleryTitle: 'In detail', gallerySub: '12 images', ctaTitle: 'Book your track experience', footer: 'Design · Nivaldyr Technologies',
+    },
+  };
+  componentDidMount() {
+    const root = this.rootRef.current;
+    import('./fx.js').then((fx) => { this.cleanups = [fx.streaks(this.streakRef.current, { count: 46, color: '255,45,111', speed: 1.2 }), fx.parallax(root, { max: 40 }), fx.reveal(root), fx.magnetic(root), fx.tilt(root, { max: 6 }), fx.counters(root)]; });
+  }
+  componentWillUnmount() { (this.cleanups || []).forEach((c) => c()); }
+  replayHero() {
+    const root = this.rootRef.current; if (!root) return;
+    root.querySelectorAll('[data-hero-anim]').forEach((el) => { const a = el.style.animation; el.style.animation = 'none'; void el.offsetWidth; el.style.animation = a; });
+  }
+  renderVals() {
+    const lang = this.state.lang; const t = this.copy[lang]; const i = this.state.model; const model = t.models[i];
+    return {
+      rootRef: this.rootRef, streakRef: this.streakRef, t, model,
+      models: t.models.map((m, k) => ({ num: String(k + 1).padStart(2, '0'), name: m.name, opacity: k === i ? 1 : .4, lineW: k === i ? '48px' : '18px', pick: () => this.setState({ model: k }, () => this.replayHero()) })),
+      marquee: ['Hybrid V8', 'Carbon monocoque', 'Active aero', 'Torque vectoring', 'Hybrid V8', 'Carbon monocoque', 'Active aero', 'Torque vectoring'],
+      langLabel: lang === 'es' ? 'ES · EN' : 'EN · ES',
+      toggleLang: () => this.setState((s) => ({ lang: s.lang === 'es' ? 'en' : 'es' })),
+    };
+  }
+}
+const c = new Component();
+document.querySelectorAll('[data-fx-ref]').forEach((el) => { const n = el.dataset.fxRef; if (c[n]) c[n].current = el; });
+if (c.componentDidMount) c.componentDidMount();
+</script>
+</body>
+</html>

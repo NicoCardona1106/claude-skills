@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bluebird</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;background:#dde9f5;color:#0b1a2e;font-family:Geist,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#0b1a2e;text-decoration:none}a:hover{color:#1747ff}
+*{box-sizing:border-box}
+@keyframes fadeUp{from{opacity:0;transform:translate3d(0,40px,0)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes ping{0%{transform:scale(.3);opacity:.9}100%{transform:scale(2.6);opacity:0}}
+@keyframes sweep{to{transform:rotate(360deg)}}
+@keyframes letter{from{opacity:0;transform:translate3d(0,40%,0);filter:blur(8px)}to{opacity:1;transform:none;filter:blur(0)}}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes dash{to{stroke-dashoffset:0}}
+</style>
+<style>
+.hv-0:hover{color:#0b1a2e}
+.hv-1:hover{color:#0b1a2e}
+.hv-2:hover{color:#0b1a2e}
+.hv-3:hover{color:#0b1a2e}
+.hv-4:hover{color:#0b1a2e}
+.hv-5:hover{color:#0b1a2e}
+</style>
+</head>
+<body>
+<div data-fx-ref="rootRef" style="background:linear-gradient(180deg,#e6eff9,#cfdff0 60%,#e6eff9);overflow-x:clip">
+
+<section data-screen-label="Hero" style="position:relative;height:100vh;min-height:760px;overflow:hidden">
+  <!-- radar -->
+  <div style="position:absolute;left:50%;top:50%;width:min(90vh,900px);height:min(90vh,900px);transform:translate(-50%,-50%)"><div data-depth="0.1" style="position:absolute;inset:0;opacity:.5">
+    <div style="position:absolute;inset:0;border-radius:50%;border:1px solid rgba(11,26,46,.15)"></div>
+    <div style="position:absolute;inset:16%;border-radius:50%;border:1px solid rgba(11,26,46,.15)"></div>
+    <div style="position:absolute;inset:32%;border-radius:50%;border:1px solid rgba(11,26,46,.15)"></div>
+    <div style="position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,rgba(23,71,255,.35),transparent 60deg);animation:sweep 6s linear infinite"></div>
+    <span style="position:absolute;left:28%;top:32%;width:14px;height:14px;margin:-7px;border-radius:50%;background:#1747ff;box-shadow:0 0 0 3px rgba(23,71,255,.2)"><span style="position:absolute;inset:0;border-radius:50%;border:1px solid #1747ff;animation:ping 2.4s ease-out infinite;animation-delay:0s"></span></span><span style="position:absolute;left:70%;top:26%;width:14px;height:14px;margin:-7px;border-radius:50%;background:#1747ff;box-shadow:0 0 0 3px rgba(23,71,255,.2)"><span style="position:absolute;inset:0;border-radius:50%;border:1px solid #1747ff;animation:ping 2.4s ease-out infinite;animation-delay:.8s"></span></span><span style="position:absolute;left:62%;top:72%;width:14px;height:14px;margin:-7px;border-radius:50%;background:#1747ff;box-shadow:0 0 0 3px rgba(23,71,255,.2)"><span style="position:absolute;inset:0;border-radius:50%;border:1px solid #1747ff;animation:ping 2.4s ease-out infinite;animation-delay:1.6s"></span></span><span style="position:absolute;left:22%;top:68%;width:14px;height:14px;margin:-7px;border-radius:50%;background:#1747ff;box-shadow:0 0 0 3px rgba(23,71,255,.2)"><span style="position:absolute;inset:0;border-radius:50%;border:1px solid #1747ff;animation:ping 2.4s ease-out infinite;animation-delay:.4s"></span></span>
+  </div></div>
+
+  <nav style="position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:26px 56px;z-index:6;animation:fadeIn 1s .2s both">
+    <a href="#" style="display:flex;align-items:center;gap:10px;font-weight:600;font-size:15px"><span style="width:28px;height:18px;background:#1747ff;clip-path:polygon(0 50%,60% 0,100% 20%,70% 55%,100% 100%,40% 80%)"></span>Bluebird</a>
+    <div style="display:flex;gap:clamp(14px,2vw,28px)px;font-size:13px">
+      <a href="#" style="color:rgba(11,26,46,.65)" class="hv-0">Inicio</a><a href="#" style="color:rgba(11,26,46,.65)" class="hv-1">Nosotros</a><a href="#" style="color:rgba(11,26,46,.65)" class="hv-2">Servicios</a><a href="#" style="color:rgba(11,26,46,.65)" class="hv-3">Industrias</a><a href="#" style="color:rgba(11,26,46,.65)" class="hv-4">Inteligencia</a><a href="#" style="color:rgba(11,26,46,.65)" class="hv-5">Contacto</a>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center">
+      <button style="white-space:nowrap;border:1px solid rgba(11,26,46,.2);background:transparent;color:inherit;border-radius:999px;padding:7px 12px;font-size:11px;letter-spacing:.1em;cursor:pointer;font-family:inherit">ES · EN</button>
+      <a href="#" data-magnetic="" style="white-space:nowrap;padding:10px 18px;border-radius:999px;background:rgba(255,255,255,.7);border:1px solid #fff;font-size:13px;font-weight:500;display:inline-block;backdrop-filter:blur(10px)">Recursos</a>
+    </div>
+  </nav>
+
+  <!-- giant serif -->
+  <h1 style="position:absolute;left:0;right:0;top:14%;margin:0;text-align:center;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(120px,19vw,300px);line-height:.9;letter-spacing:-.02em;color:rgba(255,255,255,.85);text-shadow:0 30px 80px rgba(23,71,255,.15);z-index:1;display:flex;justify-content:center;gap:.01em;pointer-events:none">
+    <span style="display:inline-block;animation:letter 1.2s cubic-bezier(.2,.7,.2,1) both;animation-delay:0.3s">B</span><span style="display:inline-block;animation:letter 1.2s cubic-bezier(.2,.7,.2,1) both;animation-delay:0.38s">L</span><span style="display:inline-block;animation:letter 1.2s cubic-bezier(.2,.7,.2,1) both;animation-delay:0.45999999999999996s">U</span><span style="display:inline-block;animation:letter 1.2s cubic-bezier(.2,.7,.2,1) both;animation-delay:0.54s">E</span><span style="display:inline-block;animation:letter 1.2s cubic-bezier(.2,.7,.2,1) both;animation-delay:0.62s">B</span><span style="display:inline-block;animation:letter 1.2s cubic-bezier(.2,.7,.2,1) both;animation-delay:0.7s">I</span><span style="display:inline-block;animation:letter 1.2s cubic-bezier(.2,.7,.2,1) both;animation-delay:0.78s">R</span><span style="display:inline-block;animation:letter 1.2s cubic-bezier(.2,.7,.2,1) both;animation-delay:0.8600000000000001s">D</span>
+  </h1>
+
+  <!-- bird -->
+  <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-44%);width:min(36vw,520px);height:min(72vh,700px);z-index:2"><div data-depth="0.35" style="position:absolute;inset:0"><div style="position:absolute;inset:0;animation:fadeIn 1.6s .6s both"><div style="position:absolute;inset:0;animation:floatY 8s ease-in-out infinite;filter:drop-shadow(0 40px 60px rgba(11,26,46,.3))">
+    <img alt="Pájaro azul (PNG transparente)" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EP%C3%A1jaro%20azul%20(PNG%20transparente)%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+  </div></div></div></div>
+
+  <!-- copy -->
+  <div style="position:absolute;left:56px;bottom:110px;max-width:360px;z-index:4">
+    <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(34px,3.6vw,54px);line-height:1;margin:0 0 16px;letter-spacing:-.01em;animation:fadeUp 1s 1s both">Innovación<br><em style="color:#1747ff">&amp;</em> seguridad</h2>
+    <p style="font-size:14px;line-height:1.7;color:rgba(11,26,46,.6);margin:0 0 26px;animation:fadeUp 1s 1.2s both">Estamos a la vanguardia de la tecnología que protege lo que importa. IA que detecta antes de que ocurra.</p>
+    <div style="display:flex;gap:10px;animation:fadeUp 1s 1.4s both">
+      <a href="#how" data-magnetic="" style="white-space:nowrap;display:inline-flex;align-items:center;gap:12px;padding:6px 6px 6px 20px;border-radius:999px;background:#1747ff;color:#fff;font-size:13px;font-weight:500;box-shadow:0 14px 30px rgba(23,71,255,.35)">Nuestras soluciones<span style="width:34px;height:34px;border-radius:50%;background:#fff;color:#1747ff;display:grid;place-items:center">→</span></a>
+      <a href="#" style="white-space:nowrap;padding:14px 22px;border-radius:999px;background:rgba(255,255,255,.7);border:1px solid #fff;font-size:13px;font-weight:500;backdrop-filter:blur(10px)">Contáctanos</a>
+    </div>
+  </div>
+
+  <!-- cards -->
+  <div data-depth="0.6" style="position:absolute;right:56px;bottom:110px;display:flex;gap:12px;align-items:flex-end;z-index:4">
+    <div data-tilt="" style="width:190px;padding:18px;border-radius:20px;background:rgba(255,255,255,.55);border:1px solid #fff;backdrop-filter:blur(18px);box-shadow:0 20px 50px rgba(11,26,46,.1);animation:fadeUp 1s 1.5s both">
+      <div style="display:flex;justify-content:space-between;align-items:center"><span style="width:40px;height:40px;border-radius:14px;background:#0b1a2e;color:#fff;display:grid;place-items:center">⌂</span><span style="font-size:10px;padding:4px 8px;border-radius:999px;border:1px solid rgba(11,26,46,.2)">Perfect Security</span></div>
+      <div style="font-size:13px;line-height:1.5;margin-top:18px;color:rgba(11,26,46,.75)">La IA garantiza protección total, 24 horas, sin fricción.</div>
+    </div>
+    <div data-tilt="" style="width:170px;padding:18px;border-radius:20px;background:#fff;box-shadow:0 20px 50px rgba(11,26,46,.12);animation:fadeUp 1s 1.65s both;margin-bottom:30px">
+      <span style="width:44px;height:44px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#7fa3ff,#1747ff);display:block;box-shadow:0 10px 24px rgba(23,71,255,.4)"></span>
+      <div style="font-weight:600;font-size:14px;margin-top:16px">Agente IA integrado</div>
+      <div style="font-size:12px;color:rgba(11,26,46,.6);margin-top:6px;line-height:1.5">Un agente para experiencias personalizadas.</div>
+    </div>
+    <div data-tilt="" style="width:190px;padding:18px;border-radius:20px;background:rgba(255,255,255,.55);border:1px solid #fff;backdrop-filter:blur(18px);box-shadow:0 20px 50px rgba(11,26,46,.1);animation:fadeUp 1s 1.8s both">
+      <div style="font-family:'Instrument Serif',serif;font-size:56px;line-height:1"><span data-count="42" data-suffix="%">0</span></div>
+      <div style="font-size:12px;color:rgba(11,26,46,.6);margin-top:6px;line-height:1.5">Menos incidentes en el primer trimestre.</div>
+    </div>
+  </div>
+  <div style="position:absolute;right:56px;top:38%;display:flex;align-items:center;gap:8px;padding:8px 14px 8px 8px;border-radius:999px;background:rgba(255,255,255,.7);border:1px solid #fff;backdrop-filter:blur(12px);z-index:4;animation:fadeUp 1s 1.9s both">
+    <span style="width:26px;height:26px;border-radius:50%;background:#1747ff;border:2px solid #fff;margin-left:-8px"></span><span style="width:26px;height:26px;border-radius:50%;background:#0b1a2e;border:2px solid #fff;margin-left:-8px"></span><span style="width:26px;height:26px;border-radius:50%;background:#7fa3ff;border:2px solid #fff;margin-left:-8px"></span><span style="width:26px;height:26px;border-radius:50%;background:#c9d8ee;border:2px solid #fff;margin-left:-8px"></span><span style="font-size:12px;color:rgba(11,26,46,.6)">Usuarios activos</span><strong style="font-size:13px">+323</strong>
+  </div>
+</section>
+
+<!-- STICKY STEPS -->
+<section id="how" data-screen-label="Cómo funciona" data-fx-ref="stepsRef" style="position:relative;height:320vh">
+  <div style="position:sticky;top:0;height:100vh;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;padding:0 56px">
+    <div>
+      <div style="font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#1747ff;margin-bottom:18px">Cómo funciona</div>
+      <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(40px,4.4vw,68px);line-height:1;margin:0 0 40px;letter-spacing:-.01em">Tres capas. Cero puntos ciegos.</h2>
+      <div style="display:flex;flex-direction:column">
+        
+          <div style="display:grid;grid-template-columns:44px 1fr;gap:20px;padding:22px 0;border-top:1px solid rgba(11,26,46,.12);opacity:1;transition:opacity .4s">
+            <span style="width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:600;background:#1747ff;color:#fff;transition:all .4s">01</span>
+            <div><div style="font-weight:600;font-size:18px">Detecta</div><p style="font-size:14px;line-height:1.6;color:rgba(11,26,46,.6);margin:6px 0 0">Modelos entrenados con 4.000M de eventos identifican anomalías en milisegundos.</p></div>
+          </div>
+        
+          <div style="display:grid;grid-template-columns:44px 1fr;gap:20px;padding:22px 0;border-top:1px solid rgba(11,26,46,.12);opacity:0.35;transition:opacity .4s">
+            <span style="width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:600;background:transparent;color:#0b1a2e;transition:all .4s">02</span>
+            <div><div style="font-weight:600;font-size:18px">Analiza</div><p style="font-size:14px;line-height:1.6;color:rgba(11,26,46,.6);margin:6px 0 0">Correlación entre endpoints, nube e identidad. Contexto completo, no alertas sueltas.</p></div>
+          </div>
+        
+          <div style="display:grid;grid-template-columns:44px 1fr;gap:20px;padding:22px 0;border-top:1px solid rgba(11,26,46,.12);opacity:0.35;transition:opacity .4s">
+            <span style="width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:600;background:transparent;color:#0b1a2e;transition:all .4s">03</span>
+            <div><div style="font-weight:600;font-size:18px">Responde</div><p style="font-size:14px;line-height:1.6;color:rgba(11,26,46,.6);margin:6px 0 0">Contención automática y playbooks que aprenden de cada incidente.</p></div>
+          </div>
+        
+      </div>
+    </div>
+    <div style="position:relative;height:70vh;border-radius:28px;overflow:hidden;background:#0b1a2e;box-shadow:0 40px 100px rgba(11,26,46,.25)">
+      
+        <div style="position:absolute;inset:0;opacity:1;transform:scale(1);transition:opacity .6s,transform .8s cubic-bezier(.2,.7,.2,1)">
+          <img alt="Mapa de red · nodos" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EMapa%20de%20red%20%C2%B7%20nodos%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+        </div>
+      
+        <div style="position:absolute;inset:0;opacity:0;transform:scale(1.08);transition:opacity .6s,transform .8s cubic-bezier(.2,.7,.2,1)">
+          <img alt="Panel de análisis" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EPanel%20de%20an%C3%A1lisis%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+        </div>
+      
+        <div style="position:absolute;inset:0;opacity:0;transform:scale(1.08);transition:opacity .6s,transform .8s cubic-bezier(.2,.7,.2,1)">
+          <img alt="Respuesta automática" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3ERespuesta%20autom%C3%A1tica%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+        </div>
+      
+      <div style="position:absolute;left:24px;top:24px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(10px);color:#fff;font-size:12px;letter-spacing:.1em">01 / 03 · Detecta</div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section data-screen-label="Cifras" style="padding:140px 56px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px">
+  
+    <div data-reveal="" data-reveal-delay="0" style="padding:32px;border-radius:24px;background:rgba(255,255,255,.6);border:1px solid #fff">
+      <div style="font-family:'Instrument Serif',serif;font-size:64px;line-height:1;color:#1747ff"><span data-count="4" data-suffix="B" style="white-space:nowrap">0</span></div>
+      <div style="font-size:13px;color:rgba(11,26,46,.6);margin-top:12px;line-height:1.5">Eventos analizados al día</div>
+    </div>
+  
+    <div data-reveal="" data-reveal-delay="80" style="padding:32px;border-radius:24px;background:rgba(255,255,255,.6);border:1px solid #fff">
+      <div style="font-family:'Instrument Serif',serif;font-size:64px;line-height:1;color:#1747ff"><span data-count="12" data-suffix="ms" style="white-space:nowrap">0</span></div>
+      <div style="font-size:13px;color:rgba(11,26,46,.6);margin-top:12px;line-height:1.5">Tiempo medio de detección</div>
+    </div>
+  
+    <div data-reveal="" data-reveal-delay="160" style="padding:32px;border-radius:24px;background:rgba(255,255,255,.6);border:1px solid #fff">
+      <div style="font-family:'Instrument Serif',serif;font-size:64px;line-height:1;color:#1747ff"><span data-count="99" data-suffix=".99%" style="white-space:nowrap">0</span></div>
+      <div style="font-size:13px;color:rgba(11,26,46,.6);margin-top:12px;line-height:1.5">Disponibilidad garantizada</div>
+    </div>
+  
+    <div data-reveal="" data-reveal-delay="240" style="padding:32px;border-radius:24px;background:rgba(255,255,255,.6);border:1px solid #fff">
+      <div style="font-family:'Instrument Serif',serif;font-size:64px;line-height:1;color:#1747ff"><span data-count="340" data-suffix="+" style="white-space:nowrap">0</span></div>
+      <div style="font-size:13px;color:rgba(11,26,46,.6);margin-top:12px;line-height:1.5">Empresas protegidas</div>
+    </div>
+  
+</section>
+
+<!-- CTA -->
+<section data-screen-label="CTA" style="margin:0 56px 56px;padding:100px 64px;border-radius:32px;background:#0b1a2e;color:#fff;text-align:center;position:relative;overflow:hidden">
+  <div style="position:absolute;left:50%;top:50%;width:800px;height:800px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(23,71,255,.5),transparent 60%);filter:blur(40px)"></div>
+  <div data-reveal="" style="position:relative">
+    <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(44px,5.6vw,92px);line-height:.95;margin:0 0 36px;letter-spacing:-.01em">Duerme tranquilo. <em>Nosotros vigilamos.</em></h2>
+    <a href="#" data-magnetic="" style="white-space:nowrap;display:inline-flex;padding:16px 32px;border-radius:999px;background:#fff;color:#0b1a2e;font-size:14px;font-weight:500">Solicitar demo</a>
+  </div>
+</section>
+<footer style="display:flex;justify-content:space-between;padding:0 56px 40px;font-size:12px;color:rgba(11,26,46,.45)"><span>© 2026 Bluebird Security</span><span>Diseño · Nivaldyr Technologies</span></footer>
+</div>
+<script type="module">
+window.React = { createRef: () => ({ current: null }) };
+class DCLogic { constructor() { this.state = {}; this.props = {}; } setState() {} }
+class Component extends DCLogic {
+  state = { lang: 'es', step: 0 };
+  rootRef = React.createRef(); stepsRef = React.createRef();
+  copy = {
+    es: { nav: ['Inicio', 'Nosotros', 'Servicios', 'Industrias', 'Inteligencia', 'Contacto'], cta: 'Recursos', h2a: 'Innovación', h2b: 'seguridad', sub: 'Estamos a la vanguardia de la tecnología que protege lo que importa. IA que detecta antes de que ocurra.', primary: 'Nuestras soluciones', secondary: 'Contáctanos', active: 'Usuarios activos',
+      c1tag: 'Perfect Security', c1: 'La IA garantiza protección total, 24 horas, sin fricción.', c2t: 'Agente IA integrado', c2: 'Un agente para experiencias personalizadas.', c3: 'Menos incidentes en el primer trimestre.',
+      howEyebrow: 'Cómo funciona', howTitle: 'Tres capas. Cero puntos ciegos.', steps: [{ id: 'bb-s1', ph: 'Mapa de red · nodos', title: 'Detecta', text: 'Modelos entrenados con 4.000M de eventos identifican anomalías en milisegundos.' }, { id: 'bb-s2', ph: 'Panel de análisis', title: 'Analiza', text: 'Correlación entre endpoints, nube e identidad. Contexto completo, no alertas sueltas.' }, { id: 'bb-s3', ph: 'Respuesta automática', title: 'Responde', text: 'Contención automática y playbooks que aprenden de cada incidente.' }],
+      stats: [{ n: 4, suffix: 'B', label: 'Eventos analizados al día', delay: '0' }, { n: 12, suffix: 'ms', label: 'Tiempo medio de detección', delay: '80' }, { n: 99, suffix: '.99%', label: 'Disponibilidad garantizada', delay: '160' }, { n: 340, suffix: '+', label: 'Empresas protegidas', delay: '240' }],
+      ctaTitle: 'Duerme tranquilo.', ctaEm: 'Nosotros vigilamos.', ctaBtn: 'Solicitar demo', footer: 'Diseño · Nivaldyr Technologies' },
+    en: { nav: ['Home', 'About', 'Services', 'Industries', 'Threat intelligence', 'Contact'], cta: 'Resources', h2a: 'Innovation', h2b: 'security', sub: 'We are at the forefront of technology that protects what matters. AI that detects before it happens.', primary: 'Our solutions', secondary: 'Contact us', active: 'Active users',
+      c1tag: 'Perfect Security', c1: 'AI ensures total protection, 24 hours, frictionless.', c2t: 'Integrated AI agent', c2: 'An agent for personalized client experiences.', c3: 'Fewer incidents in the first quarter.',
+      howEyebrow: 'How it works', howTitle: 'Three layers. Zero blind spots.', steps: [{ id: 'bb-s1', ph: 'Network map · nodes', title: 'Detect', text: 'Models trained on 4B events identify anomalies in milliseconds.' }, { id: 'bb-s2', ph: 'Analytics panel', title: 'Analyze', text: 'Correlation across endpoints, cloud and identity. Full context, not loose alerts.' }, { id: 'bb-s3', ph: 'Automated response', title: 'Respond', text: 'Automatic containment and playbooks that learn from every incident.' }],
+      stats: [{ n: 4, suffix: 'B', label: 'Events analyzed per day', delay: '0' }, { n: 12, suffix: 'ms', label: 'Mean time to detect', delay: '80' }, { n: 99, suffix: '.99%', label: 'Guaranteed uptime', delay: '160' }, { n: 340, suffix: '+', label: 'Companies protected', delay: '240' }],
+      ctaTitle: 'Sleep well.', ctaEm: 'We keep watch.', ctaBtn: 'Request a demo', footer: 'Design · Nivaldyr Technologies' },
+  };
+  componentDidMount() {
+    const root = this.rootRef.current;
+    import('./fx.js').then((fx) => { this.cleanups = [fx.parallax(root, { max: 26 }), fx.reveal(root), fx.magnetic(root), fx.tilt(root, { max: 8 }), fx.counters(root),
+      fx.scrollProgress(this.stepsRef.current, (p) => { const step = Math.min(2, Math.floor(p * 3)); if (step !== this.state.step) this.setState({ step }); }, { sticky: true })]; });
+  }
+  componentWillUnmount() { (this.cleanups || []).forEach((c) => c()); }
+  renderVals() {
+    const lang = this.state.lang; const t = this.copy[lang]; const cur = this.state.step;
+    return { rootRef: this.rootRef, stepsRef: this.stepsRef, t,
+      letters: 'BLUEBIRD'.split('').map((ch, i) => ({ ch, delay: (0.3 + i * 0.08) + 's' })),
+      pings: [{ x: '28%', y: '32%', delay: '0s' }, { x: '70%', y: '26%', delay: '.8s' }, { x: '62%', y: '72%', delay: '1.6s' }, { x: '22%', y: '68%', delay: '.4s' }],
+      avatars: ['#1747ff', '#0b1a2e', '#7fa3ff', '#c9d8ee'],
+      steps: t.steps.map((s, i) => ({ ...s, num: '0' + (i + 1), opacity: i === cur ? 1 : .35, bg: i === cur ? '#1747ff' : 'transparent', fg: i === cur ? '#fff' : '#0b1a2e', opacity2: i === cur ? 1 : 0, scale: i === cur ? 1 : 1.08 })),
+      stepLabel: '0' + (cur + 1) + ' / 03 · ' + t.steps[cur].title,
+      langLabel: lang === 'es' ? 'ES · EN' : 'EN · ES', toggleLang: () => this.setState((s) => ({ lang: s.lang === 'es' ? 'en' : 'es' })) };
+  }
+}
+const c = new Component();
+document.querySelectorAll('[data-fx-ref]').forEach((el) => { const n = el.dataset.fxRef; if (c[n]) c[n].current = el; });
+if (c.componentDidMount) c.componentDidMount();
+</script>
+</body>
+</html>

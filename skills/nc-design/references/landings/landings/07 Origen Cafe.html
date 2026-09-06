@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Origen Cafe</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;background:#1c120c;color:#f1e9df;font-family:'DM Sans',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#f1e9df;text-decoration:none}a:hover{color:#c98a3c}
+*{box-sizing:border-box}
+@keyframes fadeUp{from{opacity:0;transform:translate3d(0,40px,0)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes dropIn{from{opacity:0;transform:translate3d(0,-120%,0) rotate(-8deg)}to{opacity:1;transform:none}}
+@keyframes floatBean{0%,100%{transform:translate(0,0) rotate(var(--r,0deg))}50%{transform:translate(6px,-18px) rotate(calc(var(--r,0deg) + 12deg))}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes steam{0%{opacity:0;transform:translateY(0) scaleX(1)}30%{opacity:.5}100%{opacity:0;transform:translateY(-60px) scaleX(1.6)}}
+</style>
+<style>
+.hv-0:hover{color:#fff}
+.hv-1:hover{color:#fff}
+.hv-2:hover{color:#fff}
+.hv-3:hover{color:#fff}
+</style>
+</head>
+<body>
+<div data-fx-ref="rootRef" style="min-height:100vh;background:#1c120c;overflow-x:hidden">
+
+<section data-screen-label="Hero" style="position:relative;height:100vh;min-height:760px;overflow:hidden;display:grid;grid-template-columns:44% 56%">
+  <!-- paper panel -->
+  <div style="position:relative;background:#efe8dc;color:#1c120c;padding:0 48px;display:flex;flex-direction:column;justify-content:space-between;clip-path:polygon(0 0,100% 0,97% 100%,0 100%)">
+    <nav style="display:flex;align-items:center;justify-content:space-between;gap:24px;padding:30px 0;animation:fadeIn 1s .2s both">
+      <a href="#" style="font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:.14em;color:#1c120c">ORIGEN</a>
+      <button style="white-space:nowrap;border:1px solid rgba(28,18,12,.3);background:transparent;color:inherit;padding:6px 10px;font-size:11px;letter-spacing:.1em;cursor:pointer;font-family:inherit">ES · EN</button>
+    </nav>
+    <div style="display:flex;align-items:flex-start;gap:32px">
+      <h1 style="margin:0;font-family:'Bebas Neue',sans-serif;font-size:clamp(90px,12.5vh,160px);line-height:.86;letter-spacing:.02em;display:flex;flex-direction:column">
+        <span style="display:block;animation:dropIn .9s cubic-bezier(.2,.7,.2,1) both;animation-delay:0.3s">O</span><span style="display:block;animation:dropIn .9s cubic-bezier(.2,.7,.2,1) both;animation-delay:0.4s">R</span><span style="display:block;animation:dropIn .9s cubic-bezier(.2,.7,.2,1) both;animation-delay:0.5s">I</span><span style="display:block;animation:dropIn .9s cubic-bezier(.2,.7,.2,1) both;animation-delay:0.6000000000000001s">G</span><span style="display:block;animation:dropIn .9s cubic-bezier(.2,.7,.2,1) both;animation-delay:0.7s">E</span><span style="display:block;animation:dropIn .9s cubic-bezier(.2,.7,.2,1) both;animation-delay:0.8s">N</span>
+      </h1>
+      <div style="padding-top:8px;max-width:220px">
+        <div style="font-size:11px;letter-spacing:.3em;text-transform:uppercase;font-weight:500;margin-bottom:14px;animation:fadeUp 1s .9s both">Café de especialidad</div>
+        <p style="font-size:14px;line-height:1.7;color:rgba(28,18,12,.7);margin:0 0 26px;animation:fadeUp 1s 1.1s both">Del árbol a la taza en menos de 30 días. Tostamos cada semana, en lotes pequeños, para que llegue vivo.</p>
+        <a href="#process" data-magnetic="" style="white-space:nowrap;display:inline-flex;align-items:center;gap:12px;background:#1c120c;color:#efe8dc;padding:14px 22px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;animation:fadeUp 1s 1.3s both">Conoce el proceso <span>→</span></a>
+        <div style="margin-top:40px;font-size:12px;line-height:1.8;color:rgba(28,18,12,.6);animation:fadeUp 1s 1.5s both">@origen.cafe<br>www.origencafe.co</div>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;padding:0 0 30px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(28,18,12,.5);animation:fadeIn 1s 1.8s both"><span>Desplázate ↓</span><span>Huila · Colombia · 1.850 msnm</span></div>
+  </div>
+
+  <!-- dark image panel -->
+  <div style="position:relative;overflow:hidden">
+    <div data-depth="0.2" style="position:absolute;inset:-4%">
+      <img alt="Granos de café cayendo sobre fondo oscuro" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EGranos%20de%20caf%C3%A9%20cayendo%20sobre%20fondo%20oscuro%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+    </div>
+    <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(28,18,12,.5),transparent 30%)"></div>
+    <div style="position:absolute;inset:0;pointer-events:none;z-index:2;z-index:1"><canvas data-fx-ref="emberRef" style="width:100%;height:100%;display:block"></canvas></div><div style="position:absolute;inset:0;pointer-events:none;z-index:2;z-index:1"><canvas data-fx-ref="steamRef" style="width:100%;height:100%;display:block"></canvas></div>
+    <!-- floating beans -->
+    
+      <span data-depth="0.7" style="position:absolute;left:12%;top:14%;width:46px;height:62px;border-radius:50%;background:linear-gradient(145deg,#8a5a34,#3a2114);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),0 20px 30px rgba(0,0,0,.4);--r:-20deg;animation:floatBean 5s ease-in-out infinite;animation-delay:0s"><span style="position:absolute;left:48%;top:12%;bottom:12%;width:2px;border-radius:2px;background:#1c120c;transform:rotate(6deg)"></span></span>
+    
+      <span data-depth="0.4" style="position:absolute;left:30%;top:8%;width:34px;height:46px;border-radius:50%;background:linear-gradient(145deg,#8a5a34,#3a2114);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),0 20px 30px rgba(0,0,0,.4);--r:30deg;animation:floatBean 5.7s ease-in-out infinite;animation-delay:-0.9s"><span style="position:absolute;left:48%;top:12%;bottom:12%;width:2px;border-radius:2px;background:#1c120c;transform:rotate(6deg)"></span></span>
+    
+      <span data-depth="0.9" style="position:absolute;left:58%;top:20%;width:56px;height:76px;border-radius:50%;background:linear-gradient(145deg,#8a5a34,#3a2114);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),0 20px 30px rgba(0,0,0,.4);--r:-50deg;animation:floatBean 6.4s ease-in-out infinite;animation-delay:-1.8s"><span style="position:absolute;left:48%;top:12%;bottom:12%;width:2px;border-radius:2px;background:#1c120c;transform:rotate(6deg)"></span></span>
+    
+      <span data-depth="0.5" style="position:absolute;left:80%;top:12%;width:30px;height:41px;border-radius:50%;background:linear-gradient(145deg,#8a5a34,#3a2114);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),0 20px 30px rgba(0,0,0,.4);--r:10deg;animation:floatBean 7.1s ease-in-out infinite;animation-delay:-2.7s"><span style="position:absolute;left:48%;top:12%;bottom:12%;width:2px;border-radius:2px;background:#1c120c;transform:rotate(6deg)"></span></span>
+    
+      <span data-depth="0.6" style="position:absolute;left:22%;top:52%;width:40px;height:54px;border-radius:50%;background:linear-gradient(145deg,#8a5a34,#3a2114);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),0 20px 30px rgba(0,0,0,.4);--r:60deg;animation:floatBean 7.8s ease-in-out infinite;animation-delay:-3.6s"><span style="position:absolute;left:48%;top:12%;bottom:12%;width:2px;border-radius:2px;background:#1c120c;transform:rotate(6deg)"></span></span>
+    
+      <span data-depth="0.8" style="position:absolute;left:50%;top:62%;width:62px;height:84px;border-radius:50%;background:linear-gradient(145deg,#8a5a34,#3a2114);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),0 20px 30px rgba(0,0,0,.4);--r:-15deg;animation:floatBean 8.5s ease-in-out infinite;animation-delay:-4.5s"><span style="position:absolute;left:48%;top:12%;bottom:12%;width:2px;border-radius:2px;background:#1c120c;transform:rotate(6deg)"></span></span>
+    
+      <span data-depth="0.45" style="position:absolute;left:74%;top:48%;width:36px;height:49px;border-radius:50%;background:linear-gradient(145deg,#8a5a34,#3a2114);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),0 20px 30px rgba(0,0,0,.4);--r:40deg;animation:floatBean 9.2s ease-in-out infinite;animation-delay:-5.4s"><span style="position:absolute;left:48%;top:12%;bottom:12%;width:2px;border-radius:2px;background:#1c120c;transform:rotate(6deg)"></span></span>
+    
+    <!-- cup card -->
+    <div data-depth="0.5" style="position:absolute;right:56px;bottom:56px;width:300px;padding:20px;background:rgba(28,18,12,.55);border:1px solid rgba(241,233,223,.14);backdrop-filter:blur(16px);animation:fadeUp 1.2s 1.6s both">
+      <div style="position:relative;height:150px;overflow:hidden;margin-bottom:16px"><img alt="Taza · vista superior" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3ETaza%20%C2%B7%20vista%20superior%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+        <span style="position:absolute;left:40%;top:10%;width:20px;height:40px;border-radius:50%;background:rgba(241,233,223,.5);filter:blur(6px);animation:steam 3s ease-out infinite"></span>
+        <span style="position:absolute;left:55%;top:14%;width:16px;height:36px;border-radius:50%;background:rgba(241,233,223,.5);filter:blur(6px);animation:steam 3s 1.2s ease-out infinite"></span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:.06em">Lote 042</span><span style="font-size:12px;color:#c98a3c">Lavado · 86 pts</span></div>
+      <p style="font-size:12px;line-height:1.6;color:rgba(241,233,223,.65);margin:8px 0 0">Notas de panela, naranja y cacao. Finca La Esperanza, Pitalito.</p>
+    </div>
+    <div style="position:absolute;right:56px;top:34px;display:flex;gap:28px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;animation:fadeIn 1s .4s both">
+      <a href="#" style="color:rgba(241,233,223,.75)" class="hv-0">Café</a><a href="#" style="color:rgba(241,233,223,.75)" class="hv-1">Proceso</a><a href="#" style="color:rgba(241,233,223,.75)" class="hv-2">Tienda</a><a href="#" style="color:rgba(241,233,223,.75)" class="hv-3">Visítanos</a>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div style="background:#c98a3c;color:#1c120c;padding:16px 0;overflow:hidden;white-space:nowrap">
+  <div style="display:inline-flex;gap:48px;animation:marquee 30s linear infinite;font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.14em">
+    <span>Huila <span style="margin-left:36px">●</span></span><span>Lavado <span style="margin-left:36px">●</span></span><span>Honey <span style="margin-left:36px">●</span></span><span>Natural <span style="margin-left:36px">●</span></span><span>Tostión semanal <span style="margin-left:36px">●</span></span><span>Comercio directo <span style="margin-left:36px">●</span></span><span>Huila <span style="margin-left:36px">●</span></span><span>Lavado <span style="margin-left:36px">●</span></span><span>Honey <span style="margin-left:36px">●</span></span><span>Natural <span style="margin-left:36px">●</span></span><span>Tostión semanal <span style="margin-left:36px">●</span></span><span>Comercio directo <span style="margin-left:36px">●</span></span>
+  </div>
+</div>
+
+<!-- PROCESS -->
+<section id="process" data-screen-label="Proceso" style="padding:140px 56px 100px">
+  <div data-reveal="" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:64px">
+    <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(56px,7vw,120px);line-height:.9;margin:0;letter-spacing:.02em">Del origen<br><span style="color:#c98a3c">a la taza</span></h2>
+    <p style="font-size:15px;line-height:1.8;color:rgba(241,233,223,.65);margin:0;max-width:420px">Tres pasos, cero atajos. Trabajamos directo con 14 familias caficultoras y pagamos un 40% sobre el precio de bolsa.</p>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+    
+      <article data-reveal="" data-reveal-delay="0" data-tilt="" style="position:relative;height:460px;overflow:hidden;background:#2a1a10">
+        <img alt="Cosecha manual" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3ECosecha%20manual%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,18,12,.3),transparent 30%,rgba(28,18,12,.95))"></div>
+        <span style="position:absolute;top:18px;left:20px;font-family:'Bebas Neue',sans-serif;font-size:56px;line-height:1;color:#c98a3c">01</span>
+        <div style="position:absolute;left:20px;right:20px;bottom:22px"><div style="font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:.06em">Cosecha</div><p style="font-size:13px;line-height:1.6;color:rgba(241,233,223,.65);margin:8px 0 0">Cereza madura, seleccionada a mano en la montaña.</p></div>
+      </article>
+    
+      <article data-reveal="" data-reveal-delay="120" data-tilt="" style="position:relative;height:460px;overflow:hidden;background:#2a1a10">
+        <img alt="Secado en camas africanas" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3ESecado%20en%20camas%20africanas%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,18,12,.3),transparent 30%,rgba(28,18,12,.95))"></div>
+        <span style="position:absolute;top:18px;left:20px;font-family:'Bebas Neue',sans-serif;font-size:56px;line-height:1;color:#c98a3c">02</span>
+        <div style="position:absolute;left:20px;right:20px;bottom:22px"><div style="font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:.06em">Beneficio</div><p style="font-size:13px;line-height:1.6;color:rgba(241,233,223,.65);margin:8px 0 0">Fermentación controlada y secado lento al sol.</p></div>
+      </article>
+    
+      <article data-reveal="" data-reveal-delay="240" data-tilt="" style="position:relative;height:460px;overflow:hidden;background:#2a1a10">
+        <img alt="Tostión" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3ETosti%C3%B3n%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,18,12,.3),transparent 30%,rgba(28,18,12,.95))"></div>
+        <span style="position:absolute;top:18px;left:20px;font-family:'Bebas Neue',sans-serif;font-size:56px;line-height:1;color:#c98a3c">03</span>
+        <div style="position:absolute;left:20px;right:20px;bottom:22px"><div style="font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:.06em">Tostión</div><p style="font-size:13px;line-height:1.6;color:rgba(241,233,223,.65);margin:8px 0 0">Perfiles ligeros que respetan el terroir de cada lote.</p></div>
+      </article>
+    
+  </div>
+</section>
+
+<!-- MENU -->
+<section data-screen-label="Menú" style="padding:60px 56px 140px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start">
+  <div data-reveal="" style="position:relative;height:640px;overflow:hidden"><img alt="Barista sirviendo · ambiente" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EBarista%20sirviendo%20%C2%B7%20ambiente%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
+  <div>
+    <div data-reveal="" style="font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#c98a3c;margin-bottom:16px">Carta</div>
+    <h2 data-reveal="" style="font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,5vw,84px);line-height:.9;margin:0 0 40px">Lo que servimos hoy</h2>
+    
+      <div data-reveal="" data-reveal-delay="0" style="display:grid;grid-template-columns:1fr auto;gap:20px;padding:20px 0;border-top:1px solid rgba(241,233,223,.14)">
+        <div><div style="font-size:17px;font-weight:500">Espresso</div><div style="font-size:13px;color:rgba(241,233,223,.55);margin-top:4px">Lote 042 · doble</div></div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:26px;color:#c98a3c">8.000</div>
+      </div>
+    
+      <div data-reveal="" data-reveal-delay="60" style="display:grid;grid-template-columns:1fr auto;gap:20px;padding:20px 0;border-top:1px solid rgba(241,233,223,.14)">
+        <div><div style="font-size:17px;font-weight:500">Flat white</div><div style="font-size:13px;color:rgba(241,233,223,.55);margin-top:4px">Leche de finca · 180 ml</div></div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:26px;color:#c98a3c">11.000</div>
+      </div>
+    
+      <div data-reveal="" data-reveal-delay="120" style="display:grid;grid-template-columns:1fr auto;gap:20px;padding:20px 0;border-top:1px solid rgba(241,233,223,.14)">
+        <div><div style="font-size:17px;font-weight:500">V60</div><div style="font-size:13px;color:rgba(241,233,223,.55);margin-top:4px">Filtrado · 300 ml</div></div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:26px;color:#c98a3c">13.000</div>
+      </div>
+    
+      <div data-reveal="" data-reveal-delay="180" style="display:grid;grid-template-columns:1fr auto;gap:20px;padding:20px 0;border-top:1px solid rgba(241,233,223,.14)">
+        <div><div style="font-size:17px;font-weight:500">Cold brew</div><div style="font-size:13px;color:rgba(241,233,223,.55);margin-top:4px">18 h de infusión</div></div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:26px;color:#c98a3c">12.000</div>
+      </div>
+    
+      <div data-reveal="" data-reveal-delay="240" style="display:grid;grid-template-columns:1fr auto;gap:20px;padding:20px 0;border-top:1px solid rgba(241,233,223,.14)">
+        <div><div style="font-size:17px;font-weight:500">Bolsa 340 g</div><div style="font-size:13px;color:rgba(241,233,223,.55);margin-top:4px">Grano · molido a pedido</div></div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:26px;color:#c98a3c">48.000</div>
+      </div>
+    
+    <a href="#" data-magnetic="" style="white-space:nowrap;display:inline-block;margin-top:36px;background:#efe8dc;color:#1c120c;padding:16px 28px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500">Pedir en línea</a>
+  </div>
+</section>
+<footer style="display:flex;justify-content:space-between;padding:0 56px 40px;font-size:11px;color:rgba(241,233,223,.4);letter-spacing:.14em;text-transform:uppercase"><span>© 2026 Origen Café de Especialidad</span><span>Diseño · Nivaldyr Technologies</span></footer>
+</div>
+<script type="module">
+window.React = { createRef: () => ({ current: null }) };
+class DCLogic { constructor() { this.state = {}; this.props = {}; } setState() {} }
+class Component extends DCLogic {
+  state = { lang: 'es' };
+  rootRef = React.createRef(); emberRef = React.createRef(); steamRef = React.createRef();
+  copy = {
+    es: { nav: ['Café', 'Proceso', 'Tienda', 'Visítanos'], eyebrow: 'Café de especialidad', sub: 'Del árbol a la taza en menos de 30 días. Tostamos cada semana, en lotes pequeños, para que llegue vivo.', cta: 'Conoce el proceso', scroll: 'Desplázate', cardTitle: 'Lote 042', cardMeta: 'Lavado · 86 pts', cardText: 'Notas de panela, naranja y cacao. Finca La Esperanza, Pitalito.',
+      procTitle: 'Del origen', procTitleB: 'a la taza', procText: 'Tres pasos, cero atajos. Trabajamos directo con 14 familias caficultoras y pagamos un 40% sobre el precio de bolsa.',
+      steps: [{ id: 'origen-s1', ph: 'Cosecha manual', num: '01', title: 'Cosecha', text: 'Cereza madura, seleccionada a mano en la montaña.', delay: '0' }, { id: 'origen-s2', ph: 'Secado en camas africanas', num: '02', title: 'Beneficio', text: 'Fermentación controlada y secado lento al sol.', delay: '120' }, { id: 'origen-s3', ph: 'Tostión', num: '03', title: 'Tostión', text: 'Perfiles ligeros que respetan el terroir de cada lote.', delay: '240' }],
+      menuEyebrow: 'Carta', menuTitle: 'Lo que servimos hoy', menu: [{ name: 'Espresso', desc: 'Lote 042 · doble', price: '8.000', delay: '0' }, { name: 'Flat white', desc: 'Leche de finca · 180 ml', price: '11.000', delay: '60' }, { name: 'V60', desc: 'Filtrado · 300 ml', price: '13.000', delay: '120' }, { name: 'Cold brew', desc: '18 h de infusión', price: '12.000', delay: '180' }, { name: 'Bolsa 340 g', desc: 'Grano · molido a pedido', price: '48.000', delay: '240' }], menuCta: 'Pedir en línea', footer: 'Diseño · Nivaldyr Technologies' },
+    en: { nav: ['Coffee', 'Process', 'Shop', 'Visit'], eyebrow: 'Specialty coffee', sub: 'From tree to cup in under 30 days. We roast weekly, in small batches, so it arrives alive.', cta: 'See the process', scroll: 'Scroll', cardTitle: 'Lot 042', cardMeta: 'Washed · 86 pts', cardText: 'Notes of cane sugar, orange and cocoa. La Esperanza farm, Pitalito.',
+      procTitle: 'From origin', procTitleB: 'to cup', procText: 'Three steps, zero shortcuts. We work directly with 14 coffee-growing families and pay 40% above market price.',
+      steps: [{ id: 'origen-s1', ph: 'Hand harvest', num: '01', title: 'Harvest', text: 'Ripe cherries, hand-picked on the mountain.', delay: '0' }, { id: 'origen-s2', ph: 'Drying on raised beds', num: '02', title: 'Processing', text: 'Controlled fermentation and slow sun drying.', delay: '120' }, { id: 'origen-s3', ph: 'Roasting', num: '03', title: 'Roasting', text: 'Light profiles that honor each lot’s terroir.', delay: '240' }],
+      menuEyebrow: 'Menu', menuTitle: 'What we serve today', menu: [{ name: 'Espresso', desc: 'Lot 042 · double', price: '8.000', delay: '0' }, { name: 'Flat white', desc: 'Farm milk · 180 ml', price: '11.000', delay: '60' }, { name: 'V60', desc: 'Pour over · 300 ml', price: '13.000', delay: '120' }, { name: 'Cold brew', desc: '18 h steep', price: '12.000', delay: '180' }, { name: '340 g bag', desc: 'Whole bean · ground on request', price: '48.000', delay: '240' }], menuCta: 'Order online', footer: 'Design · Nivaldyr Technologies' },
+  };
+  componentDidMount() { const root = this.rootRef.current; import('./fx.js').then((fx) => { this.cleanups = [fx.particles(this.emberRef.current, { type: 'ember', count: 50, color: '201,138,60', speed: .5 }), fx.fog(this.steamRef.current, { count: 5, color: '241,233,223', alpha: .1, speed: .4 }), fx.parallax(root, { max: 26 }), fx.reveal(root), fx.magnetic(root), fx.tilt(root, { max: 5 })]; }); }
+  componentWillUnmount() { (this.cleanups || []).forEach((c) => c()); }
+  renderVals() {
+    const lang = this.state.lang; const t = this.copy[lang];
+    const beans = [[12, 14, 46, .7, -20], [30, 8, 34, .4, 30], [58, 20, 56, .9, -50], [80, 12, 30, .5, 10], [22, 52, 40, .6, 60], [50, 62, 62, .8, -15], [74, 48, 36, .45, 40]].map(([x, y, s, depth, r], i) => ({ x: x + '%', y: y + '%', s: s + 'px', h: Math.round(s * 1.35) + 'px', depth: String(depth), r: r + 'deg', dur: (5 + i * .7) + 's', delay: (i * -.9) + 's' }));
+    return { rootRef: this.rootRef, emberRef: this.emberRef, steamRef: this.steamRef, t, beans,
+      letters: 'ORIGEN'.split('').map((ch, i) => ({ ch, delay: (0.3 + i * 0.1) + 's' })),
+      marquee: ['Huila', 'Lavado', 'Honey', 'Natural', 'Tostión semanal', 'Comercio directo', 'Huila', 'Lavado', 'Honey', 'Natural', 'Tostión semanal', 'Comercio directo'],
+      langLabel: lang === 'es' ? 'ES · EN' : 'EN · ES', toggleLang: () => this.setState((s) => ({ lang: s.lang === 'es' ? 'en' : 'es' })) };
+  }
+}
+const c = new Component();
+document.querySelectorAll('[data-fx-ref]').forEach((el) => { const n = el.dataset.fxRef; if (c[n]) c[n].current = el; });
+if (c.componentDidMount) c.componentDidMount();
+</script>
+</body>
+</html>

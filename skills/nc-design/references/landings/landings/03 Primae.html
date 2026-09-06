@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Primae</title>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;background:#f4f2ee;color:#17161a;font-family:Jost,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#17161a;text-decoration:none}a:hover{color:#6b2fb3}
+*{box-sizing:border-box}
+@keyframes letterIn{from{opacity:0;transform:translate3d(0,60%,0) rotate(4deg)}to{opacity:1;transform:none}}
+@keyframes fadeUp{from{opacity:0;transform:translate3d(0,30px,0)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes revealClip{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 0 0)}}
+</style>
+<style>
+.hv-0:hover{color:#17161a}
+.hv-1:hover{color:#17161a}
+.hv-2:hover{color:#17161a}
+.hv-3:hover{color:#17161a}
+.hv-4:hover{color:#17161a}
+</style>
+</head>
+<body>
+<div data-fx-ref="rootRef" style="min-height:100vh;background:#f4f2ee;overflow-x:hidden">
+
+<section data-screen-label="Hero" style="position:relative;height:100vh;min-height:760px;overflow:hidden">
+  <div style="position:absolute;inset:0;pointer-events:none;z-index:2;z-index:4"><canvas data-fx-ref="petalRef" style="width:100%;height:100%;display:block"></canvas></div>
+  <nav style="position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:30px 56px;z-index:6;animation:fadeIn 1s .2s both">
+    <div style="display:flex;gap:clamp(14px,2vw,30px)px;font-size:12px;letter-spacing:.16em;text-transform:uppercase">
+      <a href="#" style="color:rgba(23,22,26,.65)" class="hv-0">Colección</a><a href="#" style="color:rgba(23,22,26,.65)" class="hv-1">Alta joyería</a><a href="#" style="color:rgba(23,22,26,.65)" class="hv-2">Novias</a>
+    </div>
+    <a href="#" style="font-family:Italiana,serif;font-size:26px;letter-spacing:.3em">PRIMAE</a>
+    <div style="display:flex;gap:30px;align-items:center;font-size:12px;letter-spacing:.16em;text-transform:uppercase">
+      <a href="#" style="color:rgba(23,22,26,.65)" class="hv-3">Atelier</a><a href="#" style="color:rgba(23,22,26,.65)" class="hv-4">Boutiques</a>
+      <button style="white-space:nowrap;border:1px solid rgba(23,22,26,.3);background:transparent;color:inherit;border-radius:999px;padding:6px 12px;font-size:11px;letter-spacing:.1em;cursor:pointer;font-family:inherit">ES · EN</button>
+    </div>
+  </nav>
+
+  <!-- image center -->
+  <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(46vw,640px);height:min(78vh,760px);z-index:2"><div data-depth="0.2" style="position:absolute;inset:0;animation:revealClip 1.6s .4s cubic-bezier(.7,0,.2,1) both">
+    <img alt="Retrato editorial con joya · fondo claro" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3ERetrato%20editorial%20con%20joya%20%C2%B7%20fondo%20claro%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+  </div></div>
+
+  <!-- giant letters -->
+  <h1 style="position:absolute;left:0;right:0;top:50%;transform:translateY(-58%);margin:0;display:flex;justify-content:space-between;padding:0 4vw;font-family:Italiana,serif;font-weight:400;font-size:clamp(120px,22vw,340px);line-height:1;z-index:3;pointer-events:none;mix-blend-mode:multiply;color:#2b1a4a;perspective:900px;transform-style:preserve-3d">
+    
+      <span data-depth="0.15" style="display:inline-block;animation:letterIn 1.2s cubic-bezier(.2,.7,.2,1) both;animation-delay:0.5s;color:#2b1a4a;text-shadow:0 30px 60px rgba(43,26,74,.25)">P</span>
+    
+      <span data-depth="0.35" style="display:inline-block;animation:letterIn 1.2s cubic-bezier(.2,.7,.2,1) both;animation-delay:0.62s;color:#2b1a4a;text-shadow:0 30px 60px rgba(43,26,74,.25)">R</span>
+    
+      <span data-depth="0.55" style="display:inline-block;animation:letterIn 1.2s cubic-bezier(.2,.7,.2,1) both;animation-delay:0.74s;color:#6b2fb3;text-shadow:0 30px 60px rgba(43,26,74,.25)">I</span>
+    
+      <span data-depth="0.15" style="display:inline-block;animation:letterIn 1.2s cubic-bezier(.2,.7,.2,1) both;animation-delay:0.86s;color:#6b2fb3;text-shadow:0 30px 60px rgba(43,26,74,.25)">M</span>
+    
+      <span data-depth="0.35" style="display:inline-block;animation:letterIn 1.2s cubic-bezier(.2,.7,.2,1) both;animation-delay:0.98s;color:#2b1a4a;text-shadow:0 30px 60px rgba(43,26,74,.25)">A</span>
+    
+      <span data-depth="0.55" style="display:inline-block;animation:letterIn 1.2s cubic-bezier(.2,.7,.2,1) both;animation-delay:1.1s;color:#2b1a4a;text-shadow:0 30px 60px rgba(43,26,74,.25)">E</span>
+    
+  </h1>
+
+  <!-- copy left -->
+  <div style="position:absolute;left:56px;bottom:110px;max-width:300px;z-index:4">
+    <h2 style="font-family:Italiana,serif;font-size:40px;line-height:1.05;margin:0 0 16px;animation:fadeUp 1s 1.5s both">Libera tu belleza interior</h2>
+    <p style="font-size:13px;line-height:1.7;color:rgba(23,22,26,.65);margin:0 0 26px;animation:fadeUp 1s 1.7s both">Elegancia y artesanía en una colección de joyería exquisita, diseñada para inspirar y perdurar.</p>
+    <a href="#collection" data-magnetic="" style="white-space:nowrap;display:inline-flex;align-items:center;gap:14px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;animation:fadeUp 1s 1.9s both">Descubrir<span style="width:44px;height:44px;border-radius:50%;border:1px solid #17161a;display:grid;place-items:center">→</span></a>
+  </div>
+
+  <!-- product cards right -->
+  <div data-depth="0.6" style="position:absolute;right:56px;bottom:110px;display:flex;flex-direction:column;gap:14px;z-index:4;animation:fadeUp 1.2s 1.8s both">
+    <div style="display:flex;gap:12px">
+      <div style="width:120px;height:140px;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 20px 50px rgba(43,26,74,.12);animation:floatY 6s ease-in-out infinite">
+        <img alt="Anillo" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EAnillo%3C%2Ftext%3E%3C%2Fsvg%3E" style="width:100%;height:100%;object-fit:cover;border-radius:14px">
+      </div>
+      <div style="width:120px;height:140px;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 20px 50px rgba(43,26,74,.12);animation:floatY 6s 1s ease-in-out infinite">
+        <img alt="Collar" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3ECollar%3C%2Ftext%3E%3C%2Fsvg%3E" style="width:100%;height:100%;object-fit:cover;border-radius:14px">
+      </div>
+    </div>
+    <div style="display:flex;gap:10px;justify-content:flex-end">
+      <span style="width:40px;height:40px;border-radius:12px;background:#fff;box-shadow:0 10px 30px rgba(43,26,74,.1);display:grid;place-items:center;font-size:14px">◇</span>
+      <span style="width:40px;height:40px;border-radius:12px;background:#fff;box-shadow:0 10px 30px rgba(43,26,74,.1);display:grid;place-items:center;font-size:14px">◈</span>
+    </div>
+  </div>
+
+  <div style="position:absolute;left:56px;top:50%;transform:translateY(-50%) rotate(-90deg);transform-origin:left center;font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:rgba(23,22,26,.4);z-index:4;animation:fadeIn 1s 2s both">Otoño / Invierno 2026</div>
+</section>
+
+<!-- COLLECTION -->
+<section id="collection" data-screen-label="Colección" style="padding:140px 56px 100px">
+  <div data-reveal="" style="text-align:center;margin-bottom:64px">
+    <div style="font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:#6b2fb3;margin-bottom:16px">La colección</div>
+    <h2 style="font-family:Italiana,serif;font-size:clamp(44px,5vw,80px);line-height:1;margin:0">Piezas que permanecen</h2>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px">
+    
+      <article data-reveal="" data-reveal-delay="0" style="cursor:pointer">
+        <div data-tilt="" style="position:relative;height:420px;border-radius:6px;overflow:hidden;background:#e9e5df;margin-top:0">
+          <img alt="Anillo solitario" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EAnillo%20solitario%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:18px">
+          <div><div style="font-family:Italiana,serif;font-size:24px">Solitaire</div><div style="font-size:12px;color:rgba(23,22,26,.55);margin-top:4px;letter-spacing:.06em">Oro blanco 18k · Diamante</div></div>
+          <div style="font-size:14px">€ 4.900</div>
+        </div>
+      </article>
+    
+      <article data-reveal="" data-reveal-delay="100" style="cursor:pointer">
+        <div data-tilt="" style="position:relative;height:420px;border-radius:6px;overflow:hidden;background:#e9e5df;margin-top:48px">
+          <img alt="Pendientes" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EPendientes%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:18px">
+          <div><div style="font-family:Italiana,serif;font-size:24px">Aurore</div><div style="font-size:12px;color:rgba(23,22,26,.55);margin-top:4px;letter-spacing:.06em">Oro rosa · Zafiro</div></div>
+          <div style="font-size:14px">€ 2.350</div>
+        </div>
+      </article>
+    
+      <article data-reveal="" data-reveal-delay="200" style="cursor:pointer">
+        <div data-tilt="" style="position:relative;height:420px;border-radius:6px;overflow:hidden;background:#e9e5df;margin-top:0">
+          <img alt="Collar" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3ECollar%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:18px">
+          <div><div style="font-family:Italiana,serif;font-size:24px">Lumière</div><div style="font-size:12px;color:rgba(23,22,26,.55);margin-top:4px;letter-spacing:.06em">Platino · Perlas Akoya</div></div>
+          <div style="font-size:14px">€ 6.800</div>
+        </div>
+      </article>
+    
+      <article data-reveal="" data-reveal-delay="300" style="cursor:pointer">
+        <div data-tilt="" style="position:relative;height:420px;border-radius:6px;overflow:hidden;background:#e9e5df;margin-top:48px">
+          <img alt="Brazalete" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EBrazalete%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:18px">
+          <div><div style="font-family:Italiana,serif;font-size:24px">Ondine</div><div style="font-size:12px;color:rgba(23,22,26,.55);margin-top:4px;letter-spacing:.06em">Oro amarillo · Esmeralda</div></div>
+          <div style="font-size:14px">€ 3.100</div>
+        </div>
+      </article>
+    
+  </div>
+</section>
+
+<!-- CRAFT -->
+<section data-screen-label="Oficio" style="padding:80px 56px 140px;display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch;background:#17161a;color:#f4f2ee;margin:0 56px;border-radius:6px">
+  <div data-reveal="" style="position:relative;min-height:640px">
+    <img alt="Manos del artesano · taller" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EManos%20del%20artesano%20%C2%B7%20taller%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+  </div>
+  <div style="padding:80px 72px;display:flex;flex-direction:column;justify-content:center">
+    <div data-reveal="" style="font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:#c9a6ff;margin-bottom:20px">El oficio</div>
+    <h2 data-reveal="" style="font-family:Italiana,serif;font-size:clamp(40px,4vw,64px);line-height:1;margin:0 0 30px">Hecho a mano, pensado para siempre</h2>
+    <p data-reveal="" style="font-size:15px;line-height:1.8;color:rgba(244,242,238,.7);font-weight:300;margin:0 0 40px;max-width:440px">Cada pieza nace en nuestro atelier de Florencia. Más de 200 horas de trabajo, gemas trazables y un compromiso con la permanencia.</p>
+    <div style="display:flex;gap:40px">
+      
+        <div data-reveal="" data-reveal-delay="0"><div style="font-family:Italiana,serif;font-size:44px;line-height:1"><span data-count="200" data-suffix="h" style="white-space:nowrap">0</span></div><div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,242,238,.5);margin-top:8px">Por pieza</div></div>
+      
+        <div data-reveal="" data-reveal-delay="100"><div style="font-family:Italiana,serif;font-size:44px;line-height:1"><span data-count="14" data-suffix="" style="white-space:nowrap">0</span></div><div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,242,238,.5);margin-top:8px">Maestros orfebres</div></div>
+      
+        <div data-reveal="" data-reveal-delay="200"><div style="font-family:Italiana,serif;font-size:44px;line-height:1"><span data-count="100" data-suffix="%" style="white-space:nowrap">0</span></div><div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,242,238,.5);margin-top:8px">Gemas trazables</div></div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section data-screen-label="Newsletter" style="padding:0 56px 100px;text-align:center">
+  <div data-reveal="" style="max-width:560px;margin:0 auto">
+    <h2 style="font-family:Italiana,serif;font-size:clamp(36px,3.6vw,56px);line-height:1;margin:0 0 30px">Reciba la próxima colección antes que nadie</h2>
+    <div style="display:flex;border-bottom:1px solid #17161a;padding-bottom:12px">
+      <input placeholder="Su correo electrónico" style="flex:1;border:none;background:transparent;font-family:inherit;font-size:15px;outline:none;color:inherit">
+      <button style="border:none;background:none;font-family:inherit;font-size:12px;letter-spacing:.18em;text-transform:uppercase;cursor:pointer">Unirse →</button>
+    </div>
+  </div>
+</section>
+<footer style="display:flex;justify-content:space-between;padding:0 56px 40px;font-size:11px;color:rgba(23,22,26,.45);letter-spacing:.1em;text-transform:uppercase"><span>© 2026 Primae Maison</span><span>Diseño · Nivaldyr Technologies</span></footer>
+</div>
+<script type="module">
+window.React = { createRef: () => ({ current: null }) };
+class DCLogic { constructor() { this.state = {}; this.props = {}; } setState() {} }
+class Component extends DCLogic {
+  state = { lang: 'es' };
+  rootRef = React.createRef(); petalRef = React.createRef();
+  copy = {
+    es: { navL: ['Colección', 'Alta joyería', 'Novias'], navR: ['Atelier', 'Boutiques'], tagline: 'Libera tu belleza interior', sub: 'Elegancia y artesanía en una colección de joyería exquisita, diseñada para inspirar y perdurar.', discover: 'Descubrir', season: 'Otoño / Invierno 2026',
+      colEyebrow: 'La colección', colTitle: 'Piezas que permanecen', pieces: [
+        { id: 'primae-c1', ph: 'Anillo solitario', name: 'Solitaire', mat: 'Oro blanco 18k · Diamante', price: '€ 4.900', delay: '0', offset: '0' },
+        { id: 'primae-c2', ph: 'Pendientes', name: 'Aurore', mat: 'Oro rosa · Zafiro', price: '€ 2.350', delay: '100', offset: '48px' },
+        { id: 'primae-c3', ph: 'Collar', name: 'Lumière', mat: 'Platino · Perlas Akoya', price: '€ 6.800', delay: '200', offset: '0' },
+        { id: 'primae-c4', ph: 'Brazalete', name: 'Ondine', mat: 'Oro amarillo · Esmeralda', price: '€ 3.100', delay: '300', offset: '48px' }],
+      craftEyebrow: 'El oficio', craftTitle: 'Hecho a mano, pensado para siempre', craftText: 'Cada pieza nace en nuestro atelier de Florencia. Más de 200 horas de trabajo, gemas trazables y un compromiso con la permanencia.', craftStats: [{ n: 200, suffix: 'h', label: 'Por pieza', delay: '0' }, { n: 14, suffix: '', label: 'Maestros orfebres', delay: '100' }, { n: 100, suffix: '%', label: 'Gemas trazables', delay: '200' }],
+      newsTitle: 'Reciba la próxima colección antes que nadie', email: 'Su correo electrónico', join: 'Unirse', footer: 'Diseño · Nivaldyr Technologies' },
+    en: { navL: ['Collection', 'High jewelry', 'Bridal'], navR: ['Atelier', 'Boutiques'], tagline: 'Unleash your inner beauty', sub: 'Elegance and craftsmanship in an exquisite jewelry collection, designed to inspire and endure.', discover: 'Discover', season: 'Autumn / Winter 2026',
+      colEyebrow: 'The collection', colTitle: 'Pieces that remain', pieces: [
+        { id: 'primae-c1', ph: 'Solitaire ring', name: 'Solitaire', mat: '18k white gold · Diamond', price: '€ 4,900', delay: '0', offset: '0' },
+        { id: 'primae-c2', ph: 'Earrings', name: 'Aurore', mat: 'Rose gold · Sapphire', price: '€ 2,350', delay: '100', offset: '48px' },
+        { id: 'primae-c3', ph: 'Necklace', name: 'Lumière', mat: 'Platinum · Akoya pearls', price: '€ 6,800', delay: '200', offset: '0' },
+        { id: 'primae-c4', ph: 'Bracelet', name: 'Ondine', mat: 'Yellow gold · Emerald', price: '€ 3,100', delay: '300', offset: '48px' }],
+      craftEyebrow: 'The craft', craftTitle: 'Handmade, meant to last forever', craftText: 'Every piece is born in our Florence atelier. Over 200 hours of work, traceable gems and a commitment to permanence.', craftStats: [{ n: 200, suffix: 'h', label: 'Per piece', delay: '0' }, { n: 14, suffix: '', label: 'Master goldsmiths', delay: '100' }, { n: 100, suffix: '%', label: 'Traceable gems', delay: '200' }],
+      newsTitle: 'Receive the next collection before anyone', email: 'Your email address', join: 'Join', footer: 'Design · Nivaldyr Technologies' },
+  };
+  componentDidMount() {
+    const root = this.rootRef.current;
+    import('./fx.js').then((fx) => { this.cleanups = [fx.particles(this.petalRef.current, { type: 'petal', count: 22, color: '201,166,255', speed: .5 }), fx.parallax(root, { max: 24 }), fx.reveal(root), fx.magnetic(root), fx.tilt(root, { max: 5 }), fx.counters(root)]; });
+  }
+  componentWillUnmount() { (this.cleanups || []).forEach((c) => c()); }
+  renderVals() {
+    const lang = this.state.lang; const t = this.copy[lang];
+    const colors = ['#2b1a4a', '#2b1a4a', '#6b2fb3', '#6b2fb3', '#2b1a4a', '#2b1a4a'];
+    return {
+      rootRef: this.rootRef, petalRef: this.petalRef, t,
+      letters: 'PRIMAE'.split('').map((ch, i) => ({ ch, delay: (0.5 + i * 0.12) + 's', color: colors[i], depth: String(.15 + (i % 3) * .2) })),
+      langLabel: lang === 'es' ? 'ES · EN' : 'EN · ES',
+      toggleLang: () => this.setState((s) => ({ lang: s.lang === 'es' ? 'en' : 'es' })),
+    };
+  }
+}
+const c = new Component();
+document.querySelectorAll('[data-fx-ref]').forEach((el) => { const n = el.dataset.fxRef; if (c[n]) c[n].current = el; });
+if (c.componentDidMount) c.componentDidMount();
+</script>
+</body>
+</html>

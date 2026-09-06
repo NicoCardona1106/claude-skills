@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Forma</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;background:#f7f6f2;color:#161616;font-family:'Space Grotesk',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#161616;text-decoration:none}a:hover{color:#8a8a8a}
+*{box-sizing:border-box}
+@keyframes fadeUp{from{opacity:0;transform:translate3d(0,30px,0)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes drawX{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes drawY{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes wipeUp{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(0 0 0 0)}}
+</style>
+<style>
+.hv-0:hover{color:#161616}
+.hv-1:hover{color:#161616}
+.hv-2:hover{color:#161616}
+.hv-3:hover{color:#161616}
+.hv-4:hover{padding-left:16px}
+.hv-5:hover{padding-left:16px}
+.hv-6:hover{padding-left:16px}
+.hv-7:hover{padding-left:16px}
+.hv-8:hover{padding-left:16px}
+.hv-9:hover{background:#f7f6f2;color:#161616}
+</style>
+</head>
+<body>
+<div data-fx-ref="rootRef" style="background:#f7f6f2;overflow-x:clip;position:relative">
+<!-- blueprint grid -->
+<div style="position:fixed;inset:0;pointer-events:none;background-image:linear-gradient(rgba(22,22,22,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(22,22,22,.06) 1px,transparent 1px);background-size:56px 56px;z-index:0"></div>
+<div style="position:fixed;top:0;bottom:0;left:56px;width:1px;background:rgba(22,22,22,.25);transform-origin:top;animation:drawY 1.6s .3s cubic-bezier(.7,0,.2,1) both;z-index:1;pointer-events:none"></div>
+<div style="position:fixed;top:0;bottom:0;right:56px;width:1px;background:rgba(22,22,22,.25);transform-origin:top;animation:drawY 1.6s .5s cubic-bezier(.7,0,.2,1) both;z-index:1;pointer-events:none"></div>
+
+<section data-screen-label="Hero" style="position:relative;min-height:100vh;padding:0 56px;display:flex;flex-direction:column;z-index:2">
+  <nav style="display:flex;align-items:center;justify-content:space-between;gap:24px;padding:30px 32px;animation:fadeIn 1s .2s both">
+    <a href="#" style="font-weight:500;font-size:15px;letter-spacing:.3em;text-transform:uppercase">Forma<span style="color:#8a8a8a">/</span>Atelier</a>
+    <div style="display:flex;gap:clamp(14px,2vw,34px)px;font-size:12px;letter-spacing:.1em;text-transform:uppercase"><a href="#" style="color:rgba(22,22,22,.6)" class="hv-0">Proyectos</a><a href="#" style="color:rgba(22,22,22,.6)" class="hv-1">Estudio</a><a href="#" style="color:rgba(22,22,22,.6)" class="hv-2">Proceso</a><a href="#" style="color:rgba(22,22,22,.6)" class="hv-3">Contacto</a></div>
+    <div style="display:flex;gap:14px;align-items:center;font-size:12px"><button style="white-space:nowrap;border:1px solid rgba(22,22,22,.25);background:transparent;color:inherit;padding:6px 10px;font-size:10px;letter-spacing:.1em;cursor:pointer;font-family:inherit">ES · EN</button><span style="color:rgba(22,22,22,.5)">Bogotá — 06:42</span></div>
+  </nav>
+  <div style="height:1px;background:rgba(22,22,22,.25);transform-origin:left;animation:drawX 1.4s .6s cubic-bezier(.7,0,.2,1) both"></div>
+
+  <div style="flex:1;display:grid;grid-template-columns:1.2fr .8fr;gap:60px;padding:60px 32px 40px">
+    <div style="display:flex;flex-direction:column;justify-content:space-between">
+      <h1 style="font-family:Newsreader,serif;font-weight:300;font-size:clamp(56px,7.6vw,124px);line-height:.94;letter-spacing:-.03em;margin:0">
+        <span style="display:block;animation:fadeUp 1.1s .8s both">Espacios</span>
+        <span style="display:block;padding-left:12%;animation:fadeUp 1.1s .95s both"><em>que</em> respiran</span>
+        <span style="display:block;animation:fadeUp 1.1s 1.1s both">con luz.</span>
+      </h1>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:60px;animation:fadeUp 1s 1.4s both">
+        <p style="font-size:14px;line-height:1.7;color:rgba(22,22,22,.65);margin:0;max-width:360px">Estudio de arquitectura y diseño interior. Trabajamos con hormigón, madera y silencio.</p>
+        <div style="display:flex;gap:40px;align-self:end"><div><div style="font-family:Newsreader,serif;font-size:40px;line-height:1"><span data-count="64" data-suffix="" style="white-space:nowrap">0</span></div><div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(22,22,22,.5);margin-top:6px">Proyectos</div></div><div><div style="font-family:Newsreader,serif;font-size:40px;line-height:1"><span data-count="12" data-suffix="" style="white-space:nowrap">0</span></div><div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(22,22,22,.5);margin-top:6px">Premios</div></div><div><div style="font-family:Newsreader,serif;font-size:40px;line-height:1"><span data-count="9" data-suffix="" style="white-space:nowrap">0</span></div><div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(22,22,22,.5);margin-top:6px">Países</div></div></div>
+      </div>
+    </div>
+    <div style="position:relative;min-height:520px;animation:wipeUp 1.6s .9s cubic-bezier(.7,0,.2,1) both"><div data-depth="0.25" style="position:absolute;inset:0">
+      <img alt="Casa de hormigón · luz lateral · B&W" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3ECasa%20de%20hormig%C3%B3n%20%C2%B7%20luz%20lateral%20%C2%B7%20B%26amp%3BW%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+      <div style="position:absolute;left:-1px;top:-1px;width:24px;height:24px;border-left:1px solid #161616;border-top:1px solid #161616"></div><div style="position:absolute;right:-1px;bottom:-1px;width:24px;height:24px;border-right:1px solid #161616;border-bottom:1px solid #161616"></div>
+      <span style="position:absolute;left:16px;bottom:16px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;padding:6px 10px;background:#f7f6f2">Casa Umbra · 2025</span>
+    </div></div>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section data-screen-label="Antes / Después" style="position:relative;z-index:2;padding:140px 88px">
+  <div data-reveal="" style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:36px">
+    <h2 style="font-family:Newsreader,serif;font-weight:300;font-size:clamp(36px,4vw,64px);line-height:1;letter-spacing:-.02em;margin:0"><em>Antes</em> y después</h2>
+    <span style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(22,22,22,.5)">Arrastra para comparar</span>
+  </div>
+  <div data-fx-ref="baRef" data-reveal="" style="position:relative;height:70vh;min-height:480px;overflow:hidden;cursor:ew-resize;background:#ddd;user-select:none">
+    <img alt="Después · casa terminada" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EDespu%C3%A9s%20%C2%B7%20casa%20terminada%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+    <div style="position:absolute;inset:0;clip-path:inset(0 50% 0 0);background:#c9c6bd">
+      <img alt="Antes · obra / plano" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EAntes%20%C2%B7%20obra%20%2F%20plano%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;filter:grayscale(1) contrast(1.1);object-fit:cover">
+    </div>
+    <div style="position:absolute;top:0;bottom:0;left:50%;width:1px;background:#161616;pointer-events:none"><span style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:#161616;color:#f7f6f2;display:grid;place-items:center;font-size:12px">◂ ▸</span></div>
+    <span style="position:absolute;left:16px;top:16px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;padding:6px 10px;background:#f7f6f2;pointer-events:none">Antes</span>
+    <span style="position:absolute;right:16px;top:16px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;padding:6px 10px;background:#161616;color:#f7f6f2;pointer-events:none">Después</span>
+  </div>
+</section>
+
+<!-- PROJECT LIST (cursor follow) -->
+<section data-screen-label="Proyectos" style="position:relative;z-index:2;padding:0 88px 140px">
+  <div data-reveal="" style="font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:rgba(22,22,22,.5);margin-bottom:24px">Proyectos seleccionados</div>
+  
+    <a href="#" data-reveal="" data-reveal-delay="0" data-follow="forma-f1" style="display:grid;grid-template-columns:70px 1fr 1fr auto;gap:24px;align-items:baseline;padding:28px 0;border-top:1px solid rgba(22,22,22,.2)" class="hv-4">
+      <span style="font-size:12px;color:rgba(22,22,22,.5)">01</span>
+      <span style="font-family:Newsreader,serif;font-size:clamp(28px,3vw,44px);line-height:1;letter-spacing:-.02em">Casa Umbra</span>
+      <span style="font-size:13px;color:rgba(22,22,22,.6)">Residencial · 380 m²</span>
+      <span style="font-size:12px;letter-spacing:.1em">2025</span>
+    </a>
+  
+    <a href="#" data-reveal="" data-reveal-delay="60" data-follow="forma-f2" style="display:grid;grid-template-columns:70px 1fr 1fr auto;gap:24px;align-items:baseline;padding:28px 0;border-top:1px solid rgba(22,22,22,.2)" class="hv-5">
+      <span style="font-size:12px;color:rgba(22,22,22,.5)">02</span>
+      <span style="font-family:Newsreader,serif;font-size:clamp(28px,3vw,44px);line-height:1;letter-spacing:-.02em">Galería Norte</span>
+      <span style="font-size:13px;color:rgba(22,22,22,.6)">Cultural · 1.200 m²</span>
+      <span style="font-size:12px;letter-spacing:.1em">2024</span>
+    </a>
+  
+    <a href="#" data-reveal="" data-reveal-delay="120" data-follow="forma-f3" style="display:grid;grid-template-columns:70px 1fr 1fr auto;gap:24px;align-items:baseline;padding:28px 0;border-top:1px solid rgba(22,22,22,.2)" class="hv-6">
+      <span style="font-size:12px;color:rgba(22,22,22,.5)">03</span>
+      <span style="font-family:Newsreader,serif;font-size:clamp(28px,3vw,44px);line-height:1;letter-spacing:-.02em">Refugio Páramo</span>
+      <span style="font-size:13px;color:rgba(22,22,22,.6)">Hospitalidad · 640 m²</span>
+      <span style="font-size:12px;letter-spacing:.1em">2024</span>
+    </a>
+  
+    <a href="#" data-reveal="" data-reveal-delay="180" data-follow="forma-f4" style="display:grid;grid-template-columns:70px 1fr 1fr auto;gap:24px;align-items:baseline;padding:28px 0;border-top:1px solid rgba(22,22,22,.2)" class="hv-7">
+      <span style="font-size:12px;color:rgba(22,22,22,.5)">04</span>
+      <span style="font-family:Newsreader,serif;font-size:clamp(28px,3vw,44px);line-height:1;letter-spacing:-.02em">Oficinas Cero</span>
+      <span style="font-size:13px;color:rgba(22,22,22,.6)">Corporativo · 2.800 m²</span>
+      <span style="font-size:12px;letter-spacing:.1em">2023</span>
+    </a>
+  
+    <a href="#" data-reveal="" data-reveal-delay="240" data-follow="forma-f5" style="display:grid;grid-template-columns:70px 1fr 1fr auto;gap:24px;align-items:baseline;padding:28px 0;border-top:1px solid rgba(22,22,22,.2)" class="hv-8">
+      <span style="font-size:12px;color:rgba(22,22,22,.5)">05</span>
+      <span style="font-family:Newsreader,serif;font-size:clamp(28px,3vw,44px);line-height:1;letter-spacing:-.02em">Capilla del Viento</span>
+      <span style="font-size:13px;color:rgba(22,22,22,.6)">Religioso · 210 m²</span>
+      <span style="font-size:12px;letter-spacing:.1em">2022</span>
+    </a>
+  
+  <div style="border-top:1px solid rgba(22,22,22,.2)"></div>
+  
+    <div id="forma-f1" style="position:fixed;left:0;top:0;width:300px;height:220px;overflow:hidden;pointer-events:none;opacity:0;scale:.8;transition:opacity .3s,scale .3s;z-index:50;box-shadow:0 30px 60px rgba(0,0,0,.25);background:#ccc">
+      <img alt="Casa Umbra" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3ECasa%20Umbra%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+    </div>
+  
+    <div id="forma-f2" style="position:fixed;left:0;top:0;width:300px;height:220px;overflow:hidden;pointer-events:none;opacity:0;scale:.8;transition:opacity .3s,scale .3s;z-index:50;box-shadow:0 30px 60px rgba(0,0,0,.25);background:#ccc">
+      <img alt="Galería Norte" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EGaler%C3%ADa%20Norte%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+    </div>
+  
+    <div id="forma-f3" style="position:fixed;left:0;top:0;width:300px;height:220px;overflow:hidden;pointer-events:none;opacity:0;scale:.8;transition:opacity .3s,scale .3s;z-index:50;box-shadow:0 30px 60px rgba(0,0,0,.25);background:#ccc">
+      <img alt="Refugio Páramo" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3ERefugio%20P%C3%A1ramo%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+    </div>
+  
+    <div id="forma-f4" style="position:fixed;left:0;top:0;width:300px;height:220px;overflow:hidden;pointer-events:none;opacity:0;scale:.8;transition:opacity .3s,scale .3s;z-index:50;box-shadow:0 30px 60px rgba(0,0,0,.25);background:#ccc">
+      <img alt="Oficinas Cero" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EOficinas%20Cero%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+    </div>
+  
+    <div id="forma-f5" style="position:fixed;left:0;top:0;width:300px;height:220px;overflow:hidden;pointer-events:none;opacity:0;scale:.8;transition:opacity .3s,scale .3s;z-index:50;box-shadow:0 30px 60px rgba(0,0,0,.25);background:#ccc">
+      <img alt="Capilla del Viento" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3ECapilla%20del%20Viento%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+    </div>
+  
+</section>
+
+<!-- CTA -->
+<section data-screen-label="CTA" style="position:relative;z-index:2;margin:0 56px 56px;padding:100px 64px;background:#161616;color:#f7f6f2;display:grid;grid-template-columns:1fr auto;gap:60px;align-items:center">
+  <h2 data-reveal="" style="font-family:Newsreader,serif;font-weight:300;font-size:clamp(40px,5vw,84px);line-height:.95;letter-spacing:-.03em;margin:0">Construyamos algo <em>que dure.</em></h2>
+  <a href="#" data-reveal="" data-magnetic="" style="white-space:nowrap;padding:20px 32px;border:1px solid #f7f6f2;color:#f7f6f2;font-size:11px;letter-spacing:.24em;text-transform:uppercase;white-space:nowrap" class="hv-9">Iniciar un proyecto →</a>
+</section>
+<footer style="position:relative;z-index:2;display:flex;justify-content:space-between;padding:0 88px 40px;font-size:11px;color:rgba(22,22,22,.45);letter-spacing:.14em;text-transform:uppercase"><span>© 2026 Forma Atelier · Arquitectura</span><span>Diseño · Nivaldyr Technologies</span></footer>
+</div>
+<script type="module">
+window.React = { createRef: () => ({ current: null }) };
+class DCLogic { constructor() { this.state = {}; this.props = {}; } setState() {} }
+class Component extends DCLogic {
+  state = { lang: 'es', ba: 50 };
+  rootRef = React.createRef(); baRef = React.createRef();
+  copy = {
+    es: { nav: ['Proyectos', 'Estudio', 'Proceso', 'Contacto'], h1a: 'Espacios', h1em: 'que', h1b: 'respiran', h1c: 'con luz.', sub: 'Estudio de arquitectura y diseño interior. Trabajamos con hormigón, madera y silencio.', stats: [{ n: 64, suffix: '', l: 'Proyectos' }, { n: 12, suffix: '', l: 'Premios' }, { n: 9, suffix: '', l: 'Países' }], heroCaption: 'Casa Umbra · 2025',
+      baEm: 'Antes', baTitle: 'y después', baHint: 'Arrastra para comparar', before: 'Antes', after: 'Después',
+      projEyebrow: 'Proyectos seleccionados', projects: [{ num: '01', name: 'Casa Umbra', type: 'Residencial · 380 m²', year: '2025', img: 'forma-f1', slot: 'forma-p1', delay: '0' }, { num: '02', name: 'Galería Norte', type: 'Cultural · 1.200 m²', year: '2024', img: 'forma-f2', slot: 'forma-p2', delay: '60' }, { num: '03', name: 'Refugio Páramo', type: 'Hospitalidad · 640 m²', year: '2024', img: 'forma-f3', slot: 'forma-p3', delay: '120' }, { num: '04', name: 'Oficinas Cero', type: 'Corporativo · 2.800 m²', year: '2023', img: 'forma-f4', slot: 'forma-p4', delay: '180' }, { num: '05', name: 'Capilla del Viento', type: 'Religioso · 210 m²', year: '2022', img: 'forma-f5', slot: 'forma-p5', delay: '240' }],
+      ctaTitle: 'Construyamos algo', ctaEm: 'que dure.', ctaBtn: 'Iniciar un proyecto', footer: 'Diseño · Nivaldyr Technologies' },
+    en: { nav: ['Projects', 'Studio', 'Process', 'Contact'], h1a: 'Spaces', h1em: 'that', h1b: 'breathe', h1c: 'with light.', sub: 'Architecture and interior design studio. We work with concrete, wood and silence.', stats: [{ n: 64, suffix: '', l: 'Projects' }, { n: 12, suffix: '', l: 'Awards' }, { n: 9, suffix: '', l: 'Countries' }], heroCaption: 'Casa Umbra · 2025',
+      baEm: 'Before', baTitle: 'and after', baHint: 'Drag to compare', before: 'Before', after: 'After',
+      projEyebrow: 'Selected projects', projects: [{ num: '01', name: 'Casa Umbra', type: 'Residential · 380 m²', year: '2025', img: 'forma-f1', slot: 'forma-p1', delay: '0' }, { num: '02', name: 'Galería Norte', type: 'Cultural · 1,200 m²', year: '2024', img: 'forma-f2', slot: 'forma-p2', delay: '60' }, { num: '03', name: 'Refugio Páramo', type: 'Hospitality · 640 m²', year: '2024', img: 'forma-f3', slot: 'forma-p3', delay: '120' }, { num: '04', name: 'Oficinas Cero', type: 'Corporate · 2,800 m²', year: '2023', img: 'forma-f4', slot: 'forma-p4', delay: '180' }, { num: '05', name: 'Capilla del Viento', type: 'Religious · 210 m²', year: '2022', img: 'forma-f5', slot: 'forma-p5', delay: '240' }],
+      ctaTitle: 'Let’s build something', ctaEm: 'that lasts.', ctaBtn: 'Start a project', footer: 'Design · Nivaldyr Technologies' },
+  };
+  componentDidMount() { const root = this.rootRef.current; import('./fx.js').then((fx) => { this.cleanups = [fx.parallax(root, { max: 16 }), fx.reveal(root), fx.magnetic(root), fx.counters(root), fx.cursorFollow(root)]; }); }
+  componentWillUnmount() { (this.cleanups || []).forEach((c) => c()); }
+  setBa(clientX) { const el = this.baRef.current; if (!el) return; const r = el.getBoundingClientRect(); this.setState({ ba: Math.min(98, Math.max(2, ((clientX - r.left) / r.width) * 100)) }); }
+  renderVals() {
+    const lang = this.state.lang; const t = this.copy[lang];
+    return { rootRef: this.rootRef, baRef: this.baRef, t, baPos: this.state.ba + '%', baClip: (100 - this.state.ba) + '%',
+      baMove: (e) => this.setBa(e.clientX), baTouch: (e) => this.setBa(e.touches[0].clientX),
+      langLabel: lang === 'es' ? 'ES · EN' : 'EN · ES', toggleLang: () => this.setState((s) => ({ lang: s.lang === 'es' ? 'en' : 'es' })) };
+  }
+}
+const c = new Component();
+document.querySelectorAll('[data-fx-ref]').forEach((el) => { const n = el.dataset.fxRef; if (c[n]) c[n].current = el; });
+if (c.componentDidMount) c.componentDidMount();
+</script>
+</body>
+</html>

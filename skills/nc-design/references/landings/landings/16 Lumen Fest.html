@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lumen Fest</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;background:#0d0b14;color:#f6f2ff;font-family:'Space Mono',monospace;-webkit-font-smoothing:antialiased}
+a{color:#f6f2ff;text-decoration:none}a:hover{color:#d9ff3d}
+*{box-sizing:border-box}
+@keyframes fadeUp{from{opacity:0;transform:translate3d(0,40px,0)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes marqueeL{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes marqueeR{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+@keyframes slam{from{opacity:0;transform:translate3d(0,-40%,0) skewY(-6deg) scale(1.2)}to{opacity:1;transform:none}}
+@keyframes hue{to{filter:hue-rotate(360deg)}}
+@keyframes blob{0%,100%{border-radius:60% 40% 30% 70%/60% 30% 70% 40%}50%{border-radius:30% 60% 70% 40%/50% 60% 30% 60%}}
+@keyframes flicker{0%,100%{opacity:1}92%{opacity:1}93%{opacity:.4}94%{opacity:1}97%{opacity:.6}98%{opacity:1}}
+</style>
+<style>
+.hv-0:hover{color:#d9ff3d}
+.hv-1:hover{color:#d9ff3d}
+.hv-2:hover{color:#d9ff3d}
+.hv-3:hover{color:#d9ff3d}
+.hv-4:hover{background:#d9ff3d;color:#0d0b14}
+.hv-5:hover{background:#d9ff3d;color:#0d0b14}
+.hv-6:hover{background:#d9ff3d;color:#0d0b14}
+.hv-7:hover{background:#d9ff3d;color:#0d0b14}
+.hv-8:hover{background:#d9ff3d;color:#0d0b14}
+.hv-9:hover{background:#d9ff3d;color:#0d0b14}
+.hv-10:hover{background:#d9ff3d;color:#0d0b14}
+.hv-11:hover{background:#d9ff3d;color:#0d0b14}
+</style>
+</head>
+<body>
+<div data-fx-ref="rootRef" style="background:#0d0b14;overflow-x:clip">
+
+<section data-screen-label="Hero" style="position:relative;height:100vh;min-height:760px;overflow:hidden">
+  <div data-depth="0.15" style="position:absolute;left:55%;top:50%;width:70vh;height:70vh;transform:translate(-50%,-50%);background:linear-gradient(135deg,#ff3d7f,#7b3dff 50%,#d9ff3d);filter:blur(60px);opacity:.55;animation:blob 12s ease-in-out infinite,hue 24s linear infinite"></div>
+
+  <nav style="position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px 40px;z-index:6;animation:fadeIn 1s .2s both;font-size:12px;text-transform:uppercase">
+    <a href="#" style="font-family:Anton,sans-serif;font-size:26px;letter-spacing:.02em;animation:flicker 6s linear infinite">LUMEN<span style="color:#d9ff3d">'26</span></a>
+    <div style="display:flex;gap:28px"><a href="#" style="color:rgba(246,242,255,.7)" class="hv-0">Lineup</a><a href="#" style="color:rgba(246,242,255,.7)" class="hv-1">Escenarios</a><a href="#" style="color:rgba(246,242,255,.7)" class="hv-2">Info</a><a href="#" style="color:rgba(246,242,255,.7)" class="hv-3">Tickets</a></div>
+    <div style="display:flex;gap:10px;align-items:center"><button style="white-space:nowrap;border:1px solid rgba(246,242,255,.3);background:transparent;color:inherit;padding:8px 10px;font-size:11px;cursor:pointer;font-family:inherit">ES · EN</button><a href="#tickets" data-magnetic="" style="white-space:nowrap;padding:12px 20px;background:#d9ff3d;color:#0d0b14;font-weight:700;display:inline-block">Tickets</a></div>
+  </nav>
+
+  <!-- kinetic type rows -->
+  <div style="position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:0;z-index:2;pointer-events:none">
+    <div style="overflow:hidden;white-space:nowrap;animation:slam 1s .4s cubic-bezier(.2,.7,.2,1) both"><div style="display:inline-flex;gap:60px;animation:marqueeL 18s linear infinite;font-family:Anton,sans-serif;font-size:clamp(90px,14vw,220px);line-height:.9;text-transform:uppercase;color:transparent;-webkit-text-stroke:2px rgba(246,242,255,.7)"><span>Lumen</span><span>Festival</span><span>Lumen</span><span>Festival</span><span>Lumen</span><span>Festival</span></div></div>
+    <div style="overflow:hidden;white-space:nowrap;animation:slam 1s .6s cubic-bezier(.2,.7,.2,1) both"><div style="display:inline-flex;gap:60px;animation:marqueeR 22s linear infinite;font-family:Anton,sans-serif;font-size:clamp(90px,14vw,220px);line-height:.9;text-transform:uppercase;color:#f6f2ff"><span>13 — 15</span><span>Nov</span><span>2026</span><span>13 — 15</span><span>Nov</span><span>2026</span></div></div>
+    <div style="overflow:hidden;white-space:nowrap;animation:slam 1s .8s cubic-bezier(.2,.7,.2,1) both"><div style="display:inline-flex;gap:60px;animation:marqueeL 26s linear infinite;font-family:Anton,sans-serif;font-size:clamp(90px,14vw,220px);line-height:.9;text-transform:uppercase;color:#d9ff3d"><span>Luz</span><span>Sonido</span><span>Cuerpo</span><span>Luz</span><span>Sonido</span><span>Cuerpo</span></div></div>
+  </div>
+
+  <!-- poster image -->
+  <div style="position:absolute;right:40px;top:50%;transform:translateY(-50%);width:min(24vw,340px);height:min(58vh,520px);z-index:3"><div data-depth="0.5" style="position:absolute;inset:0"><div data-tilt="" style="position:absolute;inset:0;border:2px solid #f6f2ff;transform:rotate(3deg);animation:fadeUp 1.2s 1.2s both;overflow:hidden;background:#1a1626">
+    <img alt="Foto de multitud / artista con luces" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EFoto%20de%20multitud%20%2F%20artista%20con%20luces%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+    <span style="position:absolute;left:12px;bottom:12px;font-size:11px;padding:6px 8px;background:#0d0b14">Edición 2026</span>
+  </div></div></div>
+
+  <!-- info -->
+  <div style="position:absolute;left:40px;bottom:40px;z-index:4;display:flex;flex-direction:column;gap:20px">
+    <div style="font-size:13px;line-height:1.6;text-transform:uppercase;animation:fadeUp 1s 1.2s both">13 — 15 Nov 2026<br><span style="color:rgba(246,242,255,.55)">Parque Norte · Medellín</span></div>
+    <div style="display:flex;gap:10px;animation:fadeUp 1s 1.4s both">
+      <div style="padding:12px 14px;border:1px solid rgba(246,242,255,.25);min-width:78px;text-align:center"><div style="font-family:Anton,sans-serif;font-size:34px;line-height:1">68</div><div style="font-size:10px;text-transform:uppercase;color:rgba(246,242,255,.5);margin-top:4px">días</div></div><div style="padding:12px 14px;border:1px solid rgba(246,242,255,.25);min-width:78px;text-align:center"><div style="font-family:Anton,sans-serif;font-size:34px;line-height:1">18</div><div style="font-size:10px;text-transform:uppercase;color:rgba(246,242,255,.5);margin-top:4px">horas</div></div><div style="padding:12px 14px;border:1px solid rgba(246,242,255,.25);min-width:78px;text-align:center"><div style="font-family:Anton,sans-serif;font-size:34px;line-height:1">16</div><div style="font-size:10px;text-transform:uppercase;color:rgba(246,242,255,.5);margin-top:4px">min</div></div><div style="padding:12px 14px;border:1px solid rgba(246,242,255,.25);min-width:78px;text-align:center"><div style="font-family:Anton,sans-serif;font-size:34px;line-height:1">50</div><div style="font-size:10px;text-transform:uppercase;color:rgba(246,242,255,.5);margin-top:4px">seg</div></div>
+    </div>
+  </div>
+  <div style="position:absolute;right:40px;bottom:40px;z-index:4;font-size:11px;text-transform:uppercase;color:rgba(246,242,255,.5);text-align:right;animation:fadeIn 1s 1.8s both">Baja ↓<br>3 escenarios · 42 artistas</div>
+</section>
+
+<!-- LINEUP -->
+<section id="lineup" data-screen-label="Lineup" style="padding:120px 40px 60px">
+  <div data-reveal="" style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px">
+    <h2 style="font-family:Anton,sans-serif;font-size:clamp(56px,8vw,140px);line-height:.85;margin:0;text-transform:uppercase">Lineup</h2>
+    <div style="display:flex;gap:6px"><button style="padding:10px 16px;border:1px solid #d9ff3d;background:#d9ff3d;color:#0d0b14;font-family:inherit;font-size:12px;text-transform:uppercase;cursor:pointer;transition:all .3s">Vie 13</button><button style="padding:10px 16px;border:1px solid rgba(246,242,255,.3);background:transparent;color:#f6f2ff;font-family:inherit;font-size:12px;text-transform:uppercase;cursor:pointer;transition:all .3s">Sáb 14</button><button style="padding:10px 16px;border:1px solid rgba(246,242,255,.3);background:transparent;color:#f6f2ff;font-family:inherit;font-size:12px;text-transform:uppercase;cursor:pointer;transition:all .3s">Dom 15</button></div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:rgba(246,242,255,.15)">
+    
+      <a href="#" data-reveal="" data-reveal-delay="0" style="display:block;position:relative;aspect-ratio:1;background:#0d0b14;padding:20px;overflow:hidden" class="hv-4">
+        <div style="position:absolute;inset:0;opacity:.35"><img alt="Nova Ray" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3ENova%20Ray%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
+        <div style="position:relative;height:100%;display:flex;flex-direction:column;justify-content:space-between">
+          <div style="display:flex;justify-content:space-between;font-size:11px;text-transform:uppercase"><span>Main</span><span>23:00</span></div>
+          <div style="font-family:Anton,sans-serif;font-size:clamp(26px,3vw,44px);line-height:.95;text-transform:uppercase;letter-spacing:.01em">Nova Ray</div>
+        </div>
+      </a>
+    
+      <a href="#" data-reveal="" data-reveal-delay="40" style="display:block;position:relative;aspect-ratio:1;background:#0d0b14;padding:20px;overflow:hidden" class="hv-5">
+        <div style="position:absolute;inset:0;opacity:.35"><img alt="Kaleido" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EKaleido%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
+        <div style="position:relative;height:100%;display:flex;flex-direction:column;justify-content:space-between">
+          <div style="display:flex;justify-content:space-between;font-size:11px;text-transform:uppercase"><span>Main</span><span>21:30</span></div>
+          <div style="font-family:Anton,sans-serif;font-size:clamp(26px,3vw,44px);line-height:.95;text-transform:uppercase;letter-spacing:.01em">Kaleido</div>
+        </div>
+      </a>
+    
+      <a href="#" data-reveal="" data-reveal-delay="80" style="display:block;position:relative;aspect-ratio:1;background:#0d0b14;padding:20px;overflow:hidden" class="hv-6">
+        <div style="position:absolute;inset:0;opacity:.35"><img alt="Sol Nadir" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3ESol%20Nadir%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
+        <div style="position:relative;height:100%;display:flex;flex-direction:column;justify-content:space-between">
+          <div style="display:flex;justify-content:space-between;font-size:11px;text-transform:uppercase"><span>Cúpula</span><span>22:15</span></div>
+          <div style="font-family:Anton,sans-serif;font-size:clamp(26px,3vw,44px);line-height:.95;text-transform:uppercase;letter-spacing:.01em">Sol Nadir</div>
+        </div>
+      </a>
+    
+      <a href="#" data-reveal="" data-reveal-delay="120" style="display:block;position:relative;aspect-ratio:1;background:#0d0b14;padding:20px;overflow:hidden" class="hv-7">
+        <div style="position:absolute;inset:0;opacity:.35"><img alt="Bruma" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EBruma%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
+        <div style="position:relative;height:100%;display:flex;flex-direction:column;justify-content:space-between">
+          <div style="display:flex;justify-content:space-between;font-size:11px;text-transform:uppercase"><span>Bosque</span><span>20:00</span></div>
+          <div style="font-family:Anton,sans-serif;font-size:clamp(26px,3vw,44px);line-height:.95;text-transform:uppercase;letter-spacing:.01em">Bruma</div>
+        </div>
+      </a>
+    
+      <a href="#" data-reveal="" data-reveal-delay="160" style="display:block;position:relative;aspect-ratio:1;background:#0d0b14;padding:20px;overflow:hidden" class="hv-8">
+        <div style="position:absolute;inset:0;opacity:.35"><img alt="Ámbar Club" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3E%C3%81mbar%20Club%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
+        <div style="position:relative;height:100%;display:flex;flex-direction:column;justify-content:space-between">
+          <div style="display:flex;justify-content:space-between;font-size:11px;text-transform:uppercase"><span>Cúpula</span><span>00:30</span></div>
+          <div style="font-family:Anton,sans-serif;font-size:clamp(26px,3vw,44px);line-height:.95;text-transform:uppercase;letter-spacing:.01em">Ámbar Club</div>
+        </div>
+      </a>
+    
+      <a href="#" data-reveal="" data-reveal-delay="200" style="display:block;position:relative;aspect-ratio:1;background:#0d0b14;padding:20px;overflow:hidden" class="hv-9">
+        <div style="position:absolute;inset:0;opacity:.35"><img alt="Vera Luz" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EVera%20Luz%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
+        <div style="position:relative;height:100%;display:flex;flex-direction:column;justify-content:space-between">
+          <div style="display:flex;justify-content:space-between;font-size:11px;text-transform:uppercase"><span>Main</span><span>19:45</span></div>
+          <div style="font-family:Anton,sans-serif;font-size:clamp(26px,3vw,44px);line-height:.95;text-transform:uppercase;letter-spacing:.01em">Vera Luz</div>
+        </div>
+      </a>
+    
+      <a href="#" data-reveal="" data-reveal-delay="240" style="display:block;position:relative;aspect-ratio:1;background:#0d0b14;padding:20px;overflow:hidden" class="hv-10">
+        <div style="position:absolute;inset:0;opacity:.35"><img alt="Tundra" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3ETundra%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
+        <div style="position:relative;height:100%;display:flex;flex-direction:column;justify-content:space-between">
+          <div style="display:flex;justify-content:space-between;font-size:11px;text-transform:uppercase"><span>Bosque</span><span>22:45</span></div>
+          <div style="font-family:Anton,sans-serif;font-size:clamp(26px,3vw,44px);line-height:.95;text-transform:uppercase;letter-spacing:.01em">Tundra</div>
+        </div>
+      </a>
+    
+      <a href="#" data-reveal="" data-reveal-delay="280" style="display:block;position:relative;aspect-ratio:1;background:#0d0b14;padding:20px;overflow:hidden" class="hv-11">
+        <div style="position:absolute;inset:0;opacity:.35"><img alt="Ojo Rojo" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EOjo%20Rojo%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
+        <div style="position:relative;height:100%;display:flex;flex-direction:column;justify-content:space-between">
+          <div style="display:flex;justify-content:space-between;font-size:11px;text-transform:uppercase"><span>Cúpula</span><span>18:30</span></div>
+          <div style="font-family:Anton,sans-serif;font-size:clamp(26px,3vw,44px);line-height:.95;text-transform:uppercase;letter-spacing:.01em">Ojo Rojo</div>
+        </div>
+      </a>
+    
+  </div>
+</section>
+
+<!-- MARQUEE STRIP -->
+<div style="background:#d9ff3d;color:#0d0b14;padding:14px 0;overflow:hidden;white-space:nowrap;transform:rotate(-1.5deg);margin:60px -20px">
+  <div style="display:inline-flex;gap:40px;animation:marqueeL 20s linear infinite;font-family:Anton,sans-serif;font-size:28px;text-transform:uppercase"><span>Early birds agotados ✦</span><span>3 escenarios ✦</span><span>Camping ✦</span><span>Arte + luz ✦</span><span>Sin plástico ✦</span><span>Early birds agotados ✦</span><span>3 escenarios ✦</span><span>Camping ✦</span><span>Arte + luz ✦</span><span>Sin plástico ✦</span></div>
+</div>
+
+<!-- TICKETS -->
+<section id="tickets" data-screen-label="Tickets" style="padding:100px 40px 140px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+  
+    <div data-reveal="" data-reveal-delay="0" data-tilt="" style="position:relative;padding:32px;border:2px solid rgba(246,242,255,.4);background:transparent;color:#f6f2ff;min-height:420px;display:flex;flex-direction:column;justify-content:space-between;transform:rotate(-1deg)">
+      <div style="display:flex;justify-content:space-between;font-size:11px;text-transform:uppercase"><span>Pase 1 día</span><span>Quedan 1.240</span></div>
+      <div><div style="font-family:Anton,sans-serif;font-size:clamp(56px,6vw,96px);line-height:.9">$180K</div><div style="font-size:12px;margin-top:10px;opacity:.7;line-height:1.6">Acceso a un día. Elige tu fecha al pagar.</div></div>
+      <a href="#" data-magnetic="" style="white-space:nowrap;display:block;text-align:center;padding:16px;background:#f6f2ff;color:#0d0b14;font-weight:700;text-transform:uppercase;font-size:12px">Comprar</a>
+      <span style="position:absolute;left:-12px;top:50%;width:24px;height:24px;border-radius:50%;background:#0d0b14;transform:translateY(-50%)"></span><span style="position:absolute;right:-12px;top:50%;width:24px;height:24px;border-radius:50%;background:#0d0b14;transform:translateY(-50%)"></span>
+    </div>
+  
+    <div data-reveal="" data-reveal-delay="100" data-tilt="" style="position:relative;padding:32px;border:2px solid #d9ff3d;background:#d9ff3d;color:#0d0b14;min-height:420px;display:flex;flex-direction:column;justify-content:space-between;transform:rotate(0deg)">
+      <div style="display:flex;justify-content:space-between;font-size:11px;text-transform:uppercase"><span>Pase completo</span><span>Quedan 312</span></div>
+      <div><div style="font-family:Anton,sans-serif;font-size:clamp(56px,6vw,96px);line-height:.9">$420K</div><div style="font-size:12px;margin-top:10px;opacity:.7;line-height:1.6">Tres días, todos los escenarios, zona de descanso.</div></div>
+      <a href="#" data-magnetic="" style="white-space:nowrap;display:block;text-align:center;padding:16px;background:#0d0b14;color:#d9ff3d;font-weight:700;text-transform:uppercase;font-size:12px">Comprar</a>
+      <span style="position:absolute;left:-12px;top:50%;width:24px;height:24px;border-radius:50%;background:#0d0b14;transform:translateY(-50%)"></span><span style="position:absolute;right:-12px;top:50%;width:24px;height:24px;border-radius:50%;background:#0d0b14;transform:translateY(-50%)"></span>
+    </div>
+  
+    <div data-reveal="" data-reveal-delay="200" data-tilt="" style="position:relative;padding:32px;border:2px solid #ff3d7f;background:#ff3d7f;color:#0d0b14;min-height:420px;display:flex;flex-direction:column;justify-content:space-between;transform:rotate(1deg)">
+      <div style="display:flex;justify-content:space-between;font-size:11px;text-transform:uppercase"><span>VIP</span><span>Quedan 48</span></div>
+      <div><div style="font-family:Anton,sans-serif;font-size:clamp(56px,6vw,96px);line-height:.9">$890K</div><div style="font-size:12px;margin-top:10px;opacity:.7;line-height:1.6">Acceso lateral al escenario, bar exclusivo, camping premium.</div></div>
+      <a href="#" data-magnetic="" style="white-space:nowrap;display:block;text-align:center;padding:16px;background:#0d0b14;color:#ff3d7f;font-weight:700;text-transform:uppercase;font-size:12px">Comprar</a>
+      <span style="position:absolute;left:-12px;top:50%;width:24px;height:24px;border-radius:50%;background:#0d0b14;transform:translateY(-50%)"></span><span style="position:absolute;right:-12px;top:50%;width:24px;height:24px;border-radius:50%;background:#0d0b14;transform:translateY(-50%)"></span>
+    </div>
+  
+</section>
+<footer style="display:flex;justify-content:space-between;padding:0 40px 40px;font-size:11px;color:rgba(246,242,255,.4);text-transform:uppercase"><span>© 2026 Lumen Festival · Medellín</span><span>Diseño · Nivaldyr Technologies</span></footer>
+</div>
+<script type="module">
+window.React = { createRef: () => ({ current: null }) };
+class DCLogic { constructor() { this.state = {}; this.props = {}; } setState() {} }
+class Component extends DCLogic {
+  state = { lang: 'es', day: 0, now: Date.now() };
+  rootRef = React.createRef();
+  target = new Date('2026-11-13T18:00:00').getTime();
+  copy = {
+    es: { nav: ['Lineup', 'Escenarios', 'Info', 'Tickets'], tickets: 'Tickets', posterTag: 'Edición 2026', dates: '13 — 15 Nov 2026', place: 'Parque Norte · Medellín', scroll: 'Baja', stages: 'escenarios', artists: 'artistas', lineupTitle: 'Lineup', days: ['Vie 13', 'Sáb 14', 'Dom 15'], cd: ['días', 'horas', 'min', 'seg'],
+      strip: ['Early birds agotados', '3 escenarios', 'Camping', 'Arte + luz', 'Sin plástico', 'Early birds agotados', '3 escenarios', 'Camping', 'Arte + luz', 'Sin plástico'],
+      passes: [{ name: 'Pase 1 día', left: 'Quedan 1.240', price: '$180K', desc: 'Acceso a un día. Elige tu fecha al pagar.', cta: 'Comprar', bg: 'transparent', fg: '#f6f2ff', border: 'rgba(246,242,255,.4)', btnBg: '#f6f2ff', btnFg: '#0d0b14', rot: '-1deg', delay: '0' }, { name: 'Pase completo', left: 'Quedan 312', price: '$420K', desc: 'Tres días, todos los escenarios, zona de descanso.', cta: 'Comprar', bg: '#d9ff3d', fg: '#0d0b14', border: '#d9ff3d', btnBg: '#0d0b14', btnFg: '#d9ff3d', rot: '0deg', delay: '100' }, { name: 'VIP', left: 'Quedan 48', price: '$890K', desc: 'Acceso lateral al escenario, bar exclusivo, camping premium.', cta: 'Comprar', bg: '#ff3d7f', fg: '#0d0b14', border: '#ff3d7f', btnBg: '#0d0b14', btnFg: '#ff3d7f', rot: '1deg', delay: '200' }], footer: 'Diseño · Nivaldyr Technologies' },
+    en: { nav: ['Lineup', 'Stages', 'Info', 'Tickets'], tickets: 'Tickets', posterTag: '2026 edition', dates: '13 — 15 Nov 2026', place: 'Parque Norte · Medellín', scroll: 'Scroll', stages: 'stages', artists: 'artists', lineupTitle: 'Lineup', days: ['Fri 13', 'Sat 14', 'Sun 15'], cd: ['days', 'hours', 'min', 'sec'],
+      strip: ['Early birds sold out', '3 stages', 'Camping', 'Art + light', 'Plastic free', 'Early birds sold out', '3 stages', 'Camping', 'Art + light', 'Plastic free'],
+      passes: [{ name: '1-day pass', left: '1,240 left', price: '$45', desc: 'One day access. Pick your date at checkout.', cta: 'Buy', bg: 'transparent', fg: '#f6f2ff', border: 'rgba(246,242,255,.4)', btnBg: '#f6f2ff', btnFg: '#0d0b14', rot: '-1deg', delay: '0' }, { name: 'Full pass', left: '312 left', price: '$105', desc: 'Three days, every stage, chill zone.', cta: 'Buy', bg: '#d9ff3d', fg: '#0d0b14', border: '#d9ff3d', btnBg: '#0d0b14', btnFg: '#d9ff3d', rot: '0deg', delay: '100' }, { name: 'VIP', left: '48 left', price: '$220', desc: 'Side-stage access, private bar, premium camping.', cta: 'Buy', bg: '#ff3d7f', fg: '#0d0b14', border: '#ff3d7f', btnBg: '#0d0b14', btnFg: '#ff3d7f', rot: '1deg', delay: '200' }], footer: 'Design · Nivaldyr Technologies' },
+  };
+  lineups = [
+    [['Nova Ray', 'Main', '23:00'], ['Kaleido', 'Main', '21:30'], ['Sol Nadir', 'Cúpula', '22:15'], ['Bruma', 'Bosque', '20:00'], ['Ámbar Club', 'Cúpula', '00:30'], ['Vera Luz', 'Main', '19:45'], ['Tundra', 'Bosque', '22:45'], ['Ojo Rojo', 'Cúpula', '18:30']],
+    [['Helix', 'Main', '23:00'], ['Mar Adentro', 'Main', '21:30'], ['Pixel Pulso', 'Cúpula', '22:15'], ['Selva', 'Bosque', '20:00'], ['Neón Niño', 'Cúpula', '00:30'], ['Corazón FM', 'Main', '19:45'], ['Oráculo', 'Bosque', '22:45'], ['Delta Vox', 'Cúpula', '18:30']],
+    [['Eclipse', 'Main', '23:00'], ['Los Fantasmas', 'Main', '21:30'], ['Lúmina', 'Cúpula', '22:15'], ['Río', 'Bosque', '20:00'], ['Sistema Solar', 'Cúpula', '00:30'], ['Aurora Beat', 'Main', '19:45'], ['Ceniza', 'Bosque', '22:45'], ['Volt', 'Cúpula', '18:30']],
+  ];
+  componentDidMount() { const root = this.rootRef.current; import('./fx.js').then((fx) => { this.cleanups = [fx.parallax(root, { max: 30 }), fx.reveal(root), fx.magnetic(root), fx.tilt(root, { max: 6 })]; }); this.timer = setInterval(() => this.setState({ now: Date.now() }), 1000); }
+  componentWillUnmount() { (this.cleanups || []).forEach((c) => c()); clearInterval(this.timer); }
+  renderVals() {
+    const lang = this.state.lang; const t = this.copy[lang]; const d = this.state.day;
+    const diff = Math.max(0, this.target - this.state.now); const s = Math.floor(diff / 1000);
+    const vals = [Math.floor(s / 86400), Math.floor(s % 86400 / 3600), Math.floor(s % 3600 / 60), s % 60];
+    return { rootRef: this.rootRef, t,
+      row1: ['Lumen', 'Festival', 'Lumen', 'Festival', 'Lumen', 'Festival'], row2: ['13 — 15', 'Nov', '2026', '13 — 15', 'Nov', '2026'], row3: ['Luz', 'Sonido', 'Cuerpo', 'Luz', 'Sonido', 'Cuerpo'],
+      countdown: vals.map((v, i) => ({ v: String(v).padStart(2, '0'), l: t.cd[i] })),
+      days: t.days.map((l, k) => ({ l, border: k === d ? '#d9ff3d' : 'rgba(246,242,255,.3)', bg: k === d ? '#d9ff3d' : 'transparent', fg: k === d ? '#0d0b14' : '#f6f2ff', pick: () => this.setState({ day: k }) })),
+      lineup: this.lineups[d].map(([name, stage, time], i) => ({ name, stage, time, id: 'lumen-a' + d + '-' + i, delay: String(i * 40) })),
+      strip: t.strip,
+      langLabel: lang === 'es' ? 'ES · EN' : 'EN · ES', toggleLang: () => this.setState((s) => ({ lang: s.lang === 'es' ? 'en' : 'es' })) };
+  }
+}
+const c = new Component();
+document.querySelectorAll('[data-fx-ref]').forEach((el) => { const n = el.dataset.fxRef; if (c[n]) c[n].current = el; });
+if (c.componentDidMount) c.componentDidMount();
+</script>
+</body>
+</html>

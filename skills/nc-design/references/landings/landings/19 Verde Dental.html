@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Verde Dental</title>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;background:#0f2a3a;color:#f2f7f5;font-family:Onest,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#f2f7f5;text-decoration:none}a:hover{color:#c8f55a}
+*{box-sizing:border-box}
+@keyframes fadeUp{from{opacity:0;transform:translate3d(0,40px,0)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes rise{from{opacity:0;transform:translate3d(0,80px,0) scale(.9)}to{opacity:1;transform:none}}
+@keyframes floatY{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-16px) rotate(1deg)}}
+@keyframes shine{0%{transform:translateX(-120%) skewX(-20deg)}100%{transform:translateX(220%) skewX(-20deg)}}
+</style>
+<style>
+.hv-0:hover{color:#fff}
+.hv-1:hover{color:#fff}
+.hv-2:hover{color:#fff}
+.hv-3:hover{color:#fff}
+</style>
+</head>
+<body>
+<div data-fx-ref="rootRef" style="background:#0f2a3a;overflow-x:clip">
+
+<section data-screen-label="Hero" style="position:relative;height:100vh;min-height:760px;overflow:hidden;background:linear-gradient(180deg,#0f2a3a 0%,#164a5a 60%,#1c6a70 100%)">
+  <div style="position:absolute;left:0;right:0;bottom:0;height:60%;pointer-events:none;z-index:1"><canvas data-fx-ref="waveRef" style="width:100%;height:100%;display:block"></canvas></div>
+  <div style="position:absolute;inset:0;pointer-events:none;z-index:2"><canvas data-fx-ref="bubbleRef" style="width:100%;height:100%;display:block"></canvas></div>
+
+  <nav style="position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:26px 56px;z-index:6;animation:fadeIn 1s .2s both">
+    <a href="#" style="display:flex;align-items:center;gap:10px;font-weight:600;font-size:16px"><span style="width:30px;height:30px;border-radius:50%;border:2px solid #c8f55a;display:grid;place-items:center;font-size:12px;color:#c8f55a">✿</span>Verde</a>
+    <div style="display:flex;gap:clamp(14px,2vw,34px)px;font-size:13px"><a href="#" style="color:rgba(242,247,245,.7)" class="hv-0">Inicio</a><a href="#" style="color:rgba(242,247,245,.7)" class="hv-1">Servicios</a><a href="#" style="color:rgba(242,247,245,.7)" class="hv-2">Nosotros</a><a href="#" style="color:rgba(242,247,245,.7)" class="hv-3">Historias</a></div>
+    <div style="display:flex;gap:8px;align-items:center">
+      <button style="white-space:nowrap;border:1px solid rgba(242,247,245,.25);background:transparent;color:inherit;border-radius:999px;padding:7px 12px;font-size:11px;letter-spacing:.1em;cursor:pointer;font-family:inherit">ES · EN</button>
+      <span style="width:34px;height:34px;border-radius:50%;border:1px solid rgba(242,247,245,.3);display:grid;place-items:center;font-size:10px">IG</span><span style="width:34px;height:34px;border-radius:50%;border:1px solid rgba(242,247,245,.3);display:grid;place-items:center;font-size:10px">FB</span><span style="width:34px;height:34px;border-radius:50%;border:1px solid rgba(242,247,245,.3);display:grid;place-items:center;font-size:10px">TK</span>
+      <a href="#" data-magnetic="" style="white-space:nowrap;display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;border:1px solid rgba(242,247,245,.3);font-size:12px;font-weight:500">Leer más<span style="width:22px;height:22px;border-radius:50%;background:#c8f55a;color:#0f2a3a;display:grid;place-items:center;font-size:11px">→</span></a>
+    </div>
+  </nav>
+
+  <!-- island -->
+  <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-44%);width:min(50vw,720px);height:min(70vh,660px);z-index:3"><div data-depth="0.3" style="position:absolute;inset:0"><div style="position:absolute;inset:0;animation:rise 1.8s .5s cubic-bezier(.2,.7,.2,1) both"><div style="position:absolute;inset:0;animation:floatY 8s ease-in-out infinite;filter:drop-shadow(0 60px 60px rgba(0,0,0,.45))">
+    <img alt="Isla de musgo con diente 3D, cristales y flores (PNG)" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EIsla%20de%20musgo%20con%20diente%203D%2C%20cristales%20y%20flores%20(PNG)%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+  </div></div></div></div>
+
+  <!-- copy left -->
+  <div style="position:absolute;left:56px;top:50%;transform:translateY(-50%);max-width:520px;z-index:4">
+    <div style="font-size:12px;color:rgba(242,247,245,.6);margin-bottom:22px;animation:fadeUp 1s .6s both">Tu sonrisa, fuente de calma</div>
+    <h1 style="font-weight:600;font-size:clamp(48px,6vw,92px);line-height:.95;letter-spacing:-.03em;margin:0 0 26px;text-transform:uppercase">
+      <span style="display:block;animation:fadeUp 1s .8s both">Un enfoque</span>
+      <span style="display:block;animation:fadeUp 1s .95s both">fresco</span>
+      <span style="display:block;animation:fadeUp 1s 1.1s both">para el <em style="color:#c8f55a;font-style:normal">bienestar</em></span>
+      <span style="display:block;animation:fadeUp 1s 1.25s both">dental</span>
+    </h1>
+    <p style="font-size:14px;line-height:1.7;color:rgba(242,247,245,.65);max-width:320px;margin:0 0 30px;animation:fadeUp 1s 1.4s both">Tratamientos suaves inspirados en la naturaleza, diseñados para una comodidad duradera.</p>
+    <div style="display:flex;gap:12px;align-items:center;animation:fadeUp 1s 1.55s both">
+      <a href="#" data-magnetic="" style="white-space:nowrap;position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:10px;padding:6px 6px 6px 22px;border-radius:999px;background:#c8f55a;color:#0f2a3a;font-size:13px;font-weight:600">Reservar ahora<span style="width:34px;height:34px;border-radius:50%;background:#0f2a3a;color:#c8f55a;display:grid;place-items:center">→</span><span style="position:absolute;top:0;bottom:0;width:40%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);animation:shine 3s 2s ease-in-out infinite"></span></a>
+      <a href="#" style="font-size:13px;color:rgba(242,247,245,.75);padding:14px 18px">Contáctanos</a>
+    </div>
+  </div>
+
+  <!-- right block -->
+  <div data-depth="0.5" style="position:absolute;right:56px;top:36%;max-width:260px;z-index:4;animation:fadeUp 1.1s 1.5s both">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:22px"><div style="display:flex"><span style="width:34px;height:34px;border-radius:50%;background:#3aa77a;border:2px solid #164a5a;margin-left:-10px"></span><span style="width:34px;height:34px;border-radius:50%;background:#c8f55a;border:2px solid #164a5a;margin-left:-10px"></span><span style="width:34px;height:34px;border-radius:50%;background:#0f2a3a;border:2px solid #164a5a;margin-left:-10px"></span><span style="width:34px;height:34px;border-radius:50%;background:#9fd6c0;border:2px solid #164a5a;margin-left:-10px"></span></div><span style="width:34px;height:34px;border-radius:50%;background:#c8f55a;color:#0f2a3a;display:grid;place-items:center;font-size:11px;font-weight:700">+</span></div>
+    <h2 style="font-weight:600;font-size:28px;line-height:1;letter-spacing:-.02em;margin:0 0 14px;text-transform:uppercase">Precisión<br>para cada <span style="color:#c8f55a">sonrisa</span></h2>
+    <p style="font-size:12px;line-height:1.7;color:rgba(242,247,245,.62);margin:0">Cuidado avanzado en un espacio que se siente como un respiro, no como una clínica.</p>
+  </div>
+
+  <!-- stats bottom -->
+  <div style="position:absolute;left:50%;bottom:56px;transform:translateX(-50%);display:flex;gap:24px;z-index:4;animation:fadeUp 1s 1.9s both">
+    
+      <div style="display:flex;align-items:center;gap:14px;padding:12px 18px 12px 12px;border-radius:999px;background:rgba(15,42,58,.45);border:1px solid rgba(242,247,245,.15);backdrop-filter:blur(14px)">
+        <span style="width:36px;height:36px;border-radius:50%;background:rgba(200,245,90,.15);display:grid;place-items:center;color:#c8f55a;font-size:13px">✦</span>
+        <div><div style="font-weight:600;font-size:20px;line-height:1"><span data-count="15" data-suffix="+" style="white-space:nowrap">0</span></div><div style="font-size:11px;color:rgba(242,247,245,.55);margin-top:3px">Años de experiencia</div></div>
+      </div>
+    
+      <div style="display:flex;align-items:center;gap:14px;padding:12px 18px 12px 12px;border-radius:999px;background:rgba(15,42,58,.45);border:1px solid rgba(242,247,245,.15);backdrop-filter:blur(14px)">
+        <span style="width:36px;height:36px;border-radius:50%;background:rgba(200,245,90,.15);display:grid;place-items:center;color:#c8f55a;font-size:13px">◎</span>
+        <div><div style="font-weight:600;font-size:20px;line-height:1"><span data-count="98" data-suffix="%" style="white-space:nowrap">0</span></div><div style="font-size:11px;color:rgba(242,247,245,.55);margin-top:3px">Pacientes satisfechos</div></div>
+      </div>
+    
+      <div style="display:flex;align-items:center;gap:14px;padding:12px 18px 12px 12px;border-radius:999px;background:rgba(15,42,58,.45);border:1px solid rgba(242,247,245,.15);backdrop-filter:blur(14px)">
+        <span style="width:36px;height:36px;border-radius:50%;background:rgba(200,245,90,.15);display:grid;place-items:center;color:#c8f55a;font-size:13px">♡</span>
+        <div><div style="font-weight:600;font-size:20px;line-height:1"><span data-count="2" data-suffix="K+" style="white-space:nowrap">0</span></div><div style="font-size:11px;color:rgba(242,247,245,.55);margin-top:3px">Sonrisas felices</div></div>
+      </div>
+    
+  </div>
+  <div style="position:absolute;left:56px;bottom:56px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(242,247,245,.3);display:grid;place-items:center;font-size:14px;z-index:4;animation:fadeIn 1s 2s both">↓</div>
+</section>
+
+<!-- SERVICES -->
+<section data-screen-label="Servicios" style="padding:140px 56px 100px;background:#f2f7f5;color:#0f2a3a">
+  <div data-reveal="" style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px;gap:40px">
+    <h2 style="font-weight:600;font-size:clamp(36px,4.4vw,68px);line-height:.95;letter-spacing:-.03em;margin:0;text-transform:uppercase;max-width:640px">Cuidado que se siente <span style="color:#3aa77a">natural</span></h2>
+    <p style="max-width:320px;font-size:14px;line-height:1.7;color:rgba(15,42,58,.65);margin:0">Sin olores químicos, sin luces frías. Tecnología de última generación en un ambiente que baja el pulso.</p>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+    
+      <article data-reveal="" data-reveal-delay="0" data-tilt="" style="padding:26px;border-radius:24px;background:#fff;min-height:340px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 20px 50px rgba(15,42,58,.06)">
+        <div style="position:relative;height:130px;border-radius:16px;overflow:hidden;background:#e4efe9"><img alt="Limpieza consciente" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3ELimpieza%20consciente%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:16px"></div>
+        <div><div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#3aa77a;margin:22px 0 8px">Prevención</div><h3 style="font-weight:600;font-size:20px;letter-spacing:-.01em;margin:0 0 8px">Limpieza consciente</h3><p style="font-size:13px;line-height:1.6;color:rgba(15,42,58,.65);margin:0">Higiene profunda con ultrasonido y pastas sin flúor sintético.</p></div>
+      </article>
+    
+      <article data-reveal="" data-reveal-delay="80" data-tilt="" style="padding:26px;border-radius:24px;background:#fff;min-height:340px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 20px 50px rgba(15,42,58,.06)">
+        <div style="position:relative;height:130px;border-radius:16px;overflow:hidden;background:#e4efe9"><img alt="Blanqueamiento suave" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EBlanqueamiento%20suave%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:16px"></div>
+        <div><div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#3aa77a;margin:22px 0 8px">Estética</div><h3 style="font-weight:600;font-size:20px;letter-spacing:-.01em;margin:0 0 8px">Blanqueamiento suave</h3><p style="font-size:13px;line-height:1.6;color:rgba(15,42,58,.65);margin:0">Resultados visibles en una sesión sin sensibilidad posterior.</p></div>
+      </article>
+    
+      <article data-reveal="" data-reveal-delay="160" data-tilt="" style="padding:26px;border-radius:24px;background:#fff;min-height:340px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 20px 50px rgba(15,42,58,.06)">
+        <div style="position:relative;height:130px;border-radius:16px;overflow:hidden;background:#e4efe9"><img alt="Alineadores invisibles" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EAlineadores%20invisibles%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:16px"></div>
+        <div><div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#3aa77a;margin:22px 0 8px">Ortodoncia</div><h3 style="font-weight:600;font-size:20px;letter-spacing:-.01em;margin:0 0 8px">Alineadores invisibles</h3><p style="font-size:13px;line-height:1.6;color:rgba(15,42,58,.65);margin:0">Planificación 3D y seguimiento remoto desde tu casa.</p></div>
+      </article>
+    
+      <article data-reveal="" data-reveal-delay="240" data-tilt="" style="padding:26px;border-radius:24px;background:#fff;min-height:340px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 20px 50px rgba(15,42,58,.06)">
+        <div style="position:relative;height:130px;border-radius:16px;overflow:hidden;background:#e4efe9"><img alt="Implantes biocompatibles" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EImplantes%20biocompatibles%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:16px"></div>
+        <div><div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#3aa77a;margin:22px 0 8px">Restauración</div><h3 style="font-weight:600;font-size:20px;letter-spacing:-.01em;margin:0 0 8px">Implantes biocompatibles</h3><p style="font-size:13px;line-height:1.6;color:rgba(15,42,58,.65);margin:0">Zirconio libre de metal, integrado en 8 semanas.</p></div>
+      </article>
+    
+  </div>
+</section>
+
+<!-- TEAM + BOOKING -->
+<section data-screen-label="Reserva" style="padding:120px 56px 140px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;background:#f2f7f5;color:#0f2a3a">
+  <div data-reveal="" style="position:relative;height:600px;border-radius:32px;overflow:hidden"><img alt="Consultorio luminoso con plantas" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22600%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a2a35%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316161d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22600%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22rgba(255%2C255%2C255%2C.35)%22%20font-family%3D%22sans-serif%22%20font-size%3D%2228%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EConsultorio%20luminoso%20con%20plantas%3C%2Ftext%3E%3C%2Fsvg%3E" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:32px">
+    <div style="position:absolute;left:24px;bottom:24px;padding:16px 20px;border-radius:18px;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);display:flex;gap:14px;align-items:center"><span style="width:44px;height:44px;border-radius:50%;background:#c8f55a"></span><div><div style="font-weight:600;font-size:14px">Dra. Camila Restrepo</div><div style="font-size:12px;color:rgba(15,42,58,.6)">Directora clínica · 15 años</div></div></div>
+  </div>
+  <div>
+    <h2 data-reveal="" style="font-weight:600;font-size:clamp(34px,3.8vw,58px);line-height:.98;letter-spacing:-.03em;margin:0 0 20px;text-transform:uppercase">Tu primera visita, sin prisa</h2>
+    <p data-reveal="" style="font-size:15px;line-height:1.7;color:rgba(15,42,58,.65);margin:0 0 32px;max-width:420px">Cuarenta minutos para conocerte, escuchar y hacer un diagnóstico completo. Sin costo si decides no continuar.</p>
+    <div data-reveal="" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
+      <input placeholder="Tu nombre" style="padding:16px 18px;border-radius:14px;border:1px solid rgba(15,42,58,.15);background:#fff;font-family:inherit;font-size:14px;outline:none">
+      <input placeholder="Teléfono" style="padding:16px 18px;border-radius:14px;border:1px solid rgba(15,42,58,.15);background:#fff;font-family:inherit;font-size:14px;outline:none">
+    </div>
+    <div data-reveal="" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px"><button style="padding:10px 16px;border-radius:999px;border:1px solid rgba(15,42,58,.2);background:#fff;color:#0f2a3a;font-family:inherit;font-size:13px;cursor:pointer;transition:all .25s">Lun 9:00</button><button style="padding:10px 16px;border-radius:999px;border:1px solid #0f2a3a;background:#0f2a3a;color:#fff;font-family:inherit;font-size:13px;cursor:pointer;transition:all .25s">Lun 11:30</button><button style="padding:10px 16px;border-radius:999px;border:1px solid rgba(15,42,58,.2);background:#fff;color:#0f2a3a;font-family:inherit;font-size:13px;cursor:pointer;transition:all .25s">Mar 15:00</button><button style="padding:10px 16px;border-radius:999px;border:1px solid rgba(15,42,58,.2);background:#fff;color:#0f2a3a;font-family:inherit;font-size:13px;cursor:pointer;transition:all .25s">Mié 10:00</button><button style="padding:10px 16px;border-radius:999px;border:1px solid rgba(15,42,58,.2);background:#fff;color:#0f2a3a;font-family:inherit;font-size:13px;cursor:pointer;transition:all .25s">Jue 16:30</button></div>
+    <a href="#" data-reveal="" data-magnetic="" style="white-space:nowrap;display:inline-flex;align-items:center;gap:12px;padding:6px 6px 6px 24px;border-radius:999px;background:#0f2a3a;color:#fff;font-size:14px;font-weight:600">Confirmar · Lun 11:30<span style="width:38px;height:38px;border-radius:50%;background:#c8f55a;color:#0f2a3a;display:grid;place-items:center">→</span></a>
+  </div>
+</section>
+<footer style="display:flex;justify-content:space-between;padding:0 56px 40px;font-size:12px;color:rgba(242,247,245,.4)"><span>© 2026 Verde Dental Wellness</span><span>Diseño · Nivaldyr Technologies</span></footer>
+</div>
+<script type="module">
+window.React = { createRef: () => ({ current: null }) };
+class DCLogic { constructor() { this.state = {}; this.props = {}; } setState() {} }
+class Component extends DCLogic {
+  state = { lang: 'es', slot: 1 };
+  rootRef = React.createRef(); waveRef = React.createRef(); bubbleRef = React.createRef();
+  copy = {
+    es: { nav: ['Inicio', 'Servicios', 'Nosotros', 'Historias'], readMore: 'Leer más', eyebrow: 'Tu sonrisa, fuente de calma', h1a: 'Un enfoque', h1b: 'fresco', h1c: 'para el', h1em: 'bienestar', h1d: 'dental', sub: 'Tratamientos suaves inspirados en la naturaleza, diseñados para una comodidad duradera.', book: 'Reservar ahora', contact: 'Contáctanos', sideA: 'Precisión', sideB: 'para cada', sideEm: 'sonrisa', sideText: 'Cuidado avanzado en un espacio que se siente como un respiro, no como una clínica.',
+      stats: [{ icon: '✦', n: 15, suffix: '+', l: 'Años de experiencia' }, { icon: '◎', n: 98, suffix: '%', l: 'Pacientes satisfechos' }, { icon: '♡', n: 2, suffix: 'K+', l: 'Sonrisas felices' }],
+      servTitle: 'Cuidado que se siente', servEm: 'natural', servText: 'Sin olores químicos, sin luces frías. Tecnología de última generación en un ambiente que baja el pulso.', services: [{ id: 'verde-s1', tag: 'Prevención', title: 'Limpieza consciente', text: 'Higiene profunda con ultrasonido y pastas sin flúor sintético.', delay: '0' }, { id: 'verde-s2', tag: 'Estética', title: 'Blanqueamiento suave', text: 'Resultados visibles en una sesión sin sensibilidad posterior.', delay: '80' }, { id: 'verde-s3', tag: 'Ortodoncia', title: 'Alineadores invisibles', text: 'Planificación 3D y seguimiento remoto desde tu casa.', delay: '160' }, { id: 'verde-s4', tag: 'Restauración', title: 'Implantes biocompatibles', text: 'Zirconio libre de metal, integrado en 8 semanas.', delay: '240' }],
+      docName: 'Dra. Camila Restrepo', docRole: 'Directora clínica · 15 años', bookTitle: 'Tu primera visita, sin prisa', bookText: 'Cuarenta minutos para conocerte, escuchar y hacer un diagnóstico completo. Sin costo si decides no continuar.', fName: 'Tu nombre', fPhone: 'Teléfono', slots: ['Lun 9:00', 'Lun 11:30', 'Mar 15:00', 'Mié 10:00', 'Jue 16:30'], confirm: 'Confirmar', footer: 'Diseño · Nivaldyr Technologies' },
+    en: { nav: ['Home', 'Services', 'About us', 'Patient stories'], readMore: 'Read more', eyebrow: 'Your smile, source of calm', h1a: 'A fresh', h1b: 'approach', h1c: 'to', h1em: 'dental', h1d: 'wellness', sub: 'Gentle treatments inspired by nature, designed for lasting comfort.', book: 'Book now', contact: 'Contact us', sideA: 'Precision', sideB: 'crafted for', sideEm: 'every smile', sideText: 'Advanced care in a space that feels like a breath, not a clinic.',
+      stats: [{ icon: '✦', n: 15, suffix: '+', l: 'Years of experience' }, { icon: '◎', n: 98, suffix: '%', l: 'Satisfied patients' }, { icon: '♡', n: 2, suffix: 'K+', l: 'Happy smiles' }],
+      servTitle: 'Care that feels', servEm: 'natural', servText: 'No chemical smells, no cold lights. Latest-generation technology in an environment that slows your pulse.', services: [{ id: 'verde-s1', tag: 'Prevention', title: 'Mindful cleaning', text: 'Deep hygiene with ultrasound and synthetic-fluoride-free pastes.', delay: '0' }, { id: 'verde-s2', tag: 'Aesthetics', title: 'Gentle whitening', text: 'Visible results in one session with no sensitivity afterwards.', delay: '80' }, { id: 'verde-s3', tag: 'Orthodontics', title: 'Invisible aligners', text: '3D planning and remote follow-up from home.', delay: '160' }, { id: 'verde-s4', tag: 'Restoration', title: 'Biocompatible implants', text: 'Metal-free zirconia, integrated in 8 weeks.', delay: '240' }],
+      docName: 'Dr. Camila Restrepo', docRole: 'Clinical director · 15 years', bookTitle: 'Your first visit, unhurried', bookText: 'Forty minutes to meet you, listen and make a complete diagnosis. Free if you decide not to continue.', fName: 'Your name', fPhone: 'Phone', slots: ['Mon 9:00', 'Mon 11:30', 'Tue 15:00', 'Wed 10:00', 'Thu 16:30'], confirm: 'Confirm', footer: 'Design · Nivaldyr Technologies' },
+  };
+  componentDidMount() { const root = this.rootRef.current; import('./fx.js').then((fx) => { this.cleanups = [fx.parallax(root, { max: 24 }), fx.reveal(root), fx.magnetic(root), fx.tilt(root, { max: 5 }), fx.counters(root), fx.waves(this.waveRef.current, { color: '200,245,90', amp: 22, layers: 3, speed: .8 }), fx.particles(this.bubbleRef.current, { type: 'bubble', count: 26, color: '200,245,90', speed: .5 })]; }); }
+  componentWillUnmount() { (this.cleanups || []).forEach((c) => c()); }
+  renderVals() {
+    const lang = this.state.lang; const t = this.copy[lang]; const i = this.state.slot;
+    return { rootRef: this.rootRef, waveRef: this.waveRef, bubbleRef: this.bubbleRef, t, socials: ['IG', 'FB', 'TK'], avatars: ['#3aa77a', '#c8f55a', '#0f2a3a', '#9fd6c0'], slotLabel: t.slots[i],
+      slots: t.slots.map((l, k) => ({ l, border: k === i ? '#0f2a3a' : 'rgba(15,42,58,.2)', bg: k === i ? '#0f2a3a' : '#fff', fg: k === i ? '#fff' : '#0f2a3a', pick: () => this.setState({ slot: k }) })),
+      langLabel: lang === 'es' ? 'ES · EN' : 'EN · ES', toggleLang: () => this.setState((s) => ({ lang: s.lang === 'es' ? 'en' : 'es' })) };
+  }
+}
+const c = new Component();
+document.querySelectorAll('[data-fx-ref]').forEach((el) => { const n = el.dataset.fxRef; if (c[n]) c[n].current = el; });
+if (c.componentDidMount) c.componentDidMount();
+</script>
+</body>
+</html>
