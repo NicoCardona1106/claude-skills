@@ -1,6 +1,6 @@
 ---
 name: verificacion-visual
-description: "Verificación visual de cualquier UI web antes de entregarla (parte de la DoD de nc-design/nicolas-mode): prueba en 1440 y 390, consola limpia, cero overflow horizontal, formularios y estados, captura fullPage. Usar cuando Nicolas diga 'verifica la landing', 'revisa visualmente', '/verificacion-visual', o antes de cerrar cualquier tarea que toque UI."
+description: "Verificación visual de cualquier UI web antes de entregarla (parte de la DoD de nc-design/nicolas-mode): prueba en 1440 y 390, consola limpia, cero overflow horizontal, formularios y estados, captura fullPage. Usar cuando Nicolas diga 'verifica la landing', 'revisa visualmente', '/verificacion-visual', o antes de cerrar cualquier tarea que toque UI. Es el checklist técnico de entrega, no una auditoría UX ni de accesibilidad (eso es impeccable) ni un rediseño (nc-design)."
 ---
 
 # Verificación visual

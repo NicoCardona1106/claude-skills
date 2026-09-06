@@ -1,6 +1,6 @@
 ---
 name: modo-ahorro
-description: "Modo de trabajo con contexto/plan de Claude limitado (viajes, poco plan restante). Usar cuando Nicolas diga 'modo ahorro', 'tengo poco plan', 'queda poco contexto' o /modo-ahorro; nicolas-mode lo OFRECE (no lo activa solo) cuando el tee de la statusline muestre five_hour.used_percentage > 70. Estima el gasto de cada tarea antes de empezar, recorta lecturas y verificación de forma visible (❌ anotado, nunca oculta) y cierra la sesión antes de agotar el plan."
+description: "Modo de trabajo con contexto/plan de Claude limitado (viajes, poco plan restante). Usar cuando Nicolas diga 'modo ahorro', 'tengo poco plan', 'queda poco contexto' o /modo-ahorro; nicolas-mode lo OFRECE (no lo activa solo) cuando el tee de la statusline muestre five_hour.used_percentage > 70. Estima el gasto de cada tarea antes de empezar, recorta lecturas y verificación de forma visible (❌ anotado, nunca oculta) y cierra la sesión antes de agotar el plan. No aplica a 'poco tiempo' ni a ahorrar dinero: solo al plan y contexto de Claude."
 ---
 
 # Modo ahorro — trabajar con plan de Claude limitado

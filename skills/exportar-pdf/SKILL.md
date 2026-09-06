@@ -1,6 +1,6 @@
 ---
 name: exportar-pdf
-description: "Exportar a PDF un artefacto de claude.ai, un HTML o un Markdown para enviarlo a un cliente o socio: HTML imprimible centrado y sin sidebar, servido por http local, PDF generado con Playwright (page.pdf). Usar cuando Nicolas diga 'pásame esto a PDF', 'genera el PDF de la propuesta', '/exportar-pdf', o pida el PDF de un artefacto, HTML o Markdown."
+description: "Exportar a PDF un artefacto de claude.ai, un HTML o un Markdown para enviarlo a un cliente o socio: HTML imprimible centrado y sin sidebar, servido por http local, PDF generado con Playwright (page.pdf). Usar cuando Nicolas diga 'pásame esto a PDF', 'genera el PDF de la propuesta', '/exportar-pdf', o pida el PDF de un artefacto, HTML o Markdown. Incluye comprobar el PDF resultante (páginas, cortes). Leer, unir o editar PDFs existentes es de la skill pdf."
 ---
 
 # Exportar a PDF

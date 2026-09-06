@@ -9,6 +9,8 @@ description: >
   revisar o mejorar el aspecto visual de una UI existente ("hazla más pro",
   "que se vea mejor", "nivel showcase"). Complementa a nicolas-mode e
   impeccable; esta skill aporta el lenguaje visual propio de Nicolas.
+  Para construir una pieza completa desde cero con un subagente, el agente
+  `disenador-landing` ejecuta este estándar; para revisarla, `auditor-tells`.
 ---
 
 # NC-Design — lenguaje visual premium de Nicolas Cardona
