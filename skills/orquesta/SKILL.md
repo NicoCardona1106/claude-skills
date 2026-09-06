@@ -67,9 +67,35 @@ Propón en una tabla y ESPERA aprobación de Nicolas antes de lanzar nada:
   [-s read-only] [--output-schema <ruta.json>] [-o <archivo_salida>]` —
   SÍ lee stdin (sin el límite de argumentos que sufre agy), `--json` emite
   eventos JSONL, `-o` escribe la respuesta final a archivo. Para revisión:
-  `codex exec review` revisa el repo actual. Regla igual que agy en v1:
-  usarlo con `-s read-only` — solo lee y opina; escribir requiere decisión
-  aparte de Nicolas.
+  `codex exec review` revisa el repo actual. Desde 2026-09-06 codex SÍ
+  puede ESCRIBIR, pero solo en un worktree aislado (skill
+  `using-git-worktrees`): `codex exec - -C <worktree> -s workspace-write
+  --approve-for-me --color never -o <salida.md>` (flags verificados en
+  codex-cli 0.150.1; `--approve-for-me` resuelve las aprobaciones dentro del
+  sandbox de escritura). Nunca sobre master ni fuera del worktree; el diff
+  pasa por `revisor` (o por el director) antes de fusionar, igual que un
+  implementador de Claude. Para opinar sin tocar nada sigue `-s read-only`.
+
+### Reparto natural entre Claude, agy y codex (decidir solo, sin preguntar)
+
+| Tarea | Va a | Por qué |
+|---|---|---|
+| Leer o resumir muchos archivos, un repo entero, un PDF largo, un video | **agy** | ventana enorme, gratis con Google AI Pro; embebe el contexto en el prompt |
+| Dato actual (precio, versión, noticia) con búsqueda | **agy** | busca en tiempo real |
+| Segunda opinión de OTRO modelo sobre un diff o un plan | **agy** (rápida) o **codex** (a fondo) | evita el sesgo del mismo modelo |
+| Código acotado con contrato (endpoint, script, refactor pequeño, tests) | **codex** en worktree | plan pago, escribe bien código; libera plan de Claude |
+| Redacción técnica acotada (README, doc, guía) | **codex** | redacta bien; salida por `-o` |
+| Pieza que exige criterio, arquitectura, seguridad, texto que ve un cliente | **subagente Claude opus** | contexto y doctrina de Nicolas |
+| Ejecución con muchas reglas propias (nc-design, nicolas-mode, skills) | **subagente Claude sonnet** | codex y agy no cargan las skills |
+| Revisión final contra contrato | **revisor (opus)** | siempre Claude: es quien conoce el contrato |
+| Hermes | interactivo en N-Coterminal | ~90 s por respuesta, no delegable |
+
+Reglas: (1) el contrato de 4 campos va textual en el prompt sea quien sea;
+(2) agy nunca escribe; codex escribe solo en worktree; (3) lo que devuelven
+agy/codex es texto o un diff — el director lo lee y lo revisa, nunca lo
+fusiona a ciegas; (4) si la tarea necesita las skills de Nicolas, va a Claude.
+Registro: cada delegación externa se anota (qué, a quién, tokens de Claude
+que evitó) para medir el ahorro — pendiente de la lista general.
 - Elección de modelo: opus = criterio abierto, texto para cliente, revisión,
   seguridad; sonnet = ejecución acotada, repetición, mantenimiento (default);
   haiku = búsquedas masivas y mecánica trivial.
