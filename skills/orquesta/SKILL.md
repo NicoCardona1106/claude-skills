@@ -59,10 +59,10 @@ Propón en una tabla y ESPERA aprobación de Nicolas antes de lanzar nada:
   (terminal de N-Coterminal) o para sus agentes (whatsapp/gateway); como
   motor de opinión solo si algún día corre con API rápida.
 - **Perfil externo `codex`** (OpenAI Codex CLI, verificado 2026-08-23,
-  v0.149.0, modelo gpt-5.6-terra). LIMITANTE: Nicolas NO paga plan de OpenAI
-  (solo la cuota gratis) — usarlo con moderación, para tercera opinión
-  puntual, nunca para tareas masivas (esas van a agy, que sí tiene Google AI
-  Pro). Cómo:
+  v0.149.0, modelo gpt-5.6-terra). Desde 2026-09-06 Nicolas PAGA el plan de OpenAI (~81.000 COP/mes): codex
+  ya no es "con moderación" — vale para tercera opinión, revisión cruzada de
+  diffs y tareas de código/redacción acotadas; lo masivo de solo-lectura sigue
+  yendo a agy (Google AI Pro, ventana enorme). Cómo:
   `<prompt por stdin> | codex exec - --color never [-m modelo] [-C dir]
   [-s read-only] [--output-schema <ruta.json>] [-o <archivo_salida>]` —
   SÍ lee stdin (sin el límite de argumentos que sufre agy), `--json` emite

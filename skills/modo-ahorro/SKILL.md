@@ -53,7 +53,8 @@ en la siguiente sesión.
   Google AI Pro): "delega a agy: lee estos 12 archivos de config y resume
   las rutas que usan env vars". Opiniones baratas (segunda mirada rápida,
   sanity check) también a `agy`.
-- **Nunca delegar a `codex`** (cuota gratis limitada, se agota rápido) **ni a
+- **Delegar a `codex` lo acotado** (plan pago desde 2026-09-06: código y
+  redacción puntual) y **nunca a
   `hermes`** (~90s por respuesta, modelo local vía Ollama) mientras el plan
   esté bajo — son más caros en tiempo o cuota ajena, no en plan propio, pero
   no resuelven el problema de plan de Claude.
