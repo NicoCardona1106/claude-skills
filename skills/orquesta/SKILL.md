@@ -190,3 +190,7 @@ commit esperando autorización.
 ---
 
 Técnicas adaptadas de obra/superpowers (MIT, © 2025 Jesse Vincent) — https://github.com/obra/superpowers
+
+© 2026 Nicolas Cardona Carrillo. Licencia CC BY 4.0:
+puede usarse y adaptarse conservando este crédito.
+Origen: https://github.com/NicoCardona1106/claude-skills

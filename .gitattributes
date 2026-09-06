@@ -1,0 +1,4 @@
+# Los .md se guardan siempre con LF (evita el ruido CRLF de Windows en cada commit)
+*.md text eol=lf
+*.cjs text eol=lf
+*.json text eol=lf

@@ -46,6 +46,15 @@ https://github.com/Hainrixz/the-architect
 https://github.com/nextlevelbuilder/ui-ux-pro-max-skill (ver licencia en
 el repositorio original).
 
+## obra/superpowers (adaptadas al español)
+
+`skills-tdd` (ex `writing-skills`), `using-git-worktrees`
+
+Adaptadas por Nicolas Cardona Carrillo en septiembre de 2026 a partir del
+plugin superpowers de Jesse Vincent (obra/superpowers, licencia MIT). El
+plugin completo NO se instala (su hook reinyecta metodología en inglés en cada
+compactación); solo se conservan estas dos skills traducidas y recortadas.
+
 ## Origen por confirmar
 
 `animation-vocabulary`, `banner-design`, `brand`, `content-research-writer`,

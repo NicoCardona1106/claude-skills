@@ -57,6 +57,10 @@ Solo lo aprobado:
 - Hechos de personas/proyectos → además `mempalace_kg_add`
 - Si un candidato ACTUALIZA una drawer existente → `mempalace_update_drawer`
 - Cierra con `mempalace_diary_write` resumiendo la sesión
+- Actualiza también la MEMORIA LOCAL de Claude Code (`~/.claude/projects/<proyecto>/memory/`):
+  el archivo del proyecto tocado y su línea en `MEMORY.md`. Es lo que se carga al
+  arrancar cada sesión: Mempalace es el detalle, la memoria local es el índice.
+  Si no hay archivo para ese tema, créalo con su frontmatter (name/description/type).
 - Confirma cada escritura con una línea
 
 **Retirar, no borrar**: si una drawer quedó obsoleta, NO uses delete — antepon
@@ -83,3 +87,7 @@ creyó y cuándo se corrigió es parte de la memoria.
   correcciones, decisiones o errores resueltos en la sesión.
 - No existe señal técnica de "fin de sesión" que permita conversar (los hooks
   de SessionEnd no pueden preguntar), por eso el disparo es contextual o manual.
+
+© 2026 Nicolas Cardona Carrillo. Licencia CC BY 4.0:
+puede usarse y adaptarse conservando este crédito.
+Origen: https://github.com/NicoCardona1106/claude-skills

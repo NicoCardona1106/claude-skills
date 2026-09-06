@@ -20,7 +20,16 @@ Sirve como fuente de verdad porque los entornos remotos de Claude Code (tablet, 
 - `skills/modo-ahorro/` — trabajar con poco plan de Claude: estimar gasto, recortar lecturas y verificación de forma visible, cerrar a tiempo.
 - `skills/statusline/` — instalar o reconstruir la barra de estado de Claude Code, Antigravity y Codex (scripts en N-Coterminal).
 - `skills/viaje/` — protocolo para trabajar desde un equipo secundario (MEMORIA-VIAJE.md, RETORNO.md, junctions, cosecha al volver).
+- `skills/release-ncoterminal/` — publicar una versión de N-Coterminal (bump, dist, gh release, version.json en Vercel).
+- `sync.cjs` — copia las skills propias, los agentes y CLAUDE.md desde `~/.claude` a este clon y muestra `git status` (`node sync.cjs --check` solo compara).
 - `agents/` — perfiles de subagente: implementador, mantenedor, revisor, redactor-cliente; y para UI (2026-09-06): verificador-visual, portador, disenador-landing, auditor-tells.
+
+## Poda del catálogo (2026-09-06)
+
+Las skills de terceros que no se usan viven en `~/.claude/skills-archivo/` (fuera
+de `~/.claude/skills`, así no cargan en cada sesión): las 25 de video/HyperFrames,
+`frontend-design`, `ui-styling` y `animation-vocabulary`. Se restauran con un `mv`.
+Este repo conserva la copia de las que estaban aquí.
 
 ## Flujo de trabajo
 

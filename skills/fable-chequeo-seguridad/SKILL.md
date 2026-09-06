@@ -49,6 +49,15 @@ Antes de buscar problemas, entiende qué está expuesto:
 
 ---
 
+## Escaneo profundo (decisión de Nicolas, 2026-09-06)
+
+Esta skill es la PUERTA de seguridad: define alcance y orden de revisión.
+Cuando el chequeo pida escaneo completo del proyecto (dependencias/SCA,
+patrones SAST, secretos filtrados, OWASP Top 10, CI/CD), invoca la skill
+`cyber-neo` y trae sus hallazgos a este informe con su severidad; esta skill
+sigue siendo la que decide qué se arregla primero. `/security-review`
+(integrado) queda para diffs puntuales.
+
 © 2026 Nicolas Cardona Carrillo. Licencia CC BY 4.0:
 puede usarse y adaptarse conservando este crédito.
 Origen: https://github.com/NicoCardona1106/claude-skills
