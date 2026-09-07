@@ -4,14 +4,16 @@ description: >
   Plan, execute, and optimize paid ad campaigns across Google, Meta, LinkedIn,
   Twitter/X, and TikTok, covering targeting, budget, bid strategies, and
   retargeting. Use when running PPC campaigns, setting up ad accounts, or
-  optimizing ROAS/CPA.
+  optimizing ROAS/CPA. Also for auditing an existing ad account ("auditoría de
+  pauta", "Ads Health Score", "revisa mi cuenta de Meta/Google Ads"): 161 checks
+  with Pass/Warning/Fail thresholds and a 0-100 score, see references/.
 license: MIT
 metadata:
   version: 1.0.0
   author: borghei
   category: marketing
   domain: advertising
-  updated: 2026-03-09
+  updated: 2026-09-06
 ---
 # Paid Ads
 
@@ -31,6 +33,7 @@ Campaign strategy, audience targeting, budget optimization, and performance mana
 - [Retargeting Playbook](#retargeting-playbook)
 - [Performance Optimization](#performance-optimization)
 - [Attribution and Measurement](#attribution-and-measurement)
+- [Ad Account Audit (Ads Health Score)](#ad-account-audit-ads-health-score)
 - [Pre-Launch Checklist](#pre-launch-checklist)
 - [Best Practices](#best-practices)
 - [Integration Points](#integration-points)
@@ -39,7 +42,7 @@ Campaign strategy, audience targeting, budget optimization, and performance mana
 
 ## Keywords
 
-paid ads, PPC, pay-per-click, Google Ads, Meta Ads, Facebook Ads, Instagram Ads, LinkedIn Ads, Twitter Ads, TikTok Ads, paid media, ROAS, CPA, CPC, CPM, audience targeting, retargeting, remarketing, budget optimization, bid strategy, ad campaigns, conversion tracking, lookalike audiences, campaign structure, ad performance, paid search, paid social
+paid ads, PPC, pay-per-click, Google Ads, Meta Ads, Facebook Ads, Instagram Ads, LinkedIn Ads, Twitter Ads, TikTok Ads, paid media, ROAS, CPA, CPC, CPM, audience targeting, retargeting, remarketing, budget optimization, bid strategy, ad campaigns, conversion tracking, lookalike audiences, campaign structure, ad performance, paid search, paid social, ad account audit, auditoría de pauta, Ads Health Score
 
 ---
 
@@ -383,6 +386,24 @@ utm_campaign: [campaign-name-lowercase-hyphenated]
 utm_content: [ad-variant-identifier]
 utm_term: [keyword] (search only)
 ```
+
+---
+
+## Ad Account Audit (Ads Health Score)
+
+Absorbed from claude-ads (MIT): 161 checks with concrete Pass/Warning/Fail thresholds
+(Google 80, Meta 50, TikTok 28, 3 cross-platform), a weighted 0-100 Health Score with
+A-F grades, and quick wins. Read `references/auditoria-cuenta.md` first (7-step process,
+Colombia adjustments, deliverable), then the platform checklist:
+
+- `references/meta-audit.md`, `references/google-audit.md`, `references/tiktok-audit.md`
+- `references/scoring-system.md` (formula, severity multipliers, grades)
+- `references/audit-output-schema.json` (JSON output; feed it to `exportar-pdf`)
+- `references/plantilla-negocio-local.md` (local-business plan, Colombia on top)
+
+Input is exports/screenshots/manual figures; no API or MCP needed. USD thresholds are
+not yet recalibrated for Colombia: treat a fail caused only by a dollar figure as WARNING
+and say so in the report.
 
 ---
 

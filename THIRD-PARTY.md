@@ -31,6 +31,15 @@ Licencia: MIT — © 2026 agricidaniel (ver `LICENSE.txt` en cada skill).
 Instalación parcial (sin hooks, agents ni las demás sub-skills). Fuente:
 https://github.com/AgriciDaniel/claude-seo
 
+## claude-ads (Hainrixz/claude-ads, fork de AgriciDaniel/claude-ads)
+
+Dentro de `paid-ads/references/`: `meta-audit.md`, `google-audit.md`,
+`tiktok-audit.md`, `scoring-system.md`, `audit-output-schema.json` y la base de
+`plantilla-negocio-local.md`. Licencia MIT — © 2026 agricidaniel y tododeia.com
+(ver `paid-ads/references/LICENSE-claude-ads`). Solo se tomaron los checklists y
+el scoring; el plugin completo no está instalado. Fuente:
+https://github.com/Hainrixz/claude-ads
+
 ## tododeia.com (Hainrixz/the-architect)
 
 Contenido de `skills/fable-plan/architect/` (arquetipos, building blocks,
