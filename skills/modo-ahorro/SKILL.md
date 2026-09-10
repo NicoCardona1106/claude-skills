@@ -53,7 +53,7 @@ en la siguiente sesión.
   Google AI Pro): "delega a agy: lee estos 12 archivos de config y resume
   las rutas que usan env vars". Opiniones baratas (segunda mirada rápida,
   sanity check) también a `agy`.
-- **Delegar a `codex` lo acotado** (plan pago desde 2026-09-06: código y
+- **Delegar a `codex` lo acotado** con el plugin (`/codex:rescue` en worktree, cuota de ChatGPT, no de Claude; ver skill orquesta) o por stdin (plan pago desde 2026-09-06: código y
   redacción puntual) y **nunca a
   `hermes`** (~90s por respuesta, modelo local vía Ollama) mientras el plan
   esté bajo — son más caros en tiempo o cuota ajena, no en plan propio, pero
@@ -77,6 +77,18 @@ en la siguiente sesión.
 - **Memoria del proyecto**: si hubo una decisión o corrección real, se
   actualiza igual — es barato (unas líneas) y evita repetir el error la
   próxima sesión, con o sin plan.
+
+## Puente a Codex y agy (guardia de cuota, 2026-09-09)
+
+El hook `~/.claude/hooks/cuota-guardia.cjs` (UserPromptSubmit, registrado en settings.json)
+lee el tee de la statusline en cada mensaje de Nicolas y, según lo que QUEDA del plan:
+
+| Queda | Qué inyecta | Qué hace Claude |
+|---|---|---|
+| ≤ 20 % (5 h o semana) | aviso | Ofrecer modo ahorro y delegar lo mecánico a Codex (`/codex:rescue` en worktree) o lecturas a agy. Nicolas decide. |
+| ≤ 6 % | puente | NO arrancar trabajo nuevo. Resumir estado en 3 líneas, dejar memoria y commit preparados, y proponer: `/codex:transfer` (seguir esta misma sesión en Codex CLI) o `/codex:rescue --background` con contrato para la tarea concreta, o agy para lecturas. Si Nicolas acepta, ejecutar el traspaso y detenerse. |
+
+Umbrales editables al inicio del hook (`PUENTE`, `AVISO`). El hook nunca bloquea el prompt: solo añade contexto. Sin datos de cuota, calla.
 
 ## Cierre anticipado
 

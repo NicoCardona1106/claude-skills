@@ -84,11 +84,14 @@ Propón en una tabla y ESPERA aprobación de Nicolas antes de lanzar nada:
 | Dato actual (precio, versión, noticia) con búsqueda | **agy** | busca en tiempo real |
 | Segunda opinión de OTRO modelo sobre un diff o un plan | **agy** (rápida) o **codex** (a fondo) | evita el sesgo del mismo modelo |
 | Código acotado con contrato (endpoint, script, refactor pequeño, tests) | **codex** en worktree | plan pago, escribe bien código; libera plan de Claude |
+| Talacha mecánica que antes iba a `implementador` (sonnet): refactor guiado, tests de una función, mover código sin criterio nuevo | **plugin Codex** `/codex:rescue --background` en worktree | corre en la cuota de ChatGPT, no en la de Claude; hilo reanudable con `--resume`; el diff lo revisa `revisor` igual que siempre |
 | Redacción técnica acotada (README, doc, guía) | **codex** | redacta bien; salida por `-o` |
 | Pieza que exige criterio, arquitectura, seguridad, texto que ve un cliente | **subagente Claude opus** | contexto y doctrina de Nicolas |
 | Ejecución con muchas reglas propias (nc-design, nicolas-mode, skills) | **subagente Claude sonnet** | codex y agy no cargan las skills |
 | Revisión final contra contrato | **revisor (opus)** | siempre Claude: es quien conoce el contrato |
 | Hermes | interactivo en N-Coterminal | ~90 s por respuesta, no delegable |
+
+**Plugin oficial de OpenAI `codex@openai-codex` (instalado 2026-09-09, v1.0.6; Codex CLI 0.154.0).** Comandos: `/codex:rescue [--background|--wait] [--resume|--fresh] <contrato>` (Codex ESCRIBE en el repo actual, sin sandbox → usarlo dentro de un worktree, nunca sobre master), `/codex:review [--base rama]`, `/codex:adversarial-review <foco>` (segunda voz de otro modelo para diseños delicados), `/codex:status`, `/codex:result`, `/codex:cancel`, `/codex:transfer` (pasa esta sesión de Claude a un hilo de Codex CLI: `codex resume <id>`). Desde Bash, el mismo motor: `node "$CLAUDE_PLUGIN_ROOT/scripts/codex-companion.mjs" task --write -C <worktree> "<contrato>"` (probado 2026-09-09: tarea de 3 archivos + tests en 1 min 31, aprobada por revisión). Review gate del plugin SIEMPRE apagado (revisa cada turno con Codex y vacía la cuota de ChatGPT). Regla de los dos fallos: si Codex falla dos veces la misma tarea, vuelve a Claude. Modelo por defecto gpt-6-astra (config.toml de Codex); exige CLI ≥ 0.154.
 
 Reglas: (1) el contrato de 4 campos va textual en el prompt sea quien sea;
 (2) agy nunca escribe; codex escribe solo en worktree; (3) lo que devuelven
