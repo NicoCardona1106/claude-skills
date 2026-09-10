@@ -16,6 +16,13 @@ de Nicolas se actualizó sola). Repo privado: `Desktop\Claude Code\ideas\panel-a
 - Sin procesos `N-Coterminal.exe` ni `electron` vivos (el servidor node de
   :3000 y las terminales del panel NO estorban). Si queda uno, el build falla con EBUSY.
 - `gh auth status` y `npx vercel whoami` autenticados.
+- **Toda dependencia que use server.js/electron-main en tiempo de ejecución va en
+  `dependencies`, nunca en `devDependencies`**: electron-builder solo empaqueta las de
+  producción. La v0.2.5 (2026-09-09) salió sin `zod` y la app instalada no arrancaba
+  (`Cannot find module 'zod'` en panel-data/server.log); hubo que sacar la 0.2.6.
+  Comprobar: `grep -A20 '"dependencies"' package.json`.
+- Los archivos nuevos del repo que carga el servidor (p. ej. `lib/`) deben estar en
+  `build.files` de package.json.
 
 ## Pasos
 
@@ -30,6 +37,13 @@ de Nicolas se actualizó sola). Repo privado: `Desktop\Claude Code\ideas\panel-a
    ```
    Deja en `dist-app/`: `N-Coterminal-Setup.exe` (~175 MB), `N-Coterminal-Setup.exe.blockmap`, `latest.yml`.
    Comprobar `version:` en `dist-app/latest.yml`.
+   **Probar el paquete, no el repo** (la prueba de humo desde el repo tiene node_modules
+   completo y no detecta dependencias faltantes): desde `dist-app/win-unpacked`,
+   ```
+   ELECTRON_RUN_AS_NODE=1 PANEL_PORT=3100 PANEL_DATA_DIR=<temp> ./N-Coterminal.exe resources/app/server.js
+   curl -s -o /dev/null -w '%{http_code}' http://localhost:3100/   # 200 = arranca
+   ```
+   y mirar que no haya `Cannot find module` en la salida.
 3. **Release** (la subida del Setup tarda; timeout largo):
    ```
    gh release create v0.2.2 dist-app/N-Coterminal-Setup.exe dist-app/latest.yml dist-app/N-Coterminal-Setup.exe.blockmap --repo NicoCardona1106/N-Coterminal-releases --title "N-Coterminal v0.2.2" --notes "..."
