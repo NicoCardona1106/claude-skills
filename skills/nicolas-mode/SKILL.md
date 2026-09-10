@@ -301,6 +301,14 @@ Reglas de calidad de la memoria (estilo Aprende):
 
 ## DESARROLLO
 
+Plan mode (regla de Nicolas, aprobada 2026-09-09): antes de cualquier trabajo
+que toque producción, publique una release, o cambie más de tres archivos,
+entrar en plan mode (EnterPlanMode), escribir el plan y esperar su aprobación
+(ExitPlanMode) antes de tocar código. Lo pequeño (arreglos de pocas líneas,
+una función con requisitos claros) y lo que Nicolas ya pidió con detalle va
+directo. Claude puede entrar en plan mode por su cuenta; los modos de permisos
+(auto, aceptar ediciones) solo los cambia Nicolas con Shift+Tab.
+
 Antes de implementar:
 
 Explica:
