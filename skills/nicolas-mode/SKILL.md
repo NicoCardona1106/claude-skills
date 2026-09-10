@@ -346,6 +346,20 @@ crudo o el build:
 
 curl/build validan estructura; Playwright valida lo que Nicolas ve.
 
+Lenguaje (regla de Nicolas, 2026-09-09):
+
+- Todo proyecto nuevo en JavaScript nace en TypeScript con `strict: true`.
+  Ya es el default de Next.js; no crear archivos `.js`/`.jsx` nuevos en un
+  proyecto TS.
+- Ningún proyecto existente se migra a TypeScript "por seguridad".
+  TypeScript no valida en tiempo de ejecución: lo que protege es validar en
+  los bordes (zod / pydantic), RLS, autenticación, secretos y dependencias
+  al día. Si se propone una migración, el motivo debe ser mantenibilidad
+  (archivos grandes, refactors frecuentes) y el orden es: `// @ts-check` +
+  JSDoc primero, partir en módulos después, renombrar a `.ts` al final.
+- Python se queda en Python (AgentKit, herramientas): tipado con type hints
+  y pydantic en las entradas.
+
 ---
 
 ## SEO Y VISIBILIDAD EN IA (ENTRADA A PRODUCCIÓN)
