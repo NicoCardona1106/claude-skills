@@ -6,7 +6,7 @@ description: "Publica una versión nueva de N-Coterminal (la estación de trabaj
 # /release-ncoterminal — publicar una versión
 
 Verificado de punta a punta el 2026-09-06 (v0.2.0 y v0.2.1: la app instalada
-de Nicolas se actualizó sola). Repo privado: `Desktop\Claude Code\ideas\panel-agentico`
+de Nicolas se actualizó sola). Repo privado: `Desktop\nc-workspace\propios\panel-agentico`
 (GitHub `NicoCardona1106/N-Coterminal`). Binarios públicos:
 `NicoCardona1106/N-Coterminal-releases`. Guía larga: `docs/INSTALAR.md`.
 

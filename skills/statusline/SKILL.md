@@ -1,11 +1,11 @@
 ---
 name: statusline
-description: "Instala o reconstruye la barra de estado de Claude Code, Antigravity (agy) y Codex a partir de los scripts versionados en el repo N-Coterminal (ideas/panel-agentico/statuslines). Usar cuando Nicolas configure un equipo nuevo, la barra aparezca vacía o rota, haya perdido el tee que lee N-Coterminal, o diga 'instala la statusline', 'arregla la barra de estado', 'pon la barra en este PC'."
+description: "Instala o reconstruye la barra de estado de Claude Code, Antigravity (agy) y Codex a partir de los scripts versionados en el repo N-Coterminal (propios/panel-agentico/statuslines). Usar cuando Nicolas configure un equipo nuevo, la barra aparezca vacía o rota, haya perdido el tee que lee N-Coterminal, o diga 'instala la statusline', 'arregla la barra de estado', 'pon la barra en este PC'."
 ---
 
 # statusline — instalar y reconstruir las barras de estado
 
-Fuente de verdad: `Desktop\Claude Code\ideas\panel-agentico\statuslines\` (README.md
+Fuente de verdad: `Desktop\nc-workspace\propios\panel-agentico\statuslines\` (README.md
 + un script/config por CLI). Esta skill copia esos archivos a su destino real;
 no reinventa el contenido de los scripts.
 
@@ -44,7 +44,7 @@ usa LF, el del repo CRLF) — no hace falta reinstalarlo, es cosmético.
 ### Claude Code
 1. Backup: `cp ~/.claude/statusline.cjs ~/.claude/statusline.cjs.bak` (Git Bash)
    o `Copy-Item ~/.claude/statusline.cjs ~/.claude/statusline.cjs.bak` (PowerShell).
-2. `cp "Desktop/Claude Code/ideas/panel-agentico/statuslines/claude/statusline.cjs" ~/.claude/statusline.cjs`
+2. `cp "Desktop/nc-workspace/propios/panel-agentico/statuslines/claude/statusline.cjs" ~/.claude/statusline.cjs`
 3. Verificar que `~/.claude/settings.json` tiene la clave `statusLine` apuntando
    (directo o vía `statusline-command.sh`) a ese archivo. Si no existe la clave,
    añadirla — **no** toques nada más de `settings.json`.
