@@ -486,6 +486,9 @@ Sin contrato solo se puede opinar, no rechazar.
 - **sonnet** → ejecución acotada, repetición, errores reproducibles,
   mantenimiento, tests, implementación estándar. Default en caso de duda.
 - **haiku** → búsquedas y lecturas masivas, mecánica trivial, sweeps baratos.
+- **Externos (también los elige Claude):** agy = Gemini 3.8 Flash `low` para
+  talacha de lectura y `3.1 Pro` para opinar; Codex = `gpt-5.6-luna` rondas,
+  `gpt-5.6-sol` lotes, `gpt-6-astra` solo revisión adversaria. Tabla en `orquesta`.
 - **Fable (loop principal)** → dirigir: arquitectura global, decisiones,
   contratos, revisión final, síntesis. Todo lo que requiera el contexto completo.
 

@@ -46,7 +46,8 @@ Propón en una tabla y ESPERA aprobación de Nicolas antes de lanzar nada:
   Cómo: `agy -p "<prompt>" --output-format json [--json-schema <ruta>]
   [--effort low|medium|high]` — el wrapper JSON trae `response`,
   `structured_output` (si hay schema) y `usage` con tokens. Límites duros:
-  NO lee stdin en modo print (el prompt viaja como argumento → tope ~25k chars
+  en modo print el prompt viaja como argumento (tope ~25k chars; `--input-format
+  stream-json` sí lee NDJSON por stdin, un turno por línea)
   por el límite de línea de comandos de Windows; desde PowerShell 5.1 los
   argumentos con comillas se rompen — invocarlo desde Node/execFile); no
   garantiza herramientas de lectura en modo print → embebe el contexto en el
@@ -59,7 +60,7 @@ Propón en una tabla y ESPERA aprobación de Nicolas antes de lanzar nada:
   (terminal de N-Coterminal) o para sus agentes (whatsapp/gateway); como
   motor de opinión solo si algún día corre con API rápida.
 - **Perfil externo `codex`** (OpenAI Codex CLI, verificado 2026-08-23,
-  v0.149.0, modelo gpt-5.6-terra). Desde 2026-09-06 Nicolas PAGA el plan de OpenAI (~81.000 COP/mes): codex
+  hoy CLI 0.154.0, default gpt-5.6-sol; tabla de modelos más abajo). Desde 2026-09-06 Nicolas PAGA el plan de OpenAI (~81.000 COP/mes): codex
   ya no es "con moderación" — vale para tercera opinión, revisión cruzada de
   diffs y tareas de código/redacción acotadas; lo masivo de solo-lectura sigue
   yendo a agy (Google AI Pro, ventana enorme). Cómo:
@@ -101,6 +102,43 @@ agy/codex es texto o un diff — el director lo lee y lo revisa, nunca lo
 fusiona a ciegas; (4) si la tarea necesita las skills de Nicolas, va a Claude.
 Registro: cada delegación externa se anota (qué, a quién, tokens de Claude
 que evitó) para medir el ahorro — pendiente de la lista general.
+
+### Modelos de agy y Codex — el director los elige, sin preguntar (verificado 2026-09-22)
+
+Igual que con `opus`/`sonnet`/`haiku`, cada delegación externa lleva modelo
+explícito. Regla común: el modelo más barato que cumpla el contrato; subir
+solo cuando falle.
+
+**agy** (`agy models` lista 14; default **Gemini 3.8 Flash**; en modo print
+`agy -p "..." --model <id>` funciona — probado: `gemini-3.8-flash-low`
+respondió en 2,4 s con 0 tokens de pensamiento):
+
+| id | para qué |
+|---|---|
+| `gemini-3.8-flash-low` | DEFAULT para talacha: leer/resumir muchos archivos, extracción con `--json-schema`, clasificar, verificar URLs, lotes de imágenes (`--add-dir`) |
+| `gemini-3.8-flash-high` | segunda opinión rápida, resúmenes donde importa el criterio, capturas densas |
+| `gemini-3.1-pro-high` (o `-low`) | opinión seria de OTRO modelo sobre un plan, un diseño o un diff grande; documentos largos con criterio |
+| `gpt-oss-120b-medium` | tercera voz gratis de un modelo abierto; no para código serio |
+| `claude-sonnet-4-6`, `claude-opus-4-6-thinking` | NO usar: son Claude 4.6 vía Google (viejos); gastan la cuota de Google sin ganar nada frente a los subagentes propios |
+| `gemini-3.6-*`, `gemini-3.7-*` | generaciones anteriores; sin motivo para elegirlas |
+
+**Codex** (catálogo en `~/.codex/models_cache.json`, CLI 0.154.0; default en
+`~/.codex/config.toml` = `gpt-5.6-sol` con effort `medium`; se cambia por
+tarea con `-m <slug>` en `codex exec` o `--model <slug>` en
+`codex-companion.mjs task`; el effort del catálogo por defecto es `low` en
+astra y sol, `medium` en terra y luna):
+
+| slug | para qué |
+|---|---|
+| `gpt-5.6-luna` | rápido y barato: rondas de revisión, tests de una función, refactors mecánicos, redacción corta. Sustituye a `gpt-5.4-mini` (ya no existe). Candidato para la 5.ª tarea del día: PROBAR cuánta cuota gasta |
+| `gpt-5.6-sol` | DEFAULT: lotes de código con contrato (caben ~4/día) |
+| `gpt-5.6-terra` | equilibrado; alternativa si sol falla dos veces la misma tarea antes de devolverla a Claude |
+| `gpt-6-astra` | el más capaz; solo revisión adversaria (`/codex:adversarial-review`) y diagnóstico difícil: vacía la cuota en 2 lotes |
+| `gpt-5.5` | generación anterior; solo si un modelo nuevo regresa |
+| `gpt-reserve`, `codex-auto-review` | ocultos/internos; no elegir |
+
+Desde N-Coterminal: `node herramientas/delegar.cjs <agy|codex> "tarea"
+--de=claude --modelo=<id>` pasa el modelo (agy `--model`, codex `-m`).
 - Elección de modelo (alias de Claude Code; `opus` = **Opus 5.5** desde el
   2026-09-22 con Claude Code ≥ 2.1.280): opus = criterio abierto, texto para
   cliente, revisión de código, seguridad, debugging difícil, gráficas y
