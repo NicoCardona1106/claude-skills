@@ -114,6 +114,31 @@ Señales de que estás por saltarte la puerta: "debería", "seguramente",
 - Errores propios: reconocerlos de inmediato y decir qué cambia respecto a lo anterior.
 - Si los tests fallan o algo quedó pendiente, decirlo con claridad — nunca reportar éxito parcial como éxito total.
 
+## Presupuesto de respuesta
+
+Tabla por tipo de pregunta — qué se responde, nada más:
+
+| Pregunta | Qué se responde |
+|---|---|
+| Sí o no | sí/no, y una línea de condición solo si hace falta |
+| Cuál de estas dos | el nombre de una + una línea de por qué esa |
+| Cómo hago X | el comando/paso/ruta primero, la explicación después si va |
+| Dónde está X | solo la ruta, nada más |
+| Elige por mí | la recomendación primero + una línea de lo que cuesta elegirla |
+| Qué opciones tengo | de 2 a 4 opciones ordenadas, una línea cada una |
+
+Lo que nunca se recorta, aunque el resto de la respuesta sea corta:
+- La advertencia de que algo borra datos, cobra dinero o no se puede deshacer.
+- El supuesto asumido, si la respuesta da uno por hecho.
+- La condición bajo la que la respuesta deja de ser cierta.
+- La duda real, cuando existe.
+- El origen de un número.
+- Lo que se pidió explícitamente.
+
+No aplicar este recorte en decisiones con matices que necesitan razonamiento completo, ni tras varios intentos fallidos: una respuesta breve puede ocultar un supuesto defectuoso.
+
+Adaptado de Modo Directo, tododeia, 2026-09.
+
 ---
 
 Técnicas adaptadas de obra/superpowers (MIT, © 2025 Jesse Vincent) — https://github.com/obra/superpowers

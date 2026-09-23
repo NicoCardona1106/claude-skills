@@ -450,3 +450,46 @@ python scripts/headline_analyzer.py --headlines headlines.txt --json
 # Score content brief completeness
 python scripts/content_brief_generator.py --keyword "cloud cost optimization" --json
 ```
+
+---
+
+## Research de competencia con Meta AI (gratis, sin API)
+
+Adaptado de tododeia (meta-ai-redes-sociales, secciones 2-4) y crea-contenido-con-claude (prompts de investigación), 2026-09.
+
+### Qué es público vs privado
+
+Meta AI busca contenido público de una cuenta (Instagram/Facebook) como si un usuario navegara la app: puede describir qué publica una cuenta de la competencia. Público = seguidores, likes, comentarios visibles. Privado (solo en Meta Insights del dueño de la cuenta) = alcance, guardados, retención, datos demográficos. Meta AI JAMÁS puede dar lo privado de una cuenta ajena — si lo da, lo inventó.
+
+### Regla rectora
+
+"Si el número no lo publicó la cuenta y no se lo diste tú, no existe." Todo dato de alcance o retención de una cuenta de terceros que dé Meta AI se descarta.
+
+### Etiquetas de verificación
+
+Marcar cada dato de Meta AI antes de usarlo en una decisión: **[PÚBLICO]** (seguidores, likes, comentarios visibles), **[MÍO]** (viene de los propios Insights), **[SIN FUENTE]** (Meta AI lo dijo sin poder verificarlo — se descarta).
+
+### Qué NUNCA se escribe a Meta AI
+
+Planes con fechas específicas, nombres de clientes sin autorización, tarifas o precios, ángulos de contenido no estrenados, datos privados de terceros. En México y el resto de Latinoamérica, lo que se le escribe a Meta AI alimenta la segmentación de anuncios y no hay forma de salirse.
+
+### Prompt maestro en 5 tiempos
+
+1. Entrevista inicial (con Claude): @ de la cuenta, meta a 3 meses, cuentas de referencia, formatos, qué ya se intentó.
+2. Claude redacta la pregunta en español, solo sobre datos públicos, para pegar en Meta AI.
+3. El usuario pega la respuesta completa de Meta AI de vuelta a Claude.
+4. Verificación con las etiquetas [PÚBLICO]/[MÍO]/[SIN FUENTE].
+5. Claude emite diagnóstico y plan ejecutable. Pausas obligatorias en los tiempos 2 y 4.
+
+### Plan de 30 días
+
+Una sola palanca por semana: formato, gancho, frecuencia o tema. Antes de mover la palanca, escribir la hipótesis y la señal concreta que juzgará el resultado.
+
+### Desarme de un video viral (6 partes)
+
+Promesa inicial, estructura, cortes de retención, emoción, llamada a la acción, y qué entendió realmente la audiencia (distinto de lo que se creía comunicar).
+
+### Prompts textuales de investigación (crea-contenido-con-claude)
+
+- **Juez de temas**: "Eres mi estratega de contenido. Te voy a dar una lista de temas que estoy considerando para mi [TIPO DE CONTENIDO]".
+- **Dossier de investigación**: "Investiga a fondo este tema para un contenido: [TEMA]. Mi audiencia: [QUIÉN]. Formato: [REEL / VIDEO LARGO]".

@@ -532,3 +532,31 @@ Keep unless they hurt the meaning: specific odd details ("the lawyer who used to
 ### File mode
 
 When humanizing a file directly, change prose only: keep code blocks, YAML front matter, data, and link targets intact, and write only the final text to the file (no annotations inside the file).
+
+---
+
+## Anexo en español: señas de IA (Humanízalo)
+
+Adaptado de Humanízalo (Hainrixz, MIT) vía tododeia, 2026-09.
+
+### Las 40 señas en 5 familias
+
+- **Relleno (8)** — párrafos que suenan importantes y no dicen nada; cierres tipo "en conclusión, esto representa un cambio de paradigma".
+- **Palabras de robot (6)** — profundizar, panorama, fomentar, aprovechar, robusto, entre otras.
+- **Estructuras predecibles (12)** — "no es solo X, es Y"; listas de tres; voz pasiva; frases todas del mismo largo.
+- **Formato que delata (5)** — guion largo; negrita en todo; emojis a media frase; Mayúsculas De Cada Palabra.
+- **Tics de chatbot (9)** — "buena pregunta"; "espero que te sirva"; el aviso de que no tiene datos recientes.
+
+### Ejemplos antes/después
+
+1. "El resultado no es solo rápido — es transformador" → "El resultado es rápido".
+2. "Es importante destacar que el precio ya incluye el envío" → "El precio ya incluye el envío".
+3. "En conclusión, esta herramienta representa un cambio de paradigma..." → "Sirve para una cosa: no volver a escribir el mismo correo".
+
+### Rúbrica de autocalificación
+
+Calificar 1-10 en seis ejes: Franqueza, Ritmo, Confianza, Autenticidad, Densidad, Alma. Piso: 42/60. Si no llega, repetir hasta 3 veces.
+
+### Advertencia
+
+Humanizar no verifica hechos: preserva datos inventados con mejor redacción. No sustituye una revisión de veracidad.

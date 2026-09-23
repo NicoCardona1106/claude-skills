@@ -12,6 +12,10 @@ de Nicolas para usar la herramienta Workflow cuando la escala lo amerite.
 
 Aplica también las reglas de `nicolas-mode` (sección ORQUESTACIÓN Y SUBAGENTES).
 
+## El router no ejecuta
+
+Quien reparte —el director, o cualquier agente/skill que solo clasifica y reenvía— mantiene su instrucción delgada: una dispatch table de menos de 40 líneas, sin lógica de negocio adentro. Si duda entre dos destinos, pregunta en vez de decidir a ciegas. Las tareas compuestas ("revisa esto y avísame de aquello") se parten en turnos, un destino por turno.
+
 ## Fase 1 — El documento
 
 No se delega lo que no está escrito.
@@ -192,6 +196,10 @@ refactoriza de más), y sin formato de salida (no sabes qué cambió).
 - Detén temprano al agente que va mal: dos minutos errados cuestan menos que un
   trabajo terminado errado.
 
+### Investigación repartida (/investiga)
+
+Para un tema que exige buscar y contrastar: 5 subagentes en paralelo, timebox explícito, una sola pasada por subagente — fuentes académicas/primarias, prensa de los últimos 12 meses, discurso en redes de los últimos 90 días, documentos primarios y datasets, y la vista contraria (los 3 críticos más fuertes y qué argumentan). Sonnet para la lectura de cada subagente; opus effort low para la síntesis final solo si el tema exige criterio. El director sintetiza con fuentes y fecha — nunca cierra el tema con lo que devuelve un solo subagente.
+
 ## La bitácora del director (sobrevive a la compactación)
 
 Tu memoria de conversación NO sobrevive a un compact. El fallo más caro
@@ -237,6 +245,7 @@ que necesitas para seguir dirigiendo. Empaqueta y delega:
 4. Revisión de solo lectura: el revisor no mueve HEAD, no toca el índice y
    no despacha subagentes propios (un revisor que abre otro revisor duplica
    el asiento y su veredicto no vale).
+5. Plantilla base para invocar a `revisor`: "Revisa los cambios de [rama/PR/archivos] como lo haría una persona con experiencia que tiene que aprobarlos." Opus 5.5 en `effort low` caza más errores que Opus 5 en `effort high` (72 % vs 56 % de errores conocidos, cifra del fabricante) — el `revisor` sigue en `high` por defecto; sirve si hace falta revisar rápido y barato.
 
 Nunca le digas al revisor qué NO marcar. Si crees que un hallazgo será falso
 positivo, deja que lo levante y adjudícalo tú: "no marques X" es prejuzgar
