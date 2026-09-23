@@ -53,6 +53,10 @@ en la siguiente sesión.
   Google AI Pro): "delega a agy: lee estos 12 archivos de config y resume
   las rutas que usan env vars". Opiniones baratas (segunda mirada rápida,
   sanity check) también a `agy`.
+- **Gráficas, capturas o diagramas puntuales → subagente `opus` (Opus 5.5)
+  con `effort: low`**: lee valores y flechas mejor que Opus 5 en `max` con
+  ~1/10 de los tokens y no mete imágenes en el contexto del director. Lotes
+  grandes de imágenes siguen en `agy`.
 - **Delegar a `codex` lo acotado** con el plugin (`/codex:rescue` en worktree, cuota de ChatGPT, no de Claude; ver skill orquesta) o por stdin (plan pago desde 2026-09-06: código y
   redacción puntual) y **nunca a
   `hermes`** (~90s por respuesta, modelo local vía Ollama) mientras el plan

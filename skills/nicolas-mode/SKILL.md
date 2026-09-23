@@ -478,8 +478,11 @@ Sin contrato solo se puede opinar, no rechazar.
 
 ### Elección de modelo por subagente (decidir solo, sin preguntar)
 
-- **opus** → decisiones abiertas, criterio, texto que ve un cliente final,
-  arquitectura de un módulo, revisión crítica, seguridad, debugging difícil.
+- **opus** (= Opus 5.5 desde el 2026-09-22, Claude Code ≥ 2.1.280) → decisiones
+  abiertas, criterio, texto que ve un cliente final, arquitectura de un módulo,
+  revisión crítica de código, seguridad, debugging difícil, lectura de
+  gráficas/capturas densas y auditorías largas de un repo. Effort SIEMPRE
+  explícito: su default es `medium` (≈ `high` de Opus 5). Ficha en `orquesta`.
 - **sonnet** → ejecución acotada, repetición, errores reproducibles,
   mantenimiento, tests, implementación estándar. Default en caso de duda.
 - **haiku** → búsquedas y lecturas masivas, mecánica trivial, sweeps baratos.

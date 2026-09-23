@@ -88,10 +88,12 @@ Propón en una tabla y ESPERA aprobación de Nicolas antes de lanzar nada:
 | Redacción técnica acotada (README, doc, guía) | **codex** | redacta bien; salida por `-o` |
 | Pieza que exige criterio, arquitectura, seguridad, texto que ve un cliente | **subagente Claude opus** | contexto y doctrina de Nicolas |
 | Ejecución con muchas reglas propias (nc-design, nicolas-mode, skills) | **subagente Claude sonnet** | codex y agy no cargan las skills |
-| Revisión final contra contrato | **revisor (opus)** | siempre Claude: es quien conoce el contrato |
+| Revisión final contra contrato | **revisor (opus)** | siempre Claude: es quien conoce el contrato; Opus 5.5 caza más bugs con menos falsos positivos que Opus 5 |
+| Leer gráficas, diagramas o capturas densas (valores, qué conecta una flecha, qué cambió entre dos versiones) | **subagente Claude opus** (5.5) con `effort: low` | en `low` lee mejor que Opus 5 en `max` con ~1/10 de los tokens; lotes masivos de imágenes siguen en agy |
+| Auditoría o migración de un repo entero que dura horas | **subagente Claude opus** (5.5) con checklist en archivo y señal de tiempo | sostiene trabajo autónomo largo mejor que Opus 5 (ficha abajo) |
 | Hermes | interactivo en N-Coterminal | ~90 s por respuesta, no delegable |
 
-**Plugin oficial de OpenAI `codex@openai-codex` (instalado 2026-09-09, v1.0.6; Codex CLI 0.154.0).** Comandos: `/codex:rescue [--background|--wait] [--resume|--fresh] <contrato>` (Codex ESCRIBE en el repo actual, sin sandbox → usarlo dentro de un worktree, nunca sobre master), `/codex:review [--base rama]`, `/codex:adversarial-review <foco>` (segunda voz de otro modelo para diseños delicados), `/codex:status`, `/codex:result`, `/codex:cancel`, `/codex:transfer` (pasa esta sesión de Claude a un hilo de Codex CLI: `codex resume <id>`). Desde Bash, el mismo motor: `node "$CLAUDE_PLUGIN_ROOT/scripts/codex-companion.mjs" task --write -C <worktree> "<contrato>"` (probado 2026-09-09: tarea de 3 archivos + tests en 1 min 31, aprobada por revisión). Review gate del plugin SIEMPRE apagado (revisa cada turno con Codex y vacía la cuota de ChatGPT). Regla de los dos fallos: si Codex falla dos veces la misma tarea, vuelve a Claude. Modelo por defecto gpt-6-astra (config.toml de Codex); exige CLI ≥ 0.154.
+**Plugin oficial de OpenAI `codex@openai-codex` (instalado 2026-09-09, v1.0.6; Codex CLI 0.154.0).** Comandos: `/codex:rescue [--background|--wait] [--resume|--fresh] <contrato>` (Codex ESCRIBE en el repo actual, sin sandbox → usarlo dentro de un worktree, nunca sobre master), `/codex:review [--base rama]`, `/codex:adversarial-review <foco>` (segunda voz de otro modelo para diseños delicados), `/codex:status`, `/codex:result`, `/codex:cancel`, `/codex:transfer` (pasa esta sesión de Claude a un hilo de Codex CLI: `codex resume <id>`). Desde Bash, el mismo motor: `node "$CLAUDE_PLUGIN_ROOT/scripts/codex-companion.mjs" task --write -C <worktree> "<contrato>"` (probado 2026-09-09: tarea de 3 archivos + tests en 1 min 31, aprobada por revisión). Review gate del plugin SIEMPRE apagado (revisa cada turno con Codex y vacía la cuota de ChatGPT). Regla de los dos fallos: si Codex falla dos veces la misma tarea, vuelve a Claude. Modelo por defecto gpt-5.6-sol desde 2026-09-15 (config.toml de Codex; astra vaciaba la cuota en 2 lotes → reservarlo con `--model gpt-6-astra` para diagnósticos y revisión adversaria; gpt-5.4-mini ya no existe en el catálogo); exige CLI ≥ 0.154.
 
 Reglas: (1) el contrato de 4 campos va textual en el prompt sea quien sea;
 (2) agy nunca escribe; codex escribe solo en worktree; (3) lo que devuelven
@@ -99,9 +101,13 @@ agy/codex es texto o un diff — el director lo lee y lo revisa, nunca lo
 fusiona a ciegas; (4) si la tarea necesita las skills de Nicolas, va a Claude.
 Registro: cada delegación externa se anota (qué, a quién, tokens de Claude
 que evitó) para medir el ahorro — pendiente de la lista general.
-- Elección de modelo: opus = criterio abierto, texto para cliente, revisión,
-  seguridad; sonnet = ejecución acotada, repetición, mantenimiento (default);
-  haiku = búsquedas masivas y mecánica trivial.
+- Elección de modelo (alias de Claude Code; `opus` = **Opus 5.5** desde el
+  2026-09-22 con Claude Code ≥ 2.1.280): opus = criterio abierto, texto para
+  cliente, revisión de código, seguridad, debugging difícil, gráficas y
+  capturas densas, auditorías o migraciones largas de un repo; sonnet =
+  ejecución acotada, repetición, mantenimiento (default); haiku = búsquedas
+  masivas y mecánica trivial. Effort SIEMPRE explícito con opus (su default
+  es `medium`). Ficha completa de Opus 5.5 al final de esta skill.
 - Por cada tarea, el contrato de 4 campos (ENTREGABLE, FORMATO, ACEPTACIÓN,
   PROHIBIDO) va dentro del prompt del agente, textual.
 - **Quinto campo OBLIGATORIO cuando la tarea incluya acciones destructivas o
@@ -216,6 +222,83 @@ veredicto final, hallazgos relevantes, qué quedó pendiente y siguiente paso.
 Actualiza Mempalace/bitácora según las reglas de nicolas-mode y prepara el
 commit esperando autorización.
 
+## Ficha Opus 5.5 — qué cambia en el reparto (investigado 2026-09-22)
+
+Fuentes: anuncio de Anthropic, docs de la plataforma (overview, what's new,
+guía de prompting de Opus 5.5), CHANGELOG de Claude Code 2.1.280, VentureBeat,
+TechCrunch y el hilo de Hacker News del lanzamiento.
+
+- **Qué es:** sucesor de Opus 5 en la línea Opus. API `claude-opus-5-5`,
+  $4/$20 por MTok (Opus 5: $5/$25; Fable 5.1: $10/$50), cache read $0.20,
+  1M de contexto, 128K de salida, corte de conocimiento junio 2026. Más de
+  30 % más rápido que Opus 5 y termina la misma tarea con menos tokens
+  (Anthropic: ~40 % menos costo por tarea típica).
+- **En Claude Code:** desde 2.1.280 es el modelo del alias `opus` y el DEFAULT
+  en Pro y Team; los perfiles de `~/.claude/agents/` con `model: opus` ya lo
+  usan solos. Un `/effort` guardado antes NO se le aplica: arranca en `medium`
+  hasta que tenga su propia entrada. Fable 5.1 sigue siendo el modelo principal
+  de Nicolas (settings.json) y el director.
+- **Benchmarks (Anthropic):** gana a Fable 5.1 en código agéntico
+  (Terminal-Bench 4.0 66.4 vs 55.8; FrontierCode 54.4 vs 50.3; CursorBench
+  57.8 vs 51.8), trabajo de conocimiento (GDPval-AA 1846 vs 1735 Elo),
+  computer use (OSWorld 81.8 vs 80.7) y gráficas (Chartography 89.0 vs 88.4).
+  Pierde con GPT-6 Astra en AutomationBench (40.0 vs 41.4) y en
+  Terminal-Bench-Science (58.7 vs 64.6). HN: la crítica es al discurso de
+  "pacing", no al modelo; "medium de 5.5 rinde como Opus 5 a 1/6 del costo".
+- **En qué es bueno (para repartir):** (1) código agéntico multi-paso en un
+  repo real hasta que pasan los tests, con menos pasos y ~la mitad de tokens;
+  (2) revisión de código: más bugs y menos falsas alarmas que Opus 5 → el
+  `revisor` gana; (3) trabajo de conocimiento: casi no inventa cifras ni
+  fuentes, mejor en modelos financieros y en cazar detalles de entradas largas
+  (fecha en el día de la semana equivocado, gráfica que no cuadra con la
+  tabla); (4) gráficas, diagramas y capturas sin herramientas; (5) informes de
+  trabajo agéntico más claros (qué hizo, qué encontró, qué necesita); (6)
+  resiste mejor la inyección indirecta por resultados de herramientas y
+  páginas web.
+- **Effort:** default `medium` (Opus 5: `high`). `medium` de 5.5 iguala o
+  supera `high` de Opus 5 en código y conocimiento; `low` se acerca en varios
+  evals de código con mucho menos costo. A igual nivel piensa MÁS que Opus 5
+  (sobre todo `xhigh`/`max`): un effort heredado da turnos más largos. Ponerlo
+  SIEMPRE explícito en el `agent()` o en el frontmatter; bajar el effort antes
+  que pedir "piensa menos" por prompt. Los perfiles propios siguen en
+  `effort: high` (revisión y texto de cliente: calidad primero); para talacha
+  con opus, `medium`.
+- **Cambios que rompen (solo en API/SDK, no en los subagentes de Claude
+  Code):** el thinking no se puede apagar; `tool_choice` `any`/`tool` da 400
+  (usar `auto` + `strict: true` o structured outputs); los bloques de thinking
+  quedan atados al modelo y a la conversación (historial append-only);
+  computer use solo con `computer_toolset_20260801`. Nuevos clasificadores de
+  biología y `reasoning_extraction`; ante refusal cae solo a Opus 5 (bio) o a
+  Opus 4.8 (ciber). Fast mode $8/$40 solo en la API.
+- **Contratos con Opus 5.5 (de la guía de prompting oficial):**
+  - Trabajo largo sin supervisión: darle las partes en un checklist o archivo;
+    si cierra el turno con ítems abiertos y sin bloqueo declarado, NO terminó →
+    reenviar "tu lista aún tiene abiertos X e Y; continúa; si algo bloquea, di
+    qué". Máximo 2–3 continuaciones automáticas, luego escalar.
+  - Equipos de agentes: reacciona a señales de tiempo. Dar un presupuesto
+    (`transcurrido 340s / 1200s`, algo por encima de lo que se quiere gastar)
+    o la frase "Time matters here: do not spend time that can be avoided, and
+    the earlier a correct result is obtained, the better." → termina antes con
+    la misma calidad; menor effort reduce el trabajo, el presupuesto reparte.
+  - Multi-app (correo, hojas, CRM): "Before taking any action, explore broadly
+    with tool calls: list and open the ... that could be relevant, including
+    ones the task does not explicitly mention, and use what you find."
+  - Frontend sin dirección de arte: NO sirve "evita el look genérico de IA";
+    nombrar los patrones concretos prohibidos (fondo crema, cursivas de
+    acento, etiquetas 01/02/03, monospace, botones píldora). nc-design ya lo
+    hace con sus locks y tells: mantenerlos textuales en el contrato.
+  - Quitar de los prompts "piensa con cuidado antes de responder" (arranca más
+    lento sin ganar calidad) y las reglas de sobre-verificación escritas para
+    Opus 5; re-probar cada una en vez de heredarlas.
+- **Cuando NO basta:** si en `high`/`xhigh` sigue pasando por alto una
+  condición, un conflicto entre documentos o no resuelve un bug → Fable 5.1
+  (el director) o `model: fable` como subagente puntual. Sonnet 5 sigue para
+  lo acotado y repetitivo (cuota más barata en el plan).
+- **Cuota del plan:** Anthropic no publica pesos por modelo. Medido por
+  terceros: Opus consume ~5× más rápido que Sonnet a igual tarea y Fable tiene
+  tope del 50 % semanal en Max. De 5.5 no hay dato propio todavía: medir con la
+  statusline en las primeras sesiones antes de mover talacha de sonnet a opus.
+
 ---
 
 Técnicas adaptadas de obra/superpowers (MIT, © 2025 Jesse Vincent) — https://github.com/obra/superpowers
@@ -223,3 +306,5 @@ Técnicas adaptadas de obra/superpowers (MIT, © 2025 Jesse Vincent) — https:/
 © 2026 Nicolas Cardona Carrillo. Licencia CC BY 4.0:
 puede usarse y adaptarse conservando este crédito.
 Origen: https://github.com/NicoCardona1106/claude-skills
+
+**Donde viven los worktrees:** SIEMPRE en `C:\Users\NICO-C\Desktop\nc-workspace\temporales\<repo>-<bloque>`, nunca al lado del repo. Dependencias con `npm ci` dentro del worktree (nunca junction a `node_modules`); al terminar, borrar la carpeta y `git -C <repo> worktree prune`. Regla completa en el CLAUDE.md de nc-workspace.
