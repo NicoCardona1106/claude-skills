@@ -301,6 +301,14 @@ Reglas de calidad de la memoria (estilo Aprende):
 
 ## DESARROLLO
 
+SRS obligatorio (regla de Nicolas, 2026-09-22): antes de construir cualquier
+web, app, API o SaaS nueva — o un módulo grande — se escribe un SRS completo
+(`docs/SRS.md`: requisitos funcionales y no funcionales con ID, prioridad y
+criterio de aceptación, datos, fuera de alcance y checklist final), se exporta
+a PDF y Nicolas lo aprueba ANTES de escribir código. Flujo y plantilla en la
+skill `srs`. Orden: SRS → aprobación → blueprint (`fable-plan`) → código.
+Arreglos y ajustes pequeños no lo necesitan.
+
 Plan mode (regla de Nicolas, aprobada 2026-09-09): antes de cualquier trabajo
 que toque producción, publique una release, o cambie más de tres archivos,
 entrar en plan mode (EnterPlanMode), escribir el plan y esperar su aprobación

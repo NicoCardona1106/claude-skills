@@ -106,6 +106,12 @@ oficio y detalle de nivel showcase (referencia de vara: horizonx.so).
   (preloaders, heroes tipográficos, glass, scroll, WebGL, micro-interacciones,
   conversión) + lecciones aprendidas con el porqué. Leer al elegir la técnica
   estrella o al depurar un efecto.
+- `references/efectos.md` — catálogo de `fx.js`, las 3 colecciones del banco
+  2026-09 y el checklist de pulido superior (Atlas).
+- `references/recetas-2026-09.md` — las 25 landings de septiembre una por una
+  con valores reales (paleta, tipografía, tiempos, mecanismo de cada animación,
+  móvil) + índice por dominio + lecciones al portar. Leer al recrear cualquier
+  animación o detalle de ese banco.
 
 ## Skills aliadas — invocarlas sin pedir permiso
 
@@ -283,6 +289,15 @@ sticky "wow") es la lista de pulido al portar cualquier pieza premium.
 
 - `references/landings/landings/fx.js`: 25 efectos sin dependencias con
   cleanup, listos para `useEffect`. Usarlo antes de reescribir un efecto.
+- **`references/recetas-2026-09.md` (añadido 2026-09-22): las 25 landings
+  destiladas una por una** — paleta, tipografía, capas del hero con tiempos,
+  cada animación con su mecanismo real (keyframes, llamadas fx con parámetros,
+  alturas de las secciones sticky, 3D), detalles de nav/botones/vidrio y para
+  qué dominio reutilizarla; índice por dominio al inicio y «lecciones al
+  portar» con los defectos reales del banco (gap inválido en la nav, parallax
+  que pisa el centrado, keyframes sin usar, sin `@media`). LEER esa ficha antes
+  de recrear una animación del banco: ahí están los valores, no hay que
+  reabrir el HTML salvo para copiar markup.
 - Cada landing tiene DOS versiones: la fuente Claude Design (`NN Nombre.dc.html`)
   y su gemela **HTML plano** (`NN Nombre.html`, generada 2026-09-05 con
   `landings/convertir.mjs` y verificada en navegador). **Para copiar markup,
