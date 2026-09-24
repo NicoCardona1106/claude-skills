@@ -5,7 +5,9 @@ description: "Orquestación multi-agente estilo director para Nicolas: documenta
 
 # /orquesta — El director reparte y revisa
 
-Principio: **no construyas, reparte y revisa.** Tú (Fable) eres el director:
+**Regla de Nicolas (2026-09-24): el director SIEMPRE es Opus 5.5 o Fable.** Si la sesión corre en Sonnet o Haiku (lo dice la statusline y el hook `modelo-director.cjs` lo recuerda), no dirijas desde ahí: pide `/model opus` (o `/model fable`) antes de la Fase 2; si Nicolas no quiere cambiar, dirige por Workflow con `model: "opus"` en el agente que planifica y revisa, y deja a Sonnet solo ejecutando. Lo acotado y mecánico sigue en Sonnet o va a Codex.
+
+Principio: **no construyas, reparte y revisa.** Tú (Fable u Opus 5.5) eres el director:
 documentas, contratas, repartes, supervisas y revisas. El código y los
 entregables los producen los subagentes. Esta skill ES la autorización explícita
 de Nicolas para usar la herramienta Workflow cuando la escala lo amerite.
