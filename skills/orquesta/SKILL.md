@@ -74,14 +74,18 @@ Propón en una tabla y ESPERA aprobación de Nicolas antes de lanzar nada:
   eventos JSONL, `-o` escribe la respuesta final a archivo. Para revisión:
   `codex exec review` revisa el repo actual. Desde 2026-09-06 codex SÍ
   puede ESCRIBIR, pero solo en un worktree aislado (skill
-  `using-git-worktrees`): `codex exec - -C <worktree> -s workspace-write
-  --approve-for-me --color never -o <salida.md>` (flags verificados en
-  codex-cli 0.150.1; `--approve-for-me` resuelve las aprobaciones dentro del
-  sandbox de escritura). Nunca sobre master ni fuera del worktree; el diff
+  `using-git-worktrees`): `codex exec - -C <carpeta> --approve-for-me --skip-git-repo-check --color never -o <salida.md>`
+  (verificado 2026-09-24 con codex-cli 0.156.1: `--approve-for-me` ya implica
+  el sandbox workspace-write y NO se puede combinar con `-s`; `--full-auto` no
+  existe en exec; `--skip-git-repo-check` si la carpeta no es un repo). El plugin `codex-companion.mjs
+  task --write` falló ese día con «CreateProcess: Rejected ... setup refresh
+  had errors» sin tocar archivos: si pasa, usar `codex exec` directo. Nunca sobre master ni fuera del worktree; el diff
   pasa por `revisor` (o por el director) antes de fusionar, igual que un
   implementador de Claude. Para opinar sin tocar nada sigue `-s read-only`.
 
 ### Reparto natural entre Claude, agy y codex (decidir solo, sin preguntar)
+
+**Regla de Nicolas (2026-09-24): esta tabla se aplica SIEMPRE, tarea por tarea, aunque sobre cuota de Claude y sin que él lo pida.** Antes de cada `Agent(...)` preguntarse «¿esto es de Codex?»; si es mecánico con contrato, va a Codex y el director solo revisa. En el informe final, una columna «a quién fue».
 
 | Tarea | Va a | Por qué |
 |---|---|---|
