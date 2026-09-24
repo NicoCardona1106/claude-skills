@@ -245,7 +245,7 @@ que necesitas para seguir dirigiendo. Empaqueta y delega:
 4. Revisión de solo lectura: el revisor no mueve HEAD, no toca el índice y
    no despacha subagentes propios (un revisor que abre otro revisor duplica
    el asiento y su veredicto no vale).
-5. Plantilla base para invocar a `revisor`: "Revisa los cambios de [rama/PR/archivos] como lo haría una persona con experiencia que tiene que aprobarlos." Opus 5.5 en `effort low` caza más errores que Opus 5 en `effort high` (72 % vs 56 % de errores conocidos, cifra del fabricante) — el `revisor` sigue en `high` por defecto; sirve si hace falta revisar rápido y barato.
+5. Plantilla base para invocar a `revisor`: "Revisa los cambios de [rama/PR/archivos] como lo haría una persona con experiencia que tiene que aprobarlos." Opus 5.5 en `effort low` caza más errores que Opus 5 en `effort high` (72 % vs 56 % de errores conocidos, cifra del fabricante) — el `revisor` corre en `medium` desde 2026-09-23 (Fable sigue de director: decisión reconfirmada ese día con las guías de Opus 5.5).
 
 Nunca le digas al revisor qué NO marcar. Si crees que un hallazgo será falso
 positivo, deja que lo levante y adjudícalo tú: "no marques X" es prejuzgar

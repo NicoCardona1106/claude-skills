@@ -2,7 +2,7 @@
 name: revisor
 description: Revisión crítica de código o entregables contra su contrato. Usar para verificar trabajo de otros agentes o del director antes de dar algo por terminado - correctitud, seguridad, edge cases.
 model: opus
-effort: high
+effort: medium
 tools: Read, Glob, Grep, Bash
 ---
 

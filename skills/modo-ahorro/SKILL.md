@@ -94,6 +94,7 @@ lee el tee de la statusline en cada mensaje de Nicolas y, según lo que QUEDA de
 | Queda | Qué inyecta | Qué hace Claude |
 |---|---|---|
 | ≤ 20 % (5 h o semana) | aviso | Ofrecer modo ahorro y delegar lo mecánico a Codex (`/codex:rescue` en worktree) o lecturas a agy. Nicolas decide. |
+| ≤ 20 % de Fable (semana) | director alterno | Para lo que exige criterio, abrir la siguiente sesión con `/model opus` (Opus 5.5) de director en vez de pasar a Codex: mismo reparto, contrato con el snippet anti-parada de la guía de prompting («un mensaje sin acción con herramientas termina tu turno; no cierres con resúmenes, ofertas condicionales, decisiones innecesarias ni reportes de progreso») y un PENDIENTES.md que él actualiza. Fable vuelve cuando la cuota se reinicie. Decidido 2026-09-23. |
 | ≤ 6 % | puente | NO arrancar trabajo nuevo. Resumir estado en 3 líneas, dejar memoria y commit preparados, y proponer: `/codex:transfer` (seguir esta misma sesión en Codex CLI) o `/codex:rescue --background` con contrato para la tarea concreta, o agy para lecturas. Si Nicolas acepta, ejecutar el traspaso y detenerse. |
 
 Umbrales editables al inicio del hook (`PUENTE`, `AVISO`). El hook nunca bloquea el prompt: solo añade contexto. Sin datos de cuota, calla.
