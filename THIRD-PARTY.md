@@ -55,6 +55,18 @@ https://github.com/Hainrixz/the-architect
 https://github.com/nextlevelbuilder/ui-ux-pro-max-skill (ver licencia en
 el repositorio original).
 
+## Sergey Bulaev (sergebulaev/instagram-skills)
+
+`ig-carousel-planner`, `ig-content-planner`, `ig-hashtag-strategist`,
+`ig-hook-extractor`, `ig-profile-optimizer`
+
+Licencia: MIT — © 2026 Sergey Bulaev (ver `LICENSE.txt` en cada skill).
+Instalación parcial: 5 de las 9 skills, sin `lib/` (clientes de Apify, Publora
+y Pixfaro). El 2026-09-25 Nicolas Cardona Carrillo agregó reglas propias a
+`ig-hook-extractor` (gancho de máximo 12 palabras) e `ig-carousel-planner`
+(máximo 25 palabras por lámina). Fuente:
+https://github.com/sergebulaev/instagram-skills
+
 ## obra/superpowers (adaptadas al español)
 
 `skills-tdd` (ex `writing-skills`), `using-git-worktrees`
