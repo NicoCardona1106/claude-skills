@@ -213,6 +213,21 @@ con el corte anterior y termine exactamente en la foto con el corte nuevo.
 Transición suave tipo "swipe", formato 9:16 para Reels.
 ```
 
+## Reglas del guion de reel
+
+Estructura: gancho de 3 segundos, situación, giro, explicación, opinión, aplicación y un solo
+llamado a la acción. Antes de escribir, preguntar lo que falte: tema, a quién le habla, objetivo
+(educar, conversación o agendar) y duración (30, 60 o 90 s).
+
+- Texto hablado limpio; las notas de imagen van aparte, una idea visual por bloque.
+- Una sola idea central: si aparecen dos temas, elegir uno y avisar.
+- Frases que se puedan decir en voz alta sin trabarse; si no, se reescriben.
+- La opinión se marca como opinión ("mi lectura es...").
+- Nada de cifras, clientes ni anécdotas inventadas: si falta un dato, se pregunta o se deja
+  como hipótesis explícita.
+- El llamado a la acción continúa la idea del reel, no es un anuncio suelto.
+- Entregar: guion literal, notas de imagen aparte y duración estimada leyendo en voz alta.
+
 ## Stack de producción Reflexcam (2026-09)
 
 Fuente: `notas/investigacion-capcut-higgsfield-2026-09-22.md` (Playwright + WebFetch, 2026-09-22).
