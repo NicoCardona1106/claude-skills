@@ -7,6 +7,8 @@ description: "Orquestación multi-agente estilo director para Nicolas: documenta
 
 **Regla de Nicolas (2026-09-24): el director SIEMPRE es Opus 5.5 o Fable.** Si la sesión corre en Sonnet o Haiku (lo dice la statusline y el hook `modelo-director.cjs` lo recuerda), no dirijas desde ahí: pide `/model opus` (o `/model fable`) antes de la Fase 2; si Nicolas no quiere cambiar, dirige por Workflow con `model: "opus"` en el agente que planifica y revisa, y deja a Sonnet solo ejecutando. Lo acotado y mecánico sigue en Sonnet o va a Codex.
 
+**Fable como especialista (Nicolas, 2026-09-26).** La sesión en Opus 5.5 es director válido y rinde más la cuota; Fable 5.1 entra como SUBAGENTE (`model: "fable"`) solo donde el criterio pesa de verdad: arquitectura o diseño de un módulo nuevo, decisiones ambiguas con varias salidas razonables, y bugs complejos en los que Opus ya falló una vez. La revisión de código sigue en `revisor` (opus): Opus 5.5 caza más errores con menos falsos positivos. Delegar todo lo que pase de unas pocas líneas o lecturas; lo trivial (una línea en SEMANA.md, un dato puntual) lo hace el director. Leer el informe del subagente, no sus archivos, y comprobar a mano solo la evidencia que cita.
+
 Principio: **no construyas, reparte y revisa.** Tú (Fable u Opus 5.5) eres el director:
 documentas, contratas, repartes, supervisas y revisas. El código y los
 entregables los producen los subagentes. Esta skill ES la autorización explícita
@@ -97,6 +99,7 @@ Propón en una tabla y ESPERA aprobación de Nicolas antes de lanzar nada:
 | Código acotado con contrato (endpoint, script, refactor pequeño, tests) | **codex** en worktree | plan pago, escribe bien código; libera plan de Claude |
 | Talacha mecánica que antes iba a `implementador` (sonnet): refactor guiado, tests de una función, mover código sin criterio nuevo | **plugin Codex** `/codex:rescue --background` en worktree | corre en la cuota de ChatGPT, no en la de Claude; hilo reanudable con `--resume`; el diff lo revisa `revisor` igual que siempre |
 | Redacción técnica acotada (README, doc, guía) | **codex** | redacta bien; salida por `-o` |
+| Arquitectura de un módulo nuevo, decisión ambigua con varias salidas, bug complejo en el que Opus ya falló | **subagente Claude fable** (`model: "fable"`) | el criterio más fino; se paga caro, así que solo aquí (regla 2026-09-26) |
 | Pieza que exige criterio, arquitectura, seguridad, texto que ve un cliente | **subagente Claude opus** | contexto y doctrina de Nicolas |
 | Ejecución con muchas reglas propias (nc-design, nicolas-mode, skills) | **subagente Claude sonnet** | codex y agy no cargan las skills |
 | Revisión final contra contrato | **revisor (opus)** | siempre Claude: es quien conoce el contrato; Opus 5.5 caza más bugs con menos falsos positivos que Opus 5 |
@@ -154,7 +157,7 @@ Desde N-Coterminal: `node herramientas/delegar.cjs <agy|codex> "tarea"
   cliente, revisión de código, seguridad, debugging difícil, gráficas y
   capturas densas, auditorías o migraciones largas de un repo; sonnet =
   ejecución acotada, repetición, mantenimiento (default); haiku = búsquedas
-  masivas y mecánica trivial. Effort SIEMPRE explícito con opus (su default
+  masivas y mecánica trivial; fable = especialista puntual (arquitectura, ambigüedad, bug donde opus falló). Effort SIEMPRE explícito con opus (su default
   es `medium`). Ficha completa de Opus 5.5 al final de esta skill.
 - Por cada tarea, el contrato de 4 campos (ENTREGABLE, FORMATO, ACEPTACIÓN,
   PROHIBIDO) va dentro del prompt del agente, textual.
