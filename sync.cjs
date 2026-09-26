@@ -49,4 +49,6 @@ for (const a of agentes) sincronizar(path.join(SRC, 'agents', a), path.join(DST,
 sincronizar(path.join(SRC, 'CLAUDE.md'), path.join(DST, 'CLAUDE.md'))
 
 console.log(`${skills.length} skills (propias + terceros ya en el repo), ${agentes.length} agentes, ${cambios} archivo(s) ${soloCheck ? 'distintos' : 'copiados'}`)
+// Codex y agy: mismas skills que Claude por junction (ver enlazar-clis.cjs)
+require('./enlazar-clis.cjs').enlazar(soloCheck)
 console.log(execSync('git status --short', { cwd: DST, encoding: 'utf8' }) || '(git limpio)')

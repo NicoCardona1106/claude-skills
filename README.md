@@ -23,6 +23,7 @@ Sirve como fuente de verdad porque los entornos remotos de Claude Code (tablet, 
 - `skills/nueva-tarea/` — formulario corto para registrar una tarea con fecha en SEMANA.md (qué, fecha, se espera, se desea, quién, depende de).
 - `skills/release-ncoterminal/` — publicar una versión de N-Coterminal (bump, dist, gh release, version.json en Vercel).
 - `sync.cjs` — copia las skills propias, los agentes y CLAUDE.md desde `~/.claude` a este clon y muestra `git status` (`node sync.cjs --check` solo compara).
+- `enlazar-clis.cjs` — deja las skills de Codex (`~/.codex/skills`, `~/.agents/skills`) y agy/Gemini (`~/.gemini/antigravity/skills`, `~/.gemini/skills`) iguales a las de Claude por junction; las copias reales viejas van a `<carpeta>-archivo`. Lo llama `sync.cjs`.
 - `agents/` — perfiles de subagente: implementador, mantenedor, revisor, redactor-cliente; y para UI (2026-09-06): verificador-visual, portador, disenador-landing, auditor-tells.
 
 ## Poda del catálogo (2026-09-06)
