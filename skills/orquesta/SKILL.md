@@ -298,6 +298,13 @@ TechCrunch y el hilo de Hacker News del lanzamiento.
   (Terminal-Bench 4.0 66.4 vs 55.8; FrontierCode 54.4 vs 50.3; CursorBench
   57.8 vs 51.8), trabajo de conocimiento (GDPval-AA 1846 vs 1735 Elo),
   computer use (OSWorld 81.8 vs 80.7) y gráficas (Chartography 89.0 vs 88.4).
+  Contra Opus 5 (verificado en tododeia 2026-09-28): Terminal-Bench 66.4 vs
+  52.3, FrontierCode 54.4 vs 48.0, CursorBench 57.8 vs 46.6, GDPval 1846 vs
+  1708, OSWorld 81.8 vs 74.0, Chartography 89.0 vs 83.4.
+- **Tips de uso:** Ctrl+O en Claude Code muestra el razonamiento (gris, en
+  cursiva) para auditar por qué decidió algo. Para leer gráficas o capturas,
+  pasar la imagen en la mejor resolución disponible y recortada a lo que
+  importa, no la pantalla entera.
   Pierde con GPT-6 Astra en AutomationBench (40.0 vs 41.4) y en
   Terminal-Bench-Science (58.7 vs 64.6). HN: la crítica es al discurso de
   "pacing", no al modelo; "medium de 5.5 rinde como Opus 5 a 1/6 del costo".

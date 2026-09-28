@@ -128,6 +128,10 @@ preguntar antes:
 - **ui-styling** — shadcn/ui + Tailwind cuando el proyecto usa ese stack.
 - **dataviz** — SIEMPRE antes de cualquier gráfica, chart o dashboard.
 - **animation-vocabulary** — para nombrar con precisión un efecto buscado.
+- **better-ui** (jakubkrehel/skills, MIT) — checklist de detalle fino con valores
+  exactos: radio concéntrico, alineación óptica, `scale(0.96)` al presionar,
+  stagger ~100 ms, grosor de ícono según peso tipográfico, áreas de toque.
+  Pasarla DESPUÉS de impeccable, en el pulido final (añadida 2026-09-28).
 
 ## Fuentes de inspiración — navegar antes de diseñar
 
@@ -138,6 +142,10 @@ tipografía y motion actuales — extraer PATRONES, nunca copiar una plantilla:
 - https://figma-templates-en.vercel.app/ — galería de plantillas Figma que
   Nicolas usa como referencia de nivel.
 - https://horizonx.so/explore — showcase de referencia histórica del banco.
+- https://www.awwwards.com/websites/ — sitios premiados; filtrar por categoría
+  del proyecto y mirar el "Site of the Day" reciente (añadida 2026-09-28).
+- https://namethatui.com — para ponerle nombre exacto a un componente o patrón
+  visto en una referencia antes de pedirlo (añadida 2026-09-28).
 
 Si Nicolas comparte un link nuevo de inspiración, añadirlo a esta lista
 (quitando parámetros de tracking) y registrarlo en Mempalace.
