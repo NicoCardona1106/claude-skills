@@ -84,7 +84,7 @@ redistribuye en este repo). Fuente: https://github.com/img2threejs/img2threejs
 
 ## Origen por confirmar
 
-`animation-vocabulary`, `banner-design`, `brand`, `content-research-writer`,
+`animation-vocabulary`, `brand`, `content-research-writer`,
 `cyber-neo`, `design`, `design-system`, `emil-design-eng`,
 `review-animations`, `slides`, `ui-styling`
 

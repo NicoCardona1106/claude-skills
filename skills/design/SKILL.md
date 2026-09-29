@@ -131,17 +131,25 @@ Load `references/slides-create.md` for the creation workflow.
 
 ## Banner Design (Built-in)
 
-22 art direction styles across social, ads, web, print. Uses `frontend-design`, `ai-artist`, `ai-multimodal`, `chrome-devtools` skills.
-
-Load `references/banner-sizes-and-styles.md` for complete sizes and styles reference.
+22 art direction styles across social, ads, web, print. Everything needed lives in this skill: `references/banner-sizes-and-styles.md` (all sizes and styles), `scripts/banner/export.py` (HTML → PNG at exact size) and `scripts/banner/visual.py` (optional AI background).
 
 ### Banner: Workflow
 
-1. **Gather requirements** via `AskUserQuestion` — purpose, platform, content, brand, style, quantity
-2. **Research** — Activate `ui-ux-pro-max`, browse Pinterest for references
-3. **Design** — Create HTML/CSS banner with `frontend-design`, generate visuals with `ai-artist`/`ai-multimodal`
-4. **Export** — Screenshot to PNG at exact dimensions via `chrome-devtools`
-5. **Present** — Show all options side-by-side, iterate on feedback
+1. **Requirements** — purpose (social cover, ad, web hero, print), platform or custom size, headline/subtext/CTA/logo, brand (look for `docs/brand-guidelines.md` or the project's tokens), style, how many options (default 3). Ask only what the request leaves open.
+2. **Art direction** — pick 2-3 complementary styles from the reference; use `ui-ux-pro-max` for palettes and type pairings. For Nicolas's own brands (Co-Axis, Reflexcam, OCTPEI, NccHUB) follow their existing identity and `nc-design`'s tells. When references help, look them up (web search, or Pinterest through the Chrome extension) and cite what you took from each.
+3. **Build** — one self-contained HTML file per option with `html, body` fixed to the exact canvas size and `overflow: hidden`. Name them `{style}-{width}x{height}.html` in `assets/banners/{campaign}/` (date prefix `YYMMDD-` for time-bound campaigns).
+4. **Visuals** — in order of preference: a real photo from the client or a licensed stock photo (Unsplash); a CSS/SVG composition (gradients, shapes, type as image); an AI background only when it adds something the others can't:
+   ```bash
+   python scripts/banner/visual.py "<scene, style, light, palette>, no text, no letters, no words" --ratio 16:9 --modelo flash -o assets/banners/{campaign}/bg.png
+   ```
+   `flash` for backgrounds and patterns, `pro` for detailed illustrations. Supported ratios: 1:1, 16:9, 9:16, 3:4, 4:3, 2:3, 3:2 (use the closest and crop with `object-fit: cover`). Text, CTA and logo always go on top in HTML, never inside the generated image.
+5. **Export** — Chrome headless, no extra dependencies:
+   ```bash
+   python scripts/banner/export.py assets/banners/{campaign}/ 1500x500            # every .html in the folder
+   python scripts/banner/export.py banner.html 1080x1080 --escala 2 -o out.png  # single file, retina
+   ```
+   It warns when a PNG goes over 5 MB (compress before uploading to social networks).
+6. **Check and present** — open every PNG and look at it before showing it: nothing cut at the edges, text inside the safe zone, contrast. Then show the options side by side with style name, one-line rationale, path and size, and iterate on feedback.
 
 ### Banner: Quick Size Reference
 
@@ -154,26 +162,30 @@ Load `references/banner-sizes-and-styles.md` for complete sizes and styles refer
 | Instagram | Story | 1080 x 1920 |
 | Instagram | Post | 1080 x 1080 |
 | Google Ads | Med Rectangle | 300 x 250 |
+| Google Ads | Leaderboard | 728 x 90 |
 | Website | Hero | 1920 x 600-1080 |
 
 ### Banner: Top Art Styles
 
-| Style | Best For |
-|-------|----------|
-| Minimalist | SaaS, tech |
-| Bold Typography | Announcements |
-| Gradient | Modern brands |
-| Photo-Based | Lifestyle, e-com |
-| Geometric | Tech, fintech |
-| Glassmorphism | SaaS, apps |
-| Neon/Cyberpunk | Gaming, events |
+| Style | Best For | Key Elements |
+|-------|----------|--------------|
+| Minimalist | SaaS, tech | White space, 1-2 colors, clean type |
+| Bold Typography | Announcements | Oversized type as hero element |
+| Gradient | Modern brands | Mesh gradients, chromatic blends |
+| Photo-Based | Lifestyle, e-com | Full-bleed photo + text overlay |
+| Geometric | Tech, fintech | Shapes, grids, abstract patterns |
+| Retro/Vintage | F&B, craft | Distressed textures, muted colors |
+| Glassmorphism | SaaS, apps | Frosted glass, blur, glow borders |
+| Neon/Cyberpunk | Gaming, events | Dark bg, glowing neon accents |
+| Editorial | Media, luxury | Grid layouts, pull quotes |
+| 3D/Sculptural | Product, tech | Rendered objects, depth, shadows |
 
 ### Banner: Design Rules
 
-- Safe zones: critical content in central 70-80%
-- One CTA per banner, bottom-right, min 44px height
-- Max 2 fonts, min 16px body, ≥32px headline
-- Text under 20% for ads (Meta penalizes)
+- Safe zones: critical content in the central 70-80% (platforms crop covers differently on mobile)
+- One CTA per banner, bottom-right, min 44px height, action verb
+- Max 2 fonts, min 16px body, ≥32px headline, 4.5:1 contrast
+- Text under 20% of the area for ads (Meta penalizes text-heavy images)
 - Print: 300 DPI, CMYK, 3-5mm bleed
 
 ## Icon Design (Built-in)
@@ -216,20 +228,18 @@ python3 ~/.claude/skills/design/scripts/icon/generate.py --prompt "user profile"
 
 ## Social Photos (Built-in)
 
-Multi-platform social image design: HTML/CSS → screenshot export. Uses `ui-ux-pro-max`, `brand`, `design-system`, `chrome-devtools` skills.
+Multi-platform social image design: HTML/CSS → screenshot export with `scripts/banner/export.py`. Uses the `ui-ux-pro-max`, `brand` and `design-system` skills.
 
 Load `references/social-photos-design.md` for sizes, templates, best practices.
 
 ### Social Photos: Workflow
 
-1. **Orchestrate** — `project-management` skill for TODO tasks; parallel subagents for independent work
-2. **Analyze** — Parse prompt: subject, platforms, style, brand context, content elements
-3. **Ideate** — 3-5 concepts, present via `AskUserQuestion`
-4. **Design** — `/ckm:brand` → `/ckm:design-system` → randomly invoke `/ck:ui-ux-pro-max` OR `/ck:frontend-design`; HTML per idea × size
-5. **Export** — `chrome-devtools` or Playwright screenshot at exact px (2x deviceScaleFactor)
-6. **Verify** — Use Chrome MCP or `chrome-devtools` skill to visually inspect exported designs; fix layout/styling issues and re-export
-7. **Report** — Summary to `plans/reports/` with design decisions
-8. **Organize** — Invoke `assets-organizing` skill to sort output files and reports
+1. **Analyze** — Parse prompt: subject, platforms, style, brand context, content elements
+2. **Ideate** — 3-5 concepts, present via `AskUserQuestion`
+3. **Design** — `brand` for context, `design-system` for tokens, `ui-ux-pro-max` for palettes and type; one HTML per idea × size
+4. **Export** — `python scripts/banner/export.py <folder-or-file> <W>x<H> --escala 2`
+5. **Verify** — open every exported PNG and look at it; fix layout or styling issues and re-export
+6. **Report** — the design decisions and where each file is
 
 ### Social Photos: Key Sizes
 
@@ -310,4 +320,4 @@ pip install google-genai pillow
 ## Integration
 
 **External sub-skills:** brand, design-system, ui-styling
-**Related Skills:** frontend-design, ui-ux-pro-max, ai-multimodal, chrome-devtools
+**Related Skills:** ui-ux-pro-max, nc-design (Nicolas's brands), impeccable (polish)
