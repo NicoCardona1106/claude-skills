@@ -28,6 +28,19 @@ ranks in the small tags while touching the bigger ones.
 
 **Default: 3-5 total.** Full reasoning in `references/hashtag-strategy.md`.
 
+## Contexto antes de crear y porqué estratégico
+
+*Origen: idea 5 del juicio del 2026-09-28 (formato de "social media manager" visto en IG, adaptado).*
+
+1. **Contexto antes de crear.** Antes de producir el set de hashtags, confirmar: nicho, audiencia,
+   objetivo, plataforma/formato, monetización y estilo/voz (y a qué público quiere llegar el post: seguidores o gente nueva). PRIMERO buscarlo en lo que
+   ya existe: la conversación, el vault/notas del cliente, Mempalace si está disponible y las
+   fichas de `clonador-de-formato`. Preguntar SOLO lo que falte, en un único mensaje con máximo
+   4 preguntas. Si el usuario pide ir directo, asumir y declarar los supuestos en una línea.
+2. **El porqué estratégico.** Cada set entregado lleva 1-2 líneas de por qué: qué objetivo mueve (descubrimiento, nicho, comunidad),
+   a quién le habla cada tag y qué métrica se espera (alcance a no seguidores, guardados).
+   Prohibido lo genérico sin intención: si no se puede decir qué mueve, no se entrega.
+
 ## Steps
 
 1. **Get the post.** The caption, carousel topic, or Reel subject, plus the

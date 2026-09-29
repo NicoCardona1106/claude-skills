@@ -40,6 +40,19 @@ description of the Reel's first 3 seconds).
 - **Cautions:** anything in the original that would fail a 2026 audit (em
   dashes over the cap, an AI-vocab cluster, 30 hashtags, mixed media)
 
+## Contexto antes de crear y porqué estratégico
+
+*Origen: idea 5 del juicio del 2026-09-28 (formato de "social media manager" visto en IG, adaptado).*
+
+1. **Contexto antes de crear.** Antes de producir la plantilla en blanco, confirmar: nicho, audiencia,
+   objetivo, plataforma/formato, monetización y estilo/voz (para llenar la plantilla con SU tema, no el del original). PRIMERO buscarlo en lo que
+   ya existe: la conversación, el vault/notas del cliente, Mempalace si está disponible y las
+   fichas de `clonador-de-formato`. Preguntar SOLO lo que falte, en un único mensaje con máximo
+   4 preguntas. Si el usuario pide ir directo, asumir y declarar los supuestos en una línea.
+2. **El porqué estratégico.** Cada análisis entregado lleva 1-2 líneas de por qué: qué objetivo persigue el gancho, a quién le habla
+   y qué métrica se espera si el usuario lo replica; sin eso, la plantilla no se entrega.
+   Prohibido lo genérico sin intención: si no se puede decir qué mueve, no se entrega.
+
 ## Steps
 
 1. **Parse the URL.** `lib.url_parser.parse_instagram_url(url)` returns

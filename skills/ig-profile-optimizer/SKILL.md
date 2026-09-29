@@ -35,6 +35,19 @@ Not for writing captions (use `ig-caption-writer`) or planning a carousel
 3. **Before -> After** rewrites for each failing part
 4. **Highlights plan** (covers, order, naming) and **grid + pin picks** with reasons
 
+## Contexto antes de crear y porqué estratégico
+
+*Origen: idea 5 del juicio del 2026-09-28 (formato de "social media manager" visto en IG, adaptado).*
+
+1. **Contexto antes de crear.** Antes de producir la reescritura del perfil, confirmar: nicho, audiencia,
+   objetivo, plataforma/formato, monetización y estilo/voz (y qué acción debe hacer el visitante: seguir, escribir, comprar). PRIMERO buscarlo en lo que
+   ya existe: la conversación, el vault/notas del cliente, Mempalace si está disponible y las
+   fichas de `clonador-de-formato`. Preguntar SOLO lo que falte, en un único mensaje con máximo
+   4 preguntas. Si el usuario pide ir directo, asumir y declarar los supuestos en una línea.
+2. **El porqué estratégico.** Cada cambio propuesto (nombre, bio, enlace, destacadas) lleva 1-2 líneas de por qué: qué objetivo mueve,
+   a quién le habla y qué métrica se espera (visitas a seguidor, clics en el enlace).
+   Prohibido lo genérico sin intención: si no se puede decir qué mueve, no se entrega.
+
 ## Steps
 
 1. **Intake.** Collect the profile state + goal. Note the account type

@@ -102,6 +102,19 @@ relatable reads as engineered. Spread the goals:
 | Engagement | IG3 Relatable, IG9 Pattern-Interrupt Reel, story stickers |
 | Promotion | IG6 (results that imply the product), IG1 (your own data) |
 
+## Contexto antes de crear y porqué estratégico
+
+*Origen: idea 5 del juicio del 2026-09-28 (formato de "social media manager" visto en IG, adaptado).*
+
+1. **Contexto antes de crear.** Antes de producir el plan semanal, confirmar: nicho, audiencia,
+   objetivo, plataforma/formato, monetización y estilo/voz (y cuántas piezas por semana puede sostener). PRIMERO buscarlo en lo que
+   ya existe: la conversación, el vault/notas del cliente, Mempalace si está disponible y las
+   fichas de `clonador-de-formato`. Preguntar SOLO lo que falte, en un único mensaje con máximo
+   4 preguntas. Si el usuario pide ir directo, asumir y declarar los supuestos en una línea.
+2. **El porqué estratégico.** Cada día del plan lleva 1-2 líneas de por qué: qué objetivo mueve esa pieza, a quién le habla y qué
+   métrica se espera; el plan cierra con una línea sobre cómo encaja la semana en el objetivo.
+   Prohibido lo genérico sin intención: si no se puede decir qué mueve, no se entrega.
+
 ## Steps
 
 1. Gather inputs. Ask for theme, audience, pillar preferences if not provided.

@@ -41,6 +41,19 @@ A carousel is 2-10 slides (API limit). The reliable spine:
 6-10 slides is the sweet spot for a teaching carousel. Fewer than 4 is usually a
 single image. See `references/slide-architecture.md` for per-formula spines.
 
+## Contexto antes de crear y porqué estratégico
+
+*Origen: idea 5 del juicio del 2026-09-28 (formato de "social media manager" visto en IG, adaptado).*
+
+1. **Contexto antes de crear.** Antes de producir el carrusel, confirmar: nicho, audiencia,
+   objetivo, plataforma/formato, monetización y estilo/voz (y qué acción debe pedir la última lámina). PRIMERO buscarlo en lo que
+   ya existe: la conversación, el vault/notas del cliente, Mempalace si está disponible y las
+   fichas de `clonador-de-formato`. Preguntar SOLO lo que falte, en un único mensaje con máximo
+   4 preguntas. Si el usuario pide ir directo, asumir y declarar los supuestos en una línea.
+2. **El porqué estratégico.** Cada carrusel entregado lleva 1-2 líneas de por qué: qué objetivo mueve (guardados, envíos, seguidores),
+   a quién le habla y qué métrica se espera.
+   Prohibido lo genérico sin intención: si no se puede decir qué mueve, no se entrega.
+
 ## Steps
 
 **Voice profile first (all drafts).** If `references/voice-profile.md` has `filled: yes`, load it and match the user's voice fingerprint, hard rules, and CTA/link style throughout. If it is not filled, mention once that `ig-humanizer --mode profile` can learn their voice from a few posts, then proceed with the generic voice rules.
