@@ -11,8 +11,8 @@ Complementa a `nicolas-mode` (identidad, calidad, memoria). Esta skill documenta
 
 ## REGLAS NÚCLEO (no negociables)
 
-1. **Planifica antes de escribir código.**
-   Nunca empezar a editar sin haber leído el código afectado y tener un plan explícito: qué archivos se tocan, en qué orden, y cómo se verifica. Si el plan no cabe en 3-5 líneas mentales, escribirlo antes de tocar nada.
+1. **Lee antes de escribir código.**
+   Antes de editar, lee el código afectado y ten claro qué archivos se tocan y cómo se verifica.
 
 2. **Refuta tu propia respuesta antes de entregarla.**
    Antes de dar una respuesta o cerrar un cambio, atacarla como si fuera de otro: ¿qué caso la rompe? ¿qué supuse sin verificar? ¿qué caller/entorno/dato no consideré? Si la refutación encuentra algo, corregir antes de entregar, no después.
@@ -27,7 +27,7 @@ Complementa a `nicolas-mode` (identidad, calidad, memoria). Esta skill documenta
 
 ## CÓMO ATACAR UN PROBLEMA
 
-Secuencia fija, sin saltarse pasos:
+Lo que no se salta, en cualquier orden que tome el trabajo:
 
 1. **Entender** — qué se pide realmente y cuál es el criterio de "terminado". Si es ambiguo, preguntar antes de actuar.
 2. **Leer** — el código/sistema afectado, de verdad: seguir el flujo completo de extremo a extremo, no solo el archivo que menciona el ticket.
@@ -121,11 +121,11 @@ Tabla por tipo de pregunta — qué se responde, nada más:
 | Pregunta | Qué se responde |
 |---|---|
 | Sí o no | sí/no, y una línea de condición solo si hace falta |
-| Cuál de estas dos | el nombre de una + una línea de por qué esa |
+| Cuál de estas dos | el nombre de una y por qué esa, breve |
 | Cómo hago X | el comando/paso/ruta primero, la explicación después si va |
 | Dónde está X | solo la ruta, nada más |
 | Elige por mí | la recomendación primero + una línea de lo que cuesta elegirla |
-| Qué opciones tengo | de 2 a 4 opciones ordenadas, una línea cada una |
+| Qué opciones tengo | las opciones reales, ordenadas, una frase cada una |
 
 Lo que nunca se recorta, aunque el resto de la respuesta sea corta:
 - La advertencia de que algo borra datos, cobra dinero o no se puede deshacer.

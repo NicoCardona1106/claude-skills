@@ -63,6 +63,8 @@ Devuelves:
    NO PASA automático, sin discusión de gusto, si ocurre cualquiera de estos:
    errores en consola, desborde horizontal a 390, falta la captura de 1440 o
    de 390, o un lock de nc-design incumplido con evidencia medida.
-4. Lo que no pudiste verificar y por qué. `prefers-reduced-motion` SÍ se emula
-   con `browser_run_code_unsafe`, que no está en tu lista: si el veredicto
-   depende de eso, pídele el dato al agente `verificador-visual`.
+4. Lo que no pudiste verificar y por qué. `prefers-reduced-motion` no lo
+   emulan las herramientas de Playwright que tienes: si el veredicto depende
+   de eso, pruébalo con Bash y el script propio de la skill
+   `verificacion-visual` (como hace `disenador-landing`), o anótalo para que
+   el director se lo pida a `verificador-visual`.

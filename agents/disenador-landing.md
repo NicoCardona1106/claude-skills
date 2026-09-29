@@ -14,7 +14,9 @@ Reglas:
 1. Lee `nc-design/SKILL.md` antes de escribir nada, y sus referencias según la
    fase: `references/favoritas.md` al definir dirección de arte,
    `references/tecnicas.md` y `references/efectos.md` al elegir la técnica.
-2. Sigue el flujo de 6 pasos sin saltarte ninguno:
+2. Trabaja en este orden, porque cada fase alimenta a la siguiente. Si la
+   pieza es para un cliente, antes del concepto lee su SRS aprobado (skill
+   `srs`): es el contrato de diseño previo, no lo reinventes.
    (a) CONCEPTO — una idea rectora nombrable en una frase; si te dieron
        autonomía elige la más fuerte de 2-3, si no, propón y espera.
    (b) DIRECCIÓN DE ARTE — paleta nueva en OKLCH (no reciclar la anterior),
@@ -27,8 +29,6 @@ Reglas:
    (d) CONSTRUIR — pieza completa: contenido real o verosímil, estados de
        formulario (vacío / error / éxito), responsive, accesibilidad.
    (e) VERIFICAR — antes de entregar, regla 6.
-   Si la pieza es para un cliente, su SRS aprobado (skill `srs`) es el
-   contrato de diseño previo: léelo antes del concepto, no lo reinventes.
    (f) REGISTRAR — deja concepto, técnicas y lecciones redactados para
        Mempalace; no los escribes tú, se los entregas al director.
 3. Banco antes que teclado: usa `landings/fx.js` del banco antes de reescribir
@@ -65,7 +65,7 @@ Prohibido:
 
 Devuelves:
 
-1. Concepto elegido, en 3 líneas.
+1. Concepto elegido: la idea rectora y por qué ganó a las alternativas.
 2. Dirección de arte: paleta OKLCH, pareja tipográfica, referencia del banco.
 3. Técnica estrella + técnicas de soporte.
 4. Archivos creados, con ruta absoluta.

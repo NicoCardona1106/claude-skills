@@ -1,11 +1,11 @@
 ---
 name: statusline
-description: "Instala o reconstruye la barra de estado de Claude Code, Antigravity (agy) y Codex a partir de los scripts versionados en el repo N-Coterminal (propios/panel-agentico/statuslines). Usar cuando Nicolas configure un equipo nuevo, la barra aparezca vacía o rota, haya perdido el tee que lee N-Coterminal, o diga 'instala la statusline', 'arregla la barra de estado', 'pon la barra en este PC'."
+description: "Instala o reconstruye la barra de estado de Claude Code, Antigravity (agy) y Codex a partir de los scripts versionados en el repo N-Coterminal (propios/N Coterminal/statuslines). Usar cuando Nicolas configure un equipo nuevo, la barra aparezca vacía o rota, haya perdido el tee que lee N-Coterminal, o diga 'instala la statusline', 'arregla la barra de estado', 'pon la barra en este PC'."
 ---
 
 # statusline — instalar y reconstruir las barras de estado
 
-Fuente de verdad: `Desktop\nc-workspace\propios\panel-agentico\statuslines\` (README.md
+Fuente de verdad: `Desktop\nc-workspace\propios\N Coterminal\statuslines\` (README.md
 + un script/config por CLI). Esta skill copia esos archivos a su destino real;
 no reinventa el contenido de los scripts.
 
@@ -33,18 +33,12 @@ La barra de Claude además hace **tee** del JSON completo a
 y cuota del plan — si se rompe el tee, el panel deja de ver esos datos aunque
 la barra en la terminal se vea bien.
 
-**Comparación hecha el 2026-09-06**: `~/.claude/statusline.cjs` (instalado)
-y `statuslines/claude/statusline.cjs` (repo) son **byte a byte idénticos**
-(`cmp` sin diferencias, 5444 bytes). El de `agy` instalado y el del repo
-tienen el **mismo contenido**, solo difieren en fin de línea (el instalado
-usa LF, el del repo CRLF) — no hace falta reinstalarlo, es cosmético.
-
 ## Instalar o reconstruir
 
 ### Claude Code
 1. Backup: `cp ~/.claude/statusline.cjs ~/.claude/statusline.cjs.bak` (Git Bash)
    o `Copy-Item ~/.claude/statusline.cjs ~/.claude/statusline.cjs.bak` (PowerShell).
-2. `cp "Desktop/nc-workspace/propios/panel-agentico/statuslines/claude/statusline.cjs" ~/.claude/statusline.cjs`
+2. `cp "Desktop/nc-workspace/propios/N Coterminal/statuslines/claude/statusline.cjs" ~/.claude/statusline.cjs`
 3. Verificar que `~/.claude/settings.json` tiene la clave `statusLine` apuntando
    (directo o vía `statusline-command.sh`) a ese archivo. Si no existe la clave,
    añadirla — **no** toques nada más de `settings.json`.
@@ -81,16 +75,10 @@ usa LF, el del repo CRLF) — no hace falta reinstalarlo, es cosmético.
   `rate_limits` con datos, no que N-Coterminal esté mal.
 - Desde N-Coterminal, ⚙ Ajustes → "Barras de estado" instala estos mismos
   scripts con un clic, pero solo funciona corriendo el panel en este PC (no
-  por LAN desde el celular). Ese botón (`registrarStatuslineJson`,
-  `server.js:1082`) reescribe `statusLine.command` a `node "<ruta>"` directo y
+  por LAN desde el celular). Ese botón (`registrarStatuslineJson` en `server.js`) reescribe `statusLine.command` a `node "<ruta>"` directo y
   deja de usar el wrapper `bash ~/.claude/statusline-command.sh` — sigue
   funcionando igual y hace su propio `.bak`, pero no esperes ver el wrapper
   intacto después de usarlo.
-- `statuslines/README.md` del repo documenta el registro de Claude como
-  `node ~/.claude/statusline.cjs` directo; lo instalado hoy usa el wrapper
-  `.sh`. Ambas formas son válidas (el wrapper solo hace `exec` del mismo
-  `.cjs`) — el README quedó desactualizado, no lo tomes como señal de que algo
-  está mal.
 
 ## Diagnóstico
 

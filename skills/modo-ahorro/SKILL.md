@@ -5,8 +5,7 @@ description: "Modo de trabajo con contexto/plan de Claude limitado (viajes, poco
 
 # Modo ahorro — trabajar con plan de Claude limitado
 
-Nace del viaje del 2026-09-04: poco plan disponible, sesión que no se puede
-alargar a discreción. Es un modo temporal sobre nicolas-mode, no lo reemplaza.
+Modo temporal sobre nicolas-mode para cuando el plan de Claude es limitado; no lo reemplaza.
 
 ## Cuándo entra y cuándo sale
 
@@ -94,7 +93,7 @@ lee el tee de la statusline en cada mensaje de Nicolas y, según lo que QUEDA de
 | Queda | Qué inyecta | Qué hace Claude |
 |---|---|---|
 | ≤ 20 % (5 h o semana) | aviso | Ofrecer modo ahorro y delegar lo mecánico a Codex (`/codex:rescue` en worktree) o lecturas a agy. Nicolas decide. |
-| ≤ 20 % de Fable (semana) | director alterno | Para lo que exige criterio, abrir la siguiente sesión con `/model opus` (Opus 5.5) de director en vez de pasar a Codex: mismo reparto, contrato con el snippet anti-parada de la guía de prompting («un mensaje sin acción con herramientas termina tu turno; no cierres con resúmenes, ofertas condicionales, decisiones innecesarias ni reportes de progreso») y un PENDIENTES.md que él actualiza. Fable vuelve cuando la cuota se reinicie. Decidido 2026-09-23. |
+| ≤ 20 % de Fable (semana) | director alterno | Dirigir desde una sesión `/model opus` (Opus 5.5) y no usar Fable como subagente hasta que se reinicie su cuota; lo que exige criterio sigue en Claude, no pasa a Codex. Mantener un PENDIENTES.md con lo abierto. |
 | ≤ 6 % | puente | NO arrancar trabajo nuevo. Resumir estado en 3 líneas, dejar memoria y commit preparados, y proponer: `/codex:transfer` (seguir esta misma sesión en Codex CLI) o `/codex:rescue --background` con contrato para la tarea concreta, o agy para lecturas. Si Nicolas acepta, ejecutar el traspaso y detenerse. |
 
 Umbrales editables al inicio del hook (`PUENTE`, `AVISO`). El hook nunca bloquea el prompt: solo añade contexto. Sin datos de cuota, calla.

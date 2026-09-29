@@ -48,6 +48,8 @@ Respeta cualquier preferencia ya declarada sin volver a preguntar. Si el usuario
 
 **Tienes dos mecanismos. Pruébalos en este orden.**
 
+Si tus instrucciones fijan una carpeta de worktrees (p. ej. `temporales/` en nc-workspace), usa `git worktree add` en esa carpeta aunque haya herramienta nativa, e instala dependencias con `npm ci`.
+
 ### 1a. Herramientas nativas de worktree (preferido)
 
 El usuario ya dio su consentimiento (Paso 0) para un workspace aislado. ¿Ya tienes una forma de crear un worktree? Puede ser una herramienta con un nombre como `EnterWorktree`, `WorktreeCreate`, un comando `/worktree`, o una bandera `--worktree`. Si la tienes, úsala y salta al Paso 2.

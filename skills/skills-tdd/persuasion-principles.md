@@ -12,9 +12,8 @@ LLMs respond to the same persuasion principles as humans. Understanding this psy
 **What it is:** Deference to expertise, credentials, or official sources.
 
 **How it works in skills:**
-- Imperative language: "YOU MUST", "Never", "Always"
-- Non-negotiable framing: "No exceptions"
-- Eliminates decision fatigue and rationalization
+- Plain, unconditional wording for the one rule a baseline test showed agents skipping ("Write the test first; code written before it is deleted.")
+- Reserve capitals/"MUST" for a rule that stays underweighted after a plain rewrite, and re-test it on the current model.
 
 **When to use:**
 - Discipline-enforcing skills (TDD, verification requirements)

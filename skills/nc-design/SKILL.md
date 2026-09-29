@@ -17,8 +17,8 @@ description: >
 
 (Prefijo NC = Nicolas Cardona: marca las skills creadas por/para él.)
 
-Destilado de su banco de landings (`Desktop/Claude Code/personal/landing
-pages/`, ~15 piezas, julio 2026) y de sus 4 favoritas: **morpho, plata, cattleya y cafeto**.
+Destilado de su banco de landings (`Desktop/nc-workspace/propios/landing-pages/`,
+primeras ~15 piezas de julio 2026) y de sus 4 favoritas: **morpho, plata, cattleya y cafeto**.
 De las cuatro, **cattleya y cafeto son la vara máxima** — las piezas más
 premium que ha hecho: ante la duda de nivel, dirección o acabado, compararse
 contra esas dos. El objetivo no es decorar: es que cada pieza tenga concepto,
@@ -123,11 +123,8 @@ preguntar antes:
   accesibilidad. Usarla siempre en la fase de verificación.
 - **ui-ux-pro-max** — paletas, parejas tipográficas, guidelines UX y patrones
   por tipo de producto, al definir la dirección de arte.
-- **frontend-design** — dirección estética e intención al construir UI nueva.
 - **emil-design-eng** — decisiones finas de animación y polish de componentes.
-- **ui-styling** — shadcn/ui + Tailwind cuando el proyecto usa ese stack.
 - **dataviz** — SIEMPRE antes de cualquier gráfica, chart o dashboard.
-- **animation-vocabulary** — para nombrar con precisión un efecto buscado.
 - **better-ui** (jakubkrehel/skills, MIT) — checklist de detalle fino con valores
   exactos: radio concéntrico, alineación óptica, `scale(0.96)` al presionar,
   stagger ~100 ms, grosor de ícono según peso tipográfico, áreas de toque.
@@ -171,8 +168,8 @@ Si el encargo incluye una fotografía, la foto ES el punto de partida de todo:
 
 ## Al proponer para proyectos reales
 
-Proponer primero patrones de las 4 favoritas (regla vigente desde 2026-07-23:
-cattleya y cafeto reemplazaron a veta y vertigo). Presentar como propuesta con
+Proponer primero patrones de las 4 favoritas (morpho, plata, cattleya y cafeto).
+Presentar como propuesta con
 beneficio/impacto/esfuerzo antes de implementar — nunca imponer un rediseño no
 pedido (regla de alcance de razonamiento).
 
@@ -254,7 +251,7 @@ principios de arriba, no los reemplazan.
 9. **Estados completos, no solo el caso feliz.** Skeletons con la forma del
    layout final (no spinners genéricos), empty states compuestos que
    indican cómo poblarse, errores inline en formularios, feedback táctil en
-   `:active` (`scale(0.98)`).
+   `:active` (`scale(0.96)`, valor de better-ui).
 
 10. **Auditoría de copy antes de entregar.** Releer cada string visible
     (titulares, botones, captions, alt text, footer): reescribir lo

@@ -179,8 +179,8 @@ El material de `architect/` menciona skills que aquí se mapean así:
 |----------|------------------|
 | `/deep-research` | `deep-research` (sí existe) — comparar tecnologías |
 | `/ui-ux-pro-max` | `ui-ux-pro-max` (sí existe) — sistema visual en Fase 3 |
-| `/frontend-design` | existe — NO usarla al diseñar; recomendarla en el blueprint |
-| `/shadcn-ui` | `ui-styling` cubre shadcn/ui |
+| `/frontend-design` | archivada (`~/.claude/skills-archivo/`) — omitir |
+| `/shadcn-ui` | sin skill instalada (`ui-styling` está archivada) — omitir |
 | `/playwright-cli`, `/chrome-bridge-automation` | herramientas Playwright MCP para analizar sitios de referencia |
 | `/seo-audit` | `seo-audit` (sí existe) — recomendarla en el blueprint para después del build; `seo-ecommerce`, `seo-local` y `seo-schema` según arquetipo |
 | `/find-skills`, `/humanizer` | no existen aquí — omitir |

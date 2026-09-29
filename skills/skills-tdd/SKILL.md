@@ -373,7 +373,7 @@ NINGUNA SKILL SIN UNA PRUEBA QUE FALLE PRIMERO
 
 Esto aplica tanto a skills NUEVAS como a EDICIONES de skills existentes.
 
-¿Escribiste o editaste la skill antes de probarla? Bórrala. Empieza de nuevo.
+Si editaste la skill antes de correr el baseline, descarta esa edición (git) y corre primero el baseline: la edición no probada no cuenta como evidencia.
 
 **Sin excepciones:**
 - No para "adiciones simples"
@@ -604,7 +604,7 @@ helper1, helper2, step3, pattern4
 
 ## DETENTE: antes de pasar a la siguiente skill
 
-**Después de endurecer CUALQUIER skill, DEBES DETENERTE y completar el proceso de despliegue.**
+Termina el despliegue de cada skill (checklist de abajo) antes de pasar a la siguiente: probarlas en lote esconde cuál regresó.
 
 **NO hagas esto:**
 - Endurecer varias skills en lote sin probar cada una
@@ -617,7 +617,7 @@ Desplegar skills sin probar = desplegar código sin probar. Es una violación de
 
 ## Checklist de endurecimiento de skill (adaptado de TDD)
 
-**IMPORTANTE: crea un todo por cada ítem del checklist de abajo.**
+Lleva el checklist como todos.
 
 **Fase ROJO — escribe la prueba que falla:**
 - [ ] Crea escenarios de presión (3+ presiones combinadas para skills de disciplina)

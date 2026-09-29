@@ -6,7 +6,7 @@ description: "Publica una versión nueva de N-Coterminal (la estación de trabaj
 # /release-ncoterminal — publicar una versión
 
 Verificado de punta a punta el 2026-09-06 (v0.2.0 y v0.2.1: la app instalada
-de Nicolas se actualizó sola). Repo privado: `Desktop\nc-workspace\propios\panel-agentico`
+de Nicolas se actualizó sola). Repo privado: `Desktop\nc-workspace\propios\N Coterminal`
 (GitHub `NicoCardona1106/N-Coterminal`). Binarios públicos:
 `NicoCardona1106/N-Coterminal-releases`. Guía larga: `docs/INSTALAR.md`.
 
@@ -18,8 +18,8 @@ de Nicolas se actualizó sola). Repo privado: `Desktop\nc-workspace\propios\pane
 - `gh auth status` y `npx vercel whoami` autenticados.
 - **Toda dependencia que use server.js/electron-main en tiempo de ejecución va en
   `dependencies`, nunca en `devDependencies`**: electron-builder solo empaqueta las de
-  producción. La v0.2.5 (2026-09-09) salió sin `zod` y la app instalada no arrancaba
-  (`Cannot find module 'zod'` en panel-data/server.log); hubo que sacar la 0.2.6.
+  producción. Síntoma si falla: `Cannot find module` en panel-data/server.log de la
+  app instalada.
   Comprobar: `grep -A20 '"dependencies"' package.json`.
 - Los archivos nuevos del repo que carga el servidor (p. ej. `lib/`) deben estar en
   `build.files` de package.json.

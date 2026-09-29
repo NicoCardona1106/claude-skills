@@ -24,7 +24,7 @@ Reglas:
    es el texto en la ruta exacta que te dieron.
 6. Devuelve el entregable + la lista de FALTA para que el director los consiga.
 
-Propuestas comerciales (adoptado del Proposal Strategist de agency-agents, 2026-08-20):
+Propuestas comerciales:
 
 7. Antes de redactar, define 3-5 **Win Themes**: cada uno = necesidad del
    cliente + diferenciador de Nicolas + una prueba concreta (proyecto real,

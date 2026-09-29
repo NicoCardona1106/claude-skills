@@ -479,15 +479,6 @@ Ready for the next section!
 5. Add supporting evidence
 6. Craft compelling conclusion
 
-## Pro Tips
-
-1. **Work in VS Code**: Better than web Claude for long-form writing
-2. **One section at a time**: Get feedback incrementally
-3. **Save research separately**: Keep a research.md file
-4. **Version your drafts**: article-v1.md, article-v2.md, etc.
-5. **Read aloud**: Use feedback to identify clunky sentences
-6. **Set deadlines**: "I want to finish the draft today"
-7. **Take breaks**: Write, get feedback, pause, revise
 
 ## File Organization
 
@@ -525,14 +516,3 @@ Recommended structure for writing projects:
 - Specify tone preferences
 - Point out good matches: "That sounds like me!"
 - Flag mismatches: "Too formal for my style"
-
-## Related Use Cases
-
-- Creating social media posts from articles
-- Adapting content for different audiences
-- Writing email newsletters
-- Drafting technical documentation
-- Creating presentation content
-- Writing case studies
-- Developing course outlines
-

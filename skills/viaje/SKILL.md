@@ -33,19 +33,11 @@ Checklist — cada punto se marca solo si se verificó, no por darlo por hecho:
 
 - Skills: clonar `claude-skills` e instalar copiando (o con junction) las
   carpetas necesarias a `~/.claude/skills/`.
-- Compartir esas mismas skills con Codex y Antigravity por **junction**, y
-  hacerlo en **PowerShell**, no en Git Bash: `mklink` desde Git Bash mangla
-  las rutas de Windows. Patrón real usado:
-  - Codex (una junction por skill, sin pisar `.system` que es de Codex; el
-    `if` evita reventar si la junction ya existe de un viaje anterior):
-    ```powershell
-    foreach ($d in Get-ChildItem ~/.claude/skills -Directory) {
-      $p = "~/.codex/skills/$($d.Name)"
-      if (-not (Test-Path $p)) { New-Item -ItemType Junction -Path $p -Target $d.FullName }
-    }
-    ```
-  - Antigravity (una sola junction a toda la carpeta):
-    `New-Item -ItemType Junction -Path ~/.gemini/config/skills -Target ~/.claude/skills`
+- Compartir esas mismas skills con Codex y Antigravity: correr
+  `node sync.cjs` en el clon de `claude-skills` (llama a `enlazar-clis.cjs`,
+  que crea las junctions en `~/.codex/skills`, `~/.gemini/antigravity/skills`
+  y `~/.gemini/skills`). Correrlo desde PowerShell o Node, no con `mklink`
+  desde Git Bash (mangla las rutas de Windows).
 - MCP en Codex y agy: `mempalace` y `playwright`. Ojo con `playwright`: usa
   `cmd /c npx -y @playwright/mcp@latest` (agy sin el `--` inicial) — pero si
   se escribe el comando desde **Git Bash**, el `/c` de `cmd /c` se convierte
@@ -64,14 +56,8 @@ Checklist — cada punto se marca solo si se verificó, no por darlo por hecho:
 
 ## Durante
 
-- Con poco plan disponible: aplicar la skill `modo-ahorro` (existe desde
-  2026-09-06 en `~/.claude/skills` — si aún no está en el clon `claude-skills`,
-  cópiala ahí antes de salir para que viaje con las demás). Si en el equipo
-  secundario no está, aplicar a mano lo mismo que hizo Nicolas en el
-  viaje: estimar % de plan
-  antes de arrancar una tarea, agrupar comandos en un solo bloque de bash,
-  saltar verificación con Playwright y dejarla anotada como pendiente, cerrar
-  la sesión con `/cosecha` en vez de dejarlo en la memoria de la conversación.
+- Con poco plan disponible: aplicar la skill `modo-ahorro` (viaja en el
+  clon de `claude-skills` con las demás).
 - Al cerrar cada día: `/cosecha` para no perder decisiones y lecciones del
   día en un palacio que se va a descartar.
 

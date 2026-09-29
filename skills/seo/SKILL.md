@@ -55,7 +55,7 @@ extension is also installable (see "Optional Extensions" below).
 
 ## Orchestration Logic
 
-When the user invokes `/seo audit`, delegate to subagents in parallel:
+When the user invokes `/seo audit`, delegate to subagents in parallel when the `seo-*` agents are available (otherwise run the checks inline, sequentially):
 1. Detect business type (SaaS, local, ecommerce, publisher, agency, other)
 2. Spawn subagents: seo-technical, seo-content, seo-schema, seo-sitemap, seo-performance, seo-visual, seo-geo
 3. If Google API credentials detected (`python3 scripts/google_auth.py --check`), also spawn seo-google agent
