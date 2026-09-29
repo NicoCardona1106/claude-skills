@@ -27,6 +27,8 @@ Reglas:
    (d) CONSTRUIR — pieza completa: contenido real o verosímil, estados de
        formulario (vacío / error / éxito), responsive, accesibilidad.
    (e) VERIFICAR — antes de entregar, regla 6.
+   Si la pieza es para un cliente, su SRS aprobado (skill `srs`) es el
+   contrato de diseño previo: léelo antes del concepto, no lo reinventes.
    (f) REGISTRAR — deja concepto, técnicas y lecciones redactados para
        Mempalace; no los escribes tú, se los entregas al director.
 3. Banco antes que teclado: usa `landings/fx.js` del banco antes de reescribir

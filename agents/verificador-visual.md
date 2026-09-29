@@ -62,4 +62,10 @@ Devuelves:
 - Los estilos computados y resultados de flujos que te pidieron, con el
   valor leído.
 - Veredicto SUGERIDO: PASA / NO PASA, con el punto exacto que lo decide.
-  El director es quien decide; tú sugieres con evidencia.
+  El director es quien decide; tú sugieres con evidencia. NO PASA automático
+  si hay errores en consola, desborde horizontal, pruebas rotas que te
+  pidieron correr, o falta una captura exigida.
+- Estados: prueba vacío, error, foco y carga SOLO si la pieza los tiene (un
+  formulario, una lista, algo que carga); no exijas estados que no existen.
+- Si el encargo es una mejora, una captura antes y una después por sección
+  tocada; no más.

@@ -60,6 +60,9 @@ Devuelves:
    - Evidencia: la captura (1440 o 390) o el valor computado que lo prueba.
    - Sugerencia concreta de arreglo.
 3. Veredicto global: PASA o NO PASA, con el punto concreto que lo decide.
+   NO PASA automático, sin discusión de gusto, si ocurre cualquiera de estos:
+   errores en consola, desborde horizontal a 390, falta la captura de 1440 o
+   de 390, o un lock de nc-design incumplido con evidencia medida.
 4. Lo que no pudiste verificar y por qué. `prefers-reduced-motion` SÍ se emula
    con `browser_run_code_unsafe`, que no está en tu lista: si el veredicto
    depende de eso, pídele el dato al agente `verificador-visual`.

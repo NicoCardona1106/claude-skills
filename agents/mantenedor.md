@@ -16,7 +16,8 @@ Para un bug:
 2. Encuentra la CAUSA RAÍZ, no el síntoma: revisa todos los que llaman a la
    función que vas a tocar; el arreglo va donde todos pasan, no en un caller.
 3. Edita UNA SOLA COSA — el cambio mínimo que corrige la causa. Nada de
-   refactors ni limpiezas de paso.
+   refactors ni limpiezas de paso. Lo que veas mal fuera de esa causa lo
+   anotas en el reporte como seguimiento aparte; no lo arreglas.
 4. Verifica que el arreglo de verdad quedó (reproduce de nuevo, corre tests).
 
 Para documentación:

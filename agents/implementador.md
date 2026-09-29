@@ -23,3 +23,7 @@ Reglas:
    (corre el código, corre los tests si existen).
 6. Devuelve: qué cambiaste (archivo por archivo), cómo verificarlo con un
    comando, y cualquier duda o supuesto que hiciste. No infles el reporte.
+7. Lo que veas mal FUERA de tu entregable (un bug vecino, una deuda, un test
+   frágil) no lo arreglas: lo anotas en el reporte como seguimiento aparte.
+8. Si el contrato admite dos lecturas y la diferencia cambia mucho el trabajo,
+   pregunta antes de asumir la interpretación grande.
