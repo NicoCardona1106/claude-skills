@@ -37,17 +37,29 @@ CÓMO EVITARLO: [la regla accionable]
 SEÑAL DE DETECCIÓN: [cómo darse cuenta a tiempo la próxima vez]
 ```
 
-## Paso C — Deduplicar (marcar, no descartar)
+## Paso C — Deduplicar y buscar lo que queda viejo
 
-Por cada candidato: `mempalace_check_duplicate` y/o `mempalace_search`.
-Si hay solape, NO lo elimines — márcalo: `⚠ solapa con [drawer]: [diferencia]`.
-Nicolas decide si es duplicado, actualización o algo nuevo.
+`check_duplicate` solo detecta textos casi iguales. Un hecho que CAMBIA (versión,
+horario, estado, decisión revertida) casi nunca se parece al viejo, y por eso
+el palacio acumulaba versiones contradictorias. Por cada candidato:
+
+1. `mempalace_check_duplicate` → si hay solape, márcalo: `⚠ solapa con [drawer]: [diferencia]`.
+2. **Obligatorio:** `mempalace_search` por el TEMA, no por el texto (ej. «horario sueño
+   Nicolas», «NPersonal módulo financiero»), filtrando por el wing del candidato y
+   también sin filtro. Lee los resultados y lista cada drawer que el candidato
+   **contradice o deja viejo**: `↺ reemplaza a [drawer_id]: [qué decía]`.
+3. Haz lo mismo en la memoria local: busca con grep el tema en `memory/*.md`,
+   `MEMORY.md` y `SEMANA.md`, y lista las líneas que quedan viejas.
+
+Nicolas decide si es duplicado, actualización o algo nuevo. Aprobar un candidato
+con `↺` aprueba también retirar lo que reemplaza (salvo `keep N`).
 
 ## Paso D — Confirmar
 
 Presenta la lista numerada (candidato, categoría, destino, confianza, solapes)
 y espera la respuesta. Acepta: números (`1,3,5`), rangos (`1-4`), `all`, `none`,
-`edit N: <texto>`, `drop low` (descarta confianza baja), `skip N`.
+`edit N: <texto>`, `drop low` (descarta confianza baja), `skip N`,
+`keep N` (guarda N sin retirar lo que marcó con ↺).
 
 ## Paso E — Ejecutar
 
@@ -56,12 +68,21 @@ Solo lo aprobado:
 - Drawers → `mempalace_add_drawer` en el wing/room del candidato
 - Hechos de personas/proyectos → además `mempalace_kg_add`
 - Si un candidato ACTUALIZA una drawer existente → `mempalace_update_drawer`
+- Por cada `↺` aprobado → retirar la drawer vieja en el MISMO paso (ver «Retirar,
+  no borrar») con `[RETIRADA <fecha>: reemplazada por <drawer_id nuevo>]`, y
+  `mempalace_kg_invalidate` si el hecho estaba en el KG. Escribir lo nuevo sin
+  retirar lo viejo NO es una cosecha terminada.
 - Cierra con `mempalace_diary_write` resumiendo la sesión
 - Actualiza también la MEMORIA LOCAL de Claude Code (`~/.claude/projects/<proyecto>/memory/`):
   el archivo del proyecto tocado y su línea en `MEMORY.md`. Es lo que se carga al
   arrancar cada sesión: Mempalace es el detalle, la memoria local es el índice.
   Si no hay archivo para ese tema, créalo con su frontmatter (name/description/type).
-- Confirma cada escritura con una línea
+  En la memoria local se REEMPLAZA, no se apila: reescribe el bloque «Estado actual»
+  y la línea de `MEMORY.md`, y corrige o quita las líneas viejas halladas en C.3.
+- **Verificación final:** repite la búsqueda del paso C.2 por cada tema tocado.
+  Solo debe quedar UNA versión viva de cada hecho; si aparece otra sin
+  `[RETIRADA`, retírala o repórtala antes de cerrar.
+- Confirma cada escritura con una línea, incluidas las retiradas («retirada X → Y»).
 
 **Retirar, no borrar**: si una drawer quedó obsoleta, NO uses delete — antepon
 `[RETIRADA <fecha>: <motivo>]` a su contenido con `mempalace_update_drawer`
@@ -73,6 +94,11 @@ creyó y cuándo se corrigió es parte de la memoria.
 1. `mempalace_get_taxonomy` + `mempalace_graph_stats` para ver el estado.
 2. Detectar: rooms duplicados (ej. español/inglés), wings duplicadas por
    nombre, drawers obsoletas o contradictorias, rooms inflados por imports.
+   Para las contradicciones, recorre cada wing con `mempalace_list_drawers`
+   agrupando por tema: dos drawers vivas que den valores distintos de lo mismo
+   (versión, estado, horario, precio) son una contradicción, aunque
+   `check_duplicate` no las marque. Deja viva la más reciente y confírmala contra
+   el repo o la memoria local.
 3. Proponer en lista numerada: fusiones (mover drawers al room canónico en
    español), retiros y correcciones. Mismo flujo de confirmación del paso D.
 4. Ejecutar solo lo aprobado. Fusiones grandes (>20 drawers) → delegarlas a un
