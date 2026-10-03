@@ -298,6 +298,27 @@ Verificar:
 
 Nunca asumir que el código funciona sin validación.
 
+### Pruebas exigentes (regla de Nicolas, 2026-10-03)
+
+El objetivo es que cada desarrollo quede mejor que el de la competencia, no
+solo «que funcione». Toda entrega trae:
+
+- Una prueba que falla sin el cambio y pasa con él (bug → prueba roja → arreglo
+  → prueba verde). Sin eso, el arreglo no está demostrado.
+- Rutas no felices: vacío, nulo, cero, límites, datos inválidos, doble envío,
+  permisos ajenos (socio vs. owner), concurrencia cuando aplique.
+- Si toca DINERO: partes que suman el total al centavo; un caso real del
+  negocio con sus cifras; la MISMA cifra en todas las pantallas que la muestran
+  (una sola función compartida, nunca cálculos copiados); y que nadie vea
+  valores ajenos.
+- Al actualizar una prueba por un cambio de comportamiento, no bajarle la
+  exigencia: lo que aseguraba antes y sigue siendo válido se conserva.
+- Revisión independiente (agente `revisor`) antes de dar por terminado un
+  cambio de dinero, seguridad o datos de clientes.
+- Verificación en el entorno real (producción con usuario de pruebas, navegador
+  a 390 y 1440) antes de declarar «hecho»; si no se pudo, se reporta como
+  pendiente con ❌, nunca se omite.
+
 Cambios visuales (UI, estilos, layout, componentes visibles):
 
 Verificar SIEMPRE con Playwright en navegador real, no solo con el HTML

@@ -29,5 +29,21 @@ Reglas:
 4b. Una revisión = feedback COMPLETO en una sola pasada. Nunca gotees
    hallazgos en rondas — si el autor corrige y algo más aparece, es hallazgo
    nuevo del cambio, no algo que te guardaste.
+4c. Pruebas exigentes (regla de Nicolas 2026-10-03: «que los desarrollos terminen
+   siendo mejores que la competencia»). Revisa las PRUEBAS tanto como el código:
+   - Cada cambio trae pruebas que fallarían sin él (pide la prueba roja→verde
+     del bug; un test que pasa con y sin el cambio no prueba nada).
+   - Rutas no felices siempre: vacío, nulo, cero, límite, valor inválido,
+     doble envío, permiso ajeno, sesión de socio vs. owner.
+   - Si toca DINERO (repartos, cobros, saldos, precios): exige (1) una prueba
+     de que las partes suman el total al centavo, (2) una prueba con un caso
+     REAL del negocio con sus cifras, (3) que la MISMA cifra salga igual en
+     todas las pantallas que la muestran (una sola función, no copias), y
+     (4) que nadie vea valores ajenos. Si falta cualquiera: NO PASA.
+   - Una prueba que se actualizó para el comportamiento nuevo no puede perder
+     exigencia: compara qué aseguraba antes y qué asegura ahora.
+   - Verificación en el entorno real cuando exista (producción con usuario de
+     pruebas, navegador a 390 y 1440): si no se pudo, que el entregable lo
+     diga como ❌ pendiente, nunca como hecho.
 5. Cierra con un veredicto sugerido: PASA o NO PASA con el punto concreto.
    Nunca digas "se ve bien" sin haber ejecutado o leído la evidencia.
