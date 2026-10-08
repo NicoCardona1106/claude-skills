@@ -65,7 +65,7 @@ Propón en una tabla y ESPERA aprobación de Nicolas antes de lanzar nada:
   no entra en el reparto automático; se usa interactivo en N-Coterminal, para
   sus agentes, o cuando Nicolas diga «delega a hermes».
 - **Perfil externo `codex`** (OpenAI Codex CLI, verificado 2026-08-23,
-  default gpt-5.6-sol; tabla de modelos más abajo). Desde 2026-09-06 Nicolas PAGA el plan de OpenAI (~81.000 COP/mes): codex
+  default gpt-6.1-sol desde 2026-10-07; tabla de modelos más abajo). Desde 2026-09-06 Nicolas PAGA el plan de OpenAI (~81.000 COP/mes): codex
   ya no es "con moderación" — vale para tercera opinión, revisión cruzada de
   diffs y tareas de código/redacción acotadas; lo masivo de solo-lectura sigue
   yendo a agy (Google AI Pro, ventana enorme). Cómo:
@@ -132,19 +132,20 @@ respondió en 2,4 s con 0 tokens de pensamiento):
 | `claude-sonnet-4-6`, `claude-opus-4-6-thinking` | NO usar: son Claude 4.6 vía Google (viejos); gastan la cuota de Google sin ganar nada frente a los subagentes propios |
 | `gemini-3.6-*`, `gemini-3.7-*` | generaciones anteriores; sin motivo para elegirlas |
 
-**Codex** (catálogo en `~/.codex/models_cache.json`, CLI 0.154.0; default en
-`~/.codex/config.toml` = `gpt-5.6-sol` con effort `medium`; se cambia por
+**Codex** (catálogo en `~/.codex/models_cache.json`, CLI 0.161.0, revisado 2026-10-07; default en
+`~/.codex/config.toml` = `gpt-6.1-sol` con effort `medium`; se cambia por
 tarea con `-m <slug>` en `codex exec` o `--model <slug>` en
 `codex-companion.mjs task`; el effort del catálogo por defecto es `low` en
-astra y sol, `medium` en terra y luna):
+astra y 6.1-sol, `medium` en 6-sol y luna):
 
 | slug | para qué |
 |---|---|
-| `gpt-5.6-luna` | rápido y barato: rondas de revisión, tests de una función, refactors mecánicos, redacción corta. Sustituye a `gpt-5.4-mini` (ya no existe). Candidato para la 5.ª tarea del día: PROBAR cuánta cuota gasta |
-| `gpt-5.6-sol` | DEFAULT: lotes de código con contrato (caben ~4/día) |
-| `gpt-5.6-terra` | equilibrado; alternativa si sol falla dos veces la misma tarea antes de devolverla a Claude |
+| `gpt-6-luna` | rápido y barato (Plus: ~350-3.000 mensajes/5 h): rondas de revisión, tests de una función, refactors mecánicos, redacción corta, talacha como bumps de dependencias |
+| `gpt-6.1-sol` | DEFAULT: lotes de código con contrato (Plus: ~15-160 mensajes/5 h) |
+| `gpt-6-sol` | alternativa si 6.1-sol falla dos veces la misma tarea antes de devolverla a Claude |
 | `gpt-6-astra` | el más capaz; solo revisión adversaria (`/codex:adversarial-review`) y diagnóstico difícil: vacía la cuota en 2 lotes |
-| `gpt-5.5` | generación anterior; solo si un modelo nuevo regresa |
+| `gpt-5.6-sol/terra/luna` | generación anterior, aún en el catálogo; solo si un modelo 6.x regresa |
+| `gpt-5.5` | oculto; sale de Codex con ChatGPT el 2026-10-14: no usar |
 | `gpt-reserve`, `codex-auto-review` | ocultos/internos; no elegir |
 
 Desde N-Coterminal: `node herramientas/delegar.cjs <agy|codex> "tarea"

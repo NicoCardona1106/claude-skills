@@ -445,8 +445,8 @@ Sin contrato solo se puede opinar, no rechazar.
   va primero a Codex (tabla de reparto en `orquesta`).
 - **haiku** → búsquedas y lecturas masivas, mecánica trivial, sweeps baratos.
 - **Externos (también los elige Claude):** agy = Gemini 3.8 Flash `low` para
-  talacha de lectura y `3.1 Pro` para opinar; Codex = `gpt-5.6-luna` rondas,
-  `gpt-5.6-sol` lotes, `gpt-6-astra` solo revisión adversaria. Tabla en `orquesta`.
+  talacha de lectura y `3.1 Pro` para opinar; Codex = `gpt-6-luna` rondas,
+  `gpt-6.1-sol` lotes, `gpt-6-astra` solo revisión adversaria. Tabla en `orquesta`.
 - **Director (sesión principal: Opus 5.5 o Fable)** → dirigir: arquitectura
   global, decisiones, contratos, revisión final, síntesis. Fable 5.1 como
   subagente solo para arquitectura, ambigüedad o bugs donde Opus falló (tabla en `orquesta`).

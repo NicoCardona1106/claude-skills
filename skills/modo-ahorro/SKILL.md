@@ -58,8 +58,8 @@ en la siguiente sesión.
   grandes de imágenes siguen en `agy`.
 - **Modelo explícito en cada delegación externa** (tabla en `orquesta`):
   agy `--model gemini-3.8-flash-low` para talacha y `gemini-3.1-pro-high`
-  solo para opinar con criterio; Codex `gpt-5.6-luna` para rondas y tests,
-  `gpt-5.6-sol` (default) para lotes, `gpt-6-astra` solo revisión adversaria.
+  solo para opinar con criterio; Codex `gpt-6-luna` para rondas y tests,
+  `gpt-6.1-sol` (default) para lotes, `gpt-6-astra` solo revisión adversaria.
 - **Delegar a `codex` lo acotado** con el plugin (`/codex:rescue` en worktree, cuota de ChatGPT, no de Claude; ver skill orquesta) o por stdin (plan pago desde 2026-09-06: código y
   redacción puntual) y **nunca a
   `hermes`** (~90s por respuesta, modelo local vía Ollama) mientras el plan
