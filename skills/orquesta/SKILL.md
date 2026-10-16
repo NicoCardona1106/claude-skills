@@ -9,6 +9,14 @@ description: "Orquestación multi-agente estilo director para Nicolas: documenta
 
 **Fable como especialista (Nicolas, 2026-09-26).** La sesión en Opus 5.5 es director válido y rinde más la cuota; Fable 5.1 entra como SUBAGENTE (`model: "fable"`) solo donde el criterio pesa de verdad: arquitectura o diseño de un módulo nuevo, decisiones ambiguas con varias salidas razonables, y bugs complejos en los que Opus ya falló una vez. La revisión de código sigue en `revisor` (opus): Opus 5.5 caza más errores con menos falsos positivos. Delegar todo lo que pase de unas pocas líneas o lecturas; lo trivial (una línea en SEMANA.md, un dato puntual) lo hace el director. Revisar cada entrega contra su contrato: abrir los archivos entregados y la evidencia que cita el informe; el resumen del subagente solo orienta la revisión.
 
+**Puntos fijos de Fable (Nicolas, 2026-10-16: en dos meses la cuota de Fable quedó en 0 porque «solo donde pesa» nunca se disparaba).** Sin preguntar, cada uno lleva un subagente `model: "fable"` de solo lectura:
+1. **Todo SRS o blueprint antes de mandárselo a Nicolas:** revisión de arquitectura con veredicto, hallazgos y máximo 5 preguntas para él.
+2. **Todo modelo de dinero o de permisos** (cálculos, saldos, cobros, reparto, quién puede qué): revisión adversarial de la lógica ANTES de escribir el contrato de construcción.
+3. **Segunda caída:** cuando Codex falla dos veces la misma tarea o el `revisor` da NO PASA dos veces por el mismo motivo, Fable diagnostica antes de reescribir el contrato.
+4. Fable no reemplaza al `revisor` (opus) en la revisión de diffs.
+
+**Vigilar a Codex y agy (se caen o nunca arrancan):** cada lanzamiento queda con un Monitor `bash herramientas/vigilar-delegado.sh <log> <codex.exe|agy.exe> [min]` (avisa NO ARRANCA, QUIETO o TERMINÓ). Si avisa NO ARRANCA o QUIETO dos veces, se corta y la tarea pasa a la siguiente opción de la tabla.
+
 Principio: **no construyas, reparte y revisa.** Tú (Fable u Opus 5.5) eres el director:
 documentas, contratas, repartes, supervisas y revisas. El código y los
 entregables los producen los subagentes. Esta skill ES la autorización explícita
