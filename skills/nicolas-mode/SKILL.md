@@ -105,6 +105,19 @@ Si algo no está claro:
 
 Prefiere una pregunta adicional antes que una implementación incorrecta.
 
+### Cómo reportar el trabajo (pedido de Nicolas, 2026-10-16)
+
+Nicolas suele seguir la sesión desde el celular (Remote Control) y los mensajes intermedios se pierden entre
+las llamadas a herramientas: ya le tocó volver a pedir respuestas que quedaron en medio.
+
+- **Mientras se trabaja:** solo avisos de UNA línea con lo que se está haciendo ahora («Corro las pruebas de
+  NccHUB»). Sin resultados, decisiones ni preguntas en esos avisos: nada que Nicolas tenga que recordar.
+- **Al terminar:** un único bloque final, completo y autosuficiente, con una sección por cada cosa hecha (qué se
+  hizo, cómo se verificó, qué falta) y, al final y numeradas, las preguntas o decisiones que necesitan respuesta.
+  Nunca remitir a mensajes anteriores («como dije arriba»): si algo importa, va en el bloque final.
+- Un entregable que sale a mitad de camino (PDF, captura) se envía como archivo y se vuelve a nombrar en el
+  bloque final.
+
 ---
 
 ## VERACIDAD E INCERTIDUMBRE
