@@ -66,6 +66,45 @@ en la siguiente sesión.
   esté bajo — son más caros en tiempo o cuota ajena, no en plan propio, pero
   no resuelven el problema de plan de Claude.
 
+## Podar lo que se carga en cada sesión
+
+- **`/skill-doctor`**: muestra qué skills pesan más en el contexto y cuáles
+  tienen descripciones duplicadas o largas (se cortan a 1.536 caracteres).
+  Correrlo una vez al mes o cuando se agreguen varias skills; lo que salga
+  pesado y poco usado se propone a Nicolas para podar (nunca se borra ni se
+  archiva sin su visto bueno).
+- **`/fewer-permission-prompts`**: lee los transcripts y propone una lista
+  de permisos de solo lectura para `.claude/settings.json` del proyecto.
+  Menos avisos = menos vueltas gastadas. La lista se muestra a Nicolas antes
+  de aplicarla.
+
+### context-mode — candidato a prueba de UNA semana (NO instalado)
+
+[context-mode](https://github.com/mksglu/context-mode) es un MCP/plugin que
+corre las herramientas en un sandbox y solo mete al contexto el resultado
+procesado (indexa salidas > 5 KB con BM25; dicen 315 KB → 5,4 KB), guarda el
+estado de la sesión en SQLite y lo restaura tras compactar. Sin sus hooks el
+ahorro anunciado baja de ~98 % a ~60 %. Encaja con lo que más contexto gasta
+aquí: capturas de Playwright y listas largas del GitHub MCP.
+
+Cómo evaluarlo, solo si Nicolas lo aprueba:
+
+1. **Antes de instalar**, leer el repo: qué hooks registra, qué escribe en
+   disco (el SQLite), si manda algo a la red, qué permisos pide, licencia y
+   último mantenimiento. Comprobar que no choca con los hooks propios
+   (`cuota-guardia.cjs`, `modelo-director.cjs`).
+2. **Línea base (3 días sin él)**: anotar por sesión el % de `five_hour`
+   usado al cerrar, cuántas compactaciones hubo y cuántas tareas se cerraron.
+3. **Semana con él**, en un solo proyecto (no en todo nc-workspace): las
+   mismas medidas + `ctx stats` al cierre de cada sesión.
+4. **Qué medir**: % de plan por tarea cerrada (antes vs. después),
+   compactaciones por sesión, si tras compactar retoma sin releer, errores o
+   respuestas peores por resultados resumidos de más, y tiempo extra por
+   llamada.
+5. **Decisión al día 7**: se queda solo si baja el gasto por tarea de forma
+   clara sin perder calidad; si no, se desinstala y se anota por qué en
+   `notas/`. Mientras dura la prueba, `ctx doctor` si algo se comporta raro.
+
 ## Lo que NO se recorta
 
 - **Validación en fronteras** (inputs de usuario, datos externos, parseo) y

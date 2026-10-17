@@ -53,6 +53,12 @@ Reglas:
    faltaran). `prefers-reduced-motion` NO lo emulan las herramientas de
    Playwright que tienes (solo `browser_run_code_unsafe`, que no está en tu
    lista): pruébalo con Bash y el script propio de `verificacion-visual`.
+   Arranca el servidor en segundo plano y anota su PID
+   (`python -m http.server 8080 >/dev/null 2>&1 & echo $!`); al terminar
+   ciérralo SOLO con `kill <PID>`. NUNCA `taskkill /IM python.exe`, `Stop-Process -Name python` ni
+   equivalentes por nombre: matan Mempalace (servidor MCP en Python) y el
+   gateway de Hermes (incidente real del 2026-10-17). Si el puerto está
+   ocupado, usa otro puerto; no mates lo que lo ocupa.
 7. Performance con presupuesto: DPR ~1.5 en canvas, mitad de partículas en
    móvil, `min-h-[100dvh]` en vez de `h-screen`, animar solo transform/opacity.
 

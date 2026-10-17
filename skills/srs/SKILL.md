@@ -15,6 +15,11 @@ un ajuste visual. Ahí basta el plan de `nicolas-mode` → DESARROLLO.
 
 ## Flujo
 
+0. **(Opcional) Si el pedido es vago, `grill-me` primero.** Una línea sin
+   usuarios, datos ni límites claros («hazme una app para el parqueadero»)
+   → correr la skill `grill-me` (máx. 10 preguntas, de a una o en bloques de
+   3) y usar su resumen de decisiones como insumo de las secciones 1, 2, 3,
+   5, 6 y 7. Si el pedido ya trae eso, se salta.
 1. **Entender antes de escribir.** Leer lo que exista (SEMANA.md, PLAN.md,
    memoria, Mempalace, documentos del cliente). Preguntar a Nicolas SOLO lo
    que no se pueda deducir; agrupar las preguntas en un solo mensaje.

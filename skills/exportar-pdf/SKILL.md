@@ -61,6 +61,29 @@ pero fuentes, rutas relativas y fetch de assets fallan silenciosamente sin
 un origen http. Sirve la carpeta con `python -m http.server 8080` (o `npx
 serve`) y apunta el script al `http://localhost:8080/archivo.html`.
 
+**El servidor se cierra por su PID, nunca por nombre.** Arráncalo en segundo
+plano, anota su PID y ciérralo SOLO por ese PID al terminar:
+
+```bash
+python -m http.server 8080 >/dev/null 2>&1 &   # segundo plano
+echo $!                                          # anota este PID
+# ... verificar ...
+kill <PID>                                       # cierra SOLO ese servidor
+```
+
+En PowerShell:
+
+```powershell
+$srv = Start-Process python -ArgumentList '-m','http.server','8080' -PassThru -WindowStyle Hidden
+$srv.Id                      # anota este PID
+Stop-Process -Id <PID>       # cierra SOLO ese servidor
+```
+
+NUNCA `taskkill /IM python.exe`, `Stop-Process -Name python` ni
+equivalentes por nombre: matan Mempalace (servidor MCP en Python) y el
+gateway de Hermes (incidente real del 2026-10-17). Si el puerto está
+ocupado, usa otro puerto; no mates lo que lo ocupa.
+
 ## Generar el PDF
 
 Playwright no está instalado globalmente — vive en la caché de npx en

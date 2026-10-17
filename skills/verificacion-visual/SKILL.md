@@ -20,7 +20,8 @@ resultado a Nicolas sin haber pasado por aquí.
 1. **Servir si es local.** Nunca `file://` con el Playwright MCP (no lo
    abre) ni de forma confiable con `page.pdf()`/certificados: sirve la
    carpeta con `python -m http.server 8080` o `npx serve` y navega a
-   `http://localhost:8080`.
+   `http://localhost:8080`. Arráncalo en segundo plano, anota su PID y
+   ciérralo al final SOLO por ese PID (ver «Servidor local por PID»).
 2. **Dos viewports obligatorios: 1440 y 390.** Repite todo el procedimiento
    en cada uno.
 3. **Consola limpia.** Captura errores/warnings de consola en cada viewport.
@@ -37,6 +38,31 @@ resultado a Nicolas sin haber pasado por aquí.
    activa salvo que el servidor arranque con `--output-dir <ruta>`. Con el
    script propio, en la carpeta de salida que le pases (por defecto
    `capturas-visual/`).
+
+## Servidor local por PID
+
+**El servidor se cierra por su PID, nunca por nombre.** Arráncalo en segundo
+plano, anota su PID y ciérralo SOLO por ese PID al terminar:
+
+```bash
+python -m http.server 8080 >/dev/null 2>&1 &   # segundo plano
+echo $!                                          # anota este PID
+# ... verificar ...
+kill <PID>                                       # cierra SOLO ese servidor
+```
+
+En PowerShell:
+
+```powershell
+$srv = Start-Process python -ArgumentList '-m','http.server','8080' -PassThru -WindowStyle Hidden
+$srv.Id                      # anota este PID
+Stop-Process -Id <PID>       # cierra SOLO ese servidor
+```
+
+NUNCA `taskkill /IM python.exe`, `Stop-Process -Name python` ni
+equivalentes por nombre: matan Mempalace (servidor MCP en Python) y el
+gateway de Hermes (incidente real del 2026-10-17). Si el puerto está
+ocupado, usa otro puerto; no mates lo que lo ocupa.
 
 ## Con el Playwright MCP
 
@@ -202,6 +228,25 @@ favicon no trae la palabra "favicon" en `msg.text()` (verificado: Chrome solo
 dice "Failed to load resource..."), así que el filtro revisa también
 `msg.location().url`, donde sí aparece. Si aparece otro mensaje repetitivo
 sin relación con el bug real, dilo en el reporte en vez de silenciarlo a mano.
+
+## Ciclo corregir → volver a verificar (tope de 3 vueltas)
+
+Un ❌ no se entrega como «casi listo»: se corrige y se vuelve a correr la
+verificación COMPLETA en los dos anchos (un arreglo a 390 suele romper
+1440). Una vuelta = corregir + verificar + tabla nueva.
+
+- **Vueltas 1 y 2:** corregir la causa concreta de cada ❌ y repetir el
+  procedimiento entero, no solo el punto que falló.
+- **Vuelta 3 con ❌:** parar. Entregar la última tabla con los ❌ que quedan,
+  qué se intentó en cada vuelta y por qué no cierra (depende de contenido
+  real, de un componente de terceros, de una decisión de diseño). Decide el
+  director o Nicolas; no hay cuarta vuelta automática.
+- Si verifica el agente `verificador-visual` (no edita), el ciclo lo lleva
+  el director: el arreglo va al constructor, la re-verificación vuelve al
+  verificador y el director cuenta las vueltas (ciclo de `orquesta`).
+- Formularios y flujos se prueban con cuentas y datos de prueba, nunca con
+  cuentas reales de Nicolas o de un cliente: un envío de prueba es un envío
+  real.
 
 ## Delegar
 

@@ -34,6 +34,7 @@ Campaign strategy, audience targeting, budget optimization, and performance mana
 - [Performance Optimization](#performance-optimization)
 - [Attribution and Measurement](#attribution-and-measurement)
 - [Ad Account Audit (Ads Health Score)](#ad-account-audit-ads-health-score)
+- [Meta Ads en vivo (MCP oficial)](#meta-ads-en-vivo-mcp-oficial)
 - [Pre-Launch Checklist](#pre-launch-checklist)
 - [Best Practices](#best-practices)
 - [Integration Points](#integration-points)
@@ -404,6 +405,45 @@ Colombia adjustments, deliverable), then the platform checklist:
 Input is exports/screenshots/manual figures; no API or MCP needed. USD thresholds are
 not yet recalibrated for Colombia: treat a fail caused only by a dollar figure as WARNING
 and say so in the report.
+
+## Meta Ads en vivo (MCP oficial)
+
+Nicolas tiene conectado el MCP oficial de Meta Ads (`mcp__meta-ads__*`,
+https://mcp.facebook.com/ads, desde 2026-10-08). Cuando la cuenta es de Meta,
+**primero se leen los datos reales y el diagnóstico de Meta; después se
+recomienda**. Nada de consejos genéricos sobre una cuenta que se puede mirar.
+
+Orden de lectura (todo de solo lectura):
+
+1. `ads_get_ad_accounts` → elegir la cuenta; `ads_get_ad_entities` para
+   campañas, conjuntos y anuncios. Si trae `next_actions`, seguir esa cola
+   de lecturas antes de concluir (lo exige el servidor).
+2. Rendimiento: `ads_insights_performance_trend`,
+   `ads_insights_anomaly_signal` (caídas o picos) y
+   `ads_insights_advertiser_context`.
+3. Diagnóstico de Meta: `ads_get_errors`, `ads_get_opportunity_score`,
+   `ads_account_get_activity_logs` (qué cambió y cuándo) y, si hay pixel o
+   dataset, `ads_get_dataset_quality`.
+4. Referencia: `ads_insights_industry_benchmark`,
+   `ads_insights_auction_ranking_benchmarks`; competencia con
+   `ads_library_search`.
+5. Con eso se corre la auditoría de arriba (161 revisiones de claude-ads,
+   las mismas que trae el paquete ads-pro de tododeia) con
+   `data_source: "mcp"` en el JSON, y cada recomendación cita la métrica
+   que la sostiene.
+
+Lo útil de ads-pro que se adopta: **auditoría semanal (los lunes)** de las
+cuentas activas con el mismo puntaje 0-100 para ver la tendencia, y **todo lo
+que se crea nace en pausa**.
+
+Reglas de escritura (crear, editar, activar, presupuestos):
+
+- Ninguna llamada que escriba (`ads_create_*`, `ads_update_entity`,
+  `ads_activate_entity`, audiencias, creativos) sin que Nicolas apruebe esa
+  acción concreta; lo nuevo se crea pausado y con tope de gasto.
+- Nunca tocar métodos de pago, facturación ni accesos de la cuenta.
+- La pauta de un cliente (Co-Axis, maxxcontrol) se cambia solo con su
+  aprobación, que transmite Nicolas.
 
 ---
 

@@ -32,6 +32,12 @@ Reglas:
        `python -m http.server 8080`) y mírala a 1440 y 390: capturas
        `fullPage`, snapshot de accesibilidad, overflow horizontal, y el test
        de "pared pintada" sección por sección.
+       Arranca el servidor en segundo plano y anota su PID
+       (`python -m http.server 8080 >/dev/null 2>&1 & echo $!`); al terminar
+       ciérralo SOLO con `kill <PID>`. NUNCA `taskkill /IM python.exe`, `Stop-Process -Name python` ni
+       equivalentes por nombre: matan Mempalace (servidor MCP en Python) y el
+       gateway de Hermes (incidente real del 2026-10-17). Si el puerto está
+       ocupado, usa otro puerto; no mates lo que lo ocupa.
    (c) ESTILOS COMPUTADOS — cuando la duda es de contraste, tamaño o medida,
        resuélvela con `browser_evaluate` sobre `getComputedStyle`; no opines
        de un valor que puedes leer.

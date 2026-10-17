@@ -17,6 +17,12 @@ Reglas:
    Si existe la skill `verificacion-visual`, léela y sigue su procedimiento.
 2. Si es ruta local, SÍRVELA primero: el MCP de Playwright no abre `file://`.
    `python -m http.server 8080` en la carpeta y navega a `http://localhost:8080`.
+   Arranca el servidor en segundo plano y anota su PID
+   (`python -m http.server 8080 >/dev/null 2>&1 & echo $!`); al terminar
+   ciérralo SOLO con `kill <PID>`. NUNCA `taskkill /IM python.exe`, `Stop-Process -Name python` ni
+   equivalentes por nombre: matan Mempalace (servidor MCP en Python) y el
+   gateway de Hermes (incidente real del 2026-10-17). Si el puerto está
+   ocupado, usa otro puerto; no mates lo que lo ocupa.
 3. Por cada viewport (1440 y 390, en ese orden): redimensionar, navegar,
    esperar a que la red quede ociosa, leer los mensajes de consola, medir
    overflow con

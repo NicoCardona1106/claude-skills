@@ -209,6 +209,20 @@ refactoriza de más), y sin formato de salida (no sabes qué cambió).
   según la tabla; anuncia el tamaño del fan-out (nº de agentes) antes de lanzar.
 - Detén temprano al agente que va mal: dos minutos errados cuestan menos que un
   trabajo terminado errado.
+- **Varias salidas buenas** (diseño, modelo de datos, algoritmo con
+  compromisos): skill `comparar-n` — el mismo contrato a 2-3 implementadores
+  en worktrees de `temporales/` y el revisor elige. Cuesta N veces la cuota.
+
+### Servidores locales: se cierran por su PID
+
+Todo servidor que arranque el director o un subagente (`python -m
+http.server`, `npx serve`, `next dev`) va en segundo plano con su PID
+anotado y se cierra SOLO por ese PID (`kill <PID>` / `Stop-Process -Id
+<PID>`). NUNCA `taskkill /IM python.exe`, `Stop-Process -Name python`,
+`taskkill /IM node.exe` ni equivalentes por nombre: matan Mempalace
+(servidor MCP en Python), el gateway de Hermes y las sesiones de Node
+(incidente real del 2026-10-17). Si el puerto está ocupado, se usa otro.
+Esta regla va textual en el PROHIBIDO de todo contrato que sirva páginas.
 
 ### Investigación repartida (/investiga)
 
@@ -266,15 +280,36 @@ positivo, deja que lo levante y adjudícalo tú: "no marques X" es prejuzgar
 para ahorrarte una ronda.
 
 - Veredicto por entregable: **PASA** o **NO PASA** con el punto concreto.
-- Lo rechazado vuelve al MISMO agente con: criterio incumplido + hallazgo + qué
-  cambiar exactamente.
-- Dos fallos por el mismo motivo = el contrato está mal; corrígelo tú y reenvía.
 - Gate entre fases (adoptado del Agents Orchestrator, 2026-08-20): una tarea de
   la que dependen otras NO habilita a sus dependientes hasta tener veredicto
   PASA — nunca construyas encima de un entregable sin revisar.
-- Tope de reintentos: máximo 3 idas y vueltas por tarea. Al tope, DETENTE y
-  escala a Nicolas con el diagnóstico (qué se intentó, por qué falla, opciones)
-  en vez de quemar tokens en círculos.
+
+### Ciclo constructor-revisor (tope de 3 vueltas)
+
+Toda tarea con código o UI corre en ciclo: el constructor entrega con
+evidencia (pruebas, `next build`, capturas de Playwright si hay UI), el
+`revisor` da PASA o NO PASA, y lo rechazado vuelve al MISMO constructor.
+Una vuelta = una entrega + su veredicto; cada una se anota en la bitácora
+(`Tarea N: vuelta R/3 (X resueltos, Y abiertos: <una línea c/u>)`).
+
+- **Vuelta 1 NO PASA:** vuelve al mismo agente con criterio incumplido +
+  hallazgo + qué cambiar exactamente.
+- **Vuelta 2 NO PASA por el mismo motivo:** el problema es el contrato, no el
+  detalle. Fable diagnostica (punto fijo 3) y el director corrige el contrato
+  antes de la vuelta 3. Si el constructor era Codex, ya son sus dos fallos
+  (regla del CLAUDE.md): la vuelta 3 la hace Claude.
+- **Vuelta 3 sin PASA:** se para; nunca hay cuarta vuelta automática. La
+  tarea vuelve al director con un resumen de por qué no converge:
+  ```
+  Tarea N — no converge tras 3 vueltas
+  Pedido: <criterio de aceptación que no se cumple>
+  Vueltas: 1) <entrega → hallazgo>  2) …  3) …
+  Patrón: <el hallazgo que se repite, o el que cambia cada vez>
+  Por qué no converge: <contrato ambiguo | tarea muy grande | requisito imposible | modelo corto>
+  Opciones: <partir la tarea | reescribir el contrato | otro modelo | decide Nicolas>
+  ```
+  El director elige la opción; si cambia alcance, dinero o lo que ve un
+  cliente, escala a Nicolas con ese mismo resumen.
 
 ## Fase 5 — Informe final
 
