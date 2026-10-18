@@ -80,8 +80,11 @@ function EscribirEnv($clave, $valor) {
 # Ejecutar "descripción" { comando } [-Esperado "texto"]: muestra, corre y comprueba. Si falla, pregunta si seguir.
 function Ejecutar($descripcion, [scriptblock]$comando, $Esperado = $null) {
   Paso_ $descripcion
-  $salida = & $comando 2>&1 | Out-String
-  $ok = $? -and ($LASTEXITCODE -in $null, 0)
+  # PowerShell 5.1 con 'Stop' convierte el stderr de un programa (keytool, git) en error: aquí se lee como texto.
+  $prev = $ErrorActionPreference; $ErrorActionPreference = 'Continue'; $global:LASTEXITCODE = $null
+  try { $salida = & $comando 2>&1 | Out-String; $ok = ($LASTEXITCODE -in $null, 0) }
+  catch { $salida = $_ | Out-String; $ok = $false }
+  finally { $ErrorActionPreference = $prev }
   if ($Esperado -and $salida -notmatch [regex]::Escape($Esperado)) { $ok = $false }
   $salida.TrimEnd().Split("`n") | Select-Object -Last 15 | ForEach-Object { Nota $_ }
   if ($ok) { Bien $descripcion; return $true }
