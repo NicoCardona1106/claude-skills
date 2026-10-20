@@ -39,6 +39,7 @@ Responde (o pregúntale al dueño) estas tres cosas:
 
 ## Checklist de salida del arranque
 - Repo con historial limpio y primer deploy en línea.
+- README según `plantilla-readme.md` (esta carpeta): nombre + resultado en la línea 1, badge de pruebas y «Probar en local» antes de la línea 15.
 - CLAUDE.md con comandos, convenciones y estructura.
 - Un flujo de punta a punta funcionando.
 - La lista de lo que NO hace la v1, escrita.
