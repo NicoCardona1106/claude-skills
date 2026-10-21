@@ -65,7 +65,10 @@ oficio y detalle de nivel showcase (referencia de vara: horizonx.so).
 
 6. **Resiliencia y accesibilidad no se negocian.** Texto decorativo gigante con
    `aria-hidden` + heading real oculto accesible; clase `.js` en `<html>` para
-   que sin JavaScript nada quede atrapado; `prefers-reduced-motion` respetado;
+   que sin JavaScript nada quede atrapado; `prefers-reduced-motion` respetado **sin saltos** (Nicolas, 2026-10-20: con reducción nada se desplaza, gira ni
+   escala, pero lo que aparece o cambia entra con un fundido de opacidad de 200-300 ms; nunca un salto seco al estado
+   final ni cuadros que cambian sin transición; una secuencia de cuadros pasa a UNA imagen fija y no descarga el resto;
+   en el CRM de NccHUB el motion va por `[data-motion]`, no por la media query);
    cursor custom y hovers solo bajo `hover:hover and (pointer: fine)`;
    `aria-live` en resultados dinámicos.
 
