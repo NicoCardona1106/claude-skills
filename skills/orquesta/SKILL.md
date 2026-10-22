@@ -40,6 +40,13 @@ No se delega lo que no está escrito.
   campos por tarea.
 - Señala qué tareas están mal planteadas o son el mayor riesgo, sin proponer
   soluciones todavía.
+- Si viene de `fable-plan` con `<proyecto>-tasks.json`, ese es el documento.
+  Cada tarea pasa al contrato así: ENTREGABLE = `title` + `files`;
+  ACEPTACIÓN = `acceptance` + los comandos de `verify` (pasa solo si todos
+  salen 0); PROHIBIDO = los `files` de las otras tareas + las reglas
+  globales. Se reparte la primera lista en el orden del arreglo, sin
+  reordenar; en paralelo solo las que no cruzan `files`. Al anotar
+  «completa» en la bitácora, `status: "done"` en el JSON.
 
 ## Fase 2 — El reparto (tabla, sin construir)
 
@@ -99,7 +106,7 @@ Propón en una tabla y ESPERA aprobación de Nicolas antes de lanzar nada:
 | Tarea | Va a | Por qué |
 |---|---|---|
 | Leer o resumir muchos archivos, un repo entero, un PDF largo, un video | **agy**, partido en tareas cortas (en una lectura larga de una sola vez devuelve vacío); si no se puede partir, subagente `haiku` | ventana enorme, gratis con Google AI Pro; embebe el contexto en el prompt |
-| Dato actual (precio, versión, noticia) con búsqueda | **agy** | busca en tiempo real |
+| Dato actual (precio, versión, noticia) con búsqueda | **agy** | busca en tiempo real; la versión que se fija en un blueprint o manifest se lee del registro (`fable-plan`, Fase 4) |
 | Segunda opinión de OTRO modelo sobre un diff o un plan | **agy** (rápida) o **codex** (a fondo) | evita el sesgo del mismo modelo |
 | Código acotado con contrato (endpoint, script, refactor pequeño, tests) | **codex** en worktree | plan pago, escribe bien código; libera plan de Claude |
 | Talacha mecánica que antes iba a `implementador` (sonnet): refactor guiado, tests de una función, mover código sin criterio nuevo | **plugin Codex** `/codex:rescue --background` en worktree | corre en la cuota de ChatGPT, no en la de Claude; hilo reanudable con `--resume`; el diff lo revisa `revisor` igual que siempre |
@@ -166,7 +173,10 @@ Desde N-Coterminal: `node herramientas/delegar.cjs <agy|codex> "tarea"
   masivas y mecánica trivial; fable = especialista puntual (arquitectura, ambigüedad, bug donde opus falló). Effort SIEMPRE explícito con opus (su default
   es `medium`). Ficha completa de Opus 5.5 al final de esta skill.
 - Por cada tarea, el contrato de 4 campos (ENTREGABLE, FORMATO, ACEPTACIÓN,
-  PROHIBIDO) va dentro del prompt del agente, textual.
+  PROHIBIDO) va dentro del prompt del agente, textual. Con código, ACEPTACIÓN
+  lleva al menos un comando que sale 0 cuando la tarea está bien y un caso de error o
+  borde; lo que solo juzga un humano (aspecto, tono) va aparte como revisión
+  del director o de Nicolas, no como criterio que el agente se autocertifica.
 - **Quinto campo OBLIGATORIO cuando la tarea incluya acciones destructivas o
   irreversibles** (delete, `rm`, `push --force`, migraciones, borrado de
   memorias, envíos a terceros). Va textual en el prompt:
@@ -200,7 +210,8 @@ Antes de lanzar el turno con varios Agent a la vez, verifica las cuatro:
 Si alguna respuesta es no, van en secuencia o en un solo agente.
 
 Los cuatro errores del prompt repartido, cada uno cuesta una ronda entera:
-alcance demasiado amplio ("arregla las pruebas"), sin contexto (pega los
+alcance demasiado amplio ("arregla las pruebas"; se parte con la regla de
+tamaño de `fable-plan`), sin contexto (pega los
 mensajes de error y los nombres exactos), sin PROHIBIDO (el agente
 refactoriza de más), y sin formato de salida (no sabes qué cambió).
 
@@ -331,6 +342,8 @@ commit esperando autorización.
   (leerla al decidir el reparto con un modelo nuevo).
 
 ---
+
+Patrones adaptados de the-architect (Hainrixz, MIT) — https://github.com/Hainrixz/the-architect
 
 Técnicas adaptadas de obra/superpowers (MIT, © 2025 Jesse Vincent) — https://github.com/obra/superpowers
 

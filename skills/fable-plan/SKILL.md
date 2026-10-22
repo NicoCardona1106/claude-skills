@@ -127,6 +127,21 @@ código en este modo: diseñas el sistema completo y produces un blueprint
 autocontenido. Todo el material de apoyo vive en `architect/` dentro de esta
 skill.
 
+### Fase 0 — Repo existente (solo si ya hay código)
+Se salta la Fase 1: el repo ya dice qué es el producto. Antes de preguntar,
+lee manifest y lockfile, rutas y entrada, migraciones y esquema, tests,
+CI/deploy y el CLAUDE.md/AGENTS.md del repo, e imprime un **Mapa del repo**:
+stack, capa de datos, comandos de test/lint/build, destino de deploy y las
+3-5 convenciones que el cambio debe respetar. Nicolas lo corrige antes de
+seguir. Las preguntas son las del Paso 2 del Modo Cambio, sobre el delta.
+El blueprint lleva estado actual, estado objetivo, delta por archivo e
+interfaces que no se mueven (API, columnas, eventos, variables de entorno).
+Las convenciones y versiones del repo (su lockfile) mandan sobre el stack
+por defecto. Migración (framework, base, proveedor): nunca de golpe — lista
+de paridad (todo lo que hace hoy, también lo no documentado), comando que
+prueba que viejo y nuevo coinciden, cómo conviven, corte por pasos con su
+vuelta atrás y el umbral que obliga a revertir.
+
 ### Fase 1 — Descubrimiento
 Lee `architect/questions/phase-1-discovery.md`. Haz 2-3 preguntas
 conversacionales (nunca todas de golpe). Clasifica el proyecto en un
@@ -154,15 +169,55 @@ Lee `architect/questions/phase-3-confirmation.md`. Presenta el stack completo
 con la razón de cada decisión. Sé opinionado: "esto es lo que yo construiría",
 no un menú de opciones. Espera confirmación o ajustes antes de generar.
 
+Antes de presentar, los dos gates de la skill `srs` (pasos 3 y 4):
+- **Gate A:** cero `[NEEDS CLARIFICATION]`, también en las decisiones de
+  arquitectura (tenant, borrado, quién tiene las claves, región). Los que
+  sigan abiertos se preguntan en este mensaje; ninguno llega a la Fase 4.
+- **Gate B:** con SRS aprobado ya corrió; se repiten solo ejecución y punto
+  ciego sobre la arquitectura. Sin SRS (modo rápido o cambio), completo.
+  El mensaje lleva los 2-3 riesgos principales con su mitigación.
+
 ### Fase 4 — Generar
 1. Lee `architect/templates/blueprint-template.md` y
    `architect/templates/claude-md-template.md`.
 2. Compón el blueprint completo (16 secciones, incluye orden de construcción
-   numerado y el CLAUDE.md del proyecto destino).
-3. Escríbelo en la carpeta donde vivirá el proyecto nuevo, como
+   numerado y el CLAUDE.md del proyecto destino). Cada paso del orden de
+   construcción lleva cuatro campos:
+   - **Hace:** qué construye y los archivos que crea o edita, con nombre.
+   - **Listo cuando:** 2-6 criterios Sí/No en el formato del SRS («Dado …
+     cuando … entonces …» con algo observable), al menos uno de error o
+     borde. «El cobro funciona» es un defecto del blueprint.
+   - **Verifica:** comandos que salen 0 cuando el paso está bien (si lo
+     correcto es un error: `s=0; cmd || s=$?; test $s -eq 2`). Lo que solo
+     decide un humano (aspecto visual, revisión de tienda, DNS) no es
+     criterio: va a una checklist post-construcción del blueprint.
+   - **Checkpoint:** `git commit` + `git tag paso-NN-<slug>`, el punto de
+     vuelta atrás si el paso siguiente sale mal.
+
+   Un paso = una sentada: si pasa de 6 criterios o de 5 archivos, se parte
+   (datos → servidor → interfaz).
+3. **Versiones:** ninguna sale de memoria ni de `architect/knowledge/` (es
+   caché: ahí aún dice Next.js 15). Cada versión que se fija se lee del
+   registro en esta sesión — `npm view <pkg> dist-tags peerDependencies
+   --json`, `curl -s https://pub.dev/api/packages/<pkg>` (`latest.version`),
+   `curl -s https://pypi.org/pypi/<pkg>/json` (`info.version`) — y se anota
+   con su estado: VERIFICADA, PRERELEASE, VIEJA (>12 meses sin release),
+   DEPRECADA o SIN VERIFICAR (nunca se rellena con una plausible). La más
+   nueva no siempre es la usable: si el framework o el tooling no la acepta
+   (`peerDependencies`), se fija la anterior con una línea de por qué. Los
+   servicios (Supabase, Vercel, Stripe) no llevan versión.
+4. Si el orden pasa de 11 pasos o se va a repartir con `orquesta`, además
+   `<nombre-proyecto>-tasks.json` al lado del blueprint: un arreglo en orden
+   de construcción (nadie lo reordena después) con, por paso, `id`, `title`,
+   `dependencies` (solo las reales: ¿fallaría sin la otra?), `acceptance`,
+   `verify` (siempre arreglo), `checkpoint` (el tag del paso), `files` y
+   `status` (`pending`). Todo test o config que corra un `verify` está en
+   `files` de esa tarea o de una anterior; dos tareas van en paralelo solo
+   si sus `files` no se cruzan.
+5. Escríbelo en la carpeta donde vivirá el proyecto nuevo, como
    `<nombre-proyecto>-blueprint.md`. Si la carpeta no existe aún, pregunta
    dónde crearla.
-4. Resume al usuario qué contiene y cómo usarlo (copiar como CLAUDE.md de la
+6. Resume al usuario qué contiene y cómo usarlo (copiar como CLAUDE.md de la
    carpeta del proyecto y abrir Claude Code ahí).
 
 ### Stack por defecto (Nicolas)
@@ -186,7 +241,8 @@ El material de `architect/` menciona skills que aquí se mapean así:
 | `/find-skills`, `/humanizer` | no existen aquí — omitir |
 
 ### Reglas no negociables del modo Blueprint
-1. Nunca generes el blueprint sin completar las Fases 1-3.
+1. Nunca generes el blueprint sin completar las Fases 1-3 (0, 2 y 3 con repo
+   existente).
 2. Máximo 3 preguntas por mensaje.
 3. Siempre presenta la arquitectura para confirmación antes de generar.
 4. El blueprint debe ser 100% autocontenido: una instancia de Claude Code sin
@@ -197,6 +253,8 @@ El material de `architect/` menciona skills que aquí se mapean así:
 7. Todo en español, salvo que el proyecto pida otro idioma.
 
 ---
+
+Patrones adaptados de the-architect (Hainrixz, MIT) — https://github.com/Hainrixz/the-architect
 
 Técnicas adaptadas de obra/superpowers (MIT, © 2025 Jesse Vincent) — https://github.com/obra/superpowers
 

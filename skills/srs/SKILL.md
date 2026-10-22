@@ -27,19 +27,40 @@ un ajuste visual. Ahí basta el plan de `nicolas-mode` → DESARROLLO.
    aún, en la carpeta del proyecto dentro de nc-workspace) con la plantilla
    de abajo. Todo requisito lleva ID (`RF-01`, `RNF-03`), prioridad
    (Debe / Debería / Podría) y criterio de aceptación verificable.
-3. **Checklist final** dentro del mismo documento: una casilla por requisito
+3. **Gate A — cero `[NEEDS CLARIFICATION]`.** Al escribir, todo lo que no
+   salga de lo que dijeron Nicolas o el cliente se marca en línea:
+   `[NEEDS CLARIFICATION: <pregunta concreta> — bloquea <qué>]`. Dónde se
+   esconden: alcance de v1, borrado (cascada, suave o bloqueo), quién ve
+   datos de quién y roles, dueño de las cuentas y claves de integraciones,
+   dinero real o simulado, volumen (orden de magnitud), hosting, datos
+   personales o de menores, quién pone textos y contenido. Cada marcador se
+   cierra de una de tres formas: **respondido**, **default declarado** (va a
+   la aprobación del paso 7 para que Nicolas lo confirme) o **diferido** a
+   la sección 7 de la plantilla (Fuera de alcance). No se genera el PDF con
+   un marcador abierto.
+4. **Gate B — pre-mortem.** Sobre el borrador, `fable-abogado-del-diablo`
+   más los cuatro ángulos que esa skill no trae: premisa falsa (cuál, si es
+   falsa, vuelve inútil todo), números a 10x y a 0,1x (volumen, costos de IA
+   y mensajes), ejecución (lo más difícil, ¿está en v1 y se puede sacar?) y
+   punto ciego (legal, abuso, pérdida de datos, operación). Quedan los 3-7
+   hallazgos que sobreviven a su propia refutación: riesgo con mitigación →
+   2.7 con el RF/RNF que la carga; sin mitigación barata → 2.7 marcado
+   «aceptado»; alcance que hunde v1 → sección 7; si invalida el sistema, se
+   rehace el borrador en vez de anotarlo como riesgo.
+5. **Checklist final** dentro del mismo documento: una casilla por requisito
    «Debe» + las de calidad. Es la lista que se chulea al entregar.
-4. **PDF**: `python <herramientas>/md-a-pdf.py docs/SRS.md --sin-internas`
+6. **PDF**: `python <herramientas>/md-a-pdf.py docs/SRS.md --sin-internas`
    (Reflexcam: `sociedad/reflexcam/documentos/herramientas/md-a-pdf.py`;
    Nicolas persona natural o proyecto propio:
    `propios/documentos-nicolas/herramientas/md-a-pdf.py`). Si el proyecto no
    tiene identidad, la skill `exportar-pdf`. Abrir el PDF y comprobar cortes
    de página y tablas.
-5. **Aprobación de Nicolas.** Presentar: alcance en 5 líneas, número de RF/RNF,
-   lo que quedó fuera y las dudas abiertas. Se construye solo cuando diga que
+7. **Aprobación de Nicolas.** Presentar: alcance en 5 líneas, número de RF/RNF,
+   lo que quedó fuera, los defaults del Gate A por confirmar y los 2-3
+   riesgos principales del Gate B. Se construye solo cuando diga que
    sí. Cambios posteriores de alcance → editar el SRS (sección 8, historial)
    y regenerar el PDF, no parchear de palabra.
-6. **Al cerrar el proyecto**, chulear la checklist del SRS y dejar el PDF
+8. **Al cerrar el proyecto**, chulear la checklist del SRS y dejar el PDF
    final junto al primero (`SRS-v1.pdf`, `SRS-final.pdf`).
 
 Con `fable-plan` (Modo Blueprint): el SRS dice QUÉ y para QUIÉN; el blueprint
@@ -69,6 +90,8 @@ Cliente / dueño: <quién> · Estado: BORRADOR | APROBADO <fecha>
 2.5 Restricciones: legales (habeas data, DIAN), presupuesto, plazos, stack
     impuesto, sin NIT, etc.
 2.6 Supuestos y dependencias (lo que se da por cierto y de quién depende).
+2.7 Riesgos (Gate B): riesgo, disparador, mitigación y RF/RNF que la
+    carga, o «aceptado».
 
 ## 3. Requisitos funcionales
 Uno por bloque. Formato:
@@ -126,6 +149,8 @@ Lo que se pidió o se pensó y NO entra en esta versión, con motivo.
   el sistema lo exige.
 
 ---
+
+Patrones adaptados de the-architect (Hainrixz, MIT) — https://github.com/Hainrixz/the-architect
 
 Autor: Nicolas Cardona Carrillo. Licencia CC BY 4.0
 Origen: https://github.com/NicoCardona1106/claude-skills
