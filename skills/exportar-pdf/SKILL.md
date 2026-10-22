@@ -8,6 +8,25 @@ description: "Exportar a PDF un artefacto de claude.ai, un HTML o un Markdown pa
 Los artefactos para presentar van centrados y SIN sidebar — un PDF con la
 navegación de la app pegada se ve a medio terminar.
 
+## Formato único de Nicolas (obligatorio, 2026-10-22)
+
+Todo documento de Nicolas (SRS, propuestas, informes, guías, entregas) sale con
+su **formato único**, nunca con el estilo genérico de IA (nada de azul, nada de
+cabecera centrada con subrayados):
+
+- **Markdown → PDF:** `python C:\Users\NICO-C\Desktop\nc-workspace\propios\documentos-nicolas\herramientas\md-a-pdf.py archivo.md [--subtitulo "…"] [--sin-internas]`.
+  Es la fuente de verdad del formato: cabecera negra (#0A0609) a sangre con la
+  marca y el título dentro, lomo morado #831D9E de 3 mm en cada página, riel
+  izquierdo de 26 mm con los números de sección, Geist + Geist Mono, tablas sin
+  rayas verticales con filete morado, viñetas en guion morado y pie «n / total».
+- **Documentos de una sociedad:** su propia herramienta con su marca, sobre la
+  misma estructura (Co-Axis: `sociedad/co-axis/coaxis-parking/documentos/herramientas/md-a-pdf.py`;
+  Reflexcam: `sociedad/reflexcam/documentos/herramientas/md-a-pdf.py`).
+- **HTML hecho a mano** (artefactos, piezas especiales): copiar los tokens y la
+  retícula del CSS de `md-a-pdf.py` en vez de inventar otro estilo.
+- El CRM NccHUB imprime con el mismo formato (`src/lib/kit-print.ts`,
+  `src/components/documents/document-print.tsx`).
+
 ## Cuándo
 
 Un artefacto de claude.ai, un HTML o un Markdown que hay que convertir en PDF
