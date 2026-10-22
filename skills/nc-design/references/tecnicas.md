@@ -107,6 +107,27 @@ Recetas autocontenidas para dar materia a un fondo cuando no hay fotografía:
   precios en pesos colombianos (turno).
 - "Escasez honesta": fecha real, replay 48h, motivo — nunca urgencia falsa
   (estreno).
+- **Vista previa personalizada antes de pagar** (moahu.com.ar, 2026-10-22):
+  el cliente sube su logo/escudo o escribe su texto y lo ve sobre el producto
+  en un canvas al instante; combos con «¿mismo diseño en todos?». Es lo que
+  Nicolas llama «página personalizada»: el producto ya es SUYO antes del pago.
+- **Dato operativo en vivo** (moahu): «Despachamos hoy · comprá dentro de
+  00h:25min» calculado contra el corte real (13:00, días hábiles), no un
+  contador de pánico — la versión honesta de la urgencia.
+
+### Página «viva» (definición de Nicolas, ref. moahu.com.ar, 2026-10-22)
+
+Una página se siente viva cuando varias capas reaccionan a la vez, no por un
+solo efecto: (1) relato guiado por el scroll — IntersectionObserver para
+entrar/salir y `requestAnimationFrame` + lerp para suavizar; (2) la marca se
+dibuja trazo a trazo (stroke-dashoffset) en vez de aparecer; (3) secuencia de
+cuadros reales ligada al scroll (la ola), nunca fundidos entre fotos; (4) un
+fondo con materia (partículas WebGL) que responde al puntero; (5) prueba en
+video con carrusel y reseñas; (6) personalización y dato operativo en vivo
+(arriba). Con `prefers-reduced-motion` todo cae a imagen fija + fundido de
+200-300 ms (regla de movimiento reducido). El JS de moahu es legible y está
+comentado: leerlo directo enseña más que pasarlo por herramientas de
+ingeniería inversa (probado con REA el 2026-10-22).
 
 ## Lecciones aprendidas (el porqué importa)
 

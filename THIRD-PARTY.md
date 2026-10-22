@@ -67,6 +67,18 @@ y Pixfaro). El 2026-09-25 Nicolas Cardona Carrillo agregó reglas propias a
 (máximo 25 palabras por lámina). Fuente:
 https://github.com/sergebulaev/instagram-skills
 
+## Jake Schincariol (Jakeschincariol/instagram-agent-skill, adaptadas al español)
+
+`ig-humano`, `ig-story`, `ig-auditoria-feed`, `ig-ranking-mediana`, `ig-reutilizar`
+
+Licencia: MIT — © 2026 Jake Schincariol. Adaptadas el 2026-10-22 por Nicolas
+Cardona Carrillo para su feed personal: lexicón propio de muletillas de IA en
+español latino (no es traducción de `slop.json`), voz en
+`~/.claude/instagram/voz-nicolas.md` (plantilla basada en `templates/voice.md`)
+y scripts propios en Python estándar sin red. No se adaptaron `ig-dm` ni
+`ig-reply` (eso vive en AgentKit). Fuente:
+https://github.com/Jakeschincariol/instagram-agent-skill
+
 ## obra/superpowers (adaptadas al español)
 
 `skills-tdd` (ex `writing-skills`), `using-git-worktrees`
