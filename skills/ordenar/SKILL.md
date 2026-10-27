@@ -13,6 +13,7 @@ Nicolas a la lista. (Incidente 2026-09-11: un subagente borró sin respaldo.)
 | Zona | Qué suele sobrar | Destino propuesto |
 |---|---|---|
 | `C:\Users\NICO-C\Desktop` (solo el nivel de arriba) | PDFs de SRS/blueprints/propuestas con versión vieja, APK de NPersonal reemplazados, carpetas de prueba (`prueba-*`), capturas sueltas, imágenes de WhatsApp ya usadas | `nc-workspace\archivo\escritorio\<AAAA-MM-DD>\` |
+| `C:\Users\NICO-C\Desktop\Entregas` | Todo lo ya aprobado, usado o reemplazado por una versión nueva (regla de Nicolas 2026-10-25: solo queda lo que espera algo de él: leer, aprobar, probar, enviar). Para decidir, mirar el estado en SEMANA.md | `nc-workspace\archivo\entregas\<AAAA-MM-DD>\` |
 | `nc-workspace\temporales\` | worktrees cuya rama ya está fusionada o borrada, carpetas de orquesta de rondas cerradas, respaldos `.zip`/`.tar.gz` de más de 14 días | worktrees: `git worktree remove` + `prune` (sin `--force` si hay cambios: entonces se pregunta); lo demás a `nc-workspace\archivo\temporales\<AAAA-MM-DD>\` |
 | raíz de `nc-workspace` | archivos sueltos que no son AGENTS/CLAUDE/GEMINI/SEMANA | a su proyecto o a `archivo\` |
 
