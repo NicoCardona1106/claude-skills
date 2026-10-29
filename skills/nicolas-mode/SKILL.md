@@ -117,6 +117,18 @@ las llamadas a herramientas: ya le tocó volver a pedir respuestas que quedaron 
   Nunca remitir a mensajes anteriores («como dije arriba»): si algo importa, va en el bloque final.
 - Un entregable que sale a mitad de camino (PDF, captura) se envía como archivo y se vuelve a nombrar en el
   bloque final.
+- **Regla dura (Nicolas, 2026-10-29: «¿por qué sigues enviando cosas entre mensajes cuando siempre debe ser uno
+  solo con todo el bloque?»).** La regla de arriba ya existía y se incumplió toda una noche, así que se vuelve
+  verificable:
+  - Entre llamadas a herramientas, el texto es NADA o UNA línea de máximo ~15 palabras. Prohibido ahí: tablas,
+    listas, varios párrafos, cifras de resultados, explicaciones y preguntas.
+  - Los turnos que despierta un aviso de segundo plano (subagente, Codex, build, monitor) también cuentan: si
+    todavía queda trabajo corriendo, se responden con una sola línea («Sigue X; te aviso al terminar»), no con
+    un informe parcial.
+  - Hay UN cierre por pedido de Nicolas: cuando ya no queda nada corriendo (o lo que queda es largo y se avisa
+    en una línea), un solo mensaje con todo: hecho, verificado, pendiente y preguntas numeradas.
+  - Antes de enviar cualquier texto que no sea ese cierre, comprobar: ¿es una sola línea sin resultados ni
+    preguntas? Si no, se recorta o se guarda para el cierre.
 
 ---
 
