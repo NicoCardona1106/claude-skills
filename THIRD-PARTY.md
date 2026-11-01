@@ -102,3 +102,9 @@ redistribuye en este repo). Fuente: https://github.com/img2threejs/img2threejs
 
 Instaladas antes de llevar este registro. Si eres autor de alguna y quieres
 el crédito con enlace, abre un issue y se agrega de inmediato.
+
+## Enrique Rocha (Hainrixz/creative-architect)
+
+`direccion-creativa` es una adaptación propia (CC BY 4.0) que incluye en `references/` los oficios y referencias de
+Creative Architect: licencia MIT — © 2026 Enrique Rocha (@soyenriquerocha), tododeia.com. Se conservan `NOTICE` y
+`LICENSE-creative-architect` dentro de la skill. Fuente: https://github.com/Hainrixz/creative-architect
