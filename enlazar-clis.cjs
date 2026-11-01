@@ -19,11 +19,28 @@ const DESTINOS = [
 ]
 // Manejan el entorno de Claude Code (statusline, cuota, releases, SEMANA.md): no aplican a otros CLI.
 const SOLO_CLAUDE = new Set(['modo-ahorro', 'statusline', 'release-ncoterminal', 'viaje', 'nueva-tarea', 'synced'])
+// Plugins de Claude cuyas skills también van a los otros CLI (en Claude ya cargan por el plugin; sin copia
+// suelta en ~/.claude/skills para no duplicarlas). La ruta sale de installed_plugins.json: sigue al plugin al actualizarse.
+const PLUGINS_A_CLIS = ['ponytail@ponytail']
+
+function skillsDePlugins() {
+  const fuentes = new Map()
+  let instalados = {}
+  try { instalados = JSON.parse(fs.readFileSync(path.join(HOME, '.claude', 'plugins', 'installed_plugins.json'), 'utf8')).plugins || {} } catch {}
+  for (const id of PLUGINS_A_CLIS) {
+    const base = instalados[id]?.[0]?.installPath
+    const dir = base && path.join(base, 'skills')
+    if (!dir || !fs.existsSync(dir)) { console.log(`aviso: plugin ${id} sin skills instaladas`); continue }
+    for (const s of fs.readdirSync(dir)) if (fs.existsSync(path.join(dir, s, 'SKILL.md'))) fuentes.set(s, path.join(dir, s))
+  }
+  return fuentes
+}
 
 function enlazar(soloCheck = process.argv.includes('--check')) {
   const fecha = new Date().toISOString().slice(0, 10)
-  const deseadas = new Set(fs.readdirSync(CLAUDE).filter((s) =>
-    !SOLO_CLAUDE.has(s) && !s.startsWith('.') && fs.existsSync(path.join(CLAUDE, s, 'SKILL.md'))))
+  const fuente = skillsDePlugins() // nombre -> carpeta real; las de ~/.claude/skills mandan si se repite el nombre
+  for (const s of fs.readdirSync(CLAUDE)) if (!SOLO_CLAUDE.has(s) && !s.startsWith('.') && fs.existsSync(path.join(CLAUDE, s, 'SKILL.md'))) fuente.set(s, path.join(CLAUDE, s))
+  const deseadas = new Set(fuente.keys())
   let cambios = 0
   const hacer = (msg, fn) => { cambios++; console.log((soloCheck ? '[check] ' : '') + msg); if (!soloCheck) fn() }
   const archivar = (dir, nombre) => {
@@ -42,7 +59,7 @@ function enlazar(soloCheck = process.argv.includes('--check')) {
       const st = fs.lstatSync(p)
       if (st.isSymbolicLink()) {
         const destino = fs.readlinkSync(p)
-        const bueno = deseadas.has(nombre) && path.resolve(destino) === path.join(CLAUDE, nombre) && fs.existsSync(p)
+        const bueno = deseadas.has(nombre) && path.resolve(destino) === fuente.get(nombre) && fs.existsSync(p)
         if (!bueno) hacer(`quita junction ${p} (-> ${destino})`, () => fs.rmdirSync(p))
       } else if (st.isDirectory()) {
         archivar(dir, nombre) // copia real: se desactualiza sola; se guarda y se reemplaza por junction si aplica
@@ -50,8 +67,8 @@ function enlazar(soloCheck = process.argv.includes('--check')) {
     }
     for (const nombre of deseadas) {
       const p = path.join(dir, nombre)
-      if (!fs.existsSync(p)) hacer(`enlaza ${p} -> ${path.join(CLAUDE, nombre)}`, () =>
-        fs.symlinkSync(path.join(CLAUDE, nombre), p, 'junction'))
+      if (!fs.existsSync(p)) hacer(`enlaza ${p} -> ${fuente.get(nombre)}`, () =>
+        fs.symlinkSync(fuente.get(nombre), p, 'junction'))
     }
   }
   console.log(`CLIs: ${deseadas.size} skills compartidas en ${DESTINOS.filter((d) => fs.existsSync(d)).length} carpetas, ${cambios} cambio(s)${soloCheck ? ' (solo check)' : ''}`)
