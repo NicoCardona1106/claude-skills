@@ -1,11 +1,16 @@
 ---
 name: cosecha
-description: "Cosecha de memoria para Mempalace con confirmación humana (flujo A→E estilo Aprende): escanea la sesión, propone candidatos con confianza, deduplica contra el palacio y SOLO escribe lo que Nicolas apruebe. Usar cuando Nicolas diga /cosecha, 'guarda lo aprendido', 'cosecha la sesión', 'cierra la sesión', con --review para la poda mensual del palacio, y SIEMPRE al llegar al 40-45 % del contexto (resumen en notas/sesiones, SEMANA al día y pedir sesión nueva)."
+description: "Cosecha de memoria para nc-memoria (reemplaza a Mempalace, 2026-10-31) con confirmación humana (flujo A→E estilo Aprende): escanea la sesión, propone candidatos con confianza, deduplica contra el palacio y SOLO escribe lo que Nicolas apruebe. Usar cuando Nicolas diga /cosecha, 'guarda lo aprendido', 'cosecha la sesión', 'cierra la sesión', con --review para la poda mensual del palacio, y SIEMPRE al llegar al 40-45 % del contexto (resumen en notas/sesiones, SEMANA al día y pedir sesión nueva)."
 ---
 
 # /cosecha — Guardar lo aprendido, con confirmación
 
-Regla de oro: **nada se escribe al palacio antes del paso D.** Mejor un falso
+Destino único (Nicolas 2026-10-31): **nc-memoria**. La carpeta de memoria de Claude de cada equipo es una unión a
+`nc-memoria/hechos/legado`, así que escribir ahí es escribir en nc-memoria; `sync.cjs` lo valida, hace commit y lo
+sube (hook de cierre o `node nc-memoria/herramientas/sync.cjs --stop`). **Mempalace ya no se escribe** (queda solo
+lectura hasta la migración P2 del plan de nc-memoria).
+
+Regla de oro: **nada se escribe a la memoria antes del paso D.** Mejor un falso
 negativo que cristalizar una regla equivocada. Tú propones, Nicolas decide.
 
 ## Paso A — Escanear
@@ -24,7 +29,8 @@ Por cada señal, un candidato con:
 
 - **Categoría**: `preferencia` | `lección` | `hecho` | `workflow` | `decisión`
 - **Título** corto
-- **Destino**: wing/room del palacio (usa la taxonomía real: `mempalace_get_taxonomy`)
+- **Destino**: archivo de hecho en la memoria (`<proyecto>.md` existente o uno nuevo con frontmatter
+  name/description/type) y su línea en `MEMORY.md`
 - **Confianza**: alta | media | baja
 - **Contenido propuesto** (1-4 líneas)
 
@@ -43,13 +49,10 @@ SEÑAL DE DETECCIÓN: [cómo darse cuenta a tiempo la próxima vez]
 horario, estado, decisión revertida) casi nunca se parece al viejo, y por eso
 el palacio acumulaba versiones contradictorias. Por cada candidato:
 
-1. `mempalace_check_duplicate` → si hay solape, márcalo: `⚠ solapa con [drawer]: [diferencia]`.
-2. **Obligatorio:** `mempalace_search` por el TEMA, no por el texto (ej. «horario sueño
-   Nicolas», «NPersonal módulo financiero»), filtrando por el wing del candidato y
-   también sin filtro. Lee los resultados y lista cada drawer que el candidato
-   **contradice o deja viejo**: `↺ reemplaza a [drawer_id]: [qué decía]`.
-3. Haz lo mismo en la memoria local: busca con grep el tema en `memory/*.md`,
-   `MEMORY.md` y `SEMANA.md`, y lista las líneas que quedan viejas.
+1. **Obligatorio:** busca por el TEMA, no por el texto, con
+   `node nc-memoria/herramientas/nc-memoria.cjs buscar "<tema>"` (palabras + significado si el equipo tiene modelo)
+   y con grep en `memory/*.md`, `MEMORY.md` y `SEMANA.md`. Si hay solape: `⚠ solapa con [archivo]: [diferencia]`.
+2. Lista cada línea que el candidato **contradice o deja viejo**: `↺ reemplaza a [archivo:línea]: [qué decía]`.
 
 Nicolas decide si es duplicado, actualización o algo nuevo. Aprobar un candidato
 con `↺` aprueba también retirar lo que reemplaza (salvo `keep N`).
@@ -63,33 +66,23 @@ y espera la respuesta. Acepta: números (`1,3,5`), rangos (`1-4`), `all`, `none`
 
 ## Paso E — Ejecutar
 
-Solo lo aprobado:
+Solo lo aprobado, todo en nc-memoria (la carpeta de memoria):
 
-- Drawers → `mempalace_add_drawer` en el wing/room del candidato
-- Hechos de personas/proyectos → además `mempalace_kg_add`
-- Si un candidato ACTUALIZA una drawer existente → `mempalace_update_drawer`
-- Por cada `↺` aprobado → retirar la drawer vieja en el MISMO paso (ver «Retirar,
-  no borrar») con `[RETIRADA <fecha>: reemplazada por <drawer_id nuevo>]`, y
-  `mempalace_kg_invalidate` si el hecho estaba en el KG. Escribir lo nuevo sin
-  retirar lo viejo NO es una cosecha terminada.
-- Cierra con `mempalace_diary_write` resumiendo la sesión
-- Actualiza también la MEMORIA LOCAL de Claude Code (`~/.claude/projects/<proyecto>/memory/`):
-  el archivo del proyecto tocado y su línea en `MEMORY.md`. Es lo que se carga al
-  arrancar cada sesión: Mempalace es el detalle, la memoria local es el índice.
-  Si no hay archivo para ese tema, créalo con su frontmatter (name/description/type).
-  En la memoria local se REEMPLAZA, no se apila: reescribe el bloque «Estado actual»
-  y la línea de `MEMORY.md`, y corrige o quita las líneas viejas halladas en C.3.
-- **Verificación final:** repite la búsqueda del paso C.2 por cada tema tocado.
-  Solo debe quedar UNA versión viva de cada hecho; si aparece otra sin
-  `[RETIRADA`, retírala o repórtala antes de cerrar.
+- Hecho de un proyecto → su archivo; se REEMPLAZA el bloque «Estado actual», no se apila.
+- Preferencia o lección nueva → archivo propio con frontmatter (`type: feedback` con **Why:** y **How to apply:**),
+  y su línea en `MEMORY.md` (índice: una línea corta por hecho).
+- Por cada `↺` aprobado → corregir o quitar la línea vieja en el MISMO paso. Si el rastro importa, dejarla como
+  `[RETIRADA <fecha>: <motivo>]` dentro del archivo, nunca borrar el archivo.
+- Resumen de la sesión → `nc-workspace/notas/sesiones/<AAAA-MM-DD>-<tema>.md` (reemplaza al diario de Mempalace).
+- **Verificación final:** repetir la búsqueda del paso C por cada tema tocado; solo una versión viva de cada hecho.
+- Cerrar con `node nc-memoria/herramientas/sync.cjs --stop` (valida, commit y push) o dejarlo al hook de cierre, y
+  reportar el resultado.
 - Confirma cada escritura con una línea, incluidas las retiradas («retirada X → Y»).
 
-**Retirar, no borrar**: si una drawer quedó obsoleta, NO uses delete — antepon
-`[RETIRADA <fecha>: <motivo>]` a su contenido con `mempalace_update_drawer`
-(y `mempalace_kg_invalidate` si el hecho vive en el KG). El rastro de qué se
-creyó y cuándo se corrigió es parte de la memoria.
-
 ## Modo `--review` (poda mensual)
+
+> Pendiente (P2 del plan de nc-memoria): este modo todavía describe Mempalace. Hasta migrarlo, la poda mensual se
+> hace sobre `memory/*.md` con `nc-memoria.cjs salud` y las mismas reglas de retirar, no borrar.
 
 1. `mempalace_get_taxonomy` + `mempalace_graph_stats` para ver el estado.
 2. Detectar: rooms duplicados (ej. español/inglés), wings duplicadas por
