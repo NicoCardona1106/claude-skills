@@ -47,8 +47,6 @@ const recorrer = (de, a) => {
 for (const s of skills) recorrer(path.join(SRC, 'skills', s), path.join(DST, 'skills', s))
 for (const a of agentes) sincronizar(path.join(SRC, 'agents', a), path.join(DST, 'agents', a))
 sincronizar(path.join(SRC, 'CLAUDE.md'), path.join(DST, 'CLAUDE.md'))
-// hooks propios de ~/.claude/hooks que van al repo (se registran a mano en settings.json de cada equipo)
-for (const h of ['bienvenida.cjs']) sincronizar(path.join(SRC, 'hooks', h), path.join(DST, 'hooks', h))
 
 console.log(`${skills.length} skills (propias + terceros ya en el repo), ${agentes.length} agentes, ${cambios} archivo(s) ${soloCheck ? 'distintos' : 'copiados'}`)
 // Codex y agy: mismas skills que Claude por junction (ver enlazar-clis.cjs)

@@ -4,9 +4,11 @@
 'use strict'
 const fs = require('fs')
 const path = require('path')
-const WS = 'C:/Users/nicoc/Desktop/nc-workspace'
+const HOME = process.env.USERPROFILE || process.env.HOME
+// el workspace cambia de ruta entre PC/portátil (Windows) y nube (Linux)
+const WS = [process.env.NC_WS, path.join(HOME, 'Desktop', 'nc-workspace'), path.join(HOME, 'nc-workspace')].find((d) => d && fs.existsSync(path.join(d, 'SEMANA.md'))) || ''
 const corto = (s, n = 110) => (s = s.replace(/\*\*/g, '').trim()).length > n ? s.slice(0, n - 1) + '…' : s
-const leer = (p) => { try { return fs.readFileSync(p, 'utf8') } catch { return '' } }
+const leer = (p) => { if (!WS) return ''; try { return fs.readFileSync(p, 'utf8') } catch { return '' } }
 
 const ahora = new Date()
 const h = Number(new Intl.DateTimeFormat('es-CO', { timeZone: 'America/Bogota', hour: 'numeric', hour12: false }).format(ahora))
@@ -26,7 +28,7 @@ if (frentes.length) lineas.push('', '🎯 Frentes:', ...frentes)
 
 // Pendientes del resumen más reciente
 const dir = path.join(WS, 'notas/sesiones')
-const ultimo = (() => { try { return fs.readdirSync(dir).filter((f) => f.endsWith('.md')).sort((a, b) => fs.statSync(path.join(dir, a)).mtimeMs - fs.statSync(path.join(dir, b)).mtimeMs).pop() } catch { return null } })()
+const ultimo = (() => { if (!WS) return null; try { return fs.readdirSync(dir).filter((f) => f.endsWith('.md')).sort((a, b) => fs.statSync(path.join(dir, a)).mtimeMs - fs.statSync(path.join(dir, b)).mtimeMs).pop() } catch { return null } })()
 if (ultimo) {
   const sec = leer(path.join(dir, ultimo)).split(/^## Pendientes.*$/m)[1]?.split(/\n## /)[0] || ''
   const pend = sec.split('\n').map((l) => l.match(/^(\d+[a-z]?\.)\s+(.*)/)).filter(Boolean).slice(0, 6)
