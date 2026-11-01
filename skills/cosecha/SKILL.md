@@ -74,6 +74,8 @@ Solo lo aprobado, todo en nc-memoria (la carpeta de memoria):
 - Por cada `↺` aprobado → corregir o quitar la línea vieja en el MISMO paso. Si el rastro importa, dejarla como
   `[RETIRADA <fecha>: <motivo>]` dentro del archivo, nunca borrar el archivo.
 - Resumen de la sesión → `nc-workspace/notas/sesiones/<AAAA-MM-DD>-<tema>.md` (reemplaza al diario de Mempalace).
+  Y reemplazar la línea «**Última sesión:**» del inicio de `MEMORY.md` con la ruta del resumen nuevo: así la
+  sesión siguiente lo lee sola, sin que Nicolas tenga que pedirlo.
 - **Verificación final:** repetir la búsqueda del paso C por cada tema tocado; solo una versión viva de cada hecho.
 - Cerrar con `node nc-memoria/herramientas/sync.cjs --stop` (valida, commit y push) o dejarlo al hook de cierre, y
   reportar el resultado.
