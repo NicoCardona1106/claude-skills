@@ -1,6 +1,6 @@
 ---
 name: cosecha
-description: "Cosecha de memoria para Mempalace con confirmación humana (flujo A→E estilo Aprende): escanea la sesión, propone candidatos con confianza, deduplica contra el palacio y SOLO escribe lo que Nicolas apruebe. Usar cuando Nicolas diga /cosecha, 'guarda lo aprendido', 'cosecha la sesión', 'cierra la sesión', o con --review para la poda mensual del palacio."
+description: "Cosecha de memoria para Mempalace con confirmación humana (flujo A→E estilo Aprende): escanea la sesión, propone candidatos con confianza, deduplica contra el palacio y SOLO escribe lo que Nicolas apruebe. Usar cuando Nicolas diga /cosecha, 'guarda lo aprendido', 'cosecha la sesión', 'cierra la sesión', con --review para la poda mensual del palacio, y SIEMPRE al llegar al 40-45 % del contexto (resumen en notas/sesiones, SEMANA al día y pedir sesión nueva)."
 ---
 
 # /cosecha — Guardar lo aprendido, con confirmación
@@ -113,6 +113,14 @@ creyó y cuándo se corrigió es parte de la memoria.
   correcciones, decisiones o errores resueltos en la sesión.
 - No existe señal técnica de "fin de sesión" que permita conversar (los hooks
   de SessionEnd no pueden preguntar), por eso el disparo es contextual o manual.
+- **Por tamaño de la sesión (regla de Nicolas 2026-10-31):** al llegar al **40-45 % del
+  contexto** (muchas lecturas grandes, más de ~100 intercambios o el primer aviso de
+  compactación), detenerse y en UN mensaje: (1) guardar el resumen de la sesión en
+  `nc-workspace/notas/sesiones/<AAAA-MM-DD>-<tema>.md` (qué se hizo, estado con rutas y
+  shas, pendientes numerados, siguiente paso, cuota al cierre); (2) dejar SEMANA.md y el
+  «Estado actual» de cada proyecto tocado al día; (3) ofrecer esta cosecha; (4) pedir a
+  Nicolas abrir una sesión nueva que arranque leyendo ese resumen. No esperar a que la
+  sesión se compacte sola: se pierde agilidad y calidad.
 
 © 2026 Nicolas Cardona Carrillo. Licencia CC BY 4.0:
 puede usarse y adaptarse conservando este crédito.

@@ -42,3 +42,15 @@ voz en off (de Nicolas o TTS del proveedor, declarada), cierre con logo y llamad
 - Todo lo que aparece existe o se rotula «prototipo».
 - Sin datos reales de clientes ni precios sin aprobar.
 - Se ve premium: nada cortado, sin cursores perdidos, ritmo pausado.
+
+## Modo «solo la app» (lo que Nicolas prefiere, 2026-10-31)
+Para videos de guía y de marketing se graba **solo la pantalla de la app**, vertical 1080×1920, sin marco, notas ni
+presentación. En el boceto de Nexo es `index.html?grabar=1#<pantalla>`: oculta todo menos la app y la escala al ancho
+de la ventana. Script de ejemplo: `sociedad/maxxsuite/nexo/trabajo/2026-10-31-demo-producto-boceto/grabar-guias.cjs`
+(un clip por tarea; se unen con `ffmpeg -f concat`). Lecciones:
+- `chromium.launch({ channel: 'chrome' })`: el caché de npx no trae navegadores; el ffmpeg de Playwright se instala con
+  `node <cache>/playwright/cli.js install ffmpeg` (0,1 MB).
+- `viewport` y `recordVideo.size` iguales, o el video sale con la página en una esquina y fondo gris.
+- Fijar el scroll de la página en modo grabación: los clics de Playwright la corren y se pierde la barra de estado.
+- Pantallas con temporizadores (QR que se renueva) pueden estirar la duración del webm: recortar con `-t`.
+- Convertir a MP4 para CapCut: `ffmpeg -i x.webm -c:v libx264 -pix_fmt yuv420p -crf 18 -r 30 -movflags +faststart x.mp4`.
