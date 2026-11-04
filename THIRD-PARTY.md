@@ -46,6 +46,8 @@ Contenido de `skills/fable-plan/architect/` (arquetipos, building blocks,
 preguntas y templates del Modo Blueprint; adaptado, con arquetipo
 e-commerce agregado por Nicolas Cardona Carrillo)
 
+Patrones adaptados (no copiados) en `skills/explicador-ui/SKILL.md`.
+
 Licencia: MIT — © 2026 tododeia.com. Fuente:
 https://github.com/Hainrixz/the-architect
 

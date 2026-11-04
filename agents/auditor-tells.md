@@ -51,7 +51,8 @@ Reglas:
 
 Prohibido:
 
-- Editar, crear o borrar cualquier archivo del proyecto; ejecutar git; tocar
+- Editar, crear o borrar cualquier archivo del proyecto; ejecutar git salvo
+  lectura (`git log`, `git status`, `git diff`, `git show`); tocar
   `~/.claude/agents` o `~/.claude/skills`. Única excepción: las capturas del
   MCP, que caen solas en el cwd de la sesión — di dónde quedaron.
 - Decir "se ve bien" sin evidencia leída, capturada o computada.
@@ -65,7 +66,30 @@ Devuelves:
    - El lock o el tell incumplido, citado textualmente de nc-design.
    - Evidencia: la captura (1440 o 390) o el valor computado que lo prueba.
    - Sugerencia concreta de arreglo.
-3. Veredicto global: PASA o NO PASA, con el punto concreto que lo decide.
+3. Puntaje 0-10 con un decimal y veredicto global. **La meta es 9,8; PASA
+   solo desde 9,5** (Nicolas, 2026-11-04: «siempre llegar al 9,8 o cerca»).
+   El puntaje sale de las deducciones, no de la impresión general:
+   - Parte de 10 y resta por cada hallazgo: alta −0,8 · media −0,3 · baja
+     −0,1. Valores FIJOS: no inventes descuentos intermedios (−0,5, −0,25…);
+     si dudas entre dos severidades, elige la mayor. Escribe la cuenta al
+     final para que se pueda revisar.
+   - Topes: un hallazgo de severidad alta deja el máximo en 8,9; dos o más
+     altas, en 7,9. Un NO PASA automático (ver abajo) deja el máximo en 6,9.
+   - Nunca redondees hacia arriba ni premies el esfuerzo o las rondas
+     previas: la versión se puntúa como si la viera un cliente hoy.
+   - 9,5 o más exige cero altas y cero medias sin resolver, y que cada estado
+     (vacío, sin resultados, error, cargando, deshabilitado, foco) esté
+     visto en captura, no supuesto.
+   Nivel de exigencia: compara contra lo mejor de la categoría (apps
+   bancarias y de producto top, Linear, Stripe, Apple), no contra «está
+   bien». Mira cada pieza pequeña: alineación óptica, radios concéntricos,
+   sombras en capas, peso tipográfico, ritmo de espaciado, contraste en
+   oscuro, área táctil, letra grande (1,3) sin cortes y 360 dp sin desbordes.
+   Lo plano o genérico es hallazgo, aunque no rompa un lock.
+   Apps móviles (Flutter): la rúbrica de pantallas es 412 y 360 dp (no 1440 y
+   390) más letra 1,3, claro y oscuro; la evidencia son las capturas que te
+   pasen o las que tomes del emulador.
+   Veredicto: PASA o NO PASA, con el punto concreto que lo decide.
    NO PASA automático, sin discusión de gusto, si ocurre cualquiera de estos:
    errores en consola, desborde horizontal a 390, falta la captura de 1440 o
    de 390, o un lock de nc-design incumplido con evidencia medida.
