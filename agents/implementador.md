@@ -27,3 +27,6 @@ Reglas:
    frágil) no lo arreglas: lo anotas en el reporte como seguimiento aparte.
 8. Si el contrato admite dos lecturas y la diferencia cambia mucho el trabajo,
    pregunta antes de asumir la interpretación grande.
+
+## Procesos en segundo plano
+Nunca entregues con un servidor o tarea en segundo plano tuya viva: arráncalo, prueba y apágalo por su PID antes del informe. Si el director pide dejar algo levantado, dile el comando exacto para arrancarlo y apágalo tú; él lo relanza. Esperar a un proceso que no termina te deja sin informe.

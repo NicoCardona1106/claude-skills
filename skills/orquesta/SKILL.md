@@ -235,6 +235,19 @@ anotado y se cierra SOLO por ese PID (`kill <PID>` / `Stop-Process -Id
 (incidente real del 2026-10-17). Si el puerto está ocupado, se usa otro.
 Esta regla va textual en el PROHIBIDO de todo contrato que sirva páginas.
 
+### Ningún subagente termina esperando a su propio proceso (2026-11-04)
+
+Un subagente que deja `next dev`, `supabase start` o cualquier servidor como tarea en
+segundo plano del harness se queda «esperando su propio trabajo» y NUNCA entrega el
+informe; al detenerlo se cae el servidor (pasó 3 veces con PO-1 el 4-nov). Reglas:
+1. El servidor que deba quedar levantado para otra etapa (auditoría, verificación) lo
+   arranca EL DIRECTOR con un script en el scratchpad (`run_in_background`), no el subagente.
+2. Si el subagente necesita un servidor para probar, lo arranca, prueba y lo APAGA por su
+   PID antes de entregar. Nunca termina con tareas en segundo plano vivas.
+3. Si no hay informe pero el aviso dice «waiting on its own background work»: el director
+   no espera más; verifica el worktree él mismo, detiene al agente y relanza el servidor.
+Esta regla va textual en el PROHIBIDO de todo contrato que pruebe en navegador o con base local.
+
 ### Investigación repartida (/investiga)
 
 Para un tema que exige buscar y contrastar: 5 subagentes en paralelo, timebox explícito, una sola pasada por subagente — fuentes académicas/primarias, prensa de los últimos 12 meses, discurso en redes de los últimos 90 días, documentos primarios y datasets, y la vista contraria (los 3 críticos más fuertes y qué argumentan). Sonnet para la lectura de cada subagente; opus effort low para la síntesis final solo si el tema exige criterio. El director sintetiza con fuentes y fecha — nunca cierra el tema con lo que devuelve un solo subagente.
