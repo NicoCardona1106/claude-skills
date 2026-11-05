@@ -73,7 +73,10 @@ Solo lo aprobado, todo en nc-memoria (la carpeta de memoria):
   y su línea en `MEMORY.md` (índice: una línea corta por hecho).
 - Por cada `↺` aprobado → corregir o quitar la línea vieja en el MISMO paso. Si el rastro importa, dejarla como
   `[RETIRADA <fecha>: <motivo>]` dentro del archivo, nunca borrar el archivo.
-- Resumen de la sesión → `nc-workspace/notas/sesiones/<AAAA-MM-DD>-<tema>.md` (reemplaza al diario de Mempalace).
+- Resumen de la sesión → `nc-workspace/notas/sesiones/<AAAA-MM-DD>-<HHMM>-<equipo>-<tema>.md` (reemplaza al diario de
+  Mempalace). Desde 2026-11-04 `notas/sesiones` es un enlace a `nc-memoria/hechos/sesiones` (script
+  `herramientas/unir-sesiones.cjs`, una vez por equipo): los resúmenes VIAJAN entre equipos con la sincronización.
+  Sin correos de terceros (el guardia los manda a cuarentena). Hora con `date`.
   `MEMORY.md` ya le dice a cada sesión nueva que lea el resumen más reciente de esa carpeta: no hay que tocarlo.
 - **Verificación final:** repetir la búsqueda del paso C por cada tema tocado; solo una versión viva de cada hecho.
 - Cerrar con `node nc-memoria/herramientas/sync.cjs --stop` (valida, commit y push) o dejarlo al hook de cierre, y
