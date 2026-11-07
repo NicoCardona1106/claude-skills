@@ -11,7 +11,10 @@ const HOME = process.env.USERPROFILE || process.env.HOME
 const SETTINGS = path.join(HOME, '.claude', 'settings.json')
 const soloCheck = process.argv.includes('--check')
 // evento, matcher y archivo de cada hook del repo
-const HOOKS = [{ evento: 'SessionStart', matcher: 'startup', archivo: 'bienvenida.cjs', timeout: 5, statusMessage: 'Saludo y pendientes' }]
+const HOOKS = [
+  { evento: 'SessionStart', matcher: 'startup', archivo: 'bienvenida.cjs', timeout: 5, statusMessage: 'Saludo y pendientes' },
+  { evento: 'PreToolUse', matcher: 'Agent', archivo: 'reparto-codex.cjs', timeout: 5, statusMessage: 'Reparto: ¿va a Codex?' },
+]
 
 const ajustes = fs.existsSync(SETTINGS) ? JSON.parse(fs.readFileSync(SETTINGS, 'utf8')) : {}
 ajustes.hooks ??= {}
