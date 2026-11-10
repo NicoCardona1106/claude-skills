@@ -41,6 +41,25 @@ Unified design skill: brand, tokens, UI, logo, CIP, slides, banners, social phot
 
 55+ styles, 30 color palettes, 25 industry guides. Gemini Nano Banana models.
 
+### Logo: UNICIDAD OBLIGATORIA (regla de Nicolas, 2026-11-09)
+
+Un logo o una tipografía de marca que se parezca a otra existente se descarta, aunque sea «lo normal» para ese nombre.
+El 9-nov el logo de Grupo NEXO (copiado de una imagen hecha con IA, palabra en Montserrat con la X destacada) resultó casi
+igual al de NEXO 14, un edificio de Núcleo Constructora en la misma ciudad (Pereira). Pasos antes de entregar cualquier logo:
+
+1. **Buscar lo que ya existe** con el mismo nombre o uno parecido: web (nombre + sector, nombre + ciudad del cliente,
+   nombre + «logo»), proyectos inmobiliarios, apps en las tiendas y marcas registradas (SIC en Colombia). Mirar los logos
+   encontrados, no solo los nombres, y guardar las capturas de los más cercanos.
+2. **La palabra no va escrita tal cual en una fuente de catálogo** (Montserrat, Poppins, Inter, Lato, Gotham, Futura y
+   parecidas): letras dibujadas o modificadas a propósito, con al menos un rasgo propio que no salga de la fuente.
+3. **Nada de la jugada obvia** del nombre (la X cruzada de «nexo», la O como círculo, la hoja verde para «eco»…). Si la idea
+   del concepto es la obvia, buscar la segunda o tercera lectura.
+4. **Una referencia del cliente o una imagen de IA es un punto de partida, nunca el logo.** No se calca.
+5. **Comparar antes de entregar:** una tabla con nuestra propuesta frente a las 2-3 marcas más cercanas (forma, letra,
+   color y concepto) y una frase sobre por qué no se confunden. Si alguna se confunde, otra ronda.
+6. Si el nombre ya está registrado en las clases del negocio, decirlo antes de invertir en el logo: el problema es el
+   nombre y eso lo decide el cliente con su abogado.
+
 ### Logo: Generate Design Brief
 
 ```bash
