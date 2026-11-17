@@ -15,7 +15,7 @@ description: "Orquestación multi-agente estilo director para Nicolas: documenta
 3. **Segunda caída:** cuando Codex falla dos veces la misma tarea o el `revisor` da NO PASA dos veces por el mismo motivo, Fable diagnostica antes de reescribir el contrato.
 4. Fable no reemplaza al `revisor` (opus) en la revisión de diffs.
 
-**Vigilar a Codex y agy (se caen o nunca arrancan):** cada lanzamiento queda con un Monitor `bash herramientas/vigilar-delegado.sh <log> <codex.exe|agy.exe> [min]` (avisa NO ARRANCA, QUIETO o TERMINÓ). Si avisa NO ARRANCA o QUIETO dos veces, se corta y la tarea pasa a la siguiente opción de la tabla.
+**Vigilar a Codex y agy (se caen o nunca arrancan):** cada lanzamiento queda con un Monitor `bash herramientas/vigilar-delegado.sh <log> <codex.exe|agy.exe> [min]` (avisa NO ARRANCA, QUIETO o TERMINÓ). Si avisa NO ARRANCA o QUIETO dos veces, se corta y la tarea pasa a la siguiente opción de la tabla. **Dentro de una pty de NCT2** (hay `NCT_*` en el entorno; D-H5, 17-nov) se espera por evento en vez de vigilar procesos: `delegar.cjs <cli> "<tarea>" --de=claude --id=<uuid>` y, en otra llamada, `node nct2/herramientas/esperar-nct.cjs --delegacion <uuid>` (sale 0 ok · 1 fallo · 2 te espera · 3 plazo · 4 no existe · 5 sesión cerrada).
 
 Principio: **no construyas, reparte y revisa.** Tú (Fable u Opus 5.5) eres el director:
 documentas, contratas, repartes, supervisas y revisas. El código y los
