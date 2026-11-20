@@ -183,6 +183,21 @@ hace falta si el http local corre en HTTPS con certificado propio.
 3. Revisa que ninguna tarjeta o tabla se corte a la mitad entre dos páginas
    — si pasa, ajusta `page-break-inside: avoid` o el tamaño del contenedor.
 
+## Trampas del Markdown en `md-a-pdf.py` (vistas el 19-nov con la hoja de Nexo para Rodrigo)
+
+- **Las sublistas se aplanan**: una viñeta dentro de un ítem numerado sale como un número más (1, 2, 3… seguidos).
+  Usa un párrafo + una lista plana bajo cada `##`, nunca listas anidadas.
+- **Un `##` que empieza con número** («## 1 · Respaldos») se vuelve el número grande del riel + «· Respaldos». Las
+  secciones van sin número: el riel ya las numera.
+- **Un `>` dentro de un ítem** sale como el carácter «>», y `______` se come los guiones bajos (cursiva vacía). Para
+  textos a firmar: un párrafo en cursiva con «……………» como espacio.
+- **Títulos con hora**: «2 p. m.» se parte al final de la línea. Usa espacios duros (` `) entre «2», «p.» y «m.».
+- **Hojas de una página** (Rodrigo, socios: [[pdfs-cortos-resumen]], [[rodrigo-documentos-cortos]]): mira el conteo de
+  páginas después de CADA regeneración. Para que quepa, une viñetas y acorta frases, no achiques la letra.
+- Si en el `python` del PATH falta `markdown`, prueba el otro intérprete (`python` vs el 3.13 de WindowsApps,
+  [[python-del-pc-es-hermes]]). La herramienta de cada repo (p. ej. `nexo/herramientas/md-a-pdf.py`, firma maxxsuite)
+  manda sobre la de documentos-nicolas.
+
 ## Dónde guardar
 
 Junto al proyecto, en `docs/<nombre-del-proyecto>/<archivo>.pdf` (así se
