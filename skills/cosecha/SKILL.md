@@ -48,13 +48,13 @@ SEÑAL DE DETECCIÓN: [cómo darse cuenta a tiempo la próxima vez]
 
 ## Paso C — Deduplicar y buscar lo que queda viejo
 
-`check_duplicate` solo detecta textos casi iguales. Un hecho que CAMBIA (versión,
-horario, estado, decisión revertida) casi nunca se parece al viejo, y por eso
-el palacio acumulaba versiones contradictorias. Por cada candidato:
+Un hecho que CAMBIA (versión, horario, estado, decisión revertida) casi nunca se parece al viejo, así que se busca
+por TEMA, no por texto. Por cada candidato:
 
-1. **Obligatorio:** busca por el TEMA, no por el texto, con
-   `node nc-memoria/herramientas/nc-memoria.cjs buscar "<tema>"` (palabras + significado si el equipo tiene modelo)
-   y con grep en `memory/*.md`, `MEMORY.md` y `SEMANA.md`. Si hay solape: `⚠ solapa con [archivo]: [diferencia]`.
+1. **Obligatorio:** `node nc-memoria/herramientas/nc-memoria.cjs dedupe "<tema>" [--tipo estado --proyecto <slug>]`
+   (RF-49: palabras + significado) y copia sus líneas «↺ reemplaza a [id]» tal cual; las que dicen «probable» se
+   presentan como duda («confírmalo»). Complemento: grep en `memory/*.md` y `SEMANA.md`. Si hay solape:
+   `⚠ solapa con [archivo]: [diferencia]`.
 2. Lista cada línea que el candidato **contradice o deja viejo**: `↺ reemplaza a [archivo:línea]: [qué decía]`.
 
 Nicolas decide si es duplicado, actualización o algo nuevo. Aprobar un candidato
@@ -100,6 +100,8 @@ node nc-memoria/herramientas/nc-memoria.cjs retirar --clave <nombre> --autor cla
   `MEMORY.md` ya le dice a cada sesión nueva que lea el resumen más reciente de esa carpeta: no hay que tocarlo.
 - **Verificación final:** cada propuesta quedó en `nc-memoria/bandeja/` (la salida de `proponer` da su id) y
   ningún archivo de `hechos/legado/` cambió (`git -C nc-memoria status --short hechos/legado` sin líneas tuyas).
+  Además `node nc-memoria/herramientas/nc-memoria.cjs comprobar --proyecto <cada slug tocado> --hecho <cada id tocado>`:
+  si sale con código 1, muestra lo que sobra (dos versiones vivas de lo mismo) antes del sync.
 - Cerrar con `node nc-memoria/herramientas/sync.cjs --stop` (valida, commit y push) o dejarlo al hook de cierre, y
   reportar el resultado.
 - Confirma cada propuesta con una línea («propuesta <id> · editar X» / «crear Y») y recuerda a Nicolas que las
@@ -107,22 +109,15 @@ node nc-memoria/herramientas/nc-memoria.cjs retirar --clave <nombre> --autor cla
 
 ## Modo `--review` (poda mensual)
 
-> Pendiente (P2 del plan de nc-memoria): este modo todavía describe Mempalace. Hasta migrarlo, la poda mensual se
-> hace con `nc-memoria.cjs salud` y las mismas reglas de retirar, no borrar. Toda corrección o retiro de la poda va
-> como propuesta del paso E (`proponer --accion editar` o `retirar`); **nunca edites `memory/*.md` a mano.**
-
-1. `mempalace_get_taxonomy` + `mempalace_graph_stats` para ver el estado.
-2. Detectar: rooms duplicados (ej. español/inglés), wings duplicadas por
-   nombre, drawers obsoletas o contradictorias, rooms inflados por imports.
-   Para las contradicciones, recorre cada wing con `mempalace_list_drawers`
-   agrupando por tema: dos drawers vivas que den valores distintos de lo mismo
-   (versión, estado, horario, precio) son una contradicción, aunque
-   `check_duplicate` no las marque. Deja viva la más reciente y confírmala contra
-   el repo o la memoria local.
-3. Proponer en lista numerada: fusiones (mover drawers al room canónico en
-   español), retiros y correcciones. Mismo flujo de confirmación del paso D.
-4. Proponer (paso E) solo lo aprobado. Fusiones grandes (>20 drawers) → delegarlas a un
-   subagente sonnet con contrato, según las reglas de orquestación de nicolas-mode.
+1. `node nc-memoria/herramientas/nc-memoria.cjs revision` para ver el estado: estados sin verificar, bifurcaciones,
+   enlaces rotos y lecciones para retirar.
+2. Proponer en lista numerada, con el mismo flujo de confirmación del paso D:
+   - cada estado sin verificar: si sigue vigente, `nc-memoria.cjs verificar <id>` (anota sin tocar el hecho); si no,
+     reescribirlo con `proponer --accion editar`;
+   - resolver bifurcaciones y enlaces rotos (propuesta `editar`);
+   - retirar lecciones (`[RETIRADA <fecha>: <motivo>]` dentro del archivo con `editar`, o `retirar` si es el archivo entero).
+3. Proponer (paso E) solo lo aprobado; **nunca edites `memory/*.md` a mano.** Lotes grandes (>20 propuestas) →
+   delegarlos a un subagente sonnet con contrato, según las reglas de orquestación de nicolas-mode.
 
 ## Cuándo se activa
 
