@@ -1,6 +1,6 @@
 ---
 name: cosecha
-description: "Cosecha de memoria para nc-memoria (reemplaza a Mempalace, 2026-10-31) con confirmación humana (flujo A→E estilo Aprende): escanea la sesión, propone candidatos con confianza, deduplica contra el palacio y SOLO escribe lo que Nicolas apruebe. Usar cuando Nicolas diga /cosecha, 'guarda lo aprendido', 'cosecha la sesión', 'cierra la sesión', con --review para la poda mensual del palacio, y SIEMPRE al llegar al 40-45 % del contexto (resumen en notas/sesiones, SEMANA al día y pedir sesión nueva)."
+description: "Cosecha de memoria para nc-memoria (reemplaza a Mempalace, 2026-10-31) con confirmación humana (flujo A→E estilo Aprende): escanea la sesión, propone candidatos con confianza, deduplica contra nc-memoria y SOLO propone a su bandeja lo que Nicolas apruebe (se vuelve memoria al aprobarlo en NCT2). Usar cuando Nicolas diga /cosecha, 'guarda lo aprendido', 'cosecha la sesión', 'cierra la sesión', con --review para la poda mensual de la memoria, y SIEMPRE al llegar al 40-45 % del contexto (resumen en notas/sesiones, SEMANA al día y pedir sesión nueva)."
 ---
 
 # /cosecha — Guardar lo aprendido, con confirmación
@@ -89,8 +89,10 @@ node nc-memoria/herramientas/nc-memoria.cjs retirar --clave <nombre> --autor cla
   importa, dejar la línea como `[RETIRADA <fecha>: <motivo>]` dentro del archivo, nunca retirar el archivo entero.
 - Varios candidatos sobre el mismo archivo → UNA propuesta con todos (dos `editar` del mismo archivo chocan por
   `hash_antes` y NCT2 rechaza la segunda).
-- Si `proponer` falla (`tope:`, `clave:`, texto con datos sensibles → cuarentena), muéstralo tal cual; no escribas
-  el archivo a mano como salida alternativa.
+- Las rutas `nc-memoria/herramientas/...` son relativas a `nc-workspace` (corre desde ahí).
+- Si `proponer` falla (`tope:`, `clave:`; `editar` de una clave que solo tiene un `crear` pendiente en la bandeja
+  da «no existe»: avisa a Nicolas que apruebe o reemplace esa en NCT2) o sale con código 2 (datos sensibles →
+  cuarentena, no se sube), muéstralo tal cual; no escribas el archivo a mano como salida alternativa.
 - Resumen de la sesión → `nc-workspace/notas/sesiones/<AAAA-MM-DD>-<HHMM>-<equipo>-<tema>.md` (reemplaza al diario de
   Mempalace). Desde 2026-11-04 `notas/sesiones` es un enlace a `nc-memoria/hechos/sesiones` (script
   `herramientas/unir-sesiones.cjs`, una vez por equipo): los resúmenes VIAJAN entre equipos con la sincronización.
@@ -106,7 +108,8 @@ node nc-memoria/herramientas/nc-memoria.cjs retirar --clave <nombre> --autor cla
 ## Modo `--review` (poda mensual)
 
 > Pendiente (P2 del plan de nc-memoria): este modo todavía describe Mempalace. Hasta migrarlo, la poda mensual se
-> hace sobre `memory/*.md` con `nc-memoria.cjs salud` y las mismas reglas de retirar, no borrar.
+> hace con `nc-memoria.cjs salud` y las mismas reglas de retirar, no borrar. Toda corrección o retiro de la poda va
+> como propuesta del paso E (`proponer --accion editar` o `retirar`); **nunca edites `memory/*.md` a mano.**
 
 1. `mempalace_get_taxonomy` + `mempalace_graph_stats` para ver el estado.
 2. Detectar: rooms duplicados (ej. español/inglés), wings duplicadas por
@@ -118,7 +121,7 @@ node nc-memoria/herramientas/nc-memoria.cjs retirar --clave <nombre> --autor cla
    el repo o la memoria local.
 3. Proponer en lista numerada: fusiones (mover drawers al room canónico en
    español), retiros y correcciones. Mismo flujo de confirmación del paso D.
-4. Ejecutar solo lo aprobado. Fusiones grandes (>20 drawers) → delegarlas a un
+4. Proponer (paso E) solo lo aprobado. Fusiones grandes (>20 drawers) → delegarlas a un
    subagente sonnet con contrato, según las reglas de orquestación de nicolas-mode.
 
 ## Cuándo se activa
@@ -133,7 +136,7 @@ node nc-memoria/herramientas/nc-memoria.cjs retirar --clave <nombre> --autor cla
 - **Por tamaño de la sesión (regla de Nicolas 2026-10-31):** al llegar al **40-45 % del
   contexto** (muchas lecturas grandes, más de ~100 intercambios o el primer aviso de
   compactación), detenerse y en UN mensaje: (1) guardar el resumen de la sesión en
-  `nc-workspace/notas/sesiones/<AAAA-MM-DD>-<tema>.md` (qué se hizo, estado con rutas y
+  `nc-workspace/notas/sesiones/<AAAA-MM-DD>-<HHMM>-<equipo>-<tema>.md` (qué se hizo, estado con rutas y
   shas, pendientes numerados, siguiente paso, cuota al cierre); (2) dejar SEMANA.md al día y
   proponer (paso E) el «Estado actual» de cada proyecto tocado; (3) ofrecer esta cosecha; (4) pedir a
   Nicolas abrir una sesión nueva que arranque leyendo ese resumen. No esperar a que la
