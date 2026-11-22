@@ -265,6 +265,36 @@ principios de arriba, no los reemplazan.
     Safari rompe el layout); nunca `window.addEventListener('scroll')` —
     usar ScrollTrigger, IntersectionObserver o scroll-driven animations.
 
+12. **Defaults genéricos cuando el brief deja el eje libre** (añadido 2026-11-22;
+    fuente: skill `frontend-design` de Anthropic, github.com/anthropics/skills,
+    actualizada 3-sep-2026). Donde el brief no fija el eje, no gastar esa
+    libertad en ninguno de estos cinco looks por defecto:
+    - crema cálido (~#F4F1EA) + serif display de alto contraste + acento
+      terracota/arcilla (~#D97757);
+    - casi negro + UN solo acento verde ácido o bermellón;
+    - broadsheet: líneas finas (hairlines), radio 0 y columnas densas tipo
+      periódico;
+    - kit SaaS: contenido troceado en tarjetas redondeadas idénticas, un único
+      radio sin jerarquía, la misma sombra `rgba(0,0,0,.1)` bajo todas y
+      degradados decorativos;
+    - cromo de plantilla: eyebrow en MAYÚSCULAS con tracking sobre cada título,
+      metadatos unidos con « · » (`A · B · C`), etiquetas «PALABRA — fragmento»,
+      casi negro tintado (#0B0B0B, #111) en lugar de negro, monoespaciada para
+      etiquetas pequeñas de datos y «→» pegado al texto de botones y enlaces.
+    Reglas hermanas de la misma fuente:
+    - Acentuar UNA sola palabra de un titular (cursiva, negrita o color
+      distinto) es un default tipográfico: no usarlo por reflejo.
+    - Entradas fade-and-slide-up en cada sección y hover en cada tarjeta son el
+      movimiento genérico: mejor UN momento orquestado (una secuencia de carga o
+      una revelación); el movimiento que responde a una acción de la persona
+      (abrir, expandir, confirmar) sí vale.
+    - Longitud de línea por defecto < 80 caracteres (la serif admite algo más
+      y pide `line-height` ligeramente mayor que la sans).
+    - Una o dos familias tipográficas; si son dos, claramente distintas.
+    - El brief explícito siempre gana, incluso si pide uno de estos looks.
+    Todo esto queda subordinado a «El banco manda» (sección Banco 2026-09): lo
+    que el banco usa al servicio del concepto no se veta.
+
 ## Skills complementarias (instaladas 2026-08-20 — invocarlas, no reinventar)
 
 Esta skill define el CRITERIO visual; las siguientes aportan la TÉCNICA.

@@ -88,6 +88,17 @@ Solo lo aprobado, todo en nc-memoria (la carpeta de memoria):
 > Pendiente (P2 del plan de nc-memoria): este modo todavía describe Mempalace. Hasta migrarlo, la poda mensual se
 > hace sobre `memory/*.md` con `nc-memoria.cjs salud` y las mismas reglas de retirar, no borrar.
 
+**Salud del grafo de notas (primero, antes de la poda).** Corre `node nc-memoria/herramientas/nc-memoria.cjs salud`
+(RF-34/RF-19/RF-54): ya reporta enlaces `[[id]]` rotos (solo en hechos nuevos, no en `legado/`), hechos bifurcados,
+conflictos e índice desfasado. Pega sus conteos en la propuesta. Lo que `salud` NO cubre todavía, revísalo a mano
+con grep sobre `memory/*.md` y `MEMORY.md` y proponlo en la misma lista numerada (retirar o enlazar, nunca borrar):
+- **Huérfanas:** nota que nadie enlaza (`[[x]]`) ni aparece en `MEMORY.md`. Se propone añadirla al índice, enlazarla
+  desde su proyecto o retirarla.
+- **Huecos:** tema que se menciona en 3 o más notas y no tiene nota propia. Se propone crearla (pasa por el flujo D).
+- **Contradicciones:** dos notas vivas con valores distintos del mismo hecho (ya cubierto en el paso C).
+> Mejora pendiente para nc-memoria: que `salud` detecte huérfanas y huecos (hoy solo enlaces rotos y bifurcados).
+> Idea tomada de claude-obsidian (AgriciDaniel, MIT).
+
 1. `mempalace_get_taxonomy` + `mempalace_graph_stats` para ver el estado.
 2. Detectar: rooms duplicados (ej. español/inglés), wings duplicadas por
    nombre, drawers obsoletas o contradictorias, rooms inflados por imports.

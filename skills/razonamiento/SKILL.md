@@ -107,6 +107,42 @@ Señales de que estás por saltarte la puerta: "debería", "seguramente",
 
 ---
 
+## REGLAS DE VERIFICACIÓN (cuando la prueba no pasa)
+
+La puerta de evidencia dice cuándo se puede afirmar éxito; esto dice qué
+hacer mientras la prueba falla.
+
+- **Tres intentos y parar.** Si una prueba o revisión sigue fallando tras 3
+  rondas de arreglo, detenerse y avisar: qué falla (salida real), qué se
+  intentó en cada ronda y cuál es la hipótesis actual. Una cuarta ronda a
+  ciegas suele ser un supuesto equivocado más arriba.
+- **Pruebas inestables.** No saltarlas, no meter `sleep`, no correrlas hasta
+  que pasen. Encontrar la causa (orden, reloj, red, estado compartido) o
+  borrar la prueba dejando el porqué en el mensaje del commit.
+- **No tocar el examen.** Un cambio nunca modifica, borra ni salta la prueba
+  que lo juzga. Si la prueba parece mal, parar y explicarlo. Código y
+  pruebas van en commits separados, y el de pruebas se le muestra a Nicolas.
+  En tareas largas delegadas, blindar la carpeta de pruebas en el
+  `.claude/settings.json` del worktree con
+  `"permissions": {"deny": ["Edit(/test/**)"]}` (ajustar la ruta; `/` ancla
+  en la raíz del proyecto). Ojo: no frena un script de Node/Python que
+  escriba archivos por su cuenta, así que además el CI debe correr las
+  pruebas de la rama principal contra el código de la rama, como juez externo.
+- **Punta a punta con evidencia.** El flujo principal se prueba de punta a
+  punta y se entrega con evidencia: captura, rastro (trace) o el paso exacto
+  que falló.
+- **Propiedades y fuzzing en dinero y parsers** (lector de notificaciones de
+  bancos de NPersonal, cálculos de vacas/partidos, propinas de Nexo):
+  propiedades tipo "la suma de las partes da el total" o "parsear lo
+  formateado devuelve lo mismo". TS: `fast-check`. Python: `Hypothesis`.
+  Dart: `kiri_check` (v1.4.0 en pub.dev, revisado 2026-11-22; `glados` es la
+  alternativa vieja, sin publicar hace ~2 años). Si un caso borde es muy
+  improbable (montos absurdos, unicode raro en un SMS de banco), decidir con
+  Nicolas si importa antes de perseguirlo: esos casos abren bucles de
+  correcciones y cuentan para los tres intentos.
+
+---
+
 ## REGLAS DE ENTREGA
 
 - Resultado primero, detalle después (regla 3).

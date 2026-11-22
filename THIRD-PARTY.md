@@ -110,3 +110,19 @@ el crédito con enlace, abre un issue y se agrega de inmediato.
 `direccion-creativa` es una adaptación propia (CC BY 4.0) que incluye en `references/` los oficios y referencias de
 Creative Architect: licencia MIT — © 2026 Enrique Rocha (@soyenriquerocha), tododeia.com. Se conservan `NOTICE` y
 `LICENSE-creative-architect` dentro de la skill. Fuente: https://github.com/Hainrixz/creative-architect
+
+## affaan-m/ECC (ECC)
+
+Ideas adaptadas (no copiadas) el 2026-11-22: `silent-failure-hunter` (caza de
+fallos silenciosos en `agents/revisor.md`), `santa-loop` (doble revisión de
+modelos distintos en `skills/orquesta`) y `config-gc` (higiene de
+configuración). Licencia MIT — © affaan-m. Fuente:
+https://github.com/affaan-m/ECC
+
+## tododeia.com (Hainrixz/cuarentena y guía de verificación)
+
+`skills/cuarentena` es una skill propia (CC BY 4.0) inspirada en la guía
+«Cuarentena» de tododeia (Hainrixz/cuarentena, licencia MIT), adaptada a
+Windows y al flujo de Nicolas Cardona Carrillo. La regla `Verificado:` en
+commits y la revisión de pruebas editadas toman ideas de la guía de
+verificación de tododeia. Fuente: https://github.com/Hainrixz/cuarentena

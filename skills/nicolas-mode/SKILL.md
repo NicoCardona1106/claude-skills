@@ -394,6 +394,20 @@ Nunca cerrar una tarea terminada sin haber ofrecido el commit.
 
 Si el proyecto no tiene repositorio, ofrecer crearlo.
 
+### Línea `Verificado:` en cada commit
+
+Todo mensaje de commit termina con una de estas dos líneas, nunca se omite:
+
+```
+Verificado: <qué se corrió y qué se vio>      p. ej. npm test (42/42) + /dashboard a 390 sin errores en consola
+Verificado: ninguna — <por qué>               p. ej. solo cambia un texto del README
+```
+
+Va como última línea (sin trailer `Co-Authored-By`, que Nicolas no quiere).
+Lo no verificado se encuentra con `git log --grep="Verificado: ninguna"`.
+Si el proyecto tiene la skill `verify` (ver `crear-verify`), lo que dice esa
+línea es lo que se vio al correrla.
+
 ### Cierre de rama de trabajo
 
 Cuando el trabajo vivió en una rama propia o en un worktree aislado, el
