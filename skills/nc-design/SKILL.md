@@ -294,6 +294,12 @@ principios de arriba, no los reemplazan.
     - El brief explícito siempre gana, incluso si pide uno de estos looks.
     Todo esto queda subordinado a «El banco manda» (sección Banco 2026-09): lo
     que el banco usa al servicio del concepto no se veta.
+    **Decisión de Nicolas (22-nov):** en todo choque con frontend-design manda
+    lo que nosotros decidimos a prueba y error y funciona (banco, locks y
+    rondas aprobadas). Resaltar una palabra del titular, eyebrows en
+    mayúsculas (1 por cada 3 secciones), numeración del banco, fondos oscuros
+    con un acento y el lenguaje GSAP del banco siguen permitidos; frontend-
+    design solo pesa donde nuestro estándar no dice nada.
 
 ## Skills complementarias (instaladas 2026-08-20 — invocarlas, no reinventar)
 
