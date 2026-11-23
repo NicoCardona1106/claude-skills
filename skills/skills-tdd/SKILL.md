@@ -53,6 +53,7 @@ Todo el proceso de endurecimiento de una skill sigue ROJO-VERDE-REFACTOR.
 - Crear una skill nueva desde cero (usa `skill-creator`)
 - Documentar una convención específica de un proyecto (va en el archivo de instrucciones del proyecto)
 - Restricciones mecánicas (si se puede exigir con regex/validación, automatízalo — guarda la documentación para juicios que requieren criterio)
+- Tapar un error o un mensaje confuso de una herramienta propia: primero se arregla el mensaje o el contrato de la herramienta; la skill solo lleva el criterio que la herramienta no puede dar.
 
 ## Tipos de skill
 

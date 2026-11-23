@@ -15,7 +15,7 @@ description: "Orquestación multi-agente estilo director para Nicolas: documenta
 3. **Segunda caída:** cuando Codex falla dos veces la misma tarea o el `revisor` da NO PASA dos veces por el mismo motivo, Fable diagnostica antes de reescribir el contrato.
 4. Fable no reemplaza al `revisor` (opus) en la revisión de diffs. Para dinero, seguridad y permisos el diff lleva además segundo revisor de otro modelo (ver «Doble revisión»).
 
-**Vigilar a Codex y agy (se caen o nunca arrancan):** cada lanzamiento queda con un Monitor `bash herramientas/vigilar-delegado.sh <log> <codex.exe|agy.exe> [min]` (avisa NO ARRANCA, QUIETO o TERMINÓ). Si avisa NO ARRANCA o QUIETO dos veces, se corta y la tarea pasa a la siguiente opción de la tabla. **Dentro de una pty de NCT2** (hay `NCT_*` en el entorno; D-H5, 17-nov) se espera por evento en vez de vigilar procesos: `delegar.cjs <cli> "<tarea>" --de=claude --id=<uuid>` y, en otra llamada, `node nct2/herramientas/esperar-nct.cjs --delegacion <uuid>` (sale 0 ok · 1 fallo · 2 te espera · 3 plazo · 4 no existe · 5 sesión cerrada).
+**Vigilar a Codex y agy (se caen o nunca arrancan):** cada lanzamiento queda con un Monitor `bash herramientas/vigilar-delegado.sh <log> <codex.exe|agy.exe> [min]` (avisa NO ARRANCA, QUIETO o TERMINÓ). Si avisa NO ARRANCA o QUIETO dos veces, se corta y la tarea pasa a la siguiente opción de la tabla. Que se agote el plazo no prueba que el delegado no hizo nada. Antes de pasarle la tarea a otro, correr `git -C <worktree> status --short` y `git -C <worktree> diff --stat`: si hay trabajo a medias, se conserva (se commitea en su rama o se anota en la bitácora) y no se relanza la misma tarea sin cambiar nada. **Dentro de una pty de NCT2** (hay `NCT_*` en el entorno; D-H5, 17-nov) se espera por evento en vez de vigilar procesos: `delegar.cjs <cli> "<tarea>" --de=claude --id=<uuid>` y, en otra llamada, `node nct2/herramientas/esperar-nct.cjs --delegacion <uuid>` (sale 0 ok · 1 fallo · 2 te espera · 3 plazo · 4 no existe · 5 sesión cerrada).
 
 Principio: **no construyas, reparte y revisa.** Tú (Fable u Opus 5.5) eres el director:
 documentas, contratas, repartes, supervisas y revisas. El código y los
@@ -343,6 +343,10 @@ Una vuelta = una entrega + su veredicto; cada una se anota en la bitácora
   cliente, escala a Nicolas con ese mismo resumen.
 
 ## Fase 5 — Informe final
+
+Antes del informe, volver a la lista de preguntas o tareas del documento y marcar cada una como
+**respondida / parcial / sin resolver**, con la evidencia que la respalda. Nada se da por cerrado
+mientras quede una pregunta sin resolver; una búsqueda negativa se reporta con su alcance.
 
 Un solo informe estilo nicolas-mode: resultado primero, tabla de tareas con
 veredicto final, hallazgos relevantes, qué quedó pendiente y siguiente paso.

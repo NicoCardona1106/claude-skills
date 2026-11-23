@@ -94,6 +94,17 @@ Los cinco pasos, en orden:
    el estado real con su evidencia.
 5. **Recién entonces** afirmar, y afirmar CON la evidencia al lado.
 
+### Nivel de cada afirmación (idea de REA)
+Cada conclusión que se entrega dice de qué tipo es:
+- **Observado**: lo vi en la salida de un comando, en un archivo o en una captura (cita archivo:línea o comando).
+- **Derivado**: sale de lo observado por un paso mecánico (contar, comparar, sumar).
+- **Inferido**: es mi lectura o hipótesis; va con «creo» o «probablemente» y con lo que lo confirmaría.
+- **Desconocido**: no se pudo establecer; se dice qué faltó (acceso, entorno, tiempo).
+
+**Una búsqueda acotada no prueba ausencia.** «No encontré X» va siempre con el alcance: dónde busqué,
+con qué patrón y qué no revisé. Prohibido decir «X no existe» o «no se usa» después de un grep parcial,
+de una página de resultados o de una búsqueda que se cortó por tiempo.
+
 | Afirmación | Qué la prueba | Qué NO alcanza |
 |---|---|---|
 | "las pruebas pasan" | salida del runner: 0 fallos | una corrida anterior, "debería pasar" |

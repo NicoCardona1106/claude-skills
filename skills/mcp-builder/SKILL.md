@@ -199,6 +199,8 @@ Create an XML file with this structure:
 
 Load these resources as needed during development:
 
+- [Molde de Nicolas](./reference/molde-nicolas.md): MCP con motor detrás, sesiones, errores con remedio, contenido no confiable. Leer primero para MCP propios (nc-memoria, NCT2) o envoltorios de APIs (maxxsuite).
+
 ### Core MCP Documentation (Load First)
 - **MCP Protocol**: Start with sitemap at `https://modelcontextprotocol.io/sitemap.xml`, then fetch specific pages with `.md` suffix
 - [📋 MCP Best Practices](./reference/mcp_best_practices.md) - Universal MCP guidelines including:
