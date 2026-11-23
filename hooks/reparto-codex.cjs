@@ -1,7 +1,8 @@
 #!/usr/bin/env node
-// PreToolUse/Agent: un subagente de Claude que CONSTRUYE queda bloqueado salvo que el encargo justifique por qué no va a Codex.
-// Nicolas 24-sep y 7-nov: «nunca usas Codex»; 22-nov: «endurecer la regla». El recordatorio solo no bastó.
-// Salida: escribir «SIN-CODEX: <motivo>» en el prompt (criterio, dinero/seguridad, texto de cliente, Flutter en Windows, skills).
+// PreToolUse/Agent: un subagente de Claude que CONSTRUYE queda bloqueado salvo que el encargo diga por qué no va a Codex.
+// Nicolas 24-sep y 7-nov: «nunca usas Codex»; 22-nov: «endurecer la regla»; 23-nov: «dividir para optimizar, no todo
+// a Codex; sin cuota o con varias cosas, abres tú; prioriza la calidad sin errores».
+// Salida: escribir «SIN-CODEX: <motivo>» en el prompt.
 let entrada = ''
 process.stdin.on('data', (d) => (entrada += d)).on('end', () => {
   let tipo = ''
@@ -19,8 +20,9 @@ process.stdin.on('data', (d) => (entrada += d)).on('end', () => {
     hookEventName: 'PreToolUse',
     permissionDecision: 'deny',
     permissionDecisionReason:
-      'REPARTO (regla dura de Nicolas, 22-nov): lo mecánico con contrato va a Codex ' +
-      '(`codex exec -s workspace-write -C <worktree en temporales/>`), la investigación web a agy (Codex no tiene red). ' +
-      'Si de verdad va a un subagente de Claude, relanza con la línea «SIN-CODEX: <motivo>» en el prompt ' +
-      '(criterio, dinero/seguridad, texto de cliente, Flutter en Windows o skills).' } }))
+      'REPARTO (Nicolas, 23-nov: dividir para optimizar, la calidad primero): ¿esto es mecánico con contrato y Codex ' +
+      'tiene cuota? Entonces va a Codex (`codex exec -s workspace-write -C <worktree en temporales/>`); la investigación ' +
+      'web va a agy. Si va a un subagente de Claude, relanza con «SIN-CODEX: <motivo>» en el prompt: criterio, ' +
+      'dinero/seguridad, texto de cliente, Flutter en Windows, skills, Codex sin cuota o caído, o piezas en paralelo ' +
+      '(la otra parte ya va a Codex).' } }))
 })

@@ -101,7 +101,13 @@ Propón en una tabla y ESPERA aprobación de Nicolas antes de lanzar nada:
 
 ### Reparto natural entre Claude, agy y codex (decidir solo, sin preguntar)
 
-**Regla de Nicolas (2026-09-24): esta tabla se aplica SIEMPRE, tarea por tarea, aunque sobre cuota de Claude y sin que él lo pida.** Antes de cada `Agent(...)` preguntarse «¿esto es de Codex?»; si es mecánico con contrato, va a Codex y el director solo revisa. En el informe final, una columna «a quién fue».
+**Regla de Nicolas (2026-09-24, ajustada el 2026-11-23): la tabla se aplica SIEMPRE, tarea por tarea, sin que él lo pida, pero la idea es DIVIDIR PARA OPTIMIZAR, no mandarlo todo a Codex.** Manda la calidad sin errores; buscar el punto medio:
+- Lo mecánico con contrato va a Codex mientras tenga cuota. Lo que exige criterio, seguridad, dinero o las skills, a un subagente de Claude.
+- **Codex sin cuota** (o fallando al arrancar): la tarea va a un subagente de Claude, sin esperar a que se reinicie.
+- **Varias piezas independientes a la vez:** se reparten entre Codex y subagentes de Claude en paralelo (cruzando antes las listas de archivos). Nada de hacer cola detrás de Codex.
+- Ante la duda entre dos destinos, gana el que dé más calidad, no el que ahorre más cuota.
+
+En el informe final, una columna «a quién fue».
 
 | Tarea | Va a | Por qué |
 |---|---|---|
@@ -120,7 +126,7 @@ Propón en una tabla y ESPERA aprobación de Nicolas antes de lanzar nada:
 | Auditoría o migración de un repo entero que dura horas | **subagente Claude opus** (5.5) con checklist en archivo y señal de tiempo | sostiene trabajo autónomo largo mejor que Opus 5 (ficha abajo) |
 | Hermes | interactivo en N-Coterminal | ~90 s por respuesta, no delegable |
 
-**Hook `reparto-codex.cjs` y la marca `SIN-CODEX` (2026-11-22).** El hook NIEGA lanzar subagentes que construyen (`implementador`, `mantenedor`, `general-purpose`, `portador`) salvo que el prompt lleve `SIN-CODEX: <motivo>`. Motivos válidos: pieza que exige criterio, dinero o seguridad, texto de cliente, Flutter en Windows, redacción o edición de skills y agentes. «Es más rápido en Claude» o «sobra cuota» NO son motivo. Lo mecánico con contrato sigue yendo a Codex (solo archivos locales; la investigación con red va a agy).
+**Hook `reparto-codex.cjs` y la marca `SIN-CODEX` (2026-11-22).** El hook NIEGA lanzar subagentes que construyen (`implementador`, `mantenedor`, `general-purpose`, `portador`) salvo que el prompt lleve `SIN-CODEX: <motivo>`. Motivos válidos: pieza que exige criterio, dinero o seguridad, texto de cliente, Flutter en Windows, redacción o edición de skills y agentes, **Codex sin cuota o caído, y piezas en paralelo (la otra parte ya va a Codex)** (ajuste de Nicolas, 23-nov). «Es más rápido en Claude» o «sobra cuota de Claude» NO son motivo. Lo mecánico con contrato sigue yendo a Codex (solo archivos locales; la investigación con red va a agy).
 
 **Doble revisión de modelos distintos (dinero, seguridad, permisos; idea `santa-loop` de ECC, MIT).** Además del punto fijo 2 de Fable (modelo, antes de construir), el DIFF de esas áreas lo revisan dos modelos distintos y deben PASAR los dos: `revisor` (Claude) y un segundo revisor de otro modelo, Codex `gpt-6-astra` en modo adversarial sobre archivos locales (`/codex:adversarial-review`) o, si ya está en los puntos fijos de esa tarea, Fable de solo lectura. Si uno da NO PASA, vuelve al constructor; el desacuerdo entre los dos lo adjudica el director, nunca se promedia.
 
