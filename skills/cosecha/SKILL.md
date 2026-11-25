@@ -53,12 +53,17 @@ por TEMA, no por texto. Por cada candidato:
 
 1. **Obligatorio:** `node nc-memoria/herramientas/nc-memoria.cjs dedupe "<tema>" [--tipo estado --proyecto <slug>]`
    (RF-49: palabras + significado) y copia sus líneas «↺ reemplaza a [id]» tal cual; las que dicen «probable» se
-   presentan como duda («confírmalo»). Complemento: grep en `memory/*.md` y `SEMANA.md`. Si hay solape:
+   presentan como duda («confírmalo»). Complemento: grep en `nc-memoria/hechos/legado/*.md` y `SEMANA.md`. Si hay solape:
    `⚠ solapa con [archivo]: [diferencia]`.
-2. Lista cada línea que el candidato **contradice o deja viejo**: `↺ reemplaza a [archivo:línea]: [qué decía]`.
+2. Lista cada línea que el candidato **contradice o deja viejo**: `↺ reemplaza a [archivo:línea]: [qué decía]` (esta forma
+   es para lo que encuentre el grep, p. ej. SEMANA; lo de `dedupe` va con su `↺ reemplaza a [id]` tal cual).
+3. Si el candidato toca una memoria que ya existe o un estado de proyecto,
+   `node nc-memoria/herramientas/nc-memoria.cjs comprobar --hecho legado/<clave> [--proyecto <slug>]` muestra si hoy
+   ya hay dos versiones vivas de lo mismo (código 1): arréglalo en la misma propuesta. El id es `legado/<clave>`, no el
+   id de la propuesta. (No se corre al final: lo propuesto no está aplicado hasta que Nicolas lo aprueba en NCT2.)
 
 Nicolas decide si es duplicado, actualización o algo nuevo. Aprobar un candidato
-con `↺` aprueba también retirar lo que reemplaza (salvo `keep N`).
+con `↺` aprueba también marcar como `[RETIRADA]` las líneas que reemplaza (salvo `keep N`).
 
 ## Paso D — Confirmar
 
@@ -100,8 +105,6 @@ node nc-memoria/herramientas/nc-memoria.cjs retirar --clave <nombre> --autor cla
   `MEMORY.md` ya le dice a cada sesión nueva que lea el resumen más reciente de esa carpeta: no hay que tocarlo.
 - **Verificación final:** cada propuesta quedó en `nc-memoria/bandeja/` (la salida de `proponer` da su id) y
   ningún archivo de `hechos/legado/` cambió (`git -C nc-memoria status --short hechos/legado` sin líneas tuyas).
-  Además `node nc-memoria/herramientas/nc-memoria.cjs comprobar --proyecto <cada slug tocado> --hecho <cada id tocado>`:
-  si sale con código 1, muestra lo que sobra (dos versiones vivas de lo mismo) antes del sync.
 - Cerrar con `node nc-memoria/herramientas/sync.cjs --stop` (valida, commit y push) o dejarlo al hook de cierre, y
   reportar el resultado.
 - Confirma cada propuesta con una línea («propuesta <id> · editar X» / «crear Y») y recuerda a Nicolas que las
@@ -114,7 +117,7 @@ node nc-memoria/herramientas/nc-memoria.cjs retirar --clave <nombre> --autor cla
      rotos y lecciones para retirar.
    - `node nc-memoria/herramientas/nc-memoria.cjs salud` (RF-34/RF-19): índice al día, conflictos y el grafo de notas:
      **huérfanas** (nota que ninguna otra enlaza con `[[x]]`) y **huecos** (tema enlazado desde 2 o más notas que no
-     tiene nota propia). Pega sus conteos en la propuesta.
+     tiene nota propia). Pega sus conteos en la lista numerada del paso 2.
 2. Proponer en lista numerada, con el mismo flujo de confirmación del paso D:
    - cada estado sin verificar: si sigue vigente, `nc-memoria.cjs verificar <id>` (anota sin tocar el hecho); si no,
      reescribirlo con `proponer --accion editar`;
@@ -124,8 +127,8 @@ node nc-memoria/herramientas/nc-memoria.cjs retirar --clave <nombre> --autor cla
    - contradicciones: dos notas vivas con valores distintos del mismo hecho (versión, estado, horario, precio); se
      buscan por tema con `dedupe` como en el paso C y queda viva la más reciente, confirmada contra el repo;
    - retirar lecciones (`[RETIRADA <fecha>: <motivo>]` dentro del archivo con `editar`, o `retirar` si es el archivo entero).
-3. Proponer (paso E) solo lo aprobado; **nunca edites `memory/*.md` a mano.** Lotes grandes (>20 propuestas) →
-   delegarlos a un subagente sonnet con contrato, según las reglas de orquestación de nicolas-mode.
+3. Proponer (paso E) solo lo aprobado; **nunca edites `nc-memoria/hechos/legado/*.md` a mano.** Lotes grandes (>20 propuestas) →
+   delegarlos a un subagente sonnet con contrato, según la skill `orquesta`.
 
 Idea de huérfanas y huecos tomada de claude-obsidian (AgriciDaniel, MIT).
 
