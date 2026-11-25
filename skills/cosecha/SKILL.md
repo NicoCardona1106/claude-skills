@@ -58,7 +58,7 @@ por TEMA, no por texto. Por cada candidato:
 2. Lista cada línea que el candidato **contradice o deja viejo**: `↺ reemplaza a [archivo:línea]: [qué decía]` (esta forma
    es para lo que encuentre el grep, p. ej. SEMANA; lo de `dedupe` va con su `↺ reemplaza a [id]` tal cual).
 3. Si el candidato toca una memoria que ya existe o un estado de proyecto,
-   `node nc-memoria/herramientas/nc-memoria.cjs comprobar --hecho legado/<clave> [--proyecto <slug>]` muestra si hoy
+   `node nc-memoria/herramientas/nc-memoria.cjs comprobar` con `--hecho legado/<clave>` y/o `--proyecto <slug>` muestra si hoy
    ya hay dos versiones vivas de lo mismo (código 1): arréglalo en la misma propuesta. El id es `legado/<clave>`, no el
    id de la propuesta. (No se corre al final: lo propuesto no está aplicado hasta que Nicolas lo aprueba en NCT2.)
 
@@ -127,7 +127,7 @@ node nc-memoria/herramientas/nc-memoria.cjs retirar --clave <nombre> --autor cla
    - contradicciones: dos notas vivas con valores distintos del mismo hecho (versión, estado, horario, precio); se
      buscan por tema con `dedupe` como en el paso C y queda viva la más reciente, confirmada contra el repo;
    - retirar lecciones (`[RETIRADA <fecha>: <motivo>]` dentro del archivo con `editar`, o `retirar` si es el archivo entero).
-3. Proponer (paso E) solo lo aprobado; **nunca edites `nc-memoria/hechos/legado/*.md` a mano.** Lotes grandes (>20 propuestas) →
+3. Proponer (paso E) solo lo aprobado; **nunca edites `nc-memoria/hechos/legado/*.md` a mano.** Lotes grandes (>20 propuestas; la bandeja acepta hasta 30 por autor y hora) →
    delegarlos a un subagente sonnet con contrato, según la skill `orquesta`.
 
 Idea de huérfanas y huecos tomada de claude-obsidian (AgriciDaniel, MIT).
