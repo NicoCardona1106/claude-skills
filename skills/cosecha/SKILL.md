@@ -79,9 +79,9 @@ quedar (la propuesta reemplaza el archivo entero al aprobarse):
 
 ```
 # 1. Arma el texto completo en un archivo temporal (scratchpad), partiendo del archivo vigente si existe.
-# 2. Propón (crear = archivo nuevo, editar = existente):
-node nc-memoria/herramientas/nc-memoria.cjs proponer --accion crear|editar --clave <nombre-sin-.md> \
-  --autor claude --motivo "<candidato N: por qué>" --texto <archivo-temporal>
+# 2. Propón (crear = archivo nuevo, editar = existente; sustituye los marcadores y elige una acción):
+# Una sola línea funciona en PowerShell y Bash; conserva las comillas de las rutas con espacios.
+node nc-memoria/herramientas/nc-memoria.cjs proponer --accion crear|editar --clave <nombre-sin-.md> --autor claude --motivo "<candidato N: por qué>" --texto "<archivo-temporal>"
 # Retirar un archivo entero (raro: casi siempre es editar con [RETIRADA]):
 node nc-memoria/herramientas/nc-memoria.cjs retirar --clave <nombre> --autor claude --motivo "<por qué>"
 ```
