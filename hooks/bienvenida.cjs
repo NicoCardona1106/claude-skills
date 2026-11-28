@@ -22,7 +22,7 @@ const foco = semana.split('## FOCO')[1]?.split(/\n## /)[0] || ''
 const frentes = foco.split('\n').filter((l) => /^\|\s*\d+ ·/.test(l)).map((l) => {
   const [nombre, sigue, quien] = l.split('|').slice(1, 4).map((c) => c.trim())
   const sig = sigue.split('Siguiente:')[1]?.split(/ · |\. /)[0] || sigue
-  return `  ${nombre.split(' · ').slice(0, 2).join(' · ')}: ${corto(sig)} (${quien})`
+  return `  ${nombre.split(' · ').slice(0, 2).join(' · ')}: ${corto(sig)}${quien ? ` (${quien})` : ''}`
 })
 if (frentes.length) lineas.push('', '🎯 Frentes:', ...frentes)
 
